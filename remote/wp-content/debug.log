@@ -1,0 +1,2 @@
+[23-Mar-2020 19:38:37 UTC] PHP Warning:  require_once(main.php): failed to open stream: No such file or directory in /home/365388.cloudwaysapps.com/wgtrxwbxun/public_html/wp-includes/template.php on line 722
+[23-Mar-2020 19:38:37 UTC] PHP Fatal error:  require_once(): Failed opening required 'main.php' (include_path='.:/usr/share/php') in /home/365388.cloudwaysapps.com/wgtrxwbxun/public_html/wp-includes/template.php on line 722
