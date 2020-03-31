@@ -71,6 +71,22 @@ function laaldea_file_build_path(...$segments) {
 
 
 /************************************************************/
+/********************** Home functions **********************/
+/************************************************************/
+
+function laaldea_build_home_html () {
+	$template_url = laaldea_load_template('intro.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('intro-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('covid.php', 'home');
+	load_template($template_url, true);
+}
+add_shortcode( 'laaldea_home', 'laaldea_build_home_html' );
+
+/************************************************************/
 /******************* Promo form functions *******************/
 /************************************************************/
 
