@@ -44,7 +44,7 @@
                 ));
                 ?>
             </nav>
-            <nav class="row navbar secondary navbar-collapse navbar-expand-sm">
+            <nav class="navbar secondary navbar-collapse navbar-expand-sm">
                 <!-- <div class="navbar-brand">
                     <a href="<?php /*echo esc_url( home_url( '/' ));*/ ?>">
                         <img src="<?php /*echo esc_url(get_theme_mod( 'wp_bootstrap_starter_logo' ));*/ ?>" alt="<?php /*echo esc_attr( get_bloginfo( 'name' ) ); */?>">

@@ -29,12 +29,13 @@ Text Domain:	 wpb-child
 	--red-darker-tone: #6E0B1F;
 	--red-light-tone: #FF1947;
 	
-	--blue:#2ac5f4;
+	--blue:#4590a9;
 	--blue-dark: #141552;
 	--orange: #f37420;
 	--green: #39622b;
+	--green-light: #739f2e;
 	--yellow: #e1d145;
-	--purple: #a50062;
+	--purple: #0c1a3d;
 
 	--gray: #ABABAB;
 	--gray-light: #D1D1D1;
@@ -87,10 +88,16 @@ a:focus {
 	outline: none;
 }
 
-h1 {
+h1, h2, h3, h5, h6 {
 	font-family: titan_one;
 	font-weight: 400;
-	
+	color: var(--white);
+}
+
+h4 {
+	font-family: sassoon;
+	font-weight: 400;
+	color: var(--white);
 }
 /******************** Shared ********************/
 

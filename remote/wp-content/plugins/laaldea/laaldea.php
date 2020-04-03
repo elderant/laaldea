@@ -83,6 +83,27 @@ function laaldea_build_home_html () {
 
 	$template_url = laaldea_load_template('covid.php', 'home');
 	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('covid-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('aldea.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('aldea-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('curriculo.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('curriculo-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('numeros.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('numeros-separator.php', 'home');
+	load_template($template_url, true);
 }
 add_shortcode( 'laaldea_home', 'laaldea_build_home_html' );
 

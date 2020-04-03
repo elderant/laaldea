@@ -168,12 +168,16 @@ a:hover, a:focus  {
 	line-height: 1em;
 }
 
+#intro .app-buttons {
+	margin-top: 2em;
+}
+
 .appstore-btn, .appstore-btn a {
 	float: right;
 	background: url('/wp-content/uploads/appstore-btn.png') no-repeat center center;
 	width: 200px;
 	height: 60px;
-	margin: 4% 1% 5%;
+	margin: 0 0.5em;
 }
 
 .android-btn, .android-btn a {
@@ -181,187 +185,18 @@ a:hover, a:focus  {
 	background: url('/wp-content/uploads/android-btn.png') no-repeat center center;
 	width: 200px;
 	height: 60px;
-	margin: 4% 1% 5%;
+	margin: 0 0.5em;
 }
-
-/* -- Intro Slider -- */
-/* #sequence {
-	margin: 0 auto;
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	max-width: 1600px;
-	background-color: #4EBEE0;
-	color: white;
-	font-size: 0.625em;
-	height: 600px; 
-}  
-  
-#sequence > .sequence-canvas {
-	height: 100%;
-	width: 100%; 
-}
-	
-#sequence > .sequence-canvas > li {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	top: -50%; 
-	left: 0;
-}
-	  
- #sequence > .sequence-canvas > li img {
-	height: 96%; 
-} */
-		
-/* #sequence > .sequence-canvas li > * {
-	position: absolute; */
-	/* only cause the left and opacity properties to transition */
-	/* -webkit-transition-property: left, opacity;
-	-moz-transition-property: left, opacity;
-	-ms-transition-property: left, opacity;
-	-o-transition-property: left, opacity;
-	transition-property: left, opacity;	  
-} */
-
-/* .sequence-next,
-.sequence-prev {
-	color: white;
-	cursor: pointer;
-	display: none;
-	font-weight: bold;
-	padding: 10px 15px;
-	position: absolute;
-	top: 50%;
-	z-index: 1000;
-	margin-top: -47.5px; }
-
-.sequence-pause {
-	bottom: 0;
-	cursor: pointer;
-	position: absolute;
-	z-index: 1000; 
-}
-
-.sequence-paused {
-	opacity: 0.3; 
-}
-
-.sequence-prev {
-	left: 3%; 
-}
-
-.sequence-next {
-	right: 3%; 
-}
-
-.sequence-prev img,
-.sequence-next img {
-	height: 100%;
-	width: auto; 
-}
-
-#sequence-preloader {
-	background: #0E2A36;
-}
-
-.sequence-pagination {
-	bottom: 1%;
-	display: none;
-	right: 6%;
-	position: absolute;
-	z-index: 10;
-	-webkit-transition-duration: 0.5s;
-	-moz-transition-duration: 0.5s;
-	-ms-transition-duration: 0.5s;
-	-o-transition-duration: 0.5s;
-	transition-duration: 0.5s;
-}
-	
-.sequence-pagination li {
-    display: inline-block;
-    height: 140px; 
-}
-	
-.sequence-pagination li img {
-	cursor: pointer;
-	opacity: 0.5;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-ms-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	transition-duration: 1s;
-	-webkit-transition-property: margin-bottom, opacity;
-	-moz-transition-property: margin-bottom, opacity;
-	-ms-transition-property: margin-bottom, opacity;
-	-o-transition-property: margin-bottom, opacity;
-	transition-property: margin-bottom, opacity; 
-}
-	  
-.sequence-pagination li img:hover {
-	margin-bottom: 4px;
-	-webkit-transition-duration: 0.3s;
-	-moz-transition-duration: 0.3s;
-	-ms-transition-duration: 0.3s;
-	-o-transition-duration: 0.3s;
-	transition-duration: 0.3s; 
-}
-
-.sequence-pagination li.current img {
-	opacity: 1; 
-}
-
-.sequence-next,
-.sequence-prev {
-	position: absolute;
-	opacity: 0.6;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-ms-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	transition-duration: 1s; 
-}
-
-.sequence-next:hover,
-.sequence-prev:hover {
-	opacity: 1;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-ms-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	transition-duration: 1s; 
-} */
 
 .title {
 	font-size: 4em;
 	font-weight: 600;
 	width: 32%;
-	opacity: 0;
+	/* opacity: 0; */
 	bottom: 1%;
 	top: 72%;
 	z-index: 50; 
 	-webkit-font-smoothing: antialiased;
-}
-
-.animate-in .title {
-	left: 50%;
-	opacity: 1;
-	-webkit-transition-duration: 0.5s;
-	-moz-transition-duration: 0.5s;
-	-ms-transition-duration: 0.5s;
-	-o-transition-duration: 0.5s;
-	transition-duration: 0.5s; 
-}
-
-.animate-out .title {
-	left: 35%;
-	opacity: 0;
-	-webkit-transition-duration: 0.5s;
-	-moz-transition-duration: 0.5s;
-	-ms-transition-duration: 0.5s;
-	-o-transition-duration: 0.5s;
-	transition-duration: 0.5s;
 }
 
 .subtitle {
@@ -370,7 +205,7 @@ a:hover, a:focus  {
 	font-size: 2.2em;
 	left: 35%;
 	padding: 0;
-	opacity: 0;
+	/* opacity: 0; */
 	text-transform: none;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
@@ -386,76 +221,117 @@ h3.subtitle {
 	font-size: 1.4em;
 }
 
-.intro-container p {
-	color: var(--green);
-	width: 44%;
-	text-align: center;
-	font-size: 1.8em;
-	margin-top: 2em;
-}
-
-/* .subtitle ul {
-	margin: 4% auto;
-}
-
-.subtitle li {
-	margin: 2% 4%;
-} */
-
-.animate-in .subtitle {
-	left: 50%;
-	opacity: 1;
-	-webkit-transition-duration: 0.5s;
-	-moz-transition-duration: 0.5s;
-	-ms-transition-duration: 0.5s;
-	-o-transition-duration: 0.5s;
-	transition-duration: 0.5s; 
-}
-
-.animate-out .subtitle {
-	left: 65%;
-	opacity: 0;
-	-webkit-transition-duration: 0.5s;
-	-moz-transition-duration: 0.5s;
-	-ms-transition-duration: 0.5s;
-	-o-transition-duration: 0.5s;
-	transition-duration: 0.5s; 
-}
-
-/* .model {
-	left: 20%;
-	bottom: -48%;
-	opacity: 0;
+/* -- Intro Slider -- */
+#sequence {
 	position: relative;
-	height: auto !important;
-	max-height: 568px !important;
-	width: 30%;
-	min-width: 600px; */
-	/* prevents the model from shrinking when the browser is resized */
-	/* max-width: 600px; 
-} */
+	margin: 0 auto;
+	width: 100%;
+	height: 330px; 
+	overflow: hidden;
+	margin-top: 2em;
+}  
+  
+#sequence > .seq-canvas {
+	height: 100%;
+	width: 100%; 
+}
+	
+#sequence > .seq-canvas > li {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	list-style: none;
+}
 
-/* .animate-in .model {
-	left: 15%;
-	opacity: 1;
+#sequence > .seq-canvas > li > * {
+	-webkit-transition-property: opacity, transform;
+	-moz-transition-property: opacity, transform;
+	-ms-transition-property: opacity, transform;
+	-o-transition-property: opacity, transform;
+	transition-property: opacity, transform; 
+}
+
+.seq-next,
+.seq-prev {
+	z-index: 1000;
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-weight: bold;
+	color: var(--green);
+	cursor: pointer;
+	font-size: 50px;
+	-webkit-transition-property: color;
+	-moz-transition-property: color;
+	-ms-transition-property: color;
+	-o-transition-property: color;
+	transition-property: color; 
+}
+
+.seq-prev {
+	left: 15%; 
+}
+
+.seq-next {
+	right: 15%; 
+}
+
+.seq-prev img,
+.seq-next img {
+	height: 100%;
+	width: auto; 
+}
+
+.seq-next,
+.seq-prev {
+	color: var(--green);
 	-webkit-transition-duration: 1s;
 	-moz-transition-duration: 1s;
 	-ms-transition-duration: 1s;
 	-o-transition-duration: 1s;
-	transition-duration: 1s;
+	transition-duration: 1s; 
 }
 
-.animate-out .model {
-	left: 15%;
+.seq-next:hover,
+.seq-prev:hover {
+	color: #153216;
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-ms-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s; 
+}
+
+#sequence p {
+	color: var(--green);
+	width: 44%;
+	font-size: 1.8em;
+	text-align: center;
+}
+
+#sequence .step.seq-in p {
+	transform: translateX(0);
+	opacity: 1;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-ms-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+	transition-duration: 0.5s; 
+}
+
+#sequence .step p,
+#sequence .step.seq-out p {
+	transform: translateX(-20%);
 	opacity: 0;
 	-webkit-transition-duration: 0.5s;
 	-moz-transition-duration: 0.5s;
 	-ms-transition-duration: 0.5s;
 	-o-transition-duration: 0.5s;
 	transition-duration: 0.5s; 
-} */
+}
 
-  
 
 /* ------- 4. PRESENTATION AREA (First separator) ------- */
 #presentation {
@@ -494,7 +370,6 @@ h3.subtitle {
 	font-family: titan_one;
 	font-weight: 400;
 	text-align: center;
-	font-size: 40px;
 	background-image: url(/wp-content/uploads/covid-title-background.png);
 	background-size: 580px auto;
 	background-position: center;
@@ -505,10 +380,11 @@ h3.subtitle {
 	margin-bottom: 0;
 }
 
-#covid .area-title span.title-span {
-	/* padding: 10px 19px; */
+#covid .area-title h3.title-tag {
 	color: white;
 	font-size: 1.4em;
+	margin: 0;
+	font-size: 3.5em;
 }
 
 #covid .section-intro {
@@ -562,35 +438,311 @@ h3.subtitle {
 	font-size: 2.2em;
 }
 
-/* ------- 6. AWARD AREA ------- */
+/* ------- 6. AWARD AREA (second separator)------- */
 #award {
-	background: url('../images/separator.jpg') top left no-repeat fixed;
-	height: 220px;
+	/* background: linear-gradient(to right, var(--green), var(--yellow)); */
+	height: 200px;
 	width: 100%;
 }
 
-.award-icon:before,
-.award-icon-alt:before {
-	font-family: "FontAwesome";
-	font-size: 1.6em;
-	padding: 0 2% 0.5% 0;
-	vertical-align: middle;
+#award h5 {
+	color: var(--purple);
 	text-align: left;
-	-webkit-font-smoothing: antialiased;
 }
 
-.award h3 {
-	color: #FFF;
-	font-weight: 300;
+#award #award-carousel {
+	/* display: flex;
+	align-items: center;
+	justify-content: space-between; */
+	height: 150px;
+	
+}
+
+#award-carousel .slick-list {
+	width: 80%;
+	display: inline-block;
+}
+
+#award #award-carousel .slick-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	margin: 0 30px;
+}
+
+/* ------- 7. La aldea  ------- */
+#aldea {
+	background: url('/wp-content/uploads/aldea-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding: 0 0 3%;
+}
+
+#aldea .area-title {
+	margin-top: 4%;
+	margin-bottom: 0;
+	padding: 2% 0 2%;
+	overflow: visible;
+	font-family: titan_one;
+	color: var(--white);
+	font-weight: 400;
 	text-align: center;
+	font-size: 3.5em;
+}
+
+#aldea .middle-row {
+	margin-top: 8em;
+}
+
+#aldea .text-container p {
+	text-align: justify;
+	margin-bottom: 2em;
+}
+
+#aldea .image-container {
+	display: flex;
+	align-items: center;
+}
+
+#aldea .button-container {
+	margin-top: 8em;
+}
+
+#aldea .button-container .aldea-button {
+	border: none;
+	padding: 0.2em 0.5em;
+	color: white;
+	background-color: var(--green-light);
+	font-family: titan_one;
+	font-weight: 400;
+	font-size: 2.2em;
+	border-radius: 8px;
+}
+
+/* ------- 8. RATING AREA ------- */
+#rating {
+	background: url('/wp-content/uploads/aldea-separator-background.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	text-align: center;
+}
+
+#rating img {
 	margin: 0 auto;
-	padding: 8.5% 0;
-	visibility: hidden;
+	padding: 2px 0;
+	max-height: 200px;
+}
+
+#rating h3 {
+	text-align: left;
+	max-width: 400px;
+}
+
+/* ------- 9. Curriculo ------- */
+#curriculo {
+	background: url('/wp-content/uploads/curriculo-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding: 0 0 3%;
+}
+
+#curriculo .title-row,
+#curriculo .intro-row,
+#curriculo .icon-row {
+	margin-bottom: 10%;
+}
+
+#curriculo .bottom-row {
+	margin-bottom: 0%;
+}
+
+#curriculo .area-title {
+	font-family: titan_one;
+	font-weight: 400;
+	text-align: center;
+	background-image: url(/wp-content/uploads/curriculo-title-background.png);
+	background-size: 700px auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: visible;
+	padding: 2% 0 2%;
+	margin-top: 4%;
+	margin-bottom: 0;
+	overflow: visible;
+}
+
+#curriculo .area-title h3.title-tag {
+	display: inline-block;
+	color: white;
+	font-size: 3.5em;
+	width: 34%;
+	margin: 0;
+}
+
+#curriculo .intro-row p {
+	width: 20%;
+	margin: 0 0 0 250px;
+	text-align: justify;
+}
+
+#curriculo .icon-container {
+	position: relative;
+	width: 200px;
+	height: 200px;
+}
+
+#curriculo .icon-container .icon-image {
+	transform: rotate3d(0, 1, 0, 0deg);
+	transition: transform 1.8s, opacity 0s 0.5s;
+	width: 200px;
+	height: 200px;
+}
+
+#curriculo .icon-container:hover .icon-image {
+	transform: rotate3d(0, 1, 0, 180deg);
+	opacity: 0;
+}
+
+#curriculo .icon-container .icon-text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--blue);
+	border-radius: 50%;
+	font-size: 2em;
+	color: var(--white);
+	font-family: titan_one;
+	font-weight: 400;
+	text-align: center;
+	transform: rotate3d(0, 1, 0, 180deg);
+	opacity: 0;
+	transition: transform 1.8s, opacity 0s 0.5s;
+}
+
+#curriculo .icon-container .icon-text.math,
+#curriculo .icon-container .icon-text.skills,
+#curriculo .icon-container .icon-text.mindfulness,
+#curriculo .bottom-row .icon-container .icon-text {
+	font-size: 1.5em;
+}
+
+#curriculo .bottom-row .icon-container {
+	margin: 0.5em 2em;
+}
+
+#curriculo .icon-container:hover .icon-text {
+	transform: rotate3d(0, 1, 0, 0deg);
+	opacity: 1;
+}
+
+#curriculo .bottom-row .section-extra {
+	width: 40%;
+	margin: 0 0 0 100px;
+	text-align: right;
+}
+
+/* ------- 10. PATCHES AREA ------- */
+#patches {
+	background: url('/wp-content/uploads/curriculo-separator-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#patches h4 {
+	margin: 0 auto;
+	padding: 5.5% 0;
+	color: var(--white);
+	font-family: sassoon;
+	text-align: center;
+	font-size: 2.05em;
 }
 
 
+/* ------- 11. UPDATES AREA ------- */
+#numeros {
+	background: url('/wp-content/uploads/numeros-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding: 0 0 3%;
+}
 
-/* ------- 7. FEATURES AREA ------- */
+#numeros .area-title {
+	margin-top: 4%;
+	margin-bottom: 0;
+	padding: 2% 0 2%;
+	overflow: visible;
+	font-family: titan_one;
+	color: var(--purple);
+	font-weight: 400;
+	text-align: center;
+	font-size: 3.5em;
+}
+
+#numeros .top-row,
+#numeros .bottom-row {
+	margin-bottom: 2em;
+}
+
+#numeros .top-row h3,
+#numeros .bottom-row h3 {
+	margin: 0;
+	padding: 0;
+	font-size: 6em;
+	line-height: 1;
+	text-align: center;
+}
+
+#numeros .top-row h6,
+#numeros .bottom-row h6 {
+	margin: 0;
+	padding: 0;
+	color: var(--white);
+	font-size: 1.5em;
+	line-height: 1;
+	text-align: center;
+}
+
+#numeros .top-row p,
+#numeros .bottom-row p {
+	margin: 0;
+	padding: 0;
+	color: var(--white);
+	text-align: center;
+}
+
+/* ------- 12. PRICE AREA ------- */
+#price {
+	background: url('/wp-content/uploads/numeros-separator-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#price h4 {
+	margin: 0 auto;
+	padding: 5.5% 0;
+	color: var(--white);
+	font-family: sassoon;
+	text-align: center;
+	font-size: 2.05em;
+}
+
+/* ------- 7?. Features  ------- */
 #features {
 	background: #67CD79;
 	height: auto;
@@ -740,39 +892,7 @@ h3.subtitle {
 	margin-top: 28%;
 }
 
-
-
-/* ------- 8. RATING AREA ------- */
-#rating {
-	background: url('../images/separator.jpg') top left no-repeat fixed;
-	height: 220px;
-	width: 100%;
-}
-
-.rating {
-	padding: 3.6% 0;
-	visibility: hidden;
-}
-
-.rating h3 {
-	color: #FFF;
-	font-weight: 300;
-	text-align: center;
-	margin: 0 auto;
-}
-
-.rating-img {
-	background: url('../images/rating.png') center center no-repeat;
-	width: 180px;
-	height: auto;
-	text-align: center;
-	margin: 0 auto;
-	padding: 1.5% 0
-}
-
-
-
-/* ------- 9. SCREENS AREA ------- */
+/* ------- 9?. SCREENS AREA ------- */
 #screens {
 	background: #F1C75D;
 	height: auto;
@@ -880,25 +1000,6 @@ h3.subtitle {
 }
 
 
-
-/* ------- 10. PATCHES AREA ------- */
-#patches {
-	background: url('../images/separator.jpg') top left no-repeat fixed;
-	height: 220px;
-	width: 100%;
-}
-
-.patches h3 {
-	color: #FFF;
-	font-weight: 300;
-	text-align: center;
-	margin: 0 auto;
-	padding: 8.5% 0;
-	visibility: hidden;
-}
-
-
-
 /* ------- 11. UPDATES AREA ------- */
 #updates {
 	background: #0DCCC0;
@@ -995,26 +1096,6 @@ h3.subtitle {
 	text-align: left;
 	margin: 2% auto 0;
 }
-
-
-
-/* ------- 12. PRICE AREA ------- */
-#price {
-	background: url('../images/separator.jpg') top left no-repeat fixed;
-	height: 220px;
-	width: 100%;
-}
-
-.price h3 {
-	color: #FFF;
-	font-weight: 300;
-	text-align: center;
-	margin: 0 auto;
-	padding: 8.5% 0;
-	visibility: hidden;
-}
-
-
 
 /* ------- 13. PLANS AREA ------- */
 #plans {

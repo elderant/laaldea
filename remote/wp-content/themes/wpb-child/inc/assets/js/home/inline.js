@@ -10,20 +10,89 @@
 /* SLIDER */
 $(function(){
 	var options = {
-		nextButton: true,
-		prevButton: true,
-		pagination: false,
-		animateStartingFrameIn: false,
-		autoPlay: true,
-		autoPlayDelay: 3000,
+		// autoPlay: true,
+		// autoPlayInterval: 3000,
+		autoPlayButton: false,
+		pagination: true,
 		preloader: false,
-		pauseOnHover: true,
-	};
+		autoPlayPauseOnHover: true,
+		phaseThreshold: 500,
+		reverseWhenNavigatingBackwards: false,
+		animateCanvas: false,
+		// fallback: {
+		// 	speed: 300
+		// }
+	}
 
-  var mySequence = $("#sequence").sequence(options).data("sequence");
+	// Launch Sequence on the element, and with the options we specified above
+	var mySequence = sequence($("#intro #sequence")[0], options);
 });
-	
-	
+
+/* Carrousel */ 
+$(document).ready(function() {
+	// let jssor_1_options = {
+	// 	$AutoPlay: 1,
+	// 	$AutoPlaySteps: 1,
+	// 	$SlideDuration: 50,
+	// 	$SlideWidth: 250,
+	// 	$SlideSpacing: 30,
+	// 	// $ArrowNavigatorOptions: {
+	// 	// 	$Class: $JssorArrowNavigator$,
+	// 	// 	$Steps: 1
+	// 	// },
+	// 	// $BulletNavigatorOptions: {
+	// 	// 	$Class: $JssorBulletNavigator$
+	// 	// }
+	// };
+
+	// var jssor_1_slider = new $JssorSlider$("award-carousel", jssor_1_options);
+
+	/*#region responsive code begin*/
+
+	// var MAX_WIDTH = 980;
+
+	// function ScaleSlider() {
+	// 		var containerElement = jssor_1_slider.$Elmt.parentNode;
+	// 		var containerWidth = containerElement.clientWidth;
+
+	// 		if (containerWidth) {
+
+	// 				var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+	// 				jssor_1_slider.$ScaleWidth(expectedWidth);
+	// 		}
+	// 		else {
+	// 				window.setTimeout(ScaleSlider, 30);
+	// 		}
+	// }
+
+	// ScaleSlider();
+
+	// $Jssor$.$AddEvent(window, "load", ScaleSlider);
+	// $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+	// $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+	/*#endregion responsive code end*/
+
+	// options = { 
+	// 	$AutoPlay: 1,
+	// 	$AutoPlaySteps: 1,
+	// 	$SlideDuration: 50,
+	// 	$SlideWidth: 250,
+	// 	$SlideSpacing: 15,
+	// };
+	// var jssor_1_slider = new $JssorSlider$("jssor_1", options);
+
+	$('.award-carousel').slick({
+		infinite: true,
+		speed: 300,
+		slidesToShow: 5,
+		autoplay: true,
+  	autoplaySpeed: 2000,
+	});
+
+});
+
+
 /* TESTIMONIALS */
 $(document).ready(function() {
 		//Quotes rotator
@@ -96,8 +165,8 @@ $(window).scroll(function () {
 	$('.cbp-ig-grid li').each(_checkOffset('animated fadeIn'));
 	$('.rating').each(_checkOffset('animated fadeInDown'));
 	$('.grid figure').each(_checkOffset('animated fadeIn'));
-	$('.patches h3').each(_checkOffset('animated fadeInDown'));	
-	$('.price h3').each(_checkOffset('animated fadeInDown'));	
+	$('.patches h4').each(_checkOffset('animated fadeInDown'));	
+	$('.price h4').each(_checkOffset('animated fadeInDown'));	
 	$('.cd-timeline-icon').each(_checkOffset('animated bounce-in'));
 	$('.cd-timeline-content').each(_checkOffset('animated bounce-in'));			
 	$('.plans').each(_checkOffset('animated fadeIn'));

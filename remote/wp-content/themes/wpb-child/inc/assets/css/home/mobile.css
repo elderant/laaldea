@@ -3533,8 +3533,8 @@
 		font-size: 1.4em;
 	}
 
-	.appstore-btn, .appstore-btn a, .android-btn, .android-btn a {
-		margin: 4% 1% 8%;
+	.app-buttons {
+		margin-top: 2em;
 	}
 
 	#sequence .model {
