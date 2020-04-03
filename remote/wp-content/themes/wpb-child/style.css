@@ -29,11 +29,15 @@ Text Domain:	 wpb-child
 	--red-darker-tone: #6E0B1F;
 	--red-light-tone: #FF1947;
 	
+	--blue-light: #4492cf;
 	--blue:#4590a9;
 	--blue-dark: #141552;
+	--blue-click: #3d4596;
 	--orange: #f37420;
+	--orange-click: #fab401;
 	--green: #39622b;
 	--green-light: #739f2e;
+	--green-dark: #153216;
 	--yellow: #e1d145;
 	--purple: #0c1a3d;
 
@@ -48,6 +52,161 @@ Text Domain:	 wpb-child
 	--info-background: #CCC200;
 	--danger: #6E0B1F;
 	--danger-faded: rgba(110, 11, 31, 0.4);
+}
+
+html{
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	color: var(--white);
+	position: relative;
+	font-family: 'sassoon', 'Helvetica', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	border: 0 none;
+	-webkit-font-smoothing: antialiased;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	height: auto;
+	width: auto;
+}
+
+h1, h2, h3, h5, h6 {
+	font-family: titan_one;
+	font-weight: 400;
+	color: var(--white);
+}
+
+h4 {
+	font-family: sassoon;
+	font-weight: 400;
+	color: var(--white);
+}
+
+h1 {
+	font-size: 8.6em;
+	color: var(--white);
+	font-family: 'titan_one', cursive;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+}
+
+h2 {
+	font-size: 4em;
+	color: var(--white);
+	line-height: 1.2;
+	letter-spacing: -0.5px;
+	font-family: 'titan_one', cursive;
+	font-weight: 400;
+	padding: 0;
+	text-align: center;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+h3 {
+	font-size: 3.5em;
+	color: var(--white);
+	line-height: 1.2;
+	font-family: 'titan_one', 'Helvetica', sans-serif;
+	font-weight: 400;
+	padding: 1.8% 0;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+h4 {
+	font-size: 2.05em;
+	color: var(--white);
+	font-family: 'sassoon', 'Helvetica', sans-serif;
+	font-weight: normal;
+	line-height: 1.2;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+h5 {
+	font-size: 2em;
+	color: var(--white);
+	line-height: 1.2;
+	font-family: 'titan_one', 'Helvetica', sans-serif;
+	font-weight: 400;
+	padding: 0 0.3em 0 0.3em;
+	-webkit-font-smoothing: antialiased;
+}
+
+h6 {
+	font-size: 1.5em;
+	color: var(--white);
+	line-height: 1.2;
+	font-family: 'titan_one', 'Helvetica', sans-serif;
+	font-weight: 400;
+	padding: 0 0.3em 0 0.3em;
+	-webkit-font-smoothing: antialiased;
+}
+
+p {
+	font-family: 'sassoon', 'Helvetica', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	margin: 2% auto;
+	text-align: left;
+	color: var(--white);
+	-webkit-font-smoothing: antialiased;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	font-weight: 400;
+	font-family: 'sassoon', 'Helvetica', sans-serif;
+	font-size: 1.2em;
+	color: var(--white);
+	font-style: normal;
+	padding: 0 0 2% 0;
+}
+
+input, textarea {
+	box-sizing: border-box;
+}
+
+a {
+	transition: color	0.5s ease-in-out;
+}
+
+a:hover {
+	color: var(--green-dark);
+}
+
+a:hover, a:focus  {
+	text-decoration: none;
+	outline: none;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#wraper {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.area-title {
+	margin: 10% auto 2%;
+	padding: 0;
 }
 
 .hidden {
@@ -74,31 +233,6 @@ Text Domain:	 wpb-child
 	font-style: italic;
 }
 
-a {
-	color: var(--black);
-	transition: color	0.5s ease-in-out;
-}
-
-a:hover {
-	text-decoration: none;
-	color: var(--red);
-}
-
-a:focus {
-	outline: none;
-}
-
-h1, h2, h3, h5, h6 {
-	font-family: titan_one;
-	font-weight: 400;
-	color: var(--white);
-}
-
-h4 {
-	font-family: sassoon;
-	font-weight: 400;
-	color: var(--white);
-}
 /******************** Shared ********************/
 
 /* shared : header */
@@ -356,4 +490,132 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 .home #primary .entry-content {
 	margin: 0;
+}
+
+/******************** Especial Covid ********************/
+.page-id-35 #content.site-content {
+	padding: 0;
+}
+
+.page-id-35 .site-content #primary {
+	padding: 0;
+}
+
+.page-id-35 #primary .entry-header {
+	display: none;
+}
+
+.page-id-35 #primary .entry-content {
+	margin: 0;
+}
+
+.page-id-35 #covid {
+	background: url('/wp-content/uploads/covid-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding: 0 0 3%;
+}
+
+.page-id-35 #covid .row {
+	margin-bottom: 3%;
+}
+
+.page-id-35 #covid .area-title {
+	font-family: titan_one;
+	font-weight: 400;
+	text-align: center;
+	background-image: url(/wp-content/uploads/covid-title-background.png);
+	background-size: 580px auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: visible;
+	padding: 2% 0 2%;
+	margin-top: 4%;
+	margin-bottom: 0;
+}
+
+.page-id-35 #covid .area-title h3.title-tag {
+	color: white;
+	font-size: 1.4em;
+	margin: 0;
+	font-size: 3.5em;
+}
+
+.page-id-35 #contact .subtitle-row {
+	margin-bottom: 2em;
+}
+
+.page-id-35 #contact .subtitle-row h4 {
+	text-align: center;
+	font-size: 2.05em;
+}
+
+.page-id-35 .covid-form-section div.input-container {
+	margin-bottom: 1em;
+}
+
+.page-id-35 .covid-form-section div.half-width {
+	width: 50%;
+}
+
+.page-id-35 .covid-form-section label {
+	display: block;
+	font-family: titan_one;
+}
+
+.page-id-35 .covid-form-section .use-container label {
+	font-size: 2em;
+}
+
+.page-id-35 .covid-form-section input {
+	width: 100%;
+	border: none;
+	border-radius: 8px;
+	padding: 0.2em 2em;
+	color: var(--purple);
+	line-height: 2;
+	font-size: 1.2em;
+	font-family: sassoon;
+}
+
+.page-id-35 .covid-form-section input:focus {
+	outline: none;
+}
+
+.page-id-35 .covid-form-section textarea {
+	width: 100%;
+	height: 7.5em;
+	border-radius: 8px;
+	border: none;
+	padding: 0.2em 2em;
+	color: var(--purple);
+	line-height: 1.5;
+	font-family: sassoon;
+	font-size: 1.2em;
+}
+
+
+.page-id-35 .covid-form-section textarea:focus {
+	outline: none;
+}
+
+.page-id-35 .covid-form-section .form-actions {
+	text-align: center;
+}
+
+.page-id-35 .covid-form-section input[type="submit"] {
+	width: auto;
+	background-color: var(--yellow);
+	border: none;
+	color: var(--white);
+	font-family: titan_one;
+	font-weight: 400;
+	font-size: 1.5em;
+	transition: background-color 0.5s ease;
+}
+
+.page-id-35 .covid-form-section input[type="submit"]:hover {
+	background-color: #615D3B;
 }

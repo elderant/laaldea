@@ -25,8 +25,8 @@
               <p>“La Aldea: Historias para estar en casa” es una herramienta para que docentes y padres de familia puedan generar conversaciones informadas con sus hijos y estudiantes sobre la epidemia del COVID-19. Funciona como una estrategia de información pública y de aprendizaje virtual para afrontar esta emergencia.</p>
             </li>
             <li class="step seq-out">
-              <p>“La Aldea es una compendio de historias cuidadosamente elaboradas y una estrategia de pedagogía multisensorial diseñada para fomentar la discusión acerca de conflictos e interrelaciones sociales de una manera cercana y sencilla, que sirve como metáfora de los problemas de la vida real.</p>
-              <p>”Academic’s Choice Award. 2019. USA</p>
+              <p>“La Aldea es un compendio de historias cuidadosamente elaboradas y una estrategia de pedagogía multisensorial diseñada para fomentar la discusión acerca de conflictos e interrelaciones sociales de una manera cercana y sencilla, que sirve como metáfora de los problemas de la vida real."</p>
+              <p>Academic’s Choice Award. 2019. USA</p>
             </li>
             <li class="step seq-out">
               <p>La Aldea permite un aprendizaje flexible y transversal, en el que se trabajan de manera simultáneamente las áreas de lenguaje, ciencias naturales, ciencias sociales y matemáticas. Todo esto mientras los niños se divierten y reflexionan sobre el mundo que los rodea.</p>
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row d-none">
       <div class="col-12">
         <div class="row app-buttons animated fadeIn">
           <div class="col-md-6"><a href="#" class="appstore-btn buzz-out" target="_blank" rel="noopener noreferrer"></a></div>

@@ -1,0 +1,1 @@
+[03-Apr-2020 00:21:14 UTC] WordPress database error Unknown column 'name' in 'field list' for query INSERT INTO `wp_aldea_promo` (`email`, `name`, `organization`) VALUES ('lisa@clickarte.co', 'lisa', 'para mi trabajo') made by do_action('admin_post_nopriv_laaldea_promo'), WP_Hook->do_action, WP_Hook->apply_filters, laaldea_promo_handler

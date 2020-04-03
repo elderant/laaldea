@@ -104,6 +104,27 @@ function laaldea_build_home_html () {
 
 	$template_url = laaldea_load_template('numeros-separator.php', 'home');
 	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('contiene.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('contiene-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('personajes.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('personajes-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('click.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('click-separator.php', 'home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('contact.php', 'home');
+	load_template($template_url, true);
 }
 add_shortcode( 'laaldea_home', 'laaldea_build_home_html' );
 
@@ -115,7 +136,7 @@ function laaldea_build_form_html () {
 	$template_url = laaldea_load_template('form.php', 'promo-form');
 	load_template($template_url, true);
 }
-add_shortcode( 'laaldea_promo_form', 'laaldea_build_form_html' );
+add_shortcode( 'laaldea_esecial_covid_form', 'laaldea_build_form_html' );
 
 // Define activation handlers
 add_action( 'admin_post_nopriv_laaldea_promo', 'laaldea_promo_handler' );
@@ -124,27 +145,38 @@ add_action( 'admin_post_laaldea_promo', 'laaldea_promo_handler' );
 function laaldea_promo_handler() {
 	if ( isset( $_POST['action'] ) && strcasecmp($_POST['action'], 'laaldea_promo') == 0 ) {
 		$laaldea_activation_error = array();
+		$error = false;
 
 		// retreive post values.
-		$first_name = $_POST['promo_first_name'];
-		$last_name = $_POST['promo_last_name'];
-		$email = $_POST['promo_email'];
+		$name = $_POST['form_name'];
+		$organization = $_POST['form_organization'];
+		$location = $_POST['form_location'];
+		$email = $_POST['form_email'];
+		$use = $_POST['form_use'];
 
 		// validate values.
-		if(empty($first_name)) {
-			$laaldea_activation_error['insurance_first_name'] = __('Este campo es requerido.', 'laaldea');
+		if(empty($name)) {
+			$laaldea_activation_error['form_name'] = __('Este campo es requerido.', 'laaldea');
 			$error = true;
 		}
-		if(empty($last_name)) {
-			$laaldea_activation_error['insurance_last_name'] = __('Este campo es requerido.', 'laaldea');
+		if(empty($organization)) {
+			$laaldea_activation_error['form_organization'] = __('Este campo es requerido.', 'laaldea');
+			$error = true;
+		}
+		if(empty($location)) {
+			$laaldea_activation_error['form_location'] = __('Este campo es requerido.', 'laaldea');
 			$error = true;
 		}
 		if(empty($email)) {
-			$laaldea_activation_error['insurance_email'] = __('Este campo es requerido.', 'laaldea');
+			$laaldea_activation_error['form_email'] = __('Este campo es requerido.', 'laaldea');
 			$error = true;
 		}
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$laaldea_activation_error['insurance_email'] = __('Ingrese un correo electrónico valido.', 'laaldea');
+			$laaldea_activation_error['form_email'] = __('Ingrese un correo electrónico válido.', 'laaldea');
+			$error = true;
+		}
+		if(empty($use)) {
+			$laaldea_activation_error['form_use'] = __('Este campo es requerido.', 'laaldea');
 			$error = true;
 		}
 	
@@ -154,17 +186,27 @@ function laaldea_promo_handler() {
 		}
 
 		//sanitize values to add to database
-		$first_name = sanitize_text_field($_POST['promo_first_name']);
-		$last_name = sanitize_text_field($_POST['promo_last_name']);
-		$email = sanitize_email($email);
+		$name = $_POST['form_name'];
+		$organization = $_POST['form_organization'];
+		$location = $_POST['form_location'];
+		$email = $_POST['form_email'];
+		$use = $_POST['form_use'];
+
+		$name = sanitize_text_field($_POST['form_name']);
+		$organization = sanitize_text_field($_POST['form_organization']);
+		$location = sanitize_text_field($_POST['form_location']);
+		$email = sanitize_email($_POST['form_email']);
+		$use = sanitize_text_field($_POST['form_use']);
 
 		//add row to custom table
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}aldea_promo";
 		$data = array(
 			"email" => $email,
-			"name_first" => $first_name,
-			"name_last" => $last_name,
+			"name" => $name,
+			"organization" => $organization,
+			"organization" => $location,
+			"organization" => $use,
 		);
 				
 		$wpdb->insert( $table_name, $data);

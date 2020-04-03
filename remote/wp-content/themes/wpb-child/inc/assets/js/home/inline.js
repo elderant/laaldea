@@ -7,8 +7,26 @@
 //$('body').scrollspy({ target: 'nav li' });	
 	
 	
-/* SLIDER */
+/* SLIDERS */
 $(function(){
+	var options = {
+		autoPlay: true,
+		autoPlayInterval: 3000,
+		autoPlayButton: false,
+		pagination: true,
+		preloader: false,
+		autoPlayPauseOnHover: true,
+		phaseThreshold: 500,
+		reverseWhenNavigatingBackwards: false,
+		animateCanvas: false,
+		// fallback: {
+		// 	speed: 300
+		// }
+	}
+
+	// Launch Sequence on the element, and with the options we specified above
+	var mySequence = sequence($("#intro #sequence")[0], options);
+
 	var options = {
 		// autoPlay: true,
 		// autoPlayInterval: 3000,
@@ -25,71 +43,30 @@ $(function(){
 	}
 
 	// Launch Sequence on the element, and with the options we specified above
-	var mySequence = sequence($("#intro #sequence")[0], options);
+	var mySequence2 = sequence($("#contiene #sequence")[0], options);
 });
 
 /* Carrousel */ 
 $(document).ready(function() {
-	// let jssor_1_options = {
-	// 	$AutoPlay: 1,
-	// 	$AutoPlaySteps: 1,
-	// 	$SlideDuration: 50,
-	// 	$SlideWidth: 250,
-	// 	$SlideSpacing: 30,
-	// 	// $ArrowNavigatorOptions: {
-	// 	// 	$Class: $JssorArrowNavigator$,
-	// 	// 	$Steps: 1
-	// 	// },
-	// 	// $BulletNavigatorOptions: {
-	// 	// 	$Class: $JssorBulletNavigator$
-	// 	// }
-	// };
-
-	// var jssor_1_slider = new $JssorSlider$("award-carousel", jssor_1_options);
-
-	/*#region responsive code begin*/
-
-	// var MAX_WIDTH = 980;
-
-	// function ScaleSlider() {
-	// 		var containerElement = jssor_1_slider.$Elmt.parentNode;
-	// 		var containerWidth = containerElement.clientWidth;
-
-	// 		if (containerWidth) {
-
-	// 				var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-	// 				jssor_1_slider.$ScaleWidth(expectedWidth);
-	// 		}
-	// 		else {
-	// 				window.setTimeout(ScaleSlider, 30);
-	// 		}
-	// }
-
-	// ScaleSlider();
-
-	// $Jssor$.$AddEvent(window, "load", ScaleSlider);
-	// $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-	// $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-	/*#endregion responsive code end*/
-
-	// options = { 
-	// 	$AutoPlay: 1,
-	// 	$AutoPlaySteps: 1,
-	// 	$SlideDuration: 50,
-	// 	$SlideWidth: 250,
-	// 	$SlideSpacing: 15,
-	// };
-	// var jssor_1_slider = new $JssorSlider$("jssor_1", options);
-
+	
 	$('.award-carousel').slick({
 		infinite: true,
 		speed: 300,
 		slidesToShow: 5,
 		autoplay: true,
-  	autoplaySpeed: 2000,
+		autoplaySpeed: 2000,
+		variableWidth: true,
+		prevArrow: '#award .slick-prev',
+		nextArrow: '#award .slick-next',
 	});
 
+	$('.personajes-carousel').slick({
+		infinite: true,
+		speed: 300,
+		slidesToShow: 3,
+		prevArrow: '#personajes .slick-prev',
+		nextArrow: '#personajes .slick-next',
+	});
 });
 
 
@@ -166,15 +143,19 @@ $(window).scroll(function () {
 	$('.rating').each(_checkOffset('animated fadeInDown'));
 	$('.grid figure').each(_checkOffset('animated fadeIn'));
 	$('.patches h4').each(_checkOffset('animated fadeInDown'));	
+	$('#numeros .first-row-lg').each(_checkOffset('animated fadeInLeft'));
+	$('#numeros .second-row-lg').each(_checkOffset('animated fadeInRight'));
 	$('.price h4').each(_checkOffset('animated fadeInDown'));	
+	$('#contiene #sequence').each(_checkOffset('animated fadeInDown'));
 	$('.cd-timeline-icon').each(_checkOffset('animated bounce-in'));
 	$('.cd-timeline-content').each(_checkOffset('animated bounce-in'));			
 	$('.plans').each(_checkOffset('animated fadeIn'));
 	$('.cbp-qtrotator').each(_checkOffset('animated fadeInDown'));
+	$('#contiene-separator h4').each(_checkOffset('animated fadeInDown'));	
 	$('.view').each(_checkOffset('animated fadeIn'));
 	$('.front').each(_checkOffset('animated fadeIn'));
 	$('.social').each(_checkOffset('animated fadeInDown'));	
-	$('.form-inline').each(_checkOffset('animated bounceIn'));	
+	$('#contact .aldea-form-row').each(_checkOffset('animated bounceIn'));	
 	$('#map').each(_checkOffset('animated fadeIn'));		
 });
 	

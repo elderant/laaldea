@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row icon-row">
-      <div class="col-10 offset-lg-1 d-flex justify-content-between align-items-center">
+      <div class="col-10 offset-lg-1 d-flex justify-content-between align-items-start">
         <div class="icon-container language">
           <img class="icon-image" src="/wp-content/uploads/curriculo-lenguaje-icono.png" alt="Language icon">
           <div class="icon-text">Lenguaje</div>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="row bottom-row">
-      <div class="col-6 d-flex justify-content-center align-items-center flex-wrap">
+      <div class="col-6 d-flex justify-content-center align-items-start flex-wrap">
         <div class="icon-container language">
           <img class="icon-image" src="/wp-content/uploads/curriculo-formal-icono.png" alt="Formal education icon">
           <div class="icon-text">Educación formal</div>

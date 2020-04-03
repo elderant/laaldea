@@ -1,47 +1,72 @@
-<div class="promo-form-section">
-  <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="laaldea-form">
-    <div class="first-name-container input-container full-width">
-      <label for="first_name">
-        <!-- <span class="asterisk">*</span> -->
-        <?php _e('Nombre','laaldea'); ?>
-      </label>
-      <input type="text" name="promo_first_name" value="" id="promo-first-name" tabindex="10" />
-      <?php if ( isset($error['promo_first_name'] ) ) : ?>
-        <label id="promo-first-name-error-server" class="error" for="promo_first_name">
-          <?php echo $error['promo_first_name'];?>
-        </label>
-      <?php endif;?>
-    </div>
-    <div class="last-name-container input-container full-width">
-      <label for="last_name">
-        <!-- <span class="asterisk">*</span> -->
-        <?php _e('Apellido','nco'); ?>
-      </label>
-      <input type="text" name="promo_last_name" value="" id="promo-last-name" tabindex="20" />
-      <?php if ( isset($error['promo_last_name'] ) ) : ?>
-        <label id="promo-last-name-error-server" class="error" for="promo_last_name">
-          <?php echo $error['promo_last_name'];?>
-        </label>
-      <?php endif;?>
-    </div>
-    <div class="email-container input-container full-width">
-      <label for="email">
-        <!-- <span class="asterisk">*</span> -->
-        <?php _e('Email', 'nco'); ?>
-      </label>
-      <input type="email" name="promo_email" value="" id="promo-email" tabindex="30" />
-      <?php if ( isset($error['promo_email'] ) ) : ?>
-        <label id="promo-email-error-server" class="error" for="promo_email">
-          <?php echo $error['promo_email'];?>
-        </label>
-      <?php endif;?>
-    </div>
-    <div style="display: none;">
-      <input type="hidden" name="action" value="laaldea_promo">
-    </div>
-    <div class="form-actions">
-      <input type="submit" name="wp-submit" value="<?php _e('Enviar'); ?>" class="promo-submit" tabindex="100" />
-    </div>
-  </form>
-</div>
 
+<div id="covid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="area-title"><h3 class="title-tag">Especial COVID-19</h3></div>
+      </div>
+    </div>
+    <div class="row subtitle-row">
+      <div class="col-8 offset-lg-2">
+        <h4>¡Es muy importante para nosotros saber quién aprovechará este material pedagógico! Te pediremos algunos datos:</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 offset-lg-3">
+        <div class="covid-form-section">
+          <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="laaldea-form">
+            <div class="name-container input-container half-width">
+              <input type="text" name="form_name" value="" id="form-name" tabindex="10" placeholder="<?php _e('Nombre','laaldea');?>" />
+              <?php if ( isset($error['form_name'] ) ) : ?>
+                <label id="form-name-error-server" class="error" for="form_name">
+                  <?php echo $error['form_name'];?>
+                </label>
+              <?php endif;?>
+            </div>
+            <div class="organization-container input-container half-width">
+              <input type="text" name="form_organization" value="" id="form-organization-name" tabindex="20" placeholder="<?php _e('Organización','laaldea'); ?>"/>
+              <?php if ( isset($error['form_organization'] ) ) : ?>
+                <label id="promo-last-name-error-server" class="error" for="form_organization">
+                  <?php echo $error['form_organization'];?>
+                </label>
+              <?php endif;?>
+            </div>
+            <div class="location-container input-container half-width">
+              <input type="text" name="form_location" value="" id="form'location-name" tabindex="30" placeholder="<?php _e('¿En qué parte del mundo estás?','laaldea'); ?>"/>
+              <?php if ( isset($error['form_location'] ) ) : ?>
+                <label id="promo-organization-error-server" class="error" for="form_location">
+                  <?php echo $error['form_location'];?>
+                </label>
+              <?php endif;?>
+            </div>
+            <div class="email-container input-container full-width">
+              <input type="email" name="form_email" value="" id="form-email" tabindex="40" placeholder="<?php _e('Email', 'laaldea'); ?>"/>
+              <?php if ( isset($error['form_email'] ) ) : ?>
+                <label id="promo-email-error-server" class="error" for="form_email">
+                  <?php echo $error['form_email'];?>
+                </label>
+              <?php endif;?>
+            </div>
+            <div class="use-container input-container full-width">
+              <label for="form_use">
+                <?php _e('¿Cómo vas a usar este material?', 'laaldea'); ?>
+              </label>
+              <textarea name="form_use" value="" id="form-use" tabindex="50" placeholder="<?php _e('Ej: Lo voy a usar con mis hijos en homeschooling...','laaldea')?>"></textarea>
+              <?php if ( isset($error['form_use'] ) ) : ?>
+                <label id="promo-use-error-server" class="error" for="form_use">
+                  <?php echo $error['form_use'];?>
+                </label>
+              <?php endif;?>
+            </div>
+            <div style="display: none;">
+              <input type="hidden" name="action" value="laaldea_promo">
+            </div>
+            <div class="form-actions">
+              <input type="submit" name="wp-submit" value="<?php _e('Descarga Aquí', 'laaldea'); ?>" class="promo-submit" tabindex="100" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

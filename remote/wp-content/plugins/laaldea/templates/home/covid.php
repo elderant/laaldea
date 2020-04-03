@@ -12,17 +12,17 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <div class="content-title">Cartilla digital</div>
-        <div class="video">
-          <iframe allowfullscreen allow="fullscreen" style="border:none;width:40%;height:500px;" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=orange_juice_issue_1_b0ceb817d77d59&hideIssuuLogo=false&hideShareButton=true&pageNumber=6&u=ds_demo"></iframe>
-          <!-- <img src="/wp-content/uploads/video-placeholder.jpeg" alt="video" class=""> -->
+        <div class="content-title">Libro digital</div>
+        <div class="issuu">
+          <!-- <iframe allowfullscreen allow="fullscreen" style="border:none;width:700px;height:500px;" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa&u=clickarte&hideIssuuLogo=true"></iframe> -->
+          <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa_1__2_&u=clickarte&hideIssuuLogo=true"></iframe>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
         <div class="download-button-container">
-          <button class="download-button capitalized">Descarga aquí</button>
+          <a href="/especial-covid" class="download-button capitalized" rel="next">Descarga aquí</a>
         </div>
       </div>
     </div>
@@ -30,13 +30,13 @@
       <div class="col-12">
         <div class="content-title">Audiolibro</div>
         <div class="video">
-          <img src="/wp-content/uploads/issuu-placeholder.jpeg" alt="audiolibro" class="">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=PLJUVZwWphr-TOADnz91xuQ835OkdyXtZT" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <div class="text-container">
+        <div class="text-container hidden">
           <img src="/wp-content/uploads/covid-design-triangle-original.png" alt="design triangle" class>
           <span>Marco conceptual y competencias MEN</span>
         </div>

@@ -222,11 +222,6 @@
 		border-top: none;
 	}
 	
-	.rating-img {
-		padding: 6% 0;
-		margin: 20% auto 0;
-	}
-	
 	.patches h3 {
 		padding: 32% 0;
 	}
@@ -444,11 +439,6 @@
 	
 	.cbp-ig-grid li {
 		width: auto;
-	}
-	
-	.rating-img {
-		padding: 6% 0;
-		margin: 10% auto 0;
 	}
 	
 	.grid figure {
@@ -722,11 +712,6 @@
 		border-top: none;
 	}
 	
-	.rating-img {
-		padding: 6% 0;
-		margin: 6% auto 0;
-	}
-	
 	.grid figure {
 		width: 70%;
 		margin: 0.5% 15%;
@@ -992,11 +977,6 @@
 	
 	.cbp-ig-grid li:nth-child(-n+3) {
 		border-top: none;
-	}
-	
-	.rating-img {
-		padding: 4% 0;
-		margin: 6% auto 0;
 	}
 	
 	#screens {
@@ -1304,11 +1284,6 @@
 	
 	.cbp-ig-grid li:nth-child(2n-1) {
 		box-shadow: none;
-	}
-	
-	.rating-img {
-		padding: 3% 0;
-		margin: 6% auto 0;
 	}
 	
 	#screens {
@@ -1623,11 +1598,6 @@
 	
 	.cbp-ig-grid li:nth-child(2n-1) {
 		box-shadow: none;
-	}
-	
-	.rating-img {
-		padding: 3% 0;
-		margin: 6% auto 0;
 	}
 	
 	.grid {
@@ -1954,10 +1924,7 @@
 		box-shadow: none;
 	}
 	
-	.rating-img {
-		padding: 3% 0;
-		margin: 4% auto 0;
-	}
+	
 	
 	.grid {
 		margin: 2% auto 6%;
@@ -2076,24 +2043,19 @@
 
 /*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1024px / max width: 1200px --*/
 @media screen and (min-width: 1024px) and (max-width: 1200px) {	
+	body {font-size: 13px;}
+	h1 {font-size: 5em;}
+	h2 {font-size: 3.4em;}
+	h3 {font-size: 1.7em; padding: 0.2em 0;}
+	h4 {font-size: 1.2em;}
+	h5 {font-size: 1em;}
+	p {font-size: 13px;}
+	body {/* overflow-x: hidden; */}
+	
+	header#masthead {
+		min-height: 44px;
+	}
 
-	body {
-		overflow-x: hidden;
-		font-size: 13px;
-	}
-	
-	h2 {
-		font-size: 3.6em;
-	}	
-	
-	h3 {
-		font-size: 1.7em;
-	}
-	
-	p {
-		margin: 2%;
-	}
-	
 	.bt-menu-trigger {
 		width: 45px;
 		height: 45px;
@@ -2138,11 +2100,32 @@
 		padding: 0;
 	}
 	
+	h2.subtitle {
+		font-size: 2em;
+	}
+
+	h3.subtitle { 
+		font-size: 1.2em;
+		width: 40%;
+	}
+
+	#intro #sequence {
+    height: 240px;
+	}
+
+	#intro #sequence p {
+		font-size: 1.3em;
+	}
+
+	#intro .seq-next, #intro .seq-prev {
+		font-size: 40px;
+	}
+
 	.title {
 		top: 65%;
 	}
 	
-	.appstore-btn, .appstore-btn a {
+	/* .appstore-btn, .appstore-btn a {
 		float: right;
 		background: url('../images/appstore-btn.png') no-repeat center center;
 		width: 50%;
@@ -2156,64 +2139,8 @@
 		width: 50%;
 		height: 200px;
 		margin: 0 0 5%;
-	}
+	} */
 
-	#sequence .model {
-		left: 30%;
-		min-width: 50%;
-		/*prevents the model from shrinking when the browser is resized*/
-		width: 50%; 
-	}
-	
-	#sequence .animate-in .model {
-		left: 38%;
-		margin-left: -35%; 
-	}
-	
-	#sequence .animate-out .model {
-		left: 38%;
-		margin-left: -36%; 
-	}
-	
-	#sequence .title {
-		font-size: 4em;
-		background: transparent;
-		bottom: 0;
-		left: 100%;
-		padding: 0;
-		width: 100%;
-		z-index: 10; 
-	}
-	
-	#sequence .animate-in .title {
-		left: 0%; 
-	}
-	
-	#sequence .animate-out .title {
-		left: -100%; 
-	}
-	
-	#sequence .subtitle {
-		visibility: visible; 
-		font-size: 2em;
-		width: 46%;
-		right: 1%;
-		padding-top: 5%;
-		line-height: 120%;
-	}
-	
-	#sequence > .sequence-canvas > li {
-		top: -48%;
-	}
-	
-	.sequence-next, .sequence-prev {
-		display: none !important;
-	}
-	
-	#sequence .sequence-pagination, #sequence .sequence-pagination li img { 
-		display: none;
-	}
-	
 	.area-title {
 		margin: 10% auto 3%;
 	}
@@ -2222,6 +2149,10 @@
 		padding: 8.5% 0;
 	}
 	
+	.presentation img {
+		max-height: 150px;
+	}
+
 	#overview {
 		padding: 0 0 1%;
 	}
@@ -2238,6 +2169,29 @@
 		padding-bottom: 7%;
 	}
 	
+	#covid .content-title {
+		left: 8%;
+	}
+
+	#covid .area-title {
+		background-size: auto 112px;
+	}
+
+	#covid .section-intro {
+    width: 51%;
+    font-size: 1.3em;
+	}
+
+	#covid .row {
+    margin-bottom: 2em;
+	}
+
+	#covid .row .issuu iframe,
+	#covid .row .video iframe {
+		width:490px;
+		height:350px;
+	}
+
 	.award-icon:before,
 	.award-icon-alt:before {
 		padding: 0 4% 0.5% 0;
@@ -2246,8 +2200,83 @@
 	.award h3 {
 		padding: 10% 0;
 	}
-	
-	.cbp-ig-grid {
+
+	#award {
+    height: 170px;
+	}
+
+	#award .title-row {
+		margin-bottom: 1em;
+	}
+
+	#award .carousel-col {
+    height: 110px;
+	}
+
+	#award-carousel .slick-list {
+		max-width: 900px;
+	}
+
+	#award-carousel .slick-list img {
+		max-height: 100px;
+	}
+
+	#aldea .text-container p {
+    font-size: 1.2em;
+	}
+
+	#rating h5 {
+		max-width: 250px;
+	}
+
+	#rating img {
+		max-height: 150px;
+	}
+
+	#curriculo .area-title {
+		background-size: auto 152px;
+    padding: 1em 0 1em;
+    margin-top: 2em;
+	}
+
+	#curriculo .area-title h3.title-tag {
+    width: 518px;
+	}
+
+	#curriculo .title-row, 
+	#curriculo .intro-row {
+    margin-bottom: 10em;
+	}
+
+	#curriculo .intro-row p,
+	#curriculo .bottom-row .section-extra {
+		font-size: 1.2em;
+	}
+
+	#curriculo .intro-row p {
+		width: 23%;
+		margin-left: 5em;
+	}
+
+	#curriculo .icon-container {
+		width: 100px;
+	}
+
+	#curriculo .icon-container .icon-image {
+		width: 100px;
+		height: auto;
+	}
+
+	#curriculo .icon-container .icon-text {
+		font-size: 0.8em;
+    letter-spacing: 1px;
+	}
+
+	#curriculo .bottom-row .section-extra {
+		margin: 2em 0 0 6em;
+	}
+
+	/* .cbp-ig-grid {
 		margin: 3% auto 3%;
 		width: 80%
 	}
@@ -2293,11 +2322,6 @@
 		box-shadow: none;
 	}
 	
-	.rating-img {
-		padding: 2.5% 0;
-		margin: 2.5% auto 0;
-	}
-	
 	.grid {
 		max-width: 1200px;
 		width: 90%;
@@ -2306,7 +2330,7 @@
 	.grid a {
 		width: 32%;
 		margin: 0 1%;
-	}
+	} */
 	
 	#screens {
 		padding: 0 0 1%;	
@@ -2316,14 +2340,27 @@
 		padding: 10% 0;
 	}
 	
-	#cd-timeline {
+	#numeros .top-row h6, #numeros .bottom-row h6 {
+		font-size: 1.3em;
+	}
+
+	#numeros .top-row h3, #numeros .bottom-row h3 {
+		font-size: 4.5em;
+	}
+
+	#numeros .top-row p, #numeros .bottom-row p {
+		font-size: 0.8em;
+    letter-spacing: 0.5px;
+	}
+
+	/* #cd-timeline {
 	  position: relative;
 	  padding: 6% 0;
 	  margin: 6% auto;
 	}
 
 	#cd-timeline::before {
-	  /* this is the vertical line */
+	  
 	  display: block;
 	  content: '';
 	  position: absolute;
@@ -2343,7 +2380,6 @@
 	}
 
 	.cd-container {
-	  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
 	  width: 96%;
 	}
 		
@@ -2360,26 +2396,38 @@
 	.cd-timeline-content .cd-date {
 		font-size: 1.2em;
 		left: 140%;
-	}
+	} */
 	
 	.price h3 {
 		padding: 10% 0;
 	}
 	
-	#plans {
+	#contiene #sequence {
+		height: 400px; 
+	}
+
+	#contiene #sequence .image img {
+    width: 500px;
+	}
+
+	#contiene #sequence p {
+    font-size: 1.5em;
+	}
+
+	/* #plans {
 		padding: 6% 5% 2% 5%;
 	}
 	
 	.plan {
 		margin: 4% auto;
-	}
+	} */
 	
 	.testimonials h3 {
 		padding: 5%;
 		font-size: 1.6em;
 	}
 	
-	.cbp-qtrotator .cbp-qtcontent {
+	/* .cbp-qtrotator .cbp-qtcontent {
 		margin-top: 3.5%;
 	}
 	
@@ -2396,56 +2444,66 @@
 		
 	.cbp-qtrotator footer {
 		margin: -3% auto;
-	}
+	} */
 	
-	.view {
-		width: 230px;
-		height: 100%;
-		margin: 0 auto;
-		border: none;
+	#personajes .personajes-carousel,
+	#personajes .personajes-carousel .slick-list {
+		max-width: 765px;
+    max-height: 345px;
 	}
 
-	.view img {
+	#personajes .view {
+		width: 230px !important;
+		height: 345px;
+	}
+
+	#personajes .view img {
 		width: 230px;
 		height: 100%;
 	}
 
-	.view .mask, .view .content {
+	#personajes .view .mask, 
+	#personajes .view .content {
 		width: 230px;
 		height: 100%;
 	}
 	
-	.view h2 {
+	#personajes .view h2 {
 		font-size: 2em;
 		margin: 15% 0 2%;
 	}
 	
-	.view h3 {
+	#personajes .view h3 {
 		font-size: 1.4em;
 		margin: 0 auto 2%;
 	}
 	
-	.view-team p {
+	#personajes .view-team p {
 		font-size: 1.1em;
 	}
 	
-	.team-icon-bg {
-		margin: 1% auto;
+	#click .area-title {
+		margin-top: 0;
+		padding: 2% 0 2em;
 	}
 
-	.flip-container, .front, .back {
-		height: 350px;
+	#click .middle-row {
+		margin-top: 0;
 	}
 	
-	.team h3 {
-		padding: 2% 0 2%;
+	#click .row.button-container {
+		margin-top: 3em;
+		margin-bottom: 0;
 	}
-	
-	.team h4 {
-		padding: 0 0 10%;
-		width: 60%;
+
+	#click p {
+		font-size: 1.2em;
 	}
-	
+
+	#click .middle-row .video-container iframe {
+		height: 280px;
+	}
+
 	.social {
 		padding: 6% 0 0 0;
 	}
@@ -2455,15 +2513,21 @@
 		padding: 2% 0;
 	}
 	
-	textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-		height: 30px;
-		width: 260px;
+	#contact .subtitle-row h4 {
+    font-size: 1.5em;
+	}
+
+	#contact .wpcf7-form textarea {
+		height: calc(1.5em*3 + .75rem);
 	}
 	
-	.contact-data h3 {
-		font-size: 1.6em !important;
-		padding: 6% 0 2%;
-		line-height: 160%;
+	#contact .wpcf7-form input[type="submit"] {
+		font-size: 1.3em;
+	}
+
+	#contact .contact-row {
+		padding: 1em 0;
+    min-height: 125px;
 	}
 }
 
@@ -2471,7 +2535,18 @@
 
 /*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1280px --*/
 @media screen and (min-width: 1200px) and (max-width: 1280px) {	
-	
+	body {font-size: 13px;}
+	h1 {font-size: 7em;}
+	h2 {font-size: 3.4em;}
+	h3 {font-size: 2em;}
+	h4 {font-size: 1.2em;}
+	h5 {font-size: 1em;}
+	p {font-size: 13px;}
+
+	header#masthead {
+		min-height: 44px;
+	}
+
 	.bt-menu-trigger {
 		width: 45px;
 		height: 45px;
@@ -2483,12 +2558,27 @@
 		padding-top: 0;
 		margin-left: -6%;
 		width: 110%;
-	}	
+	}
 
-	#sequence .model {
+	h3.subtitle { 
+		font-size: 1.3em;
+	}
+
+	#intro #sequence {
+    height: 270px;
+	}
+
+	#intro #sequence p {
+		font-size: 1.5em;
+	}
+
+	#covid .content-title {
+		left: 8%;
+	}
+
+	/* #sequence .model {
 		left: 45%;
 		min-width: 42%;
-		/*prevents the model from shrinking when the browser is resized*/
 		width: 42%; 
 	}
 	
@@ -2500,7 +2590,7 @@
 	#sequence .animate-out .model {
 		left: 45%;
 		margin-left: -36%; 
-	}
+	} */
 	
 	.presentation h3 {
 		padding: 8% 0;
@@ -2510,11 +2600,61 @@
 		padding: 9% 0;
 	}
 	
-	.rating-img {
-		padding: 2% 0;
-		margin: 2% auto 0;
+	#award-carousel .slick-list {
+		max-width: 900px;
+}
+
+	#award-carousel .slick-list img {
+		max-height: 100px;
 	}
-	
+
+	#curriculo .area-title {
+		background-size: auto 176px;
+    padding: 1em 0 1em;
+    margin-top: 2em;
+	}
+
+	#curriculo .title-row, 
+	#curriculo .intro-row {
+    margin-bottom: 12em;
+	}
+
+	#curriculo .intro-row p,
+	#curriculo .bottom-row .section-extra {
+		font-size: 1.2em;
+	}
+
+	#curriculo .intro-row p {
+		width: 23%;
+		margin-left: 8em;
+	}
+
+	#curriculo .icon-container {
+		width: 125px;
+	}
+
+	#curriculo .icon-container .icon-image {
+		width: 125px;
+		height: auto;
+	}
+
+	#curriculo .icon-container .icon-text {
+		font-size: 0.8em;
+    letter-spacing: 1px;
+	}
+
+	#numeros .top-row h6, #numeros .bottom-row h6 {
+		font-size: 1.3em;
+	}
+
+	#numeros .top-row h3, #numeros .bottom-row h3 {
+		font-size: 4.5em;
+	}
+
+	#numeros .top-row p, #numeros .bottom-row p {
+		font-size: 1.1em;
+	}
+
 	.grid {
 		max-width: 1200px;
 		width: 76%;
@@ -2525,17 +2665,25 @@
 		margin: 0 1%;
 	}
 	
-	.cbp-ig-grid .cbp-ig-title {
+	/* .cbp-ig-grid .cbp-ig-title {
 		font-size: 2.2em;
-	}
+	} */
 	
 	.patches h3 {
 		padding: 8.5% 0;
 	}
 	
-	.cd-timeline-icon {
-		left: 51%;
+	#contiene #sequence {
+		height: 450px; 
 	}
+
+	#contiene #sequence .image img {
+    width: 550px;
+	}
+
+	/* .cd-timeline-icon {
+		left: 51%;
+	} */
 	
 	.price h3 {
 		padding: 8.5% 0;
@@ -2549,21 +2697,54 @@
 		margin: 4% auto;
 	}
 	
-	.cbp-qtprogress {
+	/* .cbp-qtprogress {
 		bottom: -140px;
 		left: 30%;
 		margin: 0 auto;
+	} */
+	
+	#personajes .personajes-carousel,
+	#personajes .personajes-carousel .slick-list {
+		max-width: 920px;
+		max-height: 420px;
 	}
-		
+
+	#about {
+		padding: 0 0 6% 0;
+	}
+	
+	#click .area-title {
+		margin-top: 0;
+		padding: 2% 0 2em;
+	}
+
+	#click .middle-row {
+		margin-top: 0;
+	}
+	
+	#click .row.button-container {
+		margin-top: 3em;
+		margin-bottom: 0;
+	}
+
 	.team-bg {
 		margin: 4% auto;
 		width: 90%;
 	}
 	
-	.flip-container, .front, .back {
+	/* .flip-container, .front, .back {
 		height: 400px;
-	}
+	} */
 	
+	#contact .wpcf7-form input[type="submit"] {
+		font-size: 1.3em;
+	}
+
+	#contact .contact-row {
+		padding: 1em 0;
+    min-height: 125px;
+	}
+
 	.social {
 		padding: 4.5% 0 0 0;
 	}
@@ -2572,8 +2753,51 @@
 
 
 /*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1366px --*/
-@media screen and (min-width: 1280px) and (max-width: 1366px) {	
-		
+@media screen and (min-width: 1280px) and (max-width: 1366px) {			
+	body {
+		font-size: 13px;
+	}
+
+	h1 {
+		font-size: 7em;
+	}
+
+	h2 {
+		font-size: 3.4em;
+	}
+
+	h3 {
+		font-size: 2em;
+	}
+
+	h4 {
+		font-size: 1.2em;
+	}
+
+	h5 {
+		font-size: 1em;
+	}
+
+	p {
+		font-size: 13px;
+	}
+
+	header#masthead {
+		min-height: 44px;
+	}
+
+	h3.subtitle { 
+		font-size: 1.3em;
+	}
+
+	#intro #sequence p {
+		font-size: 1.5em;
+	}
+
+	#covid .content-title {
+		left: 8%;
+	}
+
 	.bt-menu-trigger {
 		width: 45px;
 		height: 45px;
@@ -2591,28 +2815,11 @@
 		margin: 8% auto 0;
 	}
 
-	#sequence .model {
-		left: 45%;
-		min-width: 42%;
-		/*prevents the model from shrinking when the browser is resized*/
-		width: 42%; 
-	}
-	
-	#sequence .animate-in .model {
-		left: 45%;
-		margin-left: -35%; 
-	}
-	
-	#sequence .animate-out .model {
-		left: 45%;
-		margin-left: -36%; 
-	}
-	
 	.presentation h3 {
 		padding: 7% 0;
 	}
 	
-	.fast h3 {
+	/* .fast h3 {
 		font-size: 2em;
 		font-weight: 700;
 		color: #FFF;
@@ -2748,23 +2955,66 @@
 		padding-top: 32%;
 		left: 64%;
 		visibility: hidden;
-	}
+	} */
 	
 	.award h3 {
 		padding: 8.5% 0;
 	}
 	
-	.cbp-ig-grid li {
+	#award-carousel .slick-list {
+		max-width: 900px;
+}
+
+	#award-carousel .slick-list img {
+		max-height: 100px;
+	}
+
+	#curriculo .title-row, 
+	#curriculo .intro-row {
+    margin-bottom: 11em;
+	}
+
+	#curriculo .intro-row p,
+	#curriculo .bottom-row .section-extra {
+		font-size: 1.2em;
+	}
+
+	#curriculo .intro-row p {
+		margin-left: 6.5em;
+	}
+
+	#curriculo .icon-container {
+		width: 150px;
+	}
+
+	#curriculo .icon-container .icon-image {
+		width: 150px;
+		height: auto;
+	}
+
+	#curriculo .icon-container .icon-text {
+		font-size: 1.1em;
+	}
+
+
+	#numeros .top-row h6, #numeros .bottom-row h6 {
+		font-size: 1.3em;
+	}
+
+	#numeros .top-row h3, #numeros .bottom-row h3 {
+		font-size: 4.5em;
+	}
+
+	#numeros .top-row p, #numeros .bottom-row p {
+		font-size: 1.1em;
+	}
+
+	/* .cbp-ig-grid li {
 		height: 370px;
 	}
 	
 	.cbp-ig-icon {
 		padding: 35% 0 0;
-	}
-	
-	.rating-img {
-		padding: 1.5% 0;
-		margin: 1.5% auto 0;
 	}
 	
 	.grid {
@@ -2775,8 +3025,16 @@
 	.grid a {
 		width: 23%;
 		margin: 0.5% 1%;
-	}
+	} */
 	
+	#contiene #sequence {
+		height: 500px; 
+	}
+
+	#contiene #sequence .image img {
+    width: 600px;
+	}
+
 	.price h3 {
 		padding: 8.5% 0;
 	}
@@ -2785,16 +3043,39 @@
 		padding: 0 0 3%;
 	}
 	
+	#personajes .personajes-carousel,
+	#personajes .personajes-carousel .slick-list {
+		max-width: 920px;
+		max-height: 420px;
+	}
+
 	#about {
 		padding: 0 0 6% 0;
 	}
 	
+	#click .area-title {
+		margin-top: 0;
+	}
+
+	#click .middle-row {
+		margin-top: 0;
+	}
+	
+	#click .row.button-container {
+		margin-top: 3em;
+		margin-bottom: 3em;
+	}
+
 	.team h3 {
 		padding: 2% 0;
 	}
 	
 	.cbp-qtrotator footer {
 		margin: -7%;
+	}
+
+	#contact .wpcf7-form input[type="submit"] {
+		font-size: 1.5em;
 	}
 	
 	.contact-data h3 {
@@ -2811,7 +3092,7 @@
 	}
 
 	h1 {
-		font-size: 4em;
+		font-size: 7em;
 	}
 
 	h2 {
@@ -2831,7 +3112,7 @@
 	}
 
 	p {
-		font-size: 1.4em;
+		font-size: 13px;
 	}
 
 	.bt-menu-trigger {
@@ -2864,32 +3145,27 @@
 		margin: 4% 1% 8%;
 	}
 
-	#sequence .model {
-		left: 45%;
-		min-width: 42%;
-		/*prevents the model from shrinking when the browser is resized*/
-		width: 42%; 
+	header#masthead {
+		min-height: 44px;
 	}
-	
-	#sequence .animate-in .model {
-		left: 45%;
-		margin-left: -35%; 
+
+	h3.subtitle { 
+		font-size: 1.3em;
 	}
-	
-	#sequence .animate-out .model {
-		left: 45%;
-		margin-left: -36%; 
+
+	#intro #sequence p {
+		font-size: 1.5em;
 	}
-	
-	.presentation h3 {
-		padding: 6.7% 0;
-	}
-	
+
 	.area-title {
 		margin: 6% auto 3%;
 	}
 	
-	.device {
+	#covid .content-title {
+		left: 8%;
+	}
+
+	/* .device {
 		margin: 9% auto;
 	}
 	
@@ -3029,13 +3305,21 @@
 		padding-top: 32%;
 		left: 64%;
 		visibility: hidden;
-	}
+	} */
 	
 	.award h3 {
 		padding: 8.5% 0;
 	}
+
+	#award-carousel .slick-list {
+			max-width: 900px;
+	}
 	
-	.cbp-ig-grid {
+	#award-carousel .slick-list img {
+		max-height: 100px;
+	}
+
+	/* .cbp-ig-grid {
 		margin: 1% auto 0;
 	}
 	
@@ -3053,18 +3337,57 @@
 	
 	.cbp-ig-grid .cbp-ig-title {
 		font-size: 2.2em;
-	}
-	
+	}*/
+
 	.rating-img {
-		padding: 1.5% 0;
-		margin: 1.5% auto 0;
+		padding: 0;
+		margin: 0;
 	}
 	
 	#screens {
 		padding: 0 0 2% 0;
 	}
 	
-	.grid {
+	#curriculo .title-row, 
+	#curriculo .intro-row {
+    margin-bottom: 11em;
+	}
+
+	#curriculo .intro-row p,
+	#curriculo .bottom-row .section-extra {
+		font-size: 1.2em;
+	}
+
+	#curriculo .intro-row p {
+		margin-left: 8em;
+	}
+
+	#curriculo .icon-container {
+		width: 150px;
+	}
+
+	#curriculo .icon-container .icon-image {
+		width: 150px;
+		height: auto;
+	}
+
+	#curriculo .icon-container .icon-text {
+		font-size: 1.1em;
+	}
+
+	#numeros .top-row h6, #numeros .bottom-row h6 {
+		font-size: 1.3em;
+	}
+
+	#numeros .top-row h3, #numeros .bottom-row h3 {
+		font-size: 4.5em;
+	}
+
+	#numeros .top-row p, #numeros .bottom-row p {
+		font-size: 1.1em;
+	}
+
+	/* .grid {
 		max-width: 1280px;
 		width: 100%;
 		margin: 3% auto 6%;
@@ -3077,7 +3400,16 @@
 	.price h3 {
 		padding: 8.5% 0;
 	}
-	
+	 */
+
+	#contiene #sequence {
+		height: 500px; 
+	}
+
+	#contiene #sequence .image img {
+    width: 600px;
+	}
+
 	#plans {
 		padding: 0 0 3%;
 	}
@@ -3091,7 +3423,7 @@
 		font-size: 1.6em;
 	}
 	
-	.cbp-qtrotator .cbp-qtcontent {
+	/* .cbp-qtrotator .cbp-qtcontent {
 		margin-top: 3.5%;
 	}
 	
@@ -3108,13 +3440,27 @@
 		
 	.cbp-qtrotator footer {
 		margin: -4% auto;
-	}
+	} */
 	
+	#personajes .personajes-carousel,
+	#personajes .personajes-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#about {
 		height: auto;
 		padding: 0 0 6% 0;
 	}
 	
+	#click .middle-row {
+		margin-top: 0;
+	}
+	
+	#click .row.button-container {
+		margin-top: 3em;
+		margin-bottom: 3em;
+	}
+
 	.team-bg {
 		margin: 3% auto;
 	}
@@ -3131,6 +3477,10 @@
 		padding: 4%;
 	}
 	
+	#contact .wpcf7-form input[type="submit"] {
+		font-size: 1.5em;
+	}
+
 	.contact-data h3 {
 		padding: 5% 0;
 	}
@@ -3142,7 +3492,7 @@
 @media screen and (min-width: 1536px) and (max-width: 1680px) {	
 
 	body {
-		font-size: 13px;
+		font-size: 16px;
 	}
 
 	h1 {
@@ -3166,7 +3516,7 @@
 	}
 
 	p {
-		font-size: 1.4em;
+		font-size: 16px;
 	}
 
 	.bt-menu-trigger {
@@ -3374,11 +3724,6 @@
 		padding: 8.5% 0;
 	}
 	
-	.rating-img {
-		padding: 1.5% 0;
-		margin: 1.5% auto 0;
-	}
-	
 	.cbp-ig-grid {
 		margin: 1% auto 0;
 	}
@@ -3472,7 +3817,7 @@
 @media screen and (min-width: 1680px) and (max-width: 1800px) {	
 
 	body {
-		font-size: 13px;
+		font-size: 16px;
 	}
 
 	h1 {
@@ -3496,7 +3841,7 @@
 	}
 
 	p {
-		font-size: 1.4em;
+		font-size: 16px;
 	}
 
 	.bt-menu-trigger {
@@ -3708,11 +4053,6 @@
 		padding: 8.5% 0;
 	}
 	
-	.rating-img {
-		padding: 1.5% 0;
-		margin: 1.5% auto 0;
-	}
-	
 	.cbp-ig-grid {
 		margin: 1% auto 0;
 	}
@@ -3804,239 +4144,4 @@
 
 /* -- 14. NAVIGATION MEDIA QUERIES -- */
 @media screen and (max-height: 31.125em) {
-	.bt-menu ul li a:before {
-		font-size: 32px;
-	}
-}
-
-
-
-/*-- 15. FEATURES MEDIA QUERIES--*/
-@media screen and (max-width: 62.75em) {
-
-	/* reset the grid lines */
-	.cbp-ig-grid li:nth-child(-n+3){
-		border-top: none;
-	}
-
-	.cbp-ig-grid li:nth-child(3n-1),
-	.cbp-ig-grid li:nth-child(3n-2) {
-		box-shadow: none;
-	}
-
-	.cbp-ig-grid li:nth-child(-n+2){
-		border-top: none;
-	}
-
-	.cbp-ig-grid li:nth-child(2n-1) {
-		box-shadow: none;
-	}
-}
-
-@media screen and (max-width: 41.6em) { 
-
-	.cbp-ig-grid li:nth-child(-n+2){
-		border-top: none;
-	}
-
-	.cbp-ig-grid li:nth-child(2n-1) {
-		box-shadow: none
-	}
-
-	.cbp-ig-grid li:first-child {
-		border-top: none;
-	}
-}
-
-@media screen and (max-width: 25em) { 
-	.cbp-ig-grid {
-		font-size: 80%;
-	}
-
-	.cbp-ig-grid .cbp-ig-category {
-		margin-top: 20px;
-	}
-}
-
-
-
-/* -- 16. TIMELINE MEDIA QUERIES --*/
-@media only screen and (min-width: 1000px) {
-
-	#cd-timeline {
-		margin: 0 auto;
-	}
-
-	#cd-timeline::before {
-		left: 50%;
-		margin: 0 auto;
-	}
-}
-
-@media only screen and (min-width: 1000px) {
-
-	.cd-timeline-block { 
-		margin: 8% 0; 
-	}
-	
-	.cd-timeline-block:first-child { 
-		margin-top: 0; 
-	}
-
-	.cd-timeline-block:last-child { 
-		margin-bottom: 0; 
-	}
-}
-
-@media only screen and (min-width: 1000px) {
-
-	.cd-timeline-icon {
-		width: 100px;
-		height: 100px;
-		left: 50%;
-		margin-left: -4%;
-		/* Force Hardware Acceleration in WebKit */
-		-webkit-transform: translateZ(0);
-		-webkit-backface-visibility: hidden;
-	}
-
-	.cssanimations .cd-timeline-icon.is-hidden { 
-		visibility: hidden; 
-	}
-
-	.cssanimations .cd-timeline-icon.bounce-in {
-		visibility: visible !important;
-		-webkit-animation: cd-bounce-1 0.6s;
-		-moz-animation: cd-bounce-1 0.6s;
-		animation: cd-bounce-1 0.6s;
-	}
-
-	.cd-timeline-content {
-		position: relative;
-		margin: 0 auto;
-		background: #07B7AB;
-		padding: 5%;
-	}
-
-	.cd-timeline-content:before,
-	.cd-timeline-content:after {
-		content: " ";
-		display: table;
-	}
-
-	.cd-timeline-content:after { 
-		clear: both; 
-	}
-
-	.cd-timeline-content .cd-date { 
-		display:	inline-block; 
-	}
-
-	.cd-timeline-content p {
-		line-height: 130%;
-	}
-
-	.no-touch .cd-timeline-content .cd-read-more:hover { 
-		background-color: #3D3E45; 
-	}
-
-	.cd-timeline-content .cd-date {
-		float: left;
-		padding: 2% 0;
-		opacity: .7;
-	}
-
-	.cd-timeline-content::before {
-		content: '';
-		position: absolute;
-		top: 6%;
-		right: 100%;
-		height: 0;
-		width: 0;
-		border: 7px solid transparent;
-		border-right: 7px solid #07B7AB;
-	}
-}
-
-@media only screen and (min-width: 768px) {
-
-	.cd-timeline-content h2 {
-		font-size: 2.2em;
-		font-weight: 600;
-		color: #FFF;
-	}
-
-	.cd-timeline-content p {
-		font-size: 1.2em;
-		padding: 0 3%;
-	}
-
-	.cd-timeline-content ul {
-		font-size: 1.2em;
-		color: #FFF;
-		margin: 3% 6% 0;
-	}
-
-	.cd-timeline-content .cd-date {
-	  font-size: 1.2em;
-	}
-}
-
-@media only screen and (min-width: 1000px) {
-
-	.cd-timeline-content {
-		margin-left: 0;
-		padding: 2% 1%;
-		width: 40%;
-	}
-
-	.cd-timeline-content::before {
-		top: 25%;
-		left: 100%;
-		border-color: transparent;
-		border-left-color: #07B7AB;
-	}
-
-	.cd-timeline-content .cd-date {
-		position: absolute;
-		width: 100%;
-		left: 140%;
-		top: 17%;
-		font-size: 1.6em;
-		font-weight: 700;
-	}
-
-	.cd-timeline-block:nth-child(even) .cd-timeline-content { 
-		float: right; 
-	}
-
-	.cd-timeline-block:nth-child(even) .cd-timeline-content::before {
-		top: 25%;
-		left: auto;
-		right: 100%;
-		border-color: transparent;
-		border-right-color: #07B7AB;
-	}
-
-	.cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more { 
-		float: right; 
-	}
-
-	.cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
-		left: auto;
-		right: 135%;
-		top: 20%;
-		text-align: right;
-	}
-
-	.cssanimations .cd-timeline-content.is-hidden { 
-		visibility: hidden; 
-	}
-
-	.cssanimations .cd-timeline-content.bounce-in {
-		visibility: visible;
-		-webkit-animation: cd-bounce-2 0.6s;
-		-moz-animation: cd-bounce-2 0.6s;
-		animation: cd-bounce-2 0.6s;
-	}
-}
+	.bt-
