@@ -205,14 +205,14 @@ function laaldea_promo_handler() {
 			"email" => $email,
 			"name" => $name,
 			"organization" => $organization,
-			"organization" => $location,
-			"organization" => $use,
+			"location" => $location,
+			"use" => $use,
 		);
 				
 		$wpdb->insert( $table_name, $data);
 
 		//Trigger download
-		$file = "https://laaldea.co/wp-content/uploads/2020/03/Ref-1.-Mail-completar-pago-en-efectivo-Click.pdf";
+		$file = "https://laaldea.co/wp-content/uploads/La-Aldea-Historias-para-estar-en-casa.pdf";
 		
 		header('Content-Type: application/pdf');
 		header('Content-Disposition: attachment; filename="' . $file . '"');

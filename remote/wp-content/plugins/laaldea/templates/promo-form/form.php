@@ -7,12 +7,12 @@
       </div>
     </div>
     <div class="row subtitle-row">
-      <div class="col-8 offset-lg-2">
+      <div class="col-xl-8 offset-lg-2 col-md-10 offset-md-1 col-xs-12">
         <h4>¡Es muy importante para nosotros saber quién aprovechará este material pedagógico! Te pediremos algunos datos:</h4>
       </div>
     </div>
     <div class="row">
-      <div class="col-6 offset-lg-3">
+      <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 col-xs-12">
         <div class="covid-form-section">
           <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="laaldea-form">
             <div class="name-container input-container half-width">

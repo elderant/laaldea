@@ -78,6 +78,14 @@ add_filter( 'the_content_more_link', 'filter_the_content_more_link', 10, 2 );
 
 /******************** App functinality ********************/ 
 /**
+ * Reescribe el tamaño maximo de los archivos a subir
+ */
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
+
+/**
  * Login Route
  */
 add_action(

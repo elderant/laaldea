@@ -273,14 +273,14 @@ h3.subtitle {
 
 #covid .row .issuu iframe {
 	border:none;
-	width:700px;
-	height:500px;
+	width:900px;
+	height:700px;
 }
 
 #covid .content-title {
 	position: absolute;
 	top: 50%;
-	left: 15%;
+	left: 10%;
 	width: 200px;
 	height: 20px;
 	color: white;
@@ -303,8 +303,8 @@ h3.subtitle {
 }
 
 #covid .row .video iframe {
-	width: 700px;
-	height: 500px;
+	width: 900px;
+	height: 700px;
 }
 
 #covid .text-container img {

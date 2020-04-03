@@ -571,6 +571,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 .page-id-35 .covid-form-section input {
 	width: 100%;
+	max-width: 800px;
 	border: none;
 	border-radius: 8px;
 	padding: 0.2em 2em;
@@ -578,6 +579,15 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	line-height: 2;
 	font-size: 1.2em;
 	font-family: sassoon;
+}
+
+.page-id-35 .covid-form-section div.half-width input {
+	max-width: 600px;
+}
+
+.page-id-35 .covid-form-section div.full-width input,
+.page-id-35 .covid-form-section div.full-width textarea {
+	max-width: 1000px;
 }
 
 .page-id-35 .covid-form-section input:focus {
@@ -618,4 +628,74 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 .page-id-35 .covid-form-section input[type="submit"]:hover {
 	background-color: #615D3B;
+}
+
+@media (min-width : 1441px) {}
+
+@media (min-width : 1281px) and (max-width : 1440px) {}
+
+@media (min-width : 1024px) and (max-width : 1280px) {}
+
+@media (min-width : 768px) and (max-width:  1023px) {
+	.page-id-35 .covid-form-section input {
+		font-size: 1em;
+	}
+}
+
+@media (min-width : 601px) and (max-width : 767px) {
+	h4 {
+		font-size: 1.5em;
+	}
+	
+	.page-id-35 #covid {
+		padding: 0 5px 1em;
+	}
+
+	.page-id-35 .covid-form-section div.half-width {
+		width: 100%;
+	}
+
+	.page-id-35 .covid-form-section div.half-width input {
+		max-width: unset;
+	}
+}
+
+@media (min-width : 480px) and (max-width : 600px) {
+	h4 {
+		font-size: 1.5em;
+	}
+	
+	.page-id-35 #covid {
+		padding: 0 5px 1em;
+	}
+
+	.page-id-35 .covid-form-section div.half-width {
+		width: 100%;
+	}
+
+	.page-id-35 .covid-form-section div.half-width input {
+		max-width: unset;
+	}
+}
+
+@media (max-width : 479px) {
+	h4 {
+		font-size: 1.5em;
+	}
+	
+	.page-id-35 #covid {
+		padding: 0 5px 1em;
+	}
+
+	.page-id-35 .covid-form-section div.half-width {
+		width: 100%;
+	}
+
+	.page-id-35 .covid-form-section div.half-width input {
+		max-width: unset;
+	}
+
+	.page-id-35 .covid-form-section input {
+		font-size: 1em;
+	}
 }
