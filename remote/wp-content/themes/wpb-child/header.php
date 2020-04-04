@@ -44,7 +44,7 @@
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
     <header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container-fluid">
-            <nav class="navbar fixed-top navbar-collapse p-0 d-lg-none d-md-block">
+            <nav class="navbar fixed-top navbar-collapse p-0 d-lg-none d-block">
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -63,7 +63,7 @@
                 ));
                 ?>
             </nav>
-            <nav class="navbar secondary navbar-collapse navbar-expand-sm">
+            <nav class="navbar secondary navbar-collapse navbar-expand-sm d-lg-block d-none">
                 <!-- <div class="navbar-brand">
                     <a href="<?php /*echo esc_url( home_url( '/' ));*/ ?>">
                         <img src="<?php /*echo esc_url(get_theme_mod( 'wp_bootstrap_starter_logo' ));*/ ?>" alt="<?php /*echo esc_attr( get_bloginfo( 'name' ) ); */?>">
@@ -75,7 +75,7 @@
                 'theme_location'    => 'secondary-menu',
                 'container'       => 'div',
                 'container_id'    => 'secondary-nav',
-                'container_class' => 'collapse navbar-collapse justify-content-end',
+                'container_class' => 'collapse navbar-collapse justify-content-center',
                 'menu_id'         => false,
                 'menu_class'      => 'navbar-nav secondary',
                 'depth'           => 3,

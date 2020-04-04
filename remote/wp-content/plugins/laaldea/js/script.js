@@ -1,21 +1,25 @@
 ( function( $ ) {
   var laadea_validate_promo_form_jquery = function() {
-    let $form = $('.page-id-35 .promo-form-section .laaldea-form');
+    let $form = $('.page-id-35 .covid-form-section .laaldea-form');
     let $inputs = $form.find('input:not([type="submit"]), select');
 
     $form.validate({
       rules: {
-        promo_first_name: "required",
-        promo_last_name: "required",
-        promo_email: {
+        form_name: "required",
+        form_organization: "required",
+        form_location: "required",
+        form_use: "required",
+        form_email: {
           required: true,
           email: true,
         },
       },
       messages: {
-        promo_first_name: "Este campo es requerido.",
-        promo_last_name: "Este campo es requerido.",
-        promo_email: {
+        form_name: "Este campo es requerido.",
+        form_organization: "Este campo es requerido.",
+        form_location: "Este campo es requerido.",
+        form_use: "Este campo es requerido.",
+        form_email: {
           required: "Este campo es requerido.",
           email: "Ingrese un correo electrónico valido",
         },

@@ -244,7 +244,7 @@ h3.subtitle {
 	font-weight: 400;
 	text-align: center;
 	background-image: url(/wp-content/uploads/covid-title-background.png);
-	background-size: 580px auto;
+	background-size: auto 134px;
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow: visible;
@@ -255,9 +255,7 @@ h3.subtitle {
 
 #covid .area-title h3.title-tag {
 	color: white;
-	font-size: 1.4em;
 	margin: 0;
-	font-size: 3.5em;
 }
 
 #covid .section-intro {
@@ -291,6 +289,10 @@ h3.subtitle {
 	transform: translate(0,-50%) rotate(-90deg);
 }
 
+#covid .download-button-container h4 {
+	margin-bottom: 1em;
+}
+
 #covid .download-button {
 	border: none;
 	background-color: var(--yellow);
@@ -300,6 +302,14 @@ h3.subtitle {
 	font-size: 2.2em;
 	padding: 0.4em 0.4em;
 	border-radius: 8px;
+}
+
+#covid .download-button[disabled] {
+	margin-top: 1em;
+	color: darkgray;
+	background-color: #615D3B;
+	pointer-events: none;
+	cursor: default;
 }
 
 #covid .row .video iframe {
@@ -394,7 +404,6 @@ h3.subtitle {
 	color: var(--white);
 	font-weight: 400;
 	text-align: center;
-	font-size: 3.5em;
 }
 
 #aldea .middle-row {
@@ -410,6 +419,12 @@ h3.subtitle {
 #aldea .image-container {
 	display: flex;
 	align-items: center;
+}
+
+#aldea .image-container iframe {
+	width: 560px;
+	height: 315px;
+	margin: 0 auto;
 }
 
 #aldea .button-container {
@@ -446,6 +461,12 @@ h3.subtitle {
 }
 
 #rating h5 {
+	text-align: left;
+	max-width: 400px;
+	padding: 1.8% 0;
+}
+
+#rating h3 {
 	text-align: left;
 	max-width: 400px;
 	padding: 1.8% 0;
@@ -492,7 +513,7 @@ h3.subtitle {
 #curriculo .area-title h3.title-tag {
 	display: inline-block;
 	color: white;
-	font-size: 3.5em;
+	/* font-size: 3.5em; */
 	width: 700px;
 	margin: 0;
 }
@@ -543,13 +564,6 @@ h3.subtitle {
 	transition: transform 1.8s, opacity 0s 0.5s; */
 }
 
-#curriculo .icon-container.math .icon-text,
-#curriculo .icon-container.skills .icon-text,
-#curriculo .icon-container.mindfulness .icon-text,
-#curriculo .bottom-row .icon-container .icon-text {
-	/* font-size: 1.5em; */
-}
-
 #curriculo .bottom-row .icon-container {
 	margin: 0.5em 2em;
 }
@@ -557,6 +571,14 @@ h3.subtitle {
 #curriculo .icon-container:hover .icon-text {
 	transform: rotate3d(0, 1, 0, 0deg);
 	opacity: 1;
+}
+
+#curriculo .bottom-row .icon-column {
+	order: 1;
+}
+
+#curriculo .bottom-row .text-column {
+	order: 2;
 }
 
 #curriculo .bottom-row .section-extra {
@@ -602,7 +624,6 @@ h3.subtitle {
 	color: var(--purple);
 	font-weight: 400;
 	text-align: center;
-	font-size: 3.5em;
 }
 
 #numeros .top-row .first-row-lg,
@@ -676,11 +697,6 @@ h3.subtitle {
 	font-family: titan_one;
 	font-weight: 400;
 	text-align: center;
-	font-size: 3.5em;
-}
-
-#contiene .area-title h3 {
-	font-size: inherit;
 }
 
 #contiene .section-subtitle {
@@ -869,11 +885,6 @@ h3.subtitle {
 	overflow: visible;
 	font-family: titan_one;
 	text-align: center;
-	font-size: 3.5em;
-}
-
-#personajes .area-title h3 {
-	font-size: inherit;
 }
 
 #personajes .view {
@@ -1082,6 +1093,7 @@ h3.subtitle {
 #click .middle-row .video-container iframe {
 	width: 640px;
 	height: 360px;
+	margin: 0 auto;
 }
 
 #click p {
@@ -1112,7 +1124,6 @@ h3.subtitle {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	min-height: 200px;
 }
 
 #click-separator .social-row {
@@ -1142,7 +1153,6 @@ h3.subtitle {
 }
 
 #contact .area-title h3 {
-	font-size: 3.5em;
 	color: inherit;
 	margin: 0;
 	padding: 0;
@@ -1154,7 +1164,6 @@ h3.subtitle {
 
 #contact .subtitle-row h4 {
 	text-align: center;
-	font-size: 2.05em;
 }
 
 /* Form */

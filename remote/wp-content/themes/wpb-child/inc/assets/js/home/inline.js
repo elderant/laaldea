@@ -52,7 +52,8 @@ $(document).ready(function() {
 	$('.award-carousel').slick({
 		infinite: true,
 		speed: 300,
-		slidesToShow: 5,
+		slidesToShow: 4,
+		slidesToScroll: 2,
 		autoplay: true,
 		autoplaySpeed: 2000,
 		variableWidth: true,
@@ -61,11 +62,42 @@ $(document).ready(function() {
 	});
 
 	$('.personajes-carousel').slick({
-		infinite: true,
+		infinite: false,
 		speed: 300,
-		slidesToShow: 3,
+		slidesToShow: 4,
+		slidesToScroll: 4,
 		prevArrow: '#personajes .slick-prev',
 		nextArrow: '#personajes .slick-next',
+		variableWidth: true,
+		responsive: [
+			{
+				breakpoint: 1367,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: false,
+					variableWidth: true,
+				}
+			},
+			{
+				breakpoint: 730,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					infinite: false,
+					variableWidth: true,
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: false,
+					variableWidth: true,
+				}
+			},
+		],
 	});
 });
 

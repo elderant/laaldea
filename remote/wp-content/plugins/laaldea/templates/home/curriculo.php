@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row icon-row">
-      <div class="col-10 offset-lg-1 d-flex justify-content-between align-items-start">
+      <div class="col-lg-10 col-12 offset-lg-1 d-flex justify-content-around align-items-start flex-wrap">
         <div class="icon-container language">
           <img class="icon-image" src="/wp-content/uploads/curriculo-lenguaje-icono.png" alt="Language icon">
           <div class="icon-text">Lenguaje</div>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="row bottom-row">
-      <div class="col-6 d-flex justify-content-center align-items-start flex-wrap">
+      <div class="col-lg-6 col-md-8 col-12 d-flex justify-content-center justify-content-sm-between justify-content-md-center align-items-start flex-wrap icon-column">
         <div class="icon-container language">
           <img class="icon-image" src="/wp-content/uploads/curriculo-formal-icono.png" alt="Formal education icon">
           <div class="icon-text">Educación formal</div>
@@ -63,7 +63,7 @@
           <div class="icon-text">Educación en emergencia</div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-4 col-12 text-column">
         <p class="section-extra">Además, es una estrategia de educación flexible que puede ser usada en diferentes contextos:</p>
       </div>
     </div>

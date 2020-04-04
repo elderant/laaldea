@@ -181,7 +181,9 @@ function laaldea_promo_handler() {
 		}
 	
 		if(!empty($error) && $error) {
-			wp_redirect('/promo-from/');
+			set_transient( 'laaldea_activation_error', $laaldea_activation_error, MINUTE_IN_SECONDS );
+			//error_log(print_r($laaldea_activation_error,1));
+			wp_redirect('/especial-covid/');
 			return;
 		}
 
@@ -201,14 +203,19 @@ function laaldea_promo_handler() {
 		//add row to custom table
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}aldea_promo";
+		// $data = array(
+		// 	"email" => $email,
+		// 	"name" => $name,
+		// 	"organization" => $organization,
+		// 	"location" => $location,
+		// 	"use" => $use,
+		// );
+			
 		$data = array(
 			"email" => $email,
-			"name" => $name,
-			"organization" => $organization,
-			"location" => $location,
-			"use" => $use,
+			"name_first" => $name,
 		);
-				
+
 		$wpdb->insert( $table_name, $data);
 
 		//Trigger download
@@ -217,6 +224,8 @@ function laaldea_promo_handler() {
 		header('Content-Type: application/pdf');
 		header('Content-Disposition: attachment; filename="' . $file . '"');
 		readfile($file);
+
+		//wp_redirect('/wp-content/uploads/La-Aldea-Historias-para-estar-en-casa.pdf');
 	}
 
 	return;

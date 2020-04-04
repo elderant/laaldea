@@ -8,18 +8,18 @@
       </div>
     </div>
     <div class="row subtitle-row">
-      <div class="col-8 offset-lg-2">
+      <div class="col-8 offset-2">
         <h4>¿Quieres saber más de nosotros?</h4>
         <h4>¿Quieres llevar La Aldea a tu comunidad?</h4>
       </div>
     </div>
     <div class="row aldea-form-row">
-      <div class="col-6 offset-lg-3 text-container">
+      <div class="col-8 offset-2 text-container">
         <?php echo do_shortcode('[contact-form-7 id="198" title="home contact form"]'); ?>
       </div>
     </div>
     <div class="row contact-row">
-      <div class="col-10 offset-lg-1 d-flex justify-content-center align-items-center">
+      <div class="col-lg-10 col-12 offset-lg-1 d-flex justify-content-center align-items-center flex-sm-row flex-column flex-wrap">
         <div class="contact-info phone d-flex">
           <i class="fas fa-phone"></i>
           <a href="callto:+5716917191" class="d-none-sm d-none d-lg-block">+57 1 6917191</a>

@@ -1,4 +1,4 @@
-
+<?php $error = get_transient( 'laaldea_activation_error' ); ?>
 <div id="covid">
   <div class="container-fluid">
     <div class="row">

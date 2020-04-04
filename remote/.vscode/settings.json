@@ -17,7 +17,7 @@
               ],
 
               "deployOnSave": [ "laaldeaWebpage" ],
-              "syncWhenOpen": "laaldeaWebpage",
+              //"syncWhenOpen": "laaldeaWebpage",
           }
       ],
 

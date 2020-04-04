@@ -9,12 +9,12 @@
       </div>
     </div>
     <div class="row middle-row">
-      <div class="col-5 offset-lg-1 text-container">
+      <div class="col-lg-5 col-md-6 col-12 offset-lg-1 text-container">
         <p>Somos Click, una agencia de pedagogía dedicada a imaginar nuevas formas de aprender e implementar proyectos de educación. A través del arte, el diseño y la pedagogía, nuestros productos y herramientas abren conversaciones para que niños y adultos puedan indagar sobre ellos mismos y reflexionar sobre el mundo que los rodea.</p>
         <p>A través de nuestros libros, juegos y recursos digitales, hemos impactado a más de 50.000 estudiantes e inspirado a 700 docentes, en más de 200 instituciones educativas en México y Colombia.</p>
       </div>
-      <div class="col-4 offset-lg-1 video-container">
-        <iframe src="https://player.vimeo.com/video/293374432" width="640" height="360" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+      <div class="col-lg-4 col-md-6 col-12 offset-lg-1 video-container">
+        <iframe src="https://player.vimeo.com/video/293374432" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
       </div>
     </div>
     <div class="row button-container">

@@ -1,7 +1,7 @@
 <div id="award">
   <div class="award container-fluid">
     <div class="row title-row">
-      <div class="col-10 offset-lg-1">
+      <div class="col-lg-10 col-12 offset-lg-1">
         <h6>Los aliados de La Aldea</h6>
       </div>
     </div>

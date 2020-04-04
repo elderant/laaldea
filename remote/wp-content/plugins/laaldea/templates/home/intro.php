@@ -1,6 +1,6 @@
 <div id="intro">
 	<section class="container-fluid ss-style-doublediagonal">
-    <div class="row">
+    <div class="row first-row">
       <div class="col-12">
         <div class="description animated bounceIn">
           <h1 class="capitalized">La aldea</h1>
