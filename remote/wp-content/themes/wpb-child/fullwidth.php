@@ -3,7 +3,8 @@
 * Template Name: Full Width
  */
 
-get_header(); ?>
+get_header('fullwidth'); 
+error_log('retreiving full width header');?>
 
 	<section id="primary" class="content-area col-sm-12">
 		<main id="main" class="site-main" role="main">

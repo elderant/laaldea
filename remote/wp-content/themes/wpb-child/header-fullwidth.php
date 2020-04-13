@@ -112,6 +112,6 @@
         </div>
     <?php endif; ?>
 	<div id="content" class="site-content">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
                 <?php endif; ?>

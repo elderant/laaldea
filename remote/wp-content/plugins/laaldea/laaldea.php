@@ -203,29 +203,27 @@ function laaldea_promo_handler() {
 		//add row to custom table
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}aldea_promo";
-		// $data = array(
-		// 	"email" => $email,
-		// 	"name" => $name,
-		// 	"organization" => $organization,
-		// 	"location" => $location,
-		// 	"use" => $use,
-		// );
-			
 		$data = array(
 			"email" => $email,
-			"name_first" => $name,
+			"name" => $name,
+			"organization" => $organization,
+			"location" => $location,
+			"use" => $use,
 		);
+			
+		// $data = array(
+		// 	"email" => $email,
+		// 	"name_first" => $name,
+		// );
 
 		$wpdb->insert( $table_name, $data);
 
 		//Trigger download
-		$file = "https://laaldea.co/wp-content/uploads/La-Aldea-Historias-para-estar-en-casa.pdf";
+		$file = "https://laaldea.co/wp-content/uploads/EspecialCovid.zip";
 		
 		header('Content-Type: application/pdf');
 		header('Content-Disposition: attachment; filename="' . $file . '"');
 		readfile($file);
-
-		//wp_redirect('/wp-content/uploads/La-Aldea-Historias-para-estar-en-casa.pdf');
 	}
 
 	return;

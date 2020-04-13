@@ -22,8 +22,8 @@
     <div class="row">
       <div class="col-12">
         <div class="download-button-container">
-          <h4>Descarga disponible a partir del 4 de abril</h4>
-          <a href="/especial-covid" class="download-button capitalized" rel="next" disabled>Descarga aquí</a>
+          <!-- <h4>Descarga disponible a partir del 4 de abril</h4> -->
+          <a href="/especial-covid" class="download-button" rel="next">Descarga los contenidos acá</a>
         </div>
       </div>
     </div>

@@ -233,6 +233,22 @@ a:hover, a:focus  {
 	font-style: italic;
 }
 
+.justify {
+	text-align: justify;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.letter-list {
+	list-style: lower-alpha;
+}
+
+.disc-list {
+	list-style: disc;
+}
+
 /******************** Shared ********************/
 
 /* shared : header */
@@ -732,4 +748,86 @@ header#masthead .navbar.secondary ul > li > a:focus {
 		font-size: 1.1em;
 		padding: 0.2em 1em;
 	}
+}
+
+
+/**** Politica de privaciad ****/
+body.page-id-58,
+body.page-id-58 h1,
+body.page-id-58 h2,
+body.page-id-58 h3,
+body.page-id-58 h4,
+body.page-id-58 h5 {
+	color: var(--black);
+	font-family: sassoon;
+}
+
+body.page-id-58,
+body.page-id-58 p {
+	font-size: 14px;
+}
+
+body.page-id-58 h1 {
+	font-size: 2em;
+}
+
+body.page-id-58 h2 {
+	text-align: left;
+	font-size: 1.2em;
+	margin: 1.5em 0 1em;
+}
+
+body.page-id-58 p {
+	margin-bottom: 0.5em;
+	margin-top: 0;
+}
+
+body.page-id-58 span.element-title {
+	display: block;
+	text-transform: uppercase;
+	margin: 1em 0 0.5em;
+}
+
+body.page-id-58 .main-list h2 {
+	display: inline-block;
+}
+
+body.page-id-58 .main-list {
+	counter-reset: counter;
+	list-style: none;
+	padding-left: 40px;
+}
+
+body.page-id-58 .main-list > li {
+	counter-increment: counter;
+	margin-top: 0.5em;
+}
+
+body.page-id-58 .main-list > li::before {
+	content: counter(counter);
+	margin-right: 1em;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+body.page-id-58 ul {
+	margin-bottom: 1em;
+}
+
+body.page-id-58 .main-list ul,
+body.page-id-58 .main-list ol {
+	padding-left: 2em;
+}
+
+.page-id-58 .site-content {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.page-id-58 .entry-header {
+	display: none;
+}
+
+.page-id-58 p {
+	color: var(--black);
 }
