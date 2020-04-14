@@ -117,6 +117,12 @@ function laaldea_build_home_html () {
 	$template_url = laaldea_load_template('personajes-separator.php', 'home');
 	load_template($template_url, true);
 
+	$template_url = laaldea_load_template('click-team.php', 'home');
+	load_template($template_url, true);
+	
+	$template_url = laaldea_load_template('click-team-separator.php', 'home');
+	load_template($template_url, true);
+
 	$template_url = laaldea_load_template('click.php', 'home');
 	load_template($template_url, true);
 

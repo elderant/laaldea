@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="area-title">
-          <h3>Imaginado por:</h3>
+          <h3>¿Qué es Click?</h3>
           <h5>Click Arte Agencia de pedagogía</h5>
         </div>
       </div>

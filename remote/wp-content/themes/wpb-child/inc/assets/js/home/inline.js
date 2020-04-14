@@ -99,6 +99,28 @@ $(document).ready(function() {
 			},
 		],
 	});
+
+	$('.team-carousel').slick({
+		infinite: false,
+		speed: 300,
+		slidesToShow: 3,
+		slidesToScroll: 2,
+		prevArrow: '#click-team .slick-prev',
+		nextArrow: '#click-team .slick-next',
+		variableWidth: true,
+		responsive: [
+			{
+				breakpoint: 700,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: false,
+					variableWidth: true,
+				}
+			},
+		],
+	});
+
 });
 
 
@@ -157,38 +179,43 @@ $(window).scroll(function () {
 	}
 		
 	$('.presentation img').each(_checkOffset('animated fadeInDown'));
-	$('.device').each(_checkOffset('animated flipInX'));
-	$('.arrow-fast').each(_checkOffset('animated bounceInLeft'));
-	$('.fast h3').each(_checkOffset('animated bounceInLeft'));
-	$('.arrow-intuitive').each(_checkOffset('animated bounceInLeft'));
-	$('.intuitive h3').each(_checkOffset('animated bounceInLeft'));
-	$('.arrow-simple').each(_checkOffset('animated bounceInLeft'));
-	$('.simple h3').each(_checkOffset('animated bounceInLeft'));
-	$('.arrow-secure').each(_checkOffset('animated bounceInRight'));
-	$('.secure h3').each(_checkOffset('animated bounceInRight'));
-	$('.arrow-awesome').each(_checkOffset('animated bounceInRight'));
-	$('.awesome h3').each(_checkOffset('animated bounceInRight'));
-	$('.arrow-free').each(_checkOffset('animated bounceInRight'));
-	$('.free h3').each(_checkOffset('animated bounceInRight'));
-	$('.award h3').each(_checkOffset('animated fadeInDown'));
-	$('.cbp-ig-grid li').each(_checkOffset('animated fadeIn'));
+	$('#award .award').each(_checkOffset('animated fadeInDown'));
 	$('.rating').each(_checkOffset('animated fadeInDown'));
-	$('.grid figure').each(_checkOffset('animated fadeIn'));
 	$('.patches h4').each(_checkOffset('animated fadeInDown'));	
 	$('#numeros .first-row-lg').each(_checkOffset('animated fadeInLeft'));
 	$('#numeros .second-row-lg').each(_checkOffset('animated fadeInRight'));
 	$('.price h4').each(_checkOffset('animated fadeInDown'));	
 	$('#contiene #sequence').each(_checkOffset('animated fadeInDown'));
-	$('.cd-timeline-icon').each(_checkOffset('animated bounce-in'));
-	$('.cd-timeline-content').each(_checkOffset('animated bounce-in'));			
-	$('.plans').each(_checkOffset('animated fadeIn'));
-	$('.cbp-qtrotator').each(_checkOffset('animated fadeInDown'));
 	$('#contiene-separator h4').each(_checkOffset('animated fadeInDown'));	
 	$('.view').each(_checkOffset('animated fadeIn'));
-	$('.front').each(_checkOffset('animated fadeIn'));
-	$('.social').each(_checkOffset('animated fadeInDown'));	
+	$('#personajes-separator h4').each(_checkOffset('animated fadeInDown'));	
+	$('#click-team .team').each(_checkOffset('animated fadeIn'));
+	$('#click-team-separator h4').each(_checkOffset('animated fadeInDown'));	
+	$('.click-separator img').each(_checkOffset('animated fadeInDown'));	
 	$('#contact .aldea-form-row').each(_checkOffset('animated bounceIn'));	
-	$('#map').each(_checkOffset('animated fadeIn'));		
+
+	// $('.device').each(_checkOffset('animated flipInX'));
+	// $('.arrow-fast').each(_checkOffset('animated bounceInLeft'));
+	// $('.fast h3').each(_checkOffset('animated bounceInLeft'));
+	// $('.arrow-intuitive').each(_checkOffset('animated bounceInLeft'));
+	// $('.intuitive h3').each(_checkOffset('animated bounceInLeft'));
+	// $('.arrow-simple').each(_checkOffset('animated bounceInLeft'));
+	// $('.simple h3').each(_checkOffset('animated bounceInLeft'));
+	// $('.arrow-secure').each(_checkOffset('animated bounceInRight'));
+	// $('.secure h3').each(_checkOffset('animated bounceInRight'));
+	// $('.arrow-awesome').each(_checkOffset('animated bounceInRight'));
+	// $('.awesome h3').each(_checkOffset('animated bounceInRight'));
+	// $('.arrow-free').each(_checkOffset('animated bounceInRight'));
+	// $('.free h3').each(_checkOffset('animated bounceInRight'));
+	// $('.cbp-ig-grid li').each(_checkOffset('animated fadeIn'));
+	// $('.grid figure').each(_checkOffset('animated fadeIn'));
+	// $('.cd-timeline-icon').each(_checkOffset('animated bounce-in'));
+	// $('.cd-timeline-content').each(_checkOffset('animated bounce-in'));			
+	// $('.plans').each(_checkOffset('animated fadeIn'));
+	// $('.cbp-qtrotator').each(_checkOffset('animated fadeInDown'));
+	// $('.front').each(_checkOffset('animated fadeIn'));
+	// $('.social').each(_checkOffset('animated fadeInDown'));	
+	// $('#map').each(_checkOffset('animated fadeIn'));		
 });
 	
 	

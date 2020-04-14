@@ -1,22 +1,23 @@
 /*****************************************************
- 1. GENERAL (BODY, IMAGES & TEXT) code (line 25)
- 2. NAVIGATION code (line 149) 
- 3. INTRO AREA code (line 354)
- 4. PRESENTATION AREA code (line 659)
- 5. OVERVIEW AREA code (line 677)
- 6. AWARD AREA code (line 856)
- 7. FEATURES AREA code (line 884)
- 8. RATING AREA code (line 1036)
- 9. SCREENS AREA code (line 1066)
-10. PATCHES AREA code (line 1175)
-11. UPDATES AREA code (line 1193)
-12. PRICE AREA code (line 1292)
-13. PLANS AREA code (line 1310)
-14. TESTIMONIALS AREA code (line 1439)
-15. ABOUT (OUR TEAM) AREA code (line 1517)
-16. SOCIAL AREA code (line 1659)
-17. CONTACT AREA code (line 1693)
-18. FOOTER AREA code (line 1840)
+ 1. GENERAL (BODY, IMAGES & TEXT) code (Moved to theme style.css)
+ 2. NAVIGATION code (Moved to theme style.css) 
+ 3. INTRO AREA code (line 25)
+ 4. FIRST SEPARATOR AREA code (line 210)
+ 5. COVID AREA code (line 228)
+ 6. SECOND SEPARATOR AREA code (line 336)
+ 7. LA ALDEA AREA code (line 389)
+ 8. THIRD SEPARATOR AREA code (line 447)
+ 9. CURRICULO AREA code (line 475)
+10. FOURTH SEPARATOR AREA code (line 591)
+11. NUMEROS AREA code (line 608)
+12. FIFTH SEPARATOR AREA code (line 665)
+13. UNIVERSO AREA code (line 681)
+14. SIXTH SEPARATOR AREA code (line 855)
+15. PERSONAJES AREA code (line 871)
+16. SEVENTH SEPARATOR AREA code (line 1040)
+17. CLICK AREA code (line 1055)
+18. EIGHT SEPARATOR AREA code (line 1840)
+19. CONTACT AREA (Line)
 --
 19. UNCOMMENT IF YOU WANT TO REMOVE ELEMENTS' ANIMATION (line 1856)
 *****************************************************/
@@ -29,7 +30,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 100%;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 .description h1 {
@@ -94,7 +95,7 @@ h3.subtitle {
 	font-size: 1.4em;
 }
 
-/* -- Intro Slider -- */
+/* -- Intro Area : Intro Slider -- */
 #intro #sequence {
 	position: relative;
 	margin: 0 auto;
@@ -225,18 +226,18 @@ h3.subtitle {
 	visibility: hidden;
 }
 
-/* ------- 5. Codvid AREA ------- */
+/* ------- 5. COVID AREA ------- */
 #covid {
 	background: url('/wp-content/uploads/covid-background.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4em;
 }
 
 #covid .row {
-	margin-bottom: 3%;
+	margin-bottom: 2rem;
 }
 
 #covid .area-title {
@@ -248,8 +249,8 @@ h3.subtitle {
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow: visible;
-	padding: 2% 0 2%;
-	margin-top: 4%;
+	padding: 2rem 0 2rem;
+	margin-top: 4rem;
 	margin-bottom: 0;
 }
 
@@ -385,20 +386,20 @@ h3.subtitle {
 	order: 3;
 }
 
-/* ------- 7. La aldea  ------- */
+/* ------- 7. LA ALDEA AREA  ------- */
 #aldea {
 	background: url('/wp-content/uploads/aldea-background.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 #aldea .area-title {
-	margin-top: 4%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 2%;
+	padding: 2rem 0 2rem;
 	overflow: visible;
 	font-family: titan_one;
 	color: var(--white);
@@ -444,7 +445,7 @@ h3.subtitle {
 	pointer-events: none;
 }
 
-/* ------- 8. RATING AREA ------- */
+/* ------- 8. RATING AREA (Third separator) ------- */
 #rating {
 	background: url('/wp-content/uploads/aldea-separator-background.jpeg');
 	background-repeat: no-repeat;
@@ -472,14 +473,14 @@ h3.subtitle {
 	padding: 1.8% 0;
 }
 
-/* ------- 9. Curriculo ------- */
+/* ------- 9. CURRICULO AREA ------- */
 #curriculo {
 	background: url('/wp-content/uploads/curriculo-background.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 #curriculo .title-row,
@@ -504,8 +505,8 @@ h3.subtitle {
 	background-position: center;
 	background-repeat: no-repeat;
 	overflow: visible;
-	padding: 2% 0 2%;
-	margin-top: 4%;
+	padding: 2rem 0 2rem;
+	margin-top: 4rem;
 	margin-bottom: 0;
 	overflow: visible;
 }
@@ -588,7 +589,7 @@ h3.subtitle {
 	font-size: 1.5em;
 }
 
-/* ------- 10. PATCHES AREA ------- */
+/* ------- 10. PATCHES AREA (Fourth separator) ------- */
 #patches {
 	background: url('/wp-content/uploads/curriculo-separator-background.jpeg');
 	background-size: cover;
@@ -605,7 +606,7 @@ h3.subtitle {
 }
 
 
-/* ------- 11. UPDATES AREA ------- */
+/* ------- 11. NUMEROS AREA ------- */
 #numeros {
 	background: url('/wp-content/uploads/numeros-background.jpeg');
 	background-size: cover;
@@ -616,9 +617,9 @@ h3.subtitle {
 }
 
 #numeros .area-title {
-	margin-top: 4%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 2%;
+	padding: 2rem 0 2rem;
 	overflow: visible;
 	font-family: titan_one;
 	color: var(--purple);
@@ -662,7 +663,7 @@ h3.subtitle {
 	font-size: 1.3em;
 }
 
-/* ------- 12. PRICE AREA ------- */
+/* ------- 12. PRICE AREA (Fifth separator) ------- */
 #price {
 	background: url('/wp-content/uploads/numeros-separator-background.jpeg');
 	background-size: cover;
@@ -678,7 +679,7 @@ h3.subtitle {
 	text-align: center;
 }
 
-/* ------- 13. Contiene  ------- */
+/* ------- 13. UNIVERSO AREA  ------- */
 
 #contiene {
 	background: url('/wp-content/uploads/contiene-background.jpeg');
@@ -686,13 +687,13 @@ h3.subtitle {
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 #contiene .area-title {
-	margin-top: 4%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 2%;
+	padding: 2rem 0 2rem;
 	overflow: visible;
 	font-family: titan_one;
 	font-weight: 400;
@@ -709,7 +710,7 @@ h3.subtitle {
 }
 
 
-/* -- Intro Slider -- */
+/* -- Universo area : Slider -- */
 #contiene #sequence {
 	position: relative;
 	margin: 0 auto;
@@ -852,7 +853,7 @@ h3.subtitle {
 	transition-duration: 0.5s; 
 }
 
-/* ------- 14. contiene Separator  ------- */
+/* ------- 14. Sixth Separator  ------- */
 #contiene-separator {
 		background: url('/wp-content/uploads/contiene-separator-background.jpg');
 		background-size: cover;
@@ -868,20 +869,20 @@ h3.subtitle {
 	text-align: center;
 }
 
-/* ------- 15. Personajes  ------- */
+/* ------- 15. PERSONAJES AREA  ------- */
 #personajes {
 	background: url('/wp-content/uploads/personajes-background.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 #personajes .area-title {
-	margin-top: 4%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 2%;
+	padding: 2rem 0 2rem;
 	overflow: visible;
 	font-family: titan_one;
 	text-align: center;
@@ -1037,7 +1038,7 @@ h3.subtitle {
 	margin: 0;
 }
 
-/* ------- 16. personajes Separator  ------- */
+/* ------- 16. Seventh Separator  ------- */
 #personajes-separator {
 	background: url('/wp-content/uploads/contiene-separator-background.jpg');
 	background-size: cover;
@@ -1045,27 +1046,179 @@ h3.subtitle {
 	background-position: center;
 }
 
-#personajes-separator h3 {
+#personajes-separator h4 {
 	margin: 0 auto;
 	padding: 5.5% 0;
 	color: var(--white);
 	text-align: center;
 }
 
-/* ------- 16. Click  ------- */
+/* ------- 17. TEAM AREA ------- */
+#click-team {
+	background: url('/wp-content/uploads/click-team-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: auto;
+	padding: 0 0 4em;
+}
+
+#click-team .area-title {
+	margin-top: 4em;
+	margin-bottom: 0;
+	padding: 2em 0 2em;
+	overflow: visible;
+	font-family: titan_one;
+	text-align: center;
+}
+
+#click-team .subtitle-container h4 {
+	text-align: center;
+	padding: 0;
+	text-transform: none;
+	margin: 0 auto 2em;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* slider */
+#click-team .carousel-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#click-team .carousel-row .arrow {
+	cursor: pointer;
+	color: var(--white);
+	transition: color	1s;
+}
+
+#click-team .carousel-row .arrow:hover {
+	cursor: pointer;
+	color: var(--green-dark);
+}
+
+#click-team .carousel-row .arrow i {
+	font-size: 50px;
+}
+
+#click-team .carousel-row .slick-next {
+	order: 3;
+}
+
+#click-team .team-carousel,
+#click-team .team-carousel .slick-list {
+	display: inline-block;
+	max-width: 1300px;
+	overflow: hidden;
+	margin: 0;
+}
+
+#click-team .team-carousel .team {
+	position: relative;
+	margin: 0 3em;
+	padding: 122px 0;
+	font-size: 16px;
+	color: var(--blue-light);
+}
+
+#click-team .team-carousel .team.emmanuel {
+	padding-top: 0;
+}
+
+#click-team .team-carousel .team.nicolas   {
+	padding: 72px 0;
+}
+
+#click-team .team-carousel .team.gabriel,
+#click-team .team-carousel .team.lina,
+#click-team .team-carousel .team.laura {
+	padding-bottom: 0;
+}
+
+#click-team .team-carousel .team.diana {
+	padding-top: 6px;
+}
+
+#click-team .team-carousel .team.maria {
+	padding-top: 87px;
+}
+
+#click-team .team-carousel .mask {
+	position: absolute;
+	top: 121px;
+	left: 144px;
+	width: 217px;
+	height: 296px;
+}
+
+#click-team .team-carousel .team.katia .mask {left: 127px;}
+#click-team .team-carousel .team.nicolas .mask {left: 153px;}
+#click-team .team-carousel .team.lina .mask {left: 160px;}
+#click-team .team-carousel .team.fredy .mask {left: 157px;}
+#click-team .team-carousel .team.diana .mask {left: 135px;}
+#click-team .team-carousel .team.gabriel .mask {left: 135px;top: 123px;}
+#click-team .team-carousel .team.laura .mask {top: 123px;left: 118px;}
+#click-team .team-carousel .team.maria .mask {top: 123px;left: 118px;}
+
+#click-team .team-carousel .team h5 {
+	position: relative;
+	padding: 0.9em 0;
+	color: inherit;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+#click-team .team-carousel .team span.job-title {
+	position: absolute;
+	bottom: 19px;
+	width: 100%;
+	padding: 0.5em 0.5em;
+	color: inherit;
+	text-align: center;
+} 
+
+#click-team .team-carousel .team.katia span.job-title,
+#click-team .team-carousel .team.nicolas span.job-title,
+#click-team .team-carousel .team.lina span.job-title,
+#click-team .team-carousel .team.fredy span.job-title,
+#click-team .team-carousel .team.diana span.job-title,
+#click-team .team-carousel .team.gabriel span.job-title,
+#click-team .team-carousel .team.laura span.job-title,
+#click-team .team-carousel .team.maria span.job-title {
+	bottom: 5px;
+	padding: 0.2em 0.5em;
+}
+
+/* ------- 18. SEPARATOR ------- */
+#click-team-separator {
+	background: url('/wp-content/uploads/click-team-separator-background.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#click-team-separator h4 {
+	margin: 0 auto;
+	padding: 5.5% 0;
+	color: var(--white);
+	text-align: center;
+}
+
+/* ------- 19. CLICK AREA ------- */
 #click {
 	background: url('/wp-content/uploads/click-background.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	height: auto;
-	padding: 0 0 3%;
+	padding: 0 0 4rem;
 }
 
 #click .area-title {
-	margin-top: 2%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 4em;
+	padding: 2rem 0 2rem;
 	overflow: visible;
 	text-align: center;
 	color: var(--blue-click);
@@ -1118,7 +1271,7 @@ h3.subtitle {
 	margin-left: 1em;
 }
 
-/* ------- 17. Click separator  ------- */
+/* ------- 18. Click separator  ------- */
 #click-separator {
 	background-color: var(--blue-click);
 	background-size: cover;
@@ -1130,7 +1283,7 @@ h3.subtitle {
 	min-height: 200px;
 }
 
-/* ------- 18. CONTACT AREA ------- */
+/* ------- 19. CONTACT AREA ------- */
 
 #contact {
 	background: var(--blue-light);
@@ -1140,12 +1293,13 @@ h3.subtitle {
 	background-position: center;
 	height: auto;
 	padding: 0;
+	
 }
 
 #contact .area-title {
-	margin-top: 2%;
+	margin-top: 4rem;
 	margin-bottom: 0;
-	padding: 2% 0 0;
+	padding: 2rem 0 0;
 	overflow: visible;
 	text-align: center;
 	color: var(--blue-click);
@@ -1200,7 +1354,7 @@ h3.subtitle {
 	background-color: var(--orange-click);
 	color: var(--white);
 	font-family: titan_one;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: 0.5em 1em;
 	border: none;
 	transition: background-color 0.5s ease-in-out;
@@ -1237,6 +1391,25 @@ h3.subtitle {
 #contact .contact-row .separator {
 	margin-left: 1em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------  Legacy theme Original  ------- */
 
 /* ------- 7?. Features  ------- */
 #features {

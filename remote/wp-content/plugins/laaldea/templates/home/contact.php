@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="row aldea-form-row">
-      <div class="col-8 offset-2 text-container">
+      <div class="col-6 offset-3 text-container">
         <?php echo do_shortcode('[contact-form-7 id="198" title="home contact form"]'); ?>
       </div>
     </div>

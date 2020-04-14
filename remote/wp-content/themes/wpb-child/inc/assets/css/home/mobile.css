@@ -483,6 +483,94 @@
 		padding-top: 2.6em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 195px;
+	}
+
+	#click-team .team-carousel .team {
+		width: 195px;
+	}
+
+	#click-team .team-carousel .team img {
+		margin: 0 auto;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 172px;}
+	#click-team .team-carousel .team.emmanuel img {width: 172px;}
+	#click-team .team-carousel .team.katia img {width: 164px;}
+	#click-team .team-carousel .team.nicolas img {width: 177px;}
+	#click-team .team-carousel .team.lina img {width: 180px;}
+	#click-team .team-carousel .team.fredy img {width: 178px;}
+	#click-team .team-carousel .team.diana img {width: 168px;}
+	#click-team .team-carousel .team.gabriel img {width: 168px;}
+	#click-team .team-carousel .team.laura img {width: 160px;}
+	#click-team .team-carousel .team.maria img {width: 159px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 4em;
+		padding: 58px 0;
+		font-size: 9px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 34px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 2px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 41px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 58px;
+    left: 79px;
+    width: 104px;
+    height: 141px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 75px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 81px;}
+	#click-team .team-carousel .team.lina .mask {left: 83px;}
+	#click-team .team-carousel .team.fredy .mask {left: 82px;}
+	#click-team .team-carousel .team.diana .mask {left: 77px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 58px;left: 77px;}
+	#click-team .team-carousel .team.laura .mask {top: 58px;left: 73px;}
+	#click-team .team-carousel .team.maria .mask {top: 58px;left: 73px;}
+
+	#click-team .team-carousel .team h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 6px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px;
+		padding: 0.1em 0.4em;
+	}
+
 	#click {
 		background-position: right center;
 	}
@@ -1049,6 +1137,94 @@
 		padding-top: 2.6em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 275px;
+	}
+
+	#click-team .team-carousel .team {
+		width: 275px;
+	}
+
+	#click-team .team-carousel .team img {
+		margin: 0 auto;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 249px;}
+	#click-team .team-carousel .team.emmanuel img {width: 249px;}
+	#click-team .team-carousel .team.katia img {width: 237px;}
+	#click-team .team-carousel .team.nicolas img {width: 255px;}
+	#click-team .team-carousel .team.lina img {width: 260px;}
+	#click-team .team-carousel .team.fredy img {width: 257px;}
+	#click-team .team-carousel .team.diana img {width: 243px;}
+	#click-team .team-carousel .team.gabriel img {width: 243px;}
+	#click-team .team-carousel .team.laura img {width: 231px;}
+	#click-team .team-carousel .team.maria img {width: 230px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 4em;
+		padding: 84px 0;
+		font-size: 12px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 50px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 4px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 60px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 84px;
+		left: 112px;
+		width: 150px;
+		height: 205px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 106px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 114px;}
+	#click-team .team-carousel .team.lina .mask {left: 117px;}
+	#click-team .team-carousel .team.fredy .mask {left: 116px;}
+	#click-team .team-carousel .team.diana .mask {left: 108px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 85px;left: 109px;}
+	#click-team .team-carousel .team.laura .mask {top: 84px;left: 103px;}
+	#click-team .team-carousel .team.maria .mask {top: 84px;left: 103px;}
+
+	#click-team .team-carousel .team.nicolas h5,
+	#click-team .team-carousel .team.maria h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 11px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px
+	}
+
 	#click {
 		background-position: right center;
 	}
@@ -1594,6 +1770,94 @@
 		padding-top: 2.6em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 430px;
+	}
+
+	#click-team .team-carousel .team {
+		width: 430px;
+	}
+
+	#click-team .team-carousel .team img {
+		margin: 0 auto;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 249px;}
+	#click-team .team-carousel .team.emmanuel img {width: 249px;}
+	#click-team .team-carousel .team.katia img {width: 237px;}
+	#click-team .team-carousel .team.nicolas img {width: 255px;}
+	#click-team .team-carousel .team.lina img {width: 260px;}
+	#click-team .team-carousel .team.fredy img {width: 257px;}
+	#click-team .team-carousel .team.diana img {width: 243px;}
+	#click-team .team-carousel .team.gabriel img {width: 243px;}
+	#click-team .team-carousel .team.laura img {width: 231px;}
+	#click-team .team-carousel .team.maria img {width: 230px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 4em;
+		padding: 84px 0;
+		font-size: 12px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 50px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 4px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 60px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 84px;
+		left: 190px;
+		width: 150px;
+		height: 205px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 183px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 192px;}
+	#click-team .team-carousel .team.lina .mask {left: 194px;}
+	#click-team .team-carousel .team.fredy .mask {left: 193px;}
+	#click-team .team-carousel .team.diana .mask {left: 186px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 85px;left: 186px;}
+	#click-team .team-carousel .team.laura .mask {top: 84px;left: 180px;}
+	#click-team .team-carousel .team.maria .mask {top: 84px;left: 180px;}
+
+	#click-team .team-carousel .team.nicolas h5,
+	#click-team .team-carousel .team.maria h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 11px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px
+	}
+
 	#click {
 		background-position: right center;
 	}
@@ -2138,6 +2402,94 @@
 		padding-top: 2.6em;
 	}
 
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 430px;
+	}
+
+	#click-team .team-carousel .team {
+		width: 430px;
+	}
+
+	#click-team .team-carousel .team img {
+		margin: 0 auto;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 249px;}
+	#click-team .team-carousel .team.emmanuel img {width: 249px;}
+	#click-team .team-carousel .team.katia img {width: 237px;}
+	#click-team .team-carousel .team.nicolas img {width: 255px;}
+	#click-team .team-carousel .team.lina img {width: 260px;}
+	#click-team .team-carousel .team.fredy img {width: 257px;}
+	#click-team .team-carousel .team.diana img {width: 243px;}
+	#click-team .team-carousel .team.gabriel img {width: 243px;}
+	#click-team .team-carousel .team.laura img {width: 231px;}
+	#click-team .team-carousel .team.maria img {width: 230px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 4em;
+		padding: 84px 0;
+		font-size: 12px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 50px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 4px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 60px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 84px;
+		left: 190px;
+		width: 150px;
+		height: 205px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 183px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 192px;}
+	#click-team .team-carousel .team.lina .mask {left: 194px;}
+	#click-team .team-carousel .team.fredy .mask {left: 193px;}
+	#click-team .team-carousel .team.diana .mask {left: 186px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 85px;left: 186px;}
+	#click-team .team-carousel .team.laura .mask {top: 84px;left: 180px;}
+	#click-team .team-carousel .team.maria .mask {top: 84px;left: 180px;}
+
+	#click-team .team-carousel .team.nicolas h5,
+	#click-team .team-carousel .team.maria h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 11px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px
+	}
+
 	#click {
 		background-position: right center;
 	}
@@ -2673,6 +3025,86 @@
 		padding-top: 0.5em;
 	}
 
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 575px;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 249px;}
+	#click-team .team-carousel .team.emmanuel img {width: 249px;}
+	#click-team .team-carousel .team.katia img {width: 237px;}
+	#click-team .team-carousel .team.nicolas img {width: 255px;}
+	#click-team .team-carousel .team.lina img {width: 260px;}
+	#click-team .team-carousel .team.fredy img {width: 257px;}
+	#click-team .team-carousel .team.diana img {width: 243px;}
+	#click-team .team-carousel .team.gabriel img {width: 243px;}
+	#click-team .team-carousel .team.laura img {width: 231px;}
+	#click-team .team-carousel .team.maria img {width: 230px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 3em;
+		padding: 84px 0;
+		font-size: 12px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 50px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 4px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 60px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 84px;
+		left: 99px;
+		width: 150px;
+		height: 205px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 87px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 104px;}
+	#click-team .team-carousel .team.lina .mask {left: 109px;}
+	#click-team .team-carousel .team.fredy .mask {left: 107px;}
+	#click-team .team-carousel .team.diana .mask {left: 92px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 85px;left: 93px;}
+	#click-team .team-carousel .team.laura .mask {top: 84px;left: 81px;}
+	#click-team .team-carousel .team.maria .mask {top: 84px;left: 81px;}
+
+	#click-team .team-carousel .team.nicolas h5,
+	#click-team .team-carousel .team.maria h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 11px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px
+	}
+
 	#click {
 		background-position: right center;
 	}
@@ -3152,6 +3584,86 @@
 		padding-top: 0.5em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 630px;
+	}
+
+	#click-team .team-carousel .team.lisa img {width: 249px;}
+	#click-team .team-carousel .team.emmanuel img {width: 249px;}
+	#click-team .team-carousel .team.katia img {width: 237px;}
+	#click-team .team-carousel .team.nicolas img {width: 255px;}
+	#click-team .team-carousel .team.lina img {width: 260px;}
+	#click-team .team-carousel .team.fredy img {width: 257px;}
+	#click-team .team-carousel .team.diana img {width: 243px;}
+	#click-team .team-carousel .team.gabriel img {width: 243px;}
+	#click-team .team-carousel .team.laura img {width: 231px;}
+	#click-team .team-carousel .team.maria img {width: 230px;}
+
+	#click-team .team-carousel .team {
+		margin: 0 3em;
+		padding: 84px 0;
+		font-size: 12px;
+	}
+	
+	#click-team .team-carousel .team.emmanuel {
+		padding-top: 0;
+	}
+	
+	#click-team .team-carousel .team.nicolas   {
+		padding: 50px 0;
+	}
+	
+	#click-team .team-carousel .team.gabriel,
+	#click-team .team-carousel .team.lina,
+	#click-team .team-carousel .team.laura {
+		padding-bottom: 0;
+	}
+	
+	#click-team .team-carousel .team.diana {
+		padding-top: 4px;
+	}
+	
+	#click-team .team-carousel .team.maria {
+		padding-top: 60px;
+	}
+
+	#click-team .team-carousel .mask {
+		top: 84px;
+		left: 99px;
+		width: 150px;
+		height: 205px;
+	}
+
+	#click-team .team-carousel .team.katia .mask {left: 87px;}
+	#click-team .team-carousel .team.nicolas .mask {left: 104px;}
+	#click-team .team-carousel .team.lina .mask {left: 109px;}
+	#click-team .team-carousel .team.fredy .mask {left: 107px;}
+	#click-team .team-carousel .team.diana .mask {left: 92px;}
+	#click-team .team-carousel .team.gabriel .mask {top: 85px;left: 93px;}
+	#click-team .team-carousel .team.laura .mask {top: 84px;left: 81px;}
+	#click-team .team-carousel .team.maria .mask {top: 84px;left: 81px;}
+
+	#click-team .team-carousel .team.nicolas h5,
+	#click-team .team-carousel .team.maria h5 {
+		padding: 0.3em 0.5em;
+	}
+	
+	#click-team .team-carousel .team span.job-title {
+		bottom: 11px;
+	} 
+
+	#click-team .team-carousel .team.katia span.job-title,
+	#click-team .team-carousel .team.nicolas span.job-title,
+	#click-team .team-carousel .team.lina span.job-title,
+	#click-team .team-carousel .team.fredy span.job-title,
+	#click-team .team-carousel .team.diana span.job-title,
+	#click-team .team-carousel .team.gabriel span.job-title,
+	#click-team .team-carousel .team.laura span.job-title,
+	#click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px
+	}
+
 	#click .area-title {
 		margin-top: 0;
 		padding: 2% 0 2em;
@@ -3607,6 +4119,11 @@
 		font-size: 1.1em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#click .area-title {
 		margin-top: 0;
 		padding: 2% 0 2em;
@@ -4113,6 +4630,11 @@
 		font-size: 1.1em;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#click .area-title {
 		margin-top: 0;
 		padding: 2% 0 2em;
@@ -4354,6 +4876,11 @@
 		padding: 0 0 6% 0;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#click .area-title {
 		margin-top: 0;
 		padding: 2% 0 2em;
@@ -4366,11 +4893,6 @@
 	#click .row.button-container {
 		margin-top: 3em;
 		margin-bottom: 0;
-	}
-
-	.team-bg {
-		margin: 4% auto;
-		width: 90%;
 	}
 	
 	/* .flip-container, .front, .back {
@@ -4684,6 +5206,11 @@
 		padding: 0 0 6% 0;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#click .area-title {
 		margin-top: 0;
 	}
@@ -4695,10 +5222,6 @@
 	#click .row.button-container {
 		margin-top: 3em;
 		margin-bottom: 3em;
-	}
-
-	.team h3 {
-		padding: 2% 0;
 	}
 	
 	.cbp-qtrotator footer {
@@ -5072,6 +5595,11 @@
 		padding: 0 0 6% 0;
 	}
 	
+	#click-team .team-carousel,
+	#click-team .team-carousel .slick-list {
+		max-width: 920px;
+	}
+
 	#click .middle-row {
 		margin-top: 0;
 	}
@@ -5079,18 +5607,6 @@
 	#click .row.button-container {
 		margin-top: 3em;
 		margin-bottom: 3em;
-	}
-
-	.team-bg {
-		margin: 3% auto;
-	}
-	
-	.team {
-		width: 92%;
-	}
-	
-	.team h3 {
-		padding: 2% 0;
 	}
 	
 	.social {
@@ -5393,14 +5909,6 @@
 		min-height: auto;
 	}
 
-	.team {
-		width: 92%;
-	}
-	
-	.team h3 {
-		padding: 2% 0;
-	}
-	
 	.social {
 		padding: 4%;
 	}
@@ -5699,14 +6207,6 @@
 	
 	#about {
 		min-height: auto;
-	}
-	
-	.team {
-		width: 92%;
-	}
-	
-	.team h3 {
-		padding: 2% 0;
 	}
 	
 	.social {
