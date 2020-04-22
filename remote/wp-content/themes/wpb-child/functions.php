@@ -42,6 +42,16 @@ add_action('wp_enqueue_scripts', 'wpb_child_include_custom_jquery');
 
 
 /******************** Shared ********************/
+//Page Slug Body Class
+function laaldea_add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'laaldea_add_slug_body_class' );
+
 function laaldea_register_secondary_menu() {
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'laaldea' ));
 }
@@ -66,8 +76,8 @@ function filter_the_content_more_link( $link, $link_text ) {
 	$image -> setAttribute('class', 'fas fa-chevron-right');
 	$new_link->appendChild($image);
 
-	$text = $read_more_link -> createElement('span', __( 'Continue reading' ) );
-	$new_link->appendChild($text);
+	// $text = $read_more_link -> createElement('span', __( 'Continue reading' ) );
+	// $new_link->appendChild($text);
 	
 	return $new_link->C14N(); 
 }; 
