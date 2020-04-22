@@ -3,12 +3,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="area-title"><h3 class="title-tag">Especial COVID-19</h3></div>
+        <div class="area-title"><h3 class="title-tag"><?php _e('Especial COVID-19' , 'laalde'); ?></h3></div>
       </div>
     </div>
     <div class="row subtitle-row">
       <div class="col-xl-8 offset-lg-2 col-md-10 offset-md-1 col-xs-12">
-        <h4>¡Es muy importante para nosotros saber quién aprovechará este material pedagógico! Te pediremos algunos datos:</h4>
+        <h4><?php _e('¡Es muy importante para nosotros saber quién aprovechará este material pedagógico! Te pediremos algunos datos:', 'laaldea'); ?></h4>
       </div>
     </div>
     <div class="row">
@@ -16,7 +16,7 @@
         <div class="covid-form-section">
           <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="laaldea-form">
             <div class="name-container input-container half-width">
-              <input type="text" name="form_name" value="" id="form-name" tabindex="10" placeholder="<?php _e('Nombre','laaldea');?>" />
+              <input type="text" name="form_name" value="" id="form-name" tabindex="10" placeholder="<?php _e('Nombre', 'laaldea');?>" />
               <?php if ( isset($error['form_name'] ) ) : ?>
                 <label id="form-name-error-server" class="error" for="form_name">
                   <?php echo $error['form_name'];?>
@@ -24,7 +24,7 @@
               <?php endif;?>
             </div>
             <div class="organization-container input-container half-width">
-              <input type="text" name="form_organization" value="" id="form-organization-name" tabindex="20" placeholder="<?php _e('Organización','laaldea'); ?>"/>
+              <input type="text" name="form_organization" value="" id="form-organization-name" tabindex="20" placeholder="<?php _e('Organización', 'laaldea'); ?>"/>
               <?php if ( isset($error['form_organization'] ) ) : ?>
                 <label id="promo-last-name-error-server" class="error" for="form_organization">
                   <?php echo $error['form_organization'];?>
@@ -32,7 +32,7 @@
               <?php endif;?>
             </div>
             <div class="location-container input-container half-width">
-              <input type="text" name="form_location" value="" id="form'location-name" tabindex="30" placeholder="<?php _e('¿En qué parte del mundo estás?','laaldea'); ?>"/>
+              <input type="text" name="form_location" value="" id="form'location-name" tabindex="30" placeholder="<?php _e('¿En qué parte del mundo estás?', 'laaldea'); ?>"/>
               <?php if ( isset($error['form_location'] ) ) : ?>
                 <label id="promo-organization-error-server" class="error" for="form_location">
                   <?php echo $error['form_location'];?>
@@ -51,7 +51,7 @@
               <label for="form_use">
                 <?php _e('¿Cómo vas a usar este material?', 'laaldea'); ?>
               </label>
-              <textarea name="form_use" value="" id="form-use" tabindex="50" placeholder="<?php _e('Ej: Lo voy a usar con mis hijos en homeschooling...','laaldea')?>"></textarea>
+              <textarea name="form_use" value="" id="form-use" tabindex="50" placeholder="<?php _e('Ej: Lo voy a usar con mis hijos en homeschooling...', 'laaldea')?>"></textarea>
               <?php if ( isset($error['form_use'] ) ) : ?>
                 <label id="promo-use-error-server" class="error" for="form_use">
                   <?php echo $error['form_use'];?>

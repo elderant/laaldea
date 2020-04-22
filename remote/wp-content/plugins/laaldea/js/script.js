@@ -2,6 +2,37 @@
   var laadea_validate_promo_form_jquery = function() {
     let $form = $('.page-id-35 .covid-form-section .laaldea-form');
     let $inputs = $form.find('input:not([type="submit"]), select');
+    //let lang = $('html').attr('lang').substring(0,2);
+    lang = lang == undefined ? 'es' : lang
+
+    var message_array = {
+      'form_name' : {
+        'es' : 'Este campo es requerido',
+        'en' : 'This field is required',
+      },
+      'form_organization' : {
+        'es' : 'Este campo es requerido',
+        'en' : 'This field is required',
+      },
+      'form_location' : {
+        'es' : 'Este campo es requerido',
+        'en' : 'This field is required',
+      },
+      'form_use' : {
+        'es' : 'Este campo es requerido',
+        'en' : 'This field is required',
+      },
+      'form_email' : {
+        'required' : {
+          'es' : 'Este campo es requerido',
+          'en' : 'This field is required',
+        },
+        'email' : {
+          'es' : 'Ingrese un correo electrónico valido',
+          'en' : 'Enter a valid email',
+        }
+      },
+    }
 
     $form.validate({
       rules: {
@@ -15,13 +46,13 @@
         },
       },
       messages: {
-        form_name: "Este campo es requerido.",
-        form_organization: "Este campo es requerido.",
-        form_location: "Este campo es requerido.",
-        form_use: "Este campo es requerido.",
+        form_name: message_array.form_name[lang],
+        form_organization: message_array.form_organization[lang],
+        form_location: message_array.form_location[lang],
+        form_use: message_array.form_use[lang],
         form_email: {
-          required: "Este campo es requerido.",
-          email: "Ingrese un correo electrónico valido",
+          required: message_array.form_email.required[lang],
+          email: message_array.form_email.email[lang],
         },
       },
       submitHandler: function(form) {

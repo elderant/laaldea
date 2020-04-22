@@ -3,7 +3,7 @@
     <div class="row first-row">
       <div class="col-12">
         <div class="description animated bounceIn">
-          <h1 class="capitalized">La aldea</h1>
+          <h1 class="capitalized"><?php _e('La aldea', 'laaldea');?></h1>
         </div>
       </div>
     </div>
@@ -11,8 +11,8 @@
       <div class="col-12">
         <div class="intro-container">
           <div class="subtitle-container">
-            <h2 class="subtitle">Historias para estar en casa</h2>
-            <h3 class="subtitle">Estrategia de educación e información pública sobre el COVID-19</h3>
+            <h2 class="subtitle"><?php _e('Historias para estar en casa', 'laaldea');?></h2>
+            <h3 class="subtitle"><?php _e('Estrategia de educación e información pública sobre el COVID-19', 'laaldea');?></h3>
           </div>
         </div>
       </div>
@@ -22,14 +22,14 @@
         <div id="sequence">
           <ul class="seq-canvas">
             <li class="step">
-              <p>“La Aldea: Historias para estar en casa” es una herramienta para que docentes y padres de familia puedan generar conversaciones informadas con sus hijos y estudiantes sobre la epidemia del COVID-19. Funciona como una estrategia de información pública y de aprendizaje virtual para afrontar esta emergencia.</p>
+              <p><?php _e('“La Aldea: Historias para estar en casa” es una herramienta para que docentes y padres de familia puedan generar conversaciones informadas con sus hijos y estudiantes sobre la epidemia del COVID-19. Funciona como una estrategia de información pública y de aprendizaje virtual para afrontar esta emergencia.', 'laaldea');?></p>
             </li>
             <li class="step seq-out">
-              <p>“La Aldea es un compendio de historias cuidadosamente elaboradas y una estrategia de pedagogía multisensorial diseñada para fomentar la discusión acerca de conflictos e interrelaciones sociales de una manera cercana y sencilla, que sirve como metáfora de los problemas de la vida real."</p>
-              <p>Academic’s Choice Award. 2019. USA</p>
+              <p><?php _e('“La Aldea es un compendio de historias cuidadosamente elaboradas y una estrategia de pedagogía multisensorial diseñada para fomentar la discusión acerca de conflictos e interrelaciones sociales de una manera cercana y sencilla, que sirve como metáfora de los problemas de la vida real."', 'laaldea');?></p>
+              <p><?php _e('Academic’s Choice Award. 2019. USA', 'laaldea');?></p>
             </li>
             <li class="step seq-out">
-              <p>La Aldea permite un aprendizaje flexible y transversal, en el que se trabajan de manera simultáneamente las áreas de lenguaje, ciencias naturales, ciencias sociales y matemáticas. Todo esto mientras los niños se divierten y reflexionan sobre el mundo que los rodea.</p>
+              <p><?php _e('La Aldea permite un aprendizaje flexible y transversal, en el que se trabajan de manera simultáneamente las áreas de lenguaje, ciencias naturales, ciencias sociales y matemáticas. Todo esto mientras los niños se divierten y reflexionan sobre el mundo que los rodea.', 'laaldea');?></p>
             </li>
           </ul>
           <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">

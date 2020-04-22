@@ -42,6 +42,8 @@ Text Domain:	 wpb-child
 	--green-dark: #153216;
 
 	--yellow: #e1d145;
+	--yellow-light: #CCCF30; /* related with blue light */
+
 	--purple: #0c1a3d;
 
 	--gray: #ABABAB;
@@ -675,19 +677,11 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	background-color: #615D3B;
 }
 
-/** responsive general **/
-@media (max-width : 993px) {
-	header#masthead {
-		min-height: 0px;
-	}
+.page-id-35 .covid-form-section label.error {
+	font-family: sassoon;
+	color: var(--red-dark-tone);
+	font-size: inherit;
 }
-
-/** responsive specific **/
-@media (min-width : 1441px) {}
-
-@media (min-width : 1281px) and (max-width : 1440px) {}
-
-@media (min-width : 1024px) and (max-width : 1280px) {}
 
 @media (min-width : 768px) and (max-width:  1023px) {
 	.page-id-35 .covid-form-section input {

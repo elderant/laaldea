@@ -1364,6 +1364,14 @@ h3.subtitle {
 	background-color: #7A6225;
 }
 
+#contact .wpcf7-form span.wpcf7-not-valid-tip {
+	color: var(--danger);
+}
+
+#contact .wpcf7-form .wpcf7-validation-errors {
+	border-color: var(--yellow-light);
+}
+
 
 /* contact data */
 #contact .contact-row {

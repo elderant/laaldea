@@ -74,7 +74,7 @@ function laaldea_file_build_path(...$segments) {
 /********************** Home functions **********************/
 /************************************************************/
 
-function laaldea_build_home_html () {
+function laaldea_build_home_html ($lang) {
 	$template_url = laaldea_load_template('intro.php', 'home');
 	load_template($template_url, true);
 
@@ -129,10 +129,25 @@ function laaldea_build_home_html () {
 	$template_url = laaldea_load_template('click-separator.php', 'home');
 	load_template($template_url, true);
 
-	$template_url = laaldea_load_template('contact.php', 'home');
-	load_template($template_url, true);
+	if($lang == 'es') {
+		$template_url = laaldea_load_template('contact-es.php', 'home');
+		load_template($template_url, true);
+	}
+	else if ($lang == 'en') {
+		$template_url = laaldea_load_template('contact-en.php', 'home');
+		load_template($template_url, true);
+	}
 }
-add_shortcode( 'laaldea_home', 'laaldea_build_home_html' );
+
+function laaldea_build_home_html_en () {
+	laaldea_build_home_html('en');
+}
+add_shortcode( 'laaldea_home_en', 'laaldea_build_home_html_en' );
+
+function laaldea_build_home_html_es () {
+	laaldea_build_home_html('es');
+}
+add_shortcode( 'laaldea_home_es', 'laaldea_build_home_html_es' );
 
 /************************************************************/
 /******************* Promo form functions *******************/
