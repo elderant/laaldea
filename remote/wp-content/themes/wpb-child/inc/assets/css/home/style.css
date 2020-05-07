@@ -33,6 +33,12 @@
 	padding: 0 0 4rem;
 }
 
+#intro .unicef-logo-container {
+	position: absolute;
+	top: 0;
+	left: 72%;
+}
+
 .description h1 {
 	color: var(--green);
 	margin: 5.4% auto 0;

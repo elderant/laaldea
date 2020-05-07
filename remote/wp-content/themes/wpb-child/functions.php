@@ -90,9 +90,9 @@ add_filter( 'the_content_more_link', 'filter_the_content_more_link', 10, 2 );
 /**
  * Reescribe el tamaño maximo de los archivos a subir
  */
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
+// @ini_set( 'upload_max_size' , '64M' );
+// @ini_set( 'post_max_size', '64M');
+// @ini_set( 'max_execution_time', '300' );
 
 
 /**
@@ -176,7 +176,7 @@ function login( WP_REST_Request $request )
 	} else {
 		return [
 			'status' => 401,
-			'message' => 'Credenciales Invalidas Favor de verificar',
+			'message' => 'Credenciales invalidas favor de verificar',
 		];
 	}
 }
@@ -193,7 +193,7 @@ function registrer( WP_REST_Request $request )
                 // if the user name doesn't exist.
                 return [
                     'status' => 400,
-                    'message' => 'EL email ya se encuentra registrado',
+                    'message' => 'El email ya se encuentra registrado',
                 ];
 			}
 			
@@ -232,7 +232,7 @@ function registrer( WP_REST_Request $request )
     } else {
         return [
             'status' => 400,
-            'message' => 'Credenciales Invalidas Favor de verificar',
+            'message' => 'Credenciales invalidas favor de verificar',
         ];
     }
 }
@@ -261,7 +261,7 @@ function checkMail( WP_REST_Request $request )
     } else {
         return [
             'status' => 400,
-            'message' => 'Parametos Faltantes',
+            'message' => 'Parametos faltantes',
         ];
     }
 }

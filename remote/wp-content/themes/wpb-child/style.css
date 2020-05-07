@@ -515,8 +515,12 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 @media (min-width : 992px) and (max-width : 1280px) {
+	header#masthead .navbar.secondary ul#menu-secondary-menu > li > a {
+		padding: 0 0.75rem;
+	}
+
 	header .navbar.secondary {
-		font-size: 1.2em;
+		font-size: 1.15em;
 	}
 }
 

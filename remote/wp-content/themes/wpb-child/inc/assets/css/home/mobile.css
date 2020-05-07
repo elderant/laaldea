@@ -66,6 +66,15 @@
 		min-height: 0px;
 	}
 	
+	#intro .unicef-logo-container {
+		left: auto;
+		right: 0;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 50px;
+	}
+
 	.bt-menu-trigger {
 		width: 25px;
 		height: 25px;
@@ -703,6 +712,15 @@
 	
 	header#masthead {
 		min-height: 0px;
+	}
+
+	#intro .unicef-logo-container {
+		left: auto;
+		right: 0;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 65px;
 	}
 
 	.bt-menu-trigger {
@@ -1355,6 +1373,14 @@
 		min-height: 0px;
 	}
 
+	#intro .unicef-logo-container {
+		left: 75%;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 75px;
+	}
+
 	.bt-menu-trigger {
 		width: 35px;
 		height: 35px;
@@ -1963,6 +1989,14 @@
 	
 	header#masthead {
 		min-height: 0px;
+	}
+
+	#intro .unicef-logo-container {
+		left: 75%;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 75px;
 	}
 
 	.bt-menu-trigger {
@@ -2605,6 +2639,14 @@
 		min-height: 0px;
 	}
 	
+	#intro .unicef-logo-container {
+		left: 75%;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 75px;
+	}
+
 	.bt-menu-trigger {
 		width: 45px;
 		height: 45px;
@@ -3207,6 +3249,14 @@
 	header#masthead {
 		min-height: 0px;
 	}
+	
+	#intro .unicef-logo-container {
+		left: 80%;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 100px;
+	}
 
 	.bt-menu-trigger {
 		width: 45px;
@@ -3748,7 +3798,11 @@
 	p {font-size: 12px;}
 	
 	header#masthead {
-		min-height: 43px;
+		min-height: 36px;
+	}
+	
+	#intro .unicef-logo-container img {
+		height: 100px;
 	}
 
 	.bt-menu-trigger {
@@ -4201,7 +4255,11 @@
 	p {font-size: 13px;}
 	
 	header#masthead {
-		min-height: 44px;
+		min-height: 37px;
+	}
+	
+	#intro .unicef-logo-container img {
+		height: 100px;
 	}
 
 	.bt-menu-trigger {
@@ -4697,7 +4755,11 @@
 	p {font-size: 13px;}
 
 	header#masthead {
-		min-height: 44px;
+		min-height: 37px;
+	}
+	
+	#intro .unicef-logo-container img {
+		height: 125px;
 	}
 
 	.bt-menu-trigger {
@@ -4926,7 +4988,11 @@
 	p {font-size: 13px;}
 
 	header#masthead {
-		min-height: 44px;
+		min-height: 39px;
+	}
+	
+	#intro .unicef-logo-container img {
+		height: 125px;
 	}
 
 	h3.subtitle { 
@@ -5248,6 +5314,14 @@
 	h5 {font-size: 2em;}
 	p {font-size: 14px;}
 
+	header#masthead {
+		min-height: 40px;
+	}
+
+	#intro .unicef-logo-container img {
+		height: 125px;
+	}
+
 	.bt-menu-trigger {
 		width: 45px;
 		height: 45px;
@@ -5276,10 +5350,6 @@
 	
 	.appstore-btn, .appstore-btn a, .android-btn, .android-btn a {
 		margin: 4% 1% 8%;
-	}
-
-	header#masthead {
-		min-height: 44px;
 	}
 
 	h3.subtitle { 

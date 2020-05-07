@@ -1,5 +1,8 @@
 <div id="intro">
 	<section class="container-fluid ss-style-doublediagonal">
+    <div class="unicef-logo-container">
+      <img src="/wp-content/uploads/intro-unicef.png" alt="Unicef Logo">
+    </div>
     <div class="row first-row">
       <div class="col-12">
         <div class="description animated bounceIn">
