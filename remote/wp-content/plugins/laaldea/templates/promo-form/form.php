@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="area-title"><h3 class="title-tag"><?php _e('Especial COVID-19' , 'laalde'); ?></h3></div>
+        <div class="area-title"><h3 class="title-tag"><?php _e('Especial COVID-19' , 'laaldea'); ?></h3></div>
       </div>
     </div>
     <div class="row subtitle-row">

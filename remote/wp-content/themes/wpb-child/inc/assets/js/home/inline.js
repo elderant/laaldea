@@ -71,7 +71,7 @@
 			variableWidth: true,
 			responsive: [
 				{
-					breakpoint: 1367,
+					breakpoint: 1537,
 					settings: {
 						slidesToShow: 3,
 						slidesToScroll: 3,

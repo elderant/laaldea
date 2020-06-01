@@ -450,7 +450,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 170px;
+		max-width: 150px;
     max-height: 225px;
 	}
 
@@ -474,6 +474,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -489,9 +493,14 @@
 
 	#personajes .view.no-descriptor p.description {
 		font-size: 0.8em;
-		padding-top: 2.6em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
 	}
 	
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
+	}
+
 	#click-team .team-carousel,
 	#click-team .team-carousel .slick-list {
 		max-width: 195px;
@@ -578,6 +587,18 @@
 	#click-team .team-carousel .team.maria span.job-title {
 		bottom: 0px;
 		padding: 0.1em 0.4em;
+	}
+
+	html[lang^="en"] #click-team .team-carousel .team.katia span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.nicolas span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.lina span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.fredy span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.diana span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.gabriel span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.laura span.job-title,
+	html[lang^="en"] #click-team .team-carousel .team.maria span.job-title {
+		bottom: 0px;
+		padding: 0.1em 0.1em;
 	}
 
 	#click {
@@ -694,7 +715,7 @@
 	#contact .contact-row .contact-info {
 		margin-bottom: 1em;
 		display: block;
-		width: 100%;
+		width: auto;
 	}
 }
 
@@ -1113,7 +1134,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 170px;
+		max-width: 150px;
     max-height: 225px;
 	}
 
@@ -1137,6 +1158,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -1152,9 +1177,14 @@
 
 	#personajes .view.no-descriptor p.description {
 		font-size: 0.8em;
-		padding-top: 2.6em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
 	}
 	
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
+	}
+
 	#click-team .team-carousel,
 	#click-team .team-carousel .slick-list {
 		max-width: 275px;
@@ -1353,7 +1383,7 @@
 	#contact .contact-row .contact-info {
 		margin-bottom: 1em;
 		display: block;
-		width: 100%;
+		width: auto;
 	}
 }
 
@@ -1754,7 +1784,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 340px;
+		max-width: 323px;
     max-height: 225px;
 	}
 
@@ -1778,6 +1808,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -1793,7 +1827,12 @@
 
 	#personajes .view.no-descriptor p.description {
 		font-size: 0.8em;
-		padding-top: 2.6em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
 	}
 	
 	#click-team .team-carousel,
@@ -2069,10 +2108,6 @@
 
 	#intro .seq-prev {
 		left: 5%;
-	}
-	
-	.col-md-6 {
-		text-align: center;
 	}
 	
 	/* .appstore-btn, .appstore-btn a{
@@ -2394,7 +2429,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 340px;
+		max-width: 323px;
     max-height: 225px;
 	}
 
@@ -2418,6 +2453,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -2433,7 +2472,12 @@
 
 	#personajes .view.no-descriptor p.description {
 		font-size: 0.8em;
-		padding-top: 2.6em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
 	}
 
 	#click-team .team-carousel,
@@ -3030,7 +3074,7 @@
 	
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 520px;
+		max-width: 498px;
     max-height: 225px;
 	}
 
@@ -3054,6 +3098,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -3067,9 +3115,19 @@
 		padding-top: 0.5em;
 	}
 
+	#personajes .view.no-descriptor p.description {
+		font-size: 0.8em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
+	}
+
 	#click-team .team-carousel,
 	#click-team .team-carousel .slick-list {
-		max-width: 575px;
+		max-width: 598px;
 	}
 
 	#click-team .team-carousel .team.lisa img {width: 249px;}
@@ -3597,7 +3655,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 520px;
+		max-width: 498px;
     max-height: 225px;
 	}
 
@@ -3621,6 +3679,10 @@
 		padding: 0.5em 0.5em;
 	}
 
+	html[lang^="en"] #personajes .view .mask {
+		padding: 0.5em 0.5em;
+	}
+
 	#personajes .view h5 {
 		font-size: 1.5em;
 	}
@@ -3633,7 +3695,17 @@
 		font-size: 0.8em;
 		padding-top: 0.5em;
 	}
-	
+
+	#personajes .view.no-descriptor p.description {
+		font-size: 0.8em;
+		padding: 0;
+		padding-top: calc(0.5em + 1.5*1.2em);
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description {
+		font-size: 0.75em;
+	}
+
 	#click-team .team-carousel,
 	#click-team .team-carousel .slick-list {
 		max-width: 630px;
@@ -4139,7 +4211,7 @@
 
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 765px;
+		max-width: 742px;
     max-height: 345px;
 	}
 
@@ -4654,7 +4726,7 @@
 	
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 765px;
+		max-width: 742px;
     max-height: 345px;
 	}
 
@@ -4930,7 +5002,7 @@
 	
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 920px;
+		max-width: 892px;
 		max-height: 420px;
 	}
 
@@ -5264,7 +5336,7 @@
 	
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 920px;
+		max-width: 892px;
 		max-height: 420px;
 	}
 
@@ -5657,7 +5729,7 @@
 	
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
-		max-width: 920px;
+		max-width: 892px;
 	}
 
 	#about {

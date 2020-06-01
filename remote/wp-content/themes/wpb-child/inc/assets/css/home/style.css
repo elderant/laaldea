@@ -346,6 +346,10 @@ h3.subtitle {
 	width: 100%;
 }
 
+#award > div {
+	visibility: hidden;
+}
+
 #award h6 {
 	color: var(--purple);
 	text-align: center;
@@ -459,6 +463,10 @@ h3.subtitle {
 	background-position: center;
 	width: 100%;
 	text-align: center;
+}
+
+#rating > div {
+	visibility: hidden;
 }
 
 #rating img {
@@ -609,6 +617,7 @@ h3.subtitle {
 	color: var(--white);
 	font-family: sassoon;
 	text-align: center;
+	visibility: hidden;
 }
 
 
@@ -683,6 +692,7 @@ h3.subtitle {
 	color: var(--white);
 	font-family: sassoon;
 	text-align: center;
+	visibility: hidden;
 }
 
 /* ------- 13. UNIVERSO AREA  ------- */
@@ -873,6 +883,7 @@ h3.subtitle {
 	padding: 5.5% 0;
 	color: var(--white);
 	text-align: center;
+	visibility: hidden;
 }
 
 /* ------- 15. PERSONAJES AREA  ------- */
@@ -922,6 +933,10 @@ h3.subtitle {
 
 #personajes .view .mask {
 	padding: 2.5em 1.5em 0.8em;
+}
+
+html[lang^="en"] #personajes .view .mask {
+	padding: 1.5em 1em 0.8em;
 }
 
 #personajes .view.arnulfo .mask{background-color: #84ae5d;}
@@ -1040,7 +1055,7 @@ h3.subtitle {
 #personajes .personajes-carousel,
 #personajes .personajes-carousel .slick-list {
 	display: inline-block;
-	max-width: 1250px;
+	max-width: 1216px;
 	margin: 0;
 }
 
@@ -1057,6 +1072,7 @@ h3.subtitle {
 	padding: 5.5% 0;
 	color: var(--white);
 	text-align: center;
+	visibility: hidden;
 }
 
 /* ------- 17. TEAM AREA ------- */
@@ -1209,6 +1225,7 @@ h3.subtitle {
 	padding: 5.5% 0;
 	color: var(--white);
 	text-align: center;
+	visibility: hidden;
 }
 
 /* ------- 19. CLICK AREA ------- */
@@ -1387,9 +1404,9 @@ h3.subtitle {
 	padding: 2em 0;
 }
 
-#contact .contact-row .contact-info {
+/* #contact .contact-row .contact-info {
 	margin: 0 3em;
-}
+} */
 
 #contact .contact-row a {
 	font-size: 1.2em;

@@ -1,5 +1,5 @@
 <div id="award">
-  <div class="award container-fluid">
+  <div class="award container-fluid animate-in">
     <div class="row title-row">
       <div class="col-lg-10 col-12 offset-lg-1">
         <h6><?php _e('Los aliados de La Aldea', 'laaldea');?></h6>
