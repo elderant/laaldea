@@ -19,8 +19,8 @@
       </div>
     </div>
     <div class="row contact-row">
-      <div class="col-lg-10 col-12 offset-lg-1 d-flex justify-content-center align-items-center flex-sm-row flex-column flex-wrap">
-        <div class="contact-info phone d-flex">
+      <div class="col-lg-10 col-12 offset-lg-1 d-flex justify-content-around align-items-sm-center align-items-start flex-sm-row flex-column flex-wrap">
+        <div class="contact-info phone d-flex px-sm-2 px-3">
           <i class="fas fa-phone"></i>
           <a href="callto:+5716917191" class="d-none-sm d-none d-lg-block"><?php _e('+57 1 6917191', 'laaldea');?></a>
           <a href="tel:+5716917191" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 1 6917191', 'laaldea');?></a>
@@ -28,11 +28,11 @@
           <a href="callto:+573156126756" class="d-none-sm d-none d-lg-block"><?php _e('+57 315 6126756', 'laaldea');?></a>
           <a href="tel:+573156126756" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 315 6126756', 'laaldea');?></a>
         </div>
-        <div class="contact-info email">
+        <div class="contact-info email px-sm-2 px-3">
           <i class="fas fa-envelope"></i>
           <a href="mailto:info@clickarte.co" class="info"><?php _e('info@clickarte.co', 'laaldea');?></a>
         </div>
-        <div class="contact-info address">
+        <div class="contact-info address px-sm-2 px-3">
           <i class="fas fa-map-marker-alt"></i>
           <a href="https://www.google.com/maps/place/of+301,+Cra.+16+%2385-15,+Bogot%C3%A1/@4.6704727,-74.0559146,18.25z/data=!4m5!3m4!1s0x8e3f9af49c9e0767:0xd80c3433e54cfcfa!8m2!3d4.6706429!4d-74.0559026" target="_blank" class="info" rel="external noopener"><?php _e('Carrera 16 # 85-15 of 301, Bogotá D.C., Colombia', 'laaldea');?></a>
         </div>
