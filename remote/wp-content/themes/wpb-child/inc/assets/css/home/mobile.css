@@ -492,13 +492,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
 	}
 	
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 
 	#click-team .team-carousel,
@@ -1176,13 +1182,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
 	}
 	
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 
 	#click-team .team-carousel,
@@ -1826,13 +1838,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
 	}
 
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 	
 	#click-team .team-carousel,
@@ -2471,13 +2489,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
 	}
 
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 
 	#click-team .team-carousel,
@@ -3116,13 +3140,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
 	}
 
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 
 	#click-team .team-carousel,
@@ -3697,13 +3727,19 @@
 	}
 
 	#personajes .view.no-descriptor p.description {
-		font-size: 0.8em;
+		font-size: 0.75em;
 		padding: 0;
-		padding-top: calc(0.5em + 1.5*1.2em);
+		/* padding-top: calc(0.5em + 1.5*1.2em); */
+		padding-top: 1em;
 	}
 
-	html[lang^="en"] #personajes .view.no-descriptor p.description {
-		font-size: 0.75em;
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.65em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 0.8em;
 	}
 
 	#click-team .team-carousel,
@@ -4241,8 +4277,12 @@
 		margin: 0 auto 2%;
 	}
 	
-	#personajes .view-team p {
-		font-size: 1.1em;
+	#personajes .view.no-descriptor p.description {
+    font-size: 0.95em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.85em;
 	}
 	
 	#click-team .team-carousel,
@@ -4756,8 +4796,12 @@
 		margin: 0 auto 2%;
 	}
 	
-	#personajes .view-team p {
-		font-size: 1.1em;
+	#personajes .view.no-descriptor p.description {
+    font-size: 0.95em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 0.85em;
 	}
 	
 	#click-team .team-carousel,
@@ -5004,6 +5048,19 @@
 	#personajes .personajes-carousel .slick-list {
 		max-width: 892px;
 		max-height: 420px;
+	}
+
+	#personajes .view.no-descriptor p.description {
+    font-size: 1.2em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 1.05em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 1.15em;
 	}
 
 	#about {
@@ -5338,6 +5395,19 @@
 	#personajes .personajes-carousel .slick-list {
 		max-width: 892px;
 		max-height: 420px;
+	}
+
+	#personajes .view.no-descriptor p.description {
+    font-size: 1.2em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+		font-size: 1.1em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 1.15em;
 	}
 
 	#about {
@@ -5730,6 +5800,19 @@
 	#personajes .personajes-carousel,
 	#personajes .personajes-carousel .slick-list {
 		max-width: 892px;
+	}
+
+	#personajes .view.no-descriptor p.description {
+    font-size: 1.1em;
+	}
+
+	#personajes .view.no-descriptor.buhos p.description {
+    font-size: 1em;
+	}
+
+	html[lang^="en"] #personajes .view.no-descriptor p.description,
+	html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
+		font-size: 1.15em;
 	}
 
 	#about {

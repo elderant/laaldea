@@ -29,7 +29,7 @@
           <div><img data-u="image" src="/wp-content/uploads/aliados-batuta.png" alt="<?php _e('Batuta Logo', 'laaldea');?>"/></div>
           <div><img data-u="image" src="/wp-content/uploads/aliados-gratitud.png" alt="<?php _e('Fundación Gratitud Logo', 'laaldea');?>"/></div>
           <div><img data-u="image" src="/wp-content/uploads/aliados-sangre.png" alt="<?php _e('Fundación Mi Sangre Logo', 'laaldea');?>"/></div>
-          <div><img data-u="image" src="/wp-content/uploads/aliados-restrepo.png" alt="<?php _e('Fundación Antoino Restrepo Barco Logo', 'laaldea');?>"/></div>
+          <div><img data-u="image" src="/wp-content/uploads/aliados-barco.png" alt="<?php _e('Fundación Barco Logo', 'laaldea');?>"/></div>
           <div><img data-u="image" src="/wp-content/uploads/aliados-children.png" alt="<?php _e('Save the Children Logo', 'laaldea');?>"/></div>
           <div><img data-u="image" src="/wp-content/uploads/aliados-colombianitos.png" alt="<?php _e('Colombianitos Logo', 'laaldea');?>"/></div>
           <div><img data-u="image" src="/wp-content/uploads/aliados-hommes.png" alt="<?php _e('Terre des Hommes Logo', 'laaldea');?>"/></div>

@@ -1029,7 +1029,16 @@ html[lang^="en"] #personajes .view .mask {
 }
 
 #personajes .view.no-descriptor p.description {
-	padding: 3.9em 0 0;
+	padding: 1.5em 0 0;
+	font-size: 0.95em;
+}
+
+#personajes .view.no-descriptor.buhos p.description {
+	font-size: 0.85em;
+}
+
+html[lang^="en"] #personajes .view.no-descriptor p.description,
+html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
 	font-size: 1em;
 }
 
