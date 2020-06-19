@@ -14,7 +14,7 @@
         <p><?php _e('Esta estrategia multi-plataforma está diseñada para el aprendizaje en casa (homeschooling) y puede ser utilizada por docentes e instituciones educativas para la enseñanza a distancia:', 'laaldea');?></p>
       </div>
       <div class="col-12 col-md-6 col-lg-4 offset-lg-1 image-container">
-        <iframe src="https://www.youtube.com/embed/ZSiWnBDy7Gw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Ke0ZeIkhShI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
     <div class="row button-container">

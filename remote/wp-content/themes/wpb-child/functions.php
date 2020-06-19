@@ -58,7 +58,6 @@ function laaldea_register_secondary_menu() {
 add_action( 'init', 'laaldea_register_secondary_menu' );
 
 function wpb_child_add_acf_custom_body_class($classes) {
-	error_log("ACF custom body class : " . get_field("custom_body_class"));
 	if(get_field("custom_body_class") <> "") {
 		error_log("Adding class");
 		$classes[] = get_field("custom_body_class");
@@ -96,6 +95,12 @@ function filter_the_content_more_link( $link, $link_text ) {
 // add the filter 
 add_filter( 'the_content_more_link', 'filter_the_content_more_link', 10, 2 ); 
 
+/**
+ * Load custom WordPress nav walker.
+ */
+if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
+	require_once(dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php');
+}
 
 /******************** App functinality ********************/ 
 /**

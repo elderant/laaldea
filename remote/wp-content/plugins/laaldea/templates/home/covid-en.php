@@ -15,7 +15,7 @@
         <div class="content-title"><?php _e('Libro digital', 'laaldea');?></div>
         <div class="issuu">
           <!-- <iframe allowfullscreen allow="fullscreen" style="border:none;width:700px;height:500px;" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa&u=clickarte&hideIssuuLogo=true"></iframe> -->
-          <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa_1__2_&u=clickarte&hideIssuuLogo=true"></iframe>
+          <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=laaldea_coronavirus_book_web&u=clickarte&hideIssuuLogo=true"></iframe>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
       <div class="col-12">
         <div class="content-title"><?php _e('Audiolibro', 'laaldea');?></div>
         <div class="video">
-          <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLJUVZwWphr-TOADnz91xuQ835OkdyXtZT&controls=1&rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Yk5B4AG_O00?controls=1&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>

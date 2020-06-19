@@ -81,13 +81,23 @@ function laaldea_build_home_html ($lang) {
 	$template_url = laaldea_load_template('intro-separator.php', 'home');
 	load_template($template_url, true);
 
-	$template_url = laaldea_load_template('covid.php', 'home');
+	if($lang == 'es') {
+		$template_url = laaldea_load_template('covid.php', 'home');
+	}
+	else if ($lang == 'en') {
+		$template_url = laaldea_load_template('covid-en.php', 'home');
+	}
 	load_template($template_url, true);
 
 	$template_url = laaldea_load_template('covid-separator.php', 'home');
 	load_template($template_url, true);
 
-	$template_url = laaldea_load_template('aldea.php', 'home');
+	if($lang == 'es') {
+		$template_url = laaldea_load_template('aldea.php', 'home');
+	}
+	else if ($lang == 'en') {
+		$template_url = laaldea_load_template('aldea-en.php', 'home');
+	}
 	load_template($template_url, true);
 
 	$template_url = laaldea_load_template('aldea-separator.php', 'home');
@@ -131,12 +141,12 @@ function laaldea_build_home_html ($lang) {
 
 	if($lang == 'es') {
 		$template_url = laaldea_load_template('contact-es.php', 'home');
-		load_template($template_url, true);
+		
 	}
 	else if ($lang == 'en') {
 		$template_url = laaldea_load_template('contact-en.php', 'home');
-		load_template($template_url, true);
 	}
+	load_template($template_url, true);
 }
 
 function laaldea_build_home_html_en () {

@@ -319,6 +319,64 @@ h3.subtitle {
 	cursor: default;
 }
 
+#covid .row.arrow .content {
+	position: relative;
+	font-size: 1.4em;
+}
+
+#covid .row.arrow .arrow-container {
+	position: absolute;
+	right: 80px;
+	top: 50%;
+	border-width: 2px;
+	opacity: 1;
+	width: 33%;
+	height: 186%;
+}
+
+#covid .row.arrow .line {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	border: 3px dashed var(--white);
+	border-top-color: transparent;
+	width: 100%;
+	border-radius: 25px 225px 225px 70px;
+	border-left-color: transparent;
+}
+
+#covid .row.arrow .arrow {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	bottom: -21px;
+	left: 45px;
+}
+
+#covid .row.arrow .arrow::after, 
+#covid .row.arrow .arrow::before {
+	content: "";
+	position: absolute;
+	background-color: var(--white);
+	opacity: 1;
+	width: 3px;
+	height: 20px;
+	transform-origin: top;
+}
+
+#covid .row.arrow .arrow::before {
+	transform: rotate(-10deg);
+	top: 18%;
+	left: -5%;
+}
+
+#covid .row.arrow .arrow::after {
+	transform: rotate(-80deg);
+	top: 20%;
+	left: -7%;
+} 
+
 #covid .row .video iframe {
 	width: 900px;
 	height: 700px;

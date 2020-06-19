@@ -59,7 +59,7 @@
                 'menu_class'      => 'navbar-nav',
                 'depth'           => 3,
                 'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new wp_bootstrap_navwalker()
+                'walker'          => new WP_Bootstrap_Navwalker()
                 ));
                 ?>
             </nav>
@@ -80,7 +80,7 @@
                 'menu_class'      => 'navbar-nav secondary',
                 'depth'           => 3,
                 'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new wp_bootstrap_navwalker()
+                'walker'          => new WP_Bootstrap_Navwalker()
                 ));
                 ?>
             </nav>
