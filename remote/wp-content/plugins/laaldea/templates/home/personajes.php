@@ -97,7 +97,7 @@
             <img src="/wp-content/uploads/personaje-gallinetas.jpg" alt="<?php _e('Imagen de Las gallinetas', 'laaldea');?>" />
             <div class="mask">
               <h5><?php _e('Gallinetas', 'laaldea');?></h5>
-              <p class="description"><?php _e('Cacarean y cacarean; pero, a decir verdad, poco piensan. Siempre andan en grupo y repiten todo lo que dicen los demás sin siquiera cuestionarlo. Son muy asustadizas y se dejan llevar por el miedo y los rumores.', 'laaldea');?></p>
+              <p class="description"><?php _e('¡Hola! Somos las gallinetas, siempre andamos en grupo y nunca nos separamos de las demás. Todas decimos lo mismo y hacemos lo mismo. De hecho, tal vez hasta pensemos igual… Somos muy asustadizas y tal vez un poco torpes. Preferimos no preguntar y solo hacer lo que nos dicen los demás.', 'laaldea');?></p>
             </div>
           </div>
           <div class="view view-team no-descriptor buhos">

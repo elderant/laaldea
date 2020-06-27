@@ -39,6 +39,10 @@
 	left: 72%;
 }
 
+html[lang^="en"] #intro .unicef-logo-container {
+	display: none;
+}
+
 .description h1 {
 	color: var(--green);
 	margin: 5.4% auto 0;
