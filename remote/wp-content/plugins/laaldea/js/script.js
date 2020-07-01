@@ -2,7 +2,7 @@
   var laadea_validate_promo_form_jquery = function() {
     let $form = $('.page-id-35 .covid-form-section .laaldea-form');
     let $inputs = $form.find('input:not([type="submit"]), select');
-    //let lang = $('html').attr('lang').substring(0,2);
+    let lang = $('html').attr('lang').substring(0,2);
     lang = lang == undefined ? 'es' : lang
 
     var message_array = {

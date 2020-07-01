@@ -616,6 +616,20 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	font-family: titan_one;
 }
 
+.page-especial-covid .covid-form-section .download-container label {
+	font-size: 2em;
+}
+
+.page-especial-covid .covid-form-section .download-container #form-download {
+	width: 100%;
+	max-width: 1000px;
+	padding: 0.5em 2em;
+	border-radius: 10px;
+	border-radius: 8px;
+	font-size: 1.2em;
+	font-family: sassoon;
+}
+
 .page-especial-covid .covid-form-section .use-container label {
 	font-size: 2em;
 }

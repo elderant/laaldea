@@ -49,6 +49,30 @@
       });
     }
 
+    if($('#covid').length > 0) {
+      $('#covid .navigation-container .change-book').on('click', function(event) {
+        $('#covid .book-slider .book-container').each(function(){
+          $(this).toggleClass('active');
+          $('html, body').stop().animate({ scrollTop: $('#covid').offset().top}, 2000);
+        });
+      });
+    }
+
+    if($('.page-especial-covid').length > 0) {
+      let params = getUrlVars();
+      let download = 1;
+      console.log(params);
+      if(params.hasOwnProperty('download')) {
+        download = params.download;
+        $('.download-container #form-download option').each(function(){
+          let optionValue = $(this).attr("value");
+          if(optionValue == download) {
+            $(this).attr("selected", "selected")
+          }
+        });
+      }
+    }
+
     if($('.woocommerce.archive').length > 0) {
       let params = getUrlVars();
       if($.inArray('id', params) != -1) {

@@ -47,11 +47,18 @@
                 </label>
               <?php endif;?>
             </div>
+            <div class="download-container input-container full-width">
+              <label for="form_download"><?php _e('Material a descargar','laaldea')?></label>
+              <select name="form_download" id="form-download" tabindex="50">
+                <option value="1"><?php _e('Tiempos Contagiosos','laaldea');?></option>
+                <option value="2"><?php _e('Una Pausa Necesaria','laaldea');?></option>
+              </select>
+            </div>
             <div class="use-container input-container full-width">
               <label for="form_use">
                 <?php _e('¿Cómo vas a usar este material?', 'laaldea'); ?>
               </label>
-              <textarea name="form_use" value="" id="form-use" tabindex="50" placeholder="<?php _e('Ej: Lo voy a usar con mis hijos en homeschooling...', 'laaldea')?>"></textarea>
+              <textarea name="form_use" value="" id="form-use" tabindex="60" placeholder="<?php _e('Ej: Lo voy a usar con mis hijos en homeschooling...', 'laaldea')?>"></textarea>
               <?php if ( isset($error['form_use'] ) ) : ?>
                 <label id="promo-use-error-server" class="error" for="form_use">
                   <?php echo $error['form_use'];?>

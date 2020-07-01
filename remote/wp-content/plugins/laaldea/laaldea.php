@@ -184,6 +184,7 @@ function laaldea_promo_handler() {
 		$location = $_POST['form_location'];
 		$email = $_POST['form_email'];
 		$use = $_POST['form_use'];
+		$download = $_POST['form_download'];
 
 		// validate values.
 		if(empty($name)) {
@@ -224,6 +225,12 @@ function laaldea_promo_handler() {
 		$location = $_POST['form_location'];
 		$email = $_POST['form_email'];
 		$use = $_POST['form_use'];
+		if(strcasecmp($download, "1") == 0) {
+			$download_str = "1 - Tiempos Contagiosos";
+		}
+		else if(strcasecmp($download, "2") == 0) {
+			$download_str = "2 - Una Pausa Necesaria";
+		}
 
 		$name = sanitize_text_field($_POST['form_name']);
 		$organization = sanitize_text_field($_POST['form_organization']);
@@ -240,6 +247,7 @@ function laaldea_promo_handler() {
 			"organization" => $organization,
 			"location" => $location,
 			"use" => $use,
+			"download" => $download_str,
 		);
 			
 		// $data = array(
@@ -250,7 +258,13 @@ function laaldea_promo_handler() {
 		$wpdb->insert( $table_name, $data);
 
 		//Trigger download
-		$file = "https://laaldea.co/wp-content/uploads/EspecialCovid.zip";
+		if(strcasecmp($download, "1") == 0) {
+			$file = "https://laaldea.co/wp-content/uploads/EspecialCovid.zip";
+		}
+		else if(strcasecmp($download, "2") == 0) {
+			$file = "https://laaldea.co/wp-content/uploads/UnaPausaNecesaria.zip";
+		}
+		
 		
 		header('Content-Type: application/pdf');
 		header('Content-Disposition: attachment; filename="' . $file . '"');

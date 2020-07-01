@@ -15,12 +15,12 @@
       </div>
       <div class="col-12 col-sm-2 offset-md-1 offset-sm-2 number-group-container first-row-lg">
         <h6><?php _e('Más de', 'laaldea');?></h6>
-        <h3><?php _e('37.000', 'laaldea');?></h3>
+        <h3><?php _e('65.522', 'laaldea');?></h3>
         <p><?php _e('estudiantes', 'laaldea');?></p>
       </div>
       <div class="col-12 col-sm-2 offset-md-1 offset-sm-2 number-group-container first-row-lg">
         <h6><?php _e('Más de', 'laaldea');?></h6>
-        <h3><?php _e('700', 'laaldea');?></h3>
+        <h3><?php _e('2.554', 'laaldea');?></h3>
         <p><?php _e('docentes inspirados', 'laaldea');?></p>
       </div>
       <div class="col-12 col-sm-2 offset-md-2 offset-sm-1 number-group-container second-row-lg">
