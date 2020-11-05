@@ -22,7 +22,11 @@
           <div class="content-title"><?php _e('Libro digital', 'laaldea');?></div>
           <div class="issuu">
             <!-- <iframe allowfullscreen allow="fullscreen" style="border:none;width:700px;height:500px;" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa&u=clickarte&hideIssuuLogo=true"></iframe> -->
-            <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_historias_para_estar_en_casa_una_pausa_ne&u=clickarte&hideIssuuLogo=true"></iframe>
+            <?php if(is_page(2) || is_page(259)) : ?>
+              <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_historias_para_estar_en_casa_una_pausa_ne&u=clickarte&hideIssuuLogo=true"></iframe>
+            <?php elseif(is_page(304) || is_page(308)) : ?>
+              <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&&hideIssuuLogo=true&d=la_aldea_historias_para_estar_en_casa_2_unicef&u=clickarte"></iframe>
+            <?php endif;?>
           </div>
         </div>
       </div>
@@ -72,7 +76,11 @@
           <div class="content-title"><?php _e('Libro digital', 'laaldea');?></div>
           <div class="issuu">
             <!-- <iframe allowfullscreen allow="fullscreen" style="border:none;width:700px;height:500px;" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa&u=clickarte&hideIssuuLogo=true"></iframe> -->
-            <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa_1__2_&u=clickarte&hideIssuuLogo=true"></iframe>
+            <?php if(is_page(2) || is_page(259)) : ?>
+              <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=la_aldea_-_historias_para_estar_en_casa_1__2_&u=clickarte&hideIssuuLogo=true"></iframe>
+            <?php elseif(is_page(304) || is_page(308)) : ?>
+              <iframe allowfullscreen allow="fullscreen" src="//e.issuu.com/embed.html?backgroundColor=%23141552&backgroundColorFullscreen=%23141552&d=laaldea_tiempos_contagiosos__unicef&u=clickarte&hideIssuuLogo=true"></iframe>
+            <?php endif;?>
           </div>
         </div>
       </div>
@@ -103,9 +111,9 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row hidden">
         <div class="col-12">
-          <div class="text-container hidden">
+          <div class="text-container">
             <img src="/wp-content/uploads/covid-design-triangle-original.png" alt="<?php _e('Triangulo de diseño', 'laaldea');?>" class>
             <span><?php _e('Marco conceptual y competencias MEN', 'laaldea');?></span>
           </div>

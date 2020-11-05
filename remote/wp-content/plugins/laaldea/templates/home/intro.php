@@ -1,12 +1,12 @@
 <div id="intro">
 	<section class="container-fluid ss-style-doublediagonal">
-    <!-- <div class="unicef-logo-container">
+    <div class="unicef-logo-container">
       <img src="/wp-content/uploads/intro-unicef.png" alt="Unicef Logo">
-    </div> -->
+    </div>
     <div class="row first-row">
       <div class="col-12">
         <div class="description animated bounceIn">
-          <h1 class="capitalized"><?php _e('La aldea', 'laaldea');?></h1>
+          <h1 class="capitalized"><?php _e('La aldea<span class="font-trademark trademark-character"><sup>&reg;</sup></span>', 'laaldea');?></h1>
         </div>
       </div>
     </div>

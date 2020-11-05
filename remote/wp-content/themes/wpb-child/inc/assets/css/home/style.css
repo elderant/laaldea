@@ -33,14 +33,24 @@
 	padding: 0 0 4rem;
 }
 
-#intro .unicef-logo-container {
+.home #intro .unicef-logo-container {
+	display: none;
+}
+
+.page-id-304 #intro .unicef-logo-container,
+.page-id-308 #intro .unicef-logo-container {
 	position: absolute;
 	top: 0;
-	left: 72%;
+	right: 20vw;
 }
 
 html[lang^="en"] #intro .unicef-logo-container {
 	display: none;
+}
+
+.description .trademark-character sup {
+	top: -1.3em;
+	font-size: 0.4em;
 }
 
 .description h1 {
@@ -362,8 +372,8 @@ h3.subtitle {
 
 #covid .download-button[disabled] {
 	margin-top: 1em;
-	color: darkgray;
-	background-color: #615D3B;
+	color: var(--gray-dark);
+	background-color: var(--gray-light);
 	pointer-events: none;
 	cursor: default;
 }

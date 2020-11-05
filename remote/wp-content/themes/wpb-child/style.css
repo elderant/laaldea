@@ -28,7 +28,7 @@ Text Domain:	 wpb-child
 	--blue-light: #4492cf;
 	--blue:#4590a9;
 	--blue-dark: #141552;
-
+  
 	--red: #ed1844;
 	--red-dark-tone: #AD1131;
 	--red-darker-tone: #6E0B1F;
@@ -44,11 +44,13 @@ Text Domain:	 wpb-child
 	--yellow: #e1d145;
 	--yellow-light: #CCCF30; /* related with blue light */
 
+  --cyan: #0d8194;
+
 	--purple: #0c1a3d;
 
-	--gray: #ABABAB;
-	--gray-light: #D1D1D1;
-	--gray-dark: #858585;
+	--gray: #606060;
+	--gray-light: #ADADAD;
+	--gray-dark: #474747;
 	--navbar-overlay: rgba(255,255,255,0.4);	
 
 	--success: #c1d82f;
@@ -262,6 +264,13 @@ a:hover, a:focus  {
   color: var(--blue-click);
 }
 
+.font-titan {
+  font-family: 'titan_one', 'Helvetica', sans-serif;;
+}
+
+.font-trademark {
+	font-family: 'sassoon', 'Helvetica', sans-serif;
+}
 /******************** Shared ********************/
 
 /* shared : header */
@@ -269,7 +278,7 @@ header#masthead {
 	background-color: transparent;
 	box-shadow: none;
 	padding: 0;
-	min-height: 46px;
+	min-height: 42px;
 }
 
 header .navbar {
@@ -504,13 +513,13 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 @media (min-width : 1441px) {
 	header .navbar.secondary {
-		font-size: 1.3em;
+		font-size: 1.1em;
 	}
 }
 
 @media (min-width : 1281px) and (max-width : 1440px) {
 	header .navbar.secondary {
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 }
 
@@ -522,6 +531,95 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	header .navbar.secondary {
 		font-size: 1.1em;
 	}
+}
+
+/* Learning : header */
+.page-template-learning header#masthead,
+.bbpress header#masthead {
+  margin: 0;
+  height: calc(1.5*2rem + 4rem);
+}
+
+.page-template-learning header .navbar,
+.bbpress header .navbar {
+	z-index: 1020;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+  height: auto;
+  padding: 2.2rem 0;
+  color: var(--black);
+  background-color: var(--white);
+	font-family: titan_one;
+	font-weight: 400;
+	font-size: 2rem;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
+	transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
+}
+
+.page-template-learning header .navbar.navbar-expand-sm,
+.bbpress header .navbar.navbar-expand-sm {
+	flex-flow: column nowrap;
+}
+
+.page-template-learning header#masthead .navbar #learning-nav,
+.bbpress header#masthead .navbar #learning-nav {
+  width: 100%;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning,
+.bbpress header#masthead .navbar ul#menu-learning {
+  width: inherit;
+  justify-content: space-around;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li > a,
+.bbpress header#masthead .navbar ul#menu-learning > li > a {
+	color: var(--gray);
+	font-weight: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0 1.3rem;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link,
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link {
+  /* margin: 0 auto; */
+  border-radius: 5px;
+  padding: 0 0rem;
+  background-color: var(--cyan);
+  color: var(--white);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
+  color: var(--white);
+  padding: 0 0.5rem;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a::after,
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a::after {
+  content: '®';
+  font-family: 'sassoon';
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li > a:hover,
+.page-template-learning header#masthead .navbar ul#menu-learning > li > a:focus,
+.bbpress header#masthead .navbar ul#menu-learning > li > a:hover,
+.bbpress header#masthead .navbar ul#menu-learning > li > a:focus {
+  color: var(--cyan);
+}
+
+.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:hover,
+.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:focus,
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link:hover,
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link:focus {  
+  background-color: var(--gray);
 }
 
 /******************** Home ********************/
@@ -540,6 +638,29 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 .home #primary .entry-content {
+	margin: 0;
+}
+
+/******************** Home unicef ********************/
+
+/* unicef - general */
+.page-id-304 #content.site-content,
+.page-id-308 #content.site-content {
+	padding: 0;
+}
+
+.page-id-304 .site-content #primary,
+.page-id-308 .site-content #primary {
+	padding: 0;
+}
+
+.page-id-304 #primary .entry-header,
+.page-id-308 #primary .entry-header {
+	display: none;
+}
+
+.page-id-304 #primary .entry-content,
+.page-id-308 #primary .entry-content {
 	margin: 0;
 }
 
@@ -872,4 +993,61 @@ body.page-politica-privacidad .entry-header {
 
 body.page-politica-privacidad p {
 	color: var(--black);
+}
+
+/**** User flow General ****/
+.user-flow,
+.user-flow label,
+.user-flow p,
+.user-flow h1,
+.user-flow h2,
+.user-flow h3,
+.user-flow h4,
+.user-flow h5,
+.user-flow h6 {
+  color: var(--black);
+}
+
+.user-flow a {
+  color: var(--blue);
+}
+
+.user-flow .error p {
+  color: var(--red);
+}
+
+.user-flow .notice p {
+  color: var(--green-light);
+}
+
+.user-flow .error p a {
+  color: var(--red-dark-tone);
+}
+
+/**** Forum General ****/
+.bbpress,
+.bbpress a,
+.bbpress label,
+.bbpress p,
+.bbpress h1,
+.bbpress h2,
+.bbpress h3,
+.bbpress h4,
+.bbpress h5,
+.bbpress h6 {
+  color: var(--gray);
+}
+
+.bbpress .bbp-forum-freshness p,
+.bbpress .topic p {
+  text-align: center;
+}
+
+.bbpress .sidebar .widget {
+  border-right: 4px dashed var(--cyan);
+}
+
+.bbpress .sidebar h4 {
+  font-family: 'titan_one';
+  margin-bottom: 2rem;
 }

@@ -133,8 +133,14 @@ function laaldea_build_home_html ($lang) {
 	$template_url = laaldea_load_template('click-team-separator.php', 'home');
 	load_template($template_url, true);
 
-	$template_url = laaldea_load_template('click.php', 'home');
-	load_template($template_url, true);
+	if($lang == 'es') {
+		$template_url = laaldea_load_template('click-es.php', 'home');
+		load_template($template_url, true);
+	}
+	else if ($lang == 'en') {
+		$template_url = laaldea_load_template('click-en.php', 'home');
+		load_template($template_url, true);
+	}
 
 	$template_url = laaldea_load_template('click-separator.php', 'home');
 	load_template($template_url, true);
@@ -273,3 +279,52 @@ function laaldea_promo_handler() {
 
 	return;
 }
+
+/*****************************************************************/
+/******************* E-Learning home functions *******************/
+/*****************************************************************/
+function laaldea_build_learning_home () {
+	$template_url = laaldea_load_template('click-separator.php', 'learning');
+	load_template($template_url, true);
+}
+add_shortcode( 'laaldea_learing_home', 'laaldea_build_learning_home' );
+
+/******************* Forum functions *******************/
+function laaldea_before_forum_title() {
+  echo '<span class="font-titan before-forum-title">Foro: </span>';
+}
+add_action( 'bbp_theme_before_forum_title', 'laaldea_before_forum_title' );
+
+function laaldea_add_last_replies() { 
+  $topic_id = bbp_get_topic_id();
+  $new_args = array(
+      'post_type'=> 'reply',
+      'post_parent' => $topic_id,
+      'posts_per_page' => 2,
+  );
+  
+  $new_query = new WP_Query( $new_args );
+  
+  if ( $new_query->have_posts() ) {
+    echo '<div class="topic-replies">';
+    while ( $new_query->have_posts() ) {
+      $new_query->the_post();
+
+      $reply_id=$post->ID;
+      $reply_title= get_the_title();
+      $reply_date= get_the_date();
+      $reply_content= the_content(); 
+      $reply_permalink= get_the_permalink(); 
+
+      ?>
+        <div class="reply">
+          <?php echo $reply_content; ?>
+          <a href="<?php echo $reply_permalink ?>"><?php echo $reply_date ?></a>
+        </div>
+      <?php 
+    }
+    echo '</div>';
+  }
+}
+// Hook into action
+add_action('wpb_child_bbp_after_single_topic','laaldea_add_last_replies');

@@ -66,9 +66,8 @@
 		min-height: 0px;
 	}
 	
-	#intro .unicef-logo-container {
-		left: auto;
-		right: 0;
+	.entry-content #intro .unicef-logo-container {
+		right: 13px;
 	}
 
 	#intro .unicef-logo-container img {
@@ -741,9 +740,8 @@
 		min-height: 0px;
 	}
 
-	#intro .unicef-logo-container {
-		left: auto;
-		right: 0;
+	.entry-content #intro .unicef-logo-container {
+		right: 13px;
 	}
 
 	#intro .unicef-logo-container img {
@@ -1415,8 +1413,8 @@
 		min-height: 0px;
 	}
 
-	#intro .unicef-logo-container {
-		left: 75%;
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
 	}
 
 	#intro .unicef-logo-container img {
@@ -2048,8 +2046,8 @@
 		min-height: 0px;
 	}
 
-	#intro .unicef-logo-container {
-		left: 75%;
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
 	}
 
 	#intro .unicef-logo-container img {
@@ -2707,8 +2705,8 @@
 		min-height: 0px;
 	}
 	
-	#intro .unicef-logo-container {
-		left: 75%;
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
 	}
 
 	#intro .unicef-logo-container img {
@@ -3338,8 +3336,8 @@
 		min-height: 0px;
 	}
 	
-	#intro .unicef-logo-container {
-		left: 80%;
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
 	}
 
 	#intro .unicef-logo-container img {
@@ -3909,6 +3907,10 @@
 		min-height: 36px;
 	}
 	
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
+	}
+
 	#intro .unicef-logo-container img {
 		height: 100px;
 	}
@@ -4367,9 +4369,13 @@
 	p {font-size: 13px;}
 	
 	header#masthead {
-		min-height: 37px;
+		min-height: 35px;
 	}
 	
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
+	}
+
 	#intro .unicef-logo-container img {
 		height: 100px;
 	}
@@ -4871,9 +4877,13 @@
 	p {font-size: 13px;}
 
 	header#masthead {
-		min-height: 37px;
+		min-height: 35px;
 	}
 	
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
+	}
+
 	#intro .unicef-logo-container img {
 		height: 125px;
 	}
@@ -5117,9 +5127,13 @@
 	p {font-size: 13px;}
 
 	header#masthead {
-		min-height: 39px;
+		min-height: 37px;
 	}
 	
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
+	}
+
 	#intro .unicef-logo-container img {
 		height: 125px;
 	}
@@ -5446,6 +5460,7 @@
 }
 
 
+
 /*-- 11 .STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1536px --*/
 @media screen and (min-width: 1366px) and (max-width: 1536px) {	
 	body {font-size: 14px;}
@@ -5457,7 +5472,11 @@
 	p {font-size: 14px;}
 
 	header#masthead {
-		min-height: 40px;
+		min-height: 38px;
+	}
+
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
 	}
 
 	#intro .unicef-logo-container img {
@@ -5875,7 +5894,11 @@
 		margin-left: 0;
 		width: 100%;
 	}	
-	
+
+	.entry-content #intro .unicef-logo-container {
+		right: 10vw;
+	}
+
 	.description h2 {
 		margin: 6% auto 3%;
 		font-size: 3.8em;

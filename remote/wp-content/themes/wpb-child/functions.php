@@ -4,7 +4,7 @@ function wpb_child_enqueue_styles() {
 	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/js/script.js', array(), '', true );
 
-	if(is_home() || is_front_page()) {
+	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-style', get_stylesheet_directory_uri() . '/inc/assets/css/home/style.css', array(), false );
 		wp_enqueue_style('wpb-child-home-animate', get_stylesheet_directory_uri() . '/inc/assets/css/home/animate.css', array(), false );
 		wp_enqueue_style('wpb-child-home-hover', get_stylesheet_directory_uri() . '/inc/assets/css/home/hover.css', array(), false );
@@ -29,7 +29,7 @@ function wpb_child_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );
 function wpb_child_enqueue_mobile_styles() {
-	if(is_home() || is_front_page()) {
+	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
 	}
 }
@@ -54,12 +54,13 @@ function laaldea_add_slug_body_class( $classes ) {
 
 function laaldea_register_secondary_menu() {
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'wpb-child' ));
+  register_nav_menu('learning-menu', __( 'E-Learning menu', 'wpb-child' ));
 }
 add_action( 'init', 'laaldea_register_secondary_menu' );
 
 function wpb_child_add_acf_custom_body_class($classes) {
 	if(get_field("custom_body_class") <> "") {
-		error_log("Adding class");
+		// error_log("Adding class");
 		$classes[] = get_field("custom_body_class");
 	}
 	return $classes;
@@ -101,6 +102,22 @@ add_filter( 'the_content_more_link', 'filter_the_content_more_link', 10, 2 );
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 	require_once(dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php');
 }
+
+function wpb_child_forum_sidebar() {
+  $args = array(
+    'name'          => 'Main Forum Sidebar',
+    'id'            => 'forum-sidebar',
+    'description'   => 'Sidebar to use on the forum page',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widgettitle">',
+    'after_title'   => '</h4>' 
+  );
+  
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'wpb_child_forum_sidebar' );
 
 /******************** App functinality ********************/ 
 /**
@@ -159,8 +176,7 @@ add_action(
     }
 );
 
-function login( WP_REST_Request $request ) 
-{
+function login( WP_REST_Request $request ) {
     $arr_request = json_decode( $request->get_body() );
  
     if ( ! empty( $arr_request->username ) && ! empty( $arr_request->password ) ) {
@@ -197,8 +213,7 @@ function login( WP_REST_Request $request )
 	}
 }
 
-function registrer( WP_REST_Request $request ) 
-{
+function registrer( WP_REST_Request $request ) {
     $arr_request = json_decode( $request->get_body() );
  
     if ( !empty( $arr_request->username ) && !empty( $arr_request->password )  ) {
@@ -253,8 +268,7 @@ function registrer( WP_REST_Request $request )
     }
 }
 
-function checkMail( WP_REST_Request $request ) 
-{
+function checkMail( WP_REST_Request $request ) {
     $arr_request = json_decode( $request->get_body() );
  
     if ( !empty( $arr_request->username )  ) {

@@ -86,5 +86,9 @@
     if($('.page-id-35').length > 0) {
       laadea_validate_promo_form_jquery();
     }
+
+    if($('.bbpress').length > 0) {
+      $('.bbp-breadcrumb .bbp-breadcrumb-home').attr('href','https://laaldea.co/learning-home/');
+    }
   });
 } (jQuery) );
