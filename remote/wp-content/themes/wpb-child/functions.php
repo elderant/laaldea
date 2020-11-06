@@ -119,6 +119,38 @@ function wpb_child_forum_sidebar() {
 }
 add_action( 'widgets_init', 'wpb_child_forum_sidebar' );
 
+function wpb_child_topic_sidebar() {
+  $args = array(
+    'name'          => 'Main Topic Sidebar',
+    'id'            => 'topic-sidebar',
+    'description'   => 'Sidebar to use on the topic page',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widgettitle">',
+    'after_title'   => '</h4>',
+  );
+  
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'wpb_child_topic_sidebar' );
+
+function wpb_child_replies_sidebar() {
+  $args = array(
+    'name'          => 'Main Replies Sidebar',
+    'id'            => 'replies-sidebar',
+    'description'   => 'Sidebar to use on the replies page',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widgettitle">',
+    'after_title'   => '</h4>',
+  );
+  
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'wpb_child_replies_sidebar' );
+
 /******************** App functinality ********************/ 
 /**
  * Reescribe el tamaño maximo de los archivos a subir

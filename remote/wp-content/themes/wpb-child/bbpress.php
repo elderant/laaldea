@@ -6,12 +6,22 @@
 get_header('learning');?>
 
   <?php if( bbp_is_forum_archive() ) : ?>
-    <div id="sidebar-main" class="sidebar offset-1 col-2">
+    <div id="sidebar-main" class="sidebar offset-1 col-3">
       <?php dynamic_sidebar( 'forum-sidebar' ); ?>
     </div>
-	  <section id="primary" class="content-area col-sm-8 forum">
+	  <section id="primary" class="content-area col-sm-7 forum">
+  <?php elseif( bbp_is_single_forum() ) : ?>
+    <div id="sidebar-main" class="sidebar offset-1 col-3">
+      <?php dynamic_sidebar( 'topic-sidebar' ); ?>
+    </div>
+	  <section id="primary" class="content-area col-sm-7 topic">
+  <?php elseif( bbp_is_single_topic() ) : ?>
+    <div id="sidebar-main" class="sidebar offset-1 col-3">
+      <?php dynamic_sidebar( 'replies-sidebar' ); ?>
+    </div>
+	  <section id="primary" class="content-area col-sm-7 replies">
   <?php else: ?>
-    <section id="primary" class="content-area offset-1 col-sm-10 forum">
+    <section id="primary" class="content-area offset-1 col-sm-10 general">
   <?php endif; ?>
 		<main id="main" class="site-main" role="main">
 

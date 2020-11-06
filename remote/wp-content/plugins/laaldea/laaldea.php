@@ -295,31 +295,47 @@ function laaldea_before_forum_title() {
 }
 add_action( 'bbp_theme_before_forum_title', 'laaldea_before_forum_title' );
 
+function laaldea_before_topic_title() {
+  echo '<span class="font-titan before-forum-title">Tema: </span>';
+}
+
+add_action( 'bbp_theme_before_topic_title', 'laaldea_before_topic_title' );
+
+
 function laaldea_add_last_replies() { 
   $topic_id = bbp_get_topic_id();
   $new_args = array(
-      'post_type'=> 'reply',
+      // 'post_type'=> 'reply',
       'post_parent' => $topic_id,
-      'posts_per_page' => 2,
+      'posts_per_page' => 3,
   );
-  
-  $new_query = new WP_Query( $new_args );
-  
-  if ( $new_query->have_posts() ) {
-    echo '<div class="topic-replies">';
-    while ( $new_query->have_posts() ) {
-      $new_query->the_post();
 
-      $reply_id=$post->ID;
-      $reply_title= get_the_title();
-      $reply_date= get_the_date();
-      $reply_content= the_content(); 
-      $reply_permalink= get_the_permalink(); 
+  // $new_query = new WP_Query( $new_args );
+  
+  // if ( $new_query->have_posts() ) {
+  if( bbp_has_replies($new_args) ) {
+    echo '<div class="topic-replies">';
+    while ( bbp_replies() ) {
+      bbp_the_reply();
+
+      $reply_id = bbp_get_reply_id();
+      $reply_date = bbp_get_reply_post_date();
+      $reply_content = bbp_get_reply_content(); 
+      $reply_author = bbp_get_reply_author_display_name();
 
       ?>
-        <div class="reply">
-          <?php echo $reply_content; ?>
-          <a href="<?php echo $reply_permalink ?>"><?php echo $reply_date ?></a>
+        <?php if ( bbp_is_topic( $reply_id ) ) : ?>
+          <div class="topic-container bbp-list-reply d-flex align-items-center">
+        <?php else:?>
+          <div class="reply-container bbp-list-reply d-flex align-items-center">
+        <?php endif;?>
+          <div class="author-container">
+            <div class="text-container text-center"><?php echo $reply_author; ?></div>
+          </div>
+          <div class="content-container">
+            <?php echo $reply_content; ?>
+            <div class="date text-right color-cyan"><?php echo $reply_date; ?></div>
+          </div>
         </div>
       <?php 
     }
@@ -328,3 +344,21 @@ function laaldea_add_last_replies() {
 }
 // Hook into action
 add_action('wpb_child_bbp_after_single_topic','laaldea_add_last_replies');
+
+function laaldea_build_topic_sidebar () {
+  ob_start();
+  bbp_get_template_part( 'form',       'topic'     );
+  $html = ob_get_clean();
+  
+  return $html;
+}
+add_shortcode( 'laaldea_topic_sidebar', 'laaldea_build_topic_sidebar' );
+
+function laaldea_build_replies_sidebar () {
+  ob_start();
+  bbp_get_template_part( 'form', 'reply' );
+  $html = ob_get_clean();
+  
+  return $html;
+}
+add_shortcode( 'laaldea_replies_sidebar', 'laaldea_build_replies_sidebar' );
