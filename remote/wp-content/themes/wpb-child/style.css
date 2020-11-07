@@ -296,7 +296,8 @@ header .navbar {
 	height: 0;
 	border: 0px solid var(--blue-dark);
 	border-width: 0px;
-	background-color: transparent;
+  background-color: transparent;
+  backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -498,7 +499,8 @@ header .navbar.secondary {
 	color: white;
 	font-family: titan_one;
 	font-weight: 400;
-	font-size: 1.5em;
+  font-size: 1.5em;
+  backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -545,13 +547,15 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 /* Learning : header */
 .page-template-learning header#masthead,
-.bbpress header#masthead {
+.bbpress header#masthead,
+.page-template-user-flow header#masthead {
   margin: 0;
   height: calc(1.5*2rem + 4rem);
 }
 
 .page-template-learning header .navbar,
-.bbpress header .navbar {
+.bbpress header .navbar,
+.page-template-user-flow header .navbar{
 	z-index: 1020;
 	position: fixed;
 	top: 0;
@@ -563,30 +567,35 @@ header#masthead .navbar.secondary ul > li > a:focus {
   background-color: var(--white);
 	font-family: titan_one;
 	font-weight: 400;
-	font-size: 2rem;
+  font-size: 2rem;
+  backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
 	transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
 }
 
 .page-template-learning header .navbar.navbar-expand-sm,
-.bbpress header .navbar.navbar-expand-sm {
+.bbpress header .navbar.navbar-expand-sm,
+.page-template-user-flow header .navbar.navbar-expand-sm {
 	flex-flow: column nowrap;
 }
 
 .page-template-learning header#masthead .navbar #learning-nav,
-.bbpress header#masthead .navbar #learning-nav {
+.bbpress header#masthead .navbar #learning-nav,
+.page-template-user-flow header#masthead .navbar #learning-nav {
   width: 100%;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning,
-.bbpress header#masthead .navbar ul#menu-learning {
+.bbpress header#masthead .navbar ul#menu-learning,
+.page-template-user-flow header#masthead .navbar ul#menu-learning {
   width: inherit;
   justify-content: space-around;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li > a,
-.bbpress header#masthead .navbar ul#menu-learning > li > a {
+.bbpress header#masthead .navbar ul#menu-learning > li > a,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a {
 	color: var(--gray);
 	font-weight: inherit;
 	font-family: inherit;
@@ -595,7 +604,8 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link {
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link {
   /* margin: 0 auto; */
   border-radius: 5px;
   padding: 0 0rem;
@@ -605,13 +615,15 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
   color: var(--white);
   padding: 0 0.5rem;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a::after {
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a::after,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a::after {
   content: '®';
   font-family: 'sassoon';
   font-size: 0.5em;
@@ -621,14 +633,18 @@ header#masthead .navbar.secondary ul > li > a:focus {
 .page-template-learning header#masthead .navbar ul#menu-learning > li > a:hover,
 .page-template-learning header#masthead .navbar ul#menu-learning > li > a:focus,
 .bbpress header#masthead .navbar ul#menu-learning > li > a:hover,
-.bbpress header#masthead .navbar ul#menu-learning > li > a:focus {
+.bbpress header#masthead .navbar ul#menu-learning > li > a:focus,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:hover,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:focus {
   color: var(--cyan);
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:hover,
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:focus,
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link:focus {  
+.bbpress header#masthead .navbar ul#menu-learning > li.home-link:focus,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:hover,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:focus {  
   background-color: var(--gray);
 }
 

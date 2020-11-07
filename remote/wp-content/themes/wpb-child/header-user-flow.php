@@ -44,46 +44,25 @@
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
     <header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container-fluid">
-            <nav class="navbar fixed-top navbar-collapse p-0 d-lg-none d-block">
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+          <nav class="navbar secondary navbar-collapse navbar-expand-sm">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <?php
-                wp_nav_menu(array(
-                'theme_location'    => 'primary',
-                'container'       => 'div',
-                'container_id'    => 'main-nav',
-                'container_class' => 'collapse navbar-collapse justify-content-end',
-                'menu_id'         => false,
-                'menu_class'      => 'navbar-nav',
-                'depth'           => 3,
-                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new WP_Bootstrap_Navwalker()
-                ));
-                ?>
-            </nav>
-            <nav class="navbar secondary navbar-collapse navbar-expand-sm d-lg-block d-none">
-                <!-- <div class="navbar-brand">
-                    <a href="<?php /*echo esc_url( home_url( '/' ));*/ ?>">
-                        <img src="<?php /*echo esc_url(get_theme_mod( 'wp_bootstrap_starter_logo' ));*/ ?>" alt="<?php /*echo esc_attr( get_bloginfo( 'name' ) ); */?>">
-                    </a>
-                </div> -->
-
-                <?php
-                wp_nav_menu(array(
-                'theme_location'    => 'secondary-menu',
-                'container'       => 'div',
-                'container_id'    => 'secondary-nav',
-                'container_class' => 'collapse navbar-collapse justify-content-center',
-                'menu_id'         => false,
-                'menu_class'      => 'navbar-nav secondary',
-                'depth'           => 3,
-                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new WP_Bootstrap_Navwalker()
-                ));
-                ?>
-            </nav>
+            <?php
+            wp_nav_menu(array(
+            'theme_location'    => 'learning-menu',
+            'container'       => 'div',
+            'container_id'    => 'learning-nav',
+            'container_class' => 'collapse navbar-collapse justify-content-end',
+            'menu_id'         => false,
+            'menu_class'      => 'navbar-nav',
+            'depth'           => 3,
+            'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+            'walker'          => new wp_bootstrap_navwalker()
+            ));
+            ?>
+          </nav>
         </div>
 	</header><!-- #masthead -->
     <?php if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>

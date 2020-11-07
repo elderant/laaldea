@@ -20,6 +20,8 @@ get_header('learning');?>
       <?php dynamic_sidebar( 'replies-sidebar' ); ?>
     </div>
 	  <section id="primary" class="content-area col-sm-7 replies">
+  <?php elseif( bbp_is_single_user() ) : ?>
+	  <section id="primary" class="content-area col-sm-12 user">
   <?php else: ?>
     <section id="primary" class="content-area offset-1 col-sm-10 general">
   <?php endif; ?>

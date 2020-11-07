@@ -61,6 +61,55 @@
     });
   }
   
+  var laaldea_handle_topic_load_more = function(event) {
+    let $button = $(event.currentTarget);
+
+    let offset = $button.attr('data-offset');
+    let total = $button.attr('data-total');
+    let topicId = $button.attr('data-topicId');
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_load_more_replies',
+        offset : offset,
+        topicId : topicId,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let $repliesMainContainer = $button.parents('.topic-replies');
+          let currentHeight = $repliesMainContainer.height();
+
+          $('.bbpress .topic #bbpress-forums .load-more-link-container').before(data.html);
+          $repliesMainContainer.css('height', 'auto');
+          let autoHeight = $repliesMainContainer.height();
+
+          if(true === data.last) {
+            autoHeight -= $button.height();
+          }
+
+          $repliesMainContainer.height(currentHeight).animate({height: autoHeight}, 1000);
+        }
+
+        $button.attr('data-offset',data.count);
+        if(true === data.last) {
+          $button.fadeTo(500, 0, function() {
+            $button.toggleClass('end-list');
+            $button.css('opacity','');
+          });
+        }
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -90,5 +139,13 @@
     if($('.bbpress').length > 0) {
       $('.bbp-breadcrumb .bbp-breadcrumb-home').attr('href','https://laaldea.co/learning-home/');
     }
+
+    if($('.bbpress.single-forum').length > 0) {
+      $('.topic #bbpress-forums .load-more-link-container button').on('click', function(event){
+        event.preventDefault();
+        laaldea_handle_topic_load_more(event);
+      });
+    }
+       
   });
 } (jQuery) );

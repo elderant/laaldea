@@ -303,43 +303,27 @@ add_action( 'bbp_theme_before_topic_title', 'laaldea_before_topic_title' );
 
 
 function laaldea_add_last_replies() { 
+  global $wp_query;
+  $posts_per_page = 3;
+
   $topic_id = bbp_get_topic_id();
   $new_args = array(
-      // 'post_type'=> 'reply',
-      'post_parent' => $topic_id,
-      'posts_per_page' => 3,
+    'post_parent' => $topic_id,
+    'posts_per_page' => $posts_per_page,
   );
-
-  // $new_query = new WP_Query( $new_args );
   
-  // if ( $new_query->have_posts() ) {
   if( bbp_has_replies($new_args) ) {
-    echo '<div class="topic-replies">';
-    while ( bbp_replies() ) {
-      bbp_the_reply();
+    $bbp = bbpress();
 
-      $reply_id = bbp_get_reply_id();
-      $reply_date = bbp_get_reply_post_date();
-      $reply_content = bbp_get_reply_content(); 
-      $reply_author = bbp_get_reply_author_display_name();
+    $total_replies = $bbp->reply_query->found_posts;
+    $offset = $posts_per_page;
 
-      ?>
-        <?php if ( bbp_is_topic( $reply_id ) ) : ?>
-          <div class="topic-container bbp-list-reply d-flex align-items-center">
-        <?php else:?>
-          <div class="reply-container bbp-list-reply d-flex align-items-center">
-        <?php endif;?>
-          <div class="author-container">
-            <div class="text-container text-center"><?php echo $reply_author; ?></div>
-          </div>
-          <div class="content-container">
-            <?php echo $reply_content; ?>
-            <div class="date text-right color-cyan"><?php echo $reply_date; ?></div>
-          </div>
-        </div>
-      <?php 
-    }
-    echo '</div>';
+    $wp_query -> query_vars['laaldea_args']['total_replies'] = $total_replies;
+    $wp_query -> query_vars['laaldea_args']['offset'] = $offset;
+    $wp_query -> query_vars['laaldea_args']['topic_id'] = $topic_id;
+
+    $template_url = laaldea_load_template('topic-replies.php', 'forum/template-part');
+    load_template($template_url, false);
   }
 }
 // Hook into action
@@ -362,3 +346,56 @@ function laaldea_build_replies_sidebar () {
   return $html;
 }
 add_shortcode( 'laaldea_replies_sidebar', 'laaldea_build_replies_sidebar' );
+
+// Add aditional replies
+add_action( 'wp_ajax_nopriv_laaldea_load_more_replies', 'laaldea_load_more_replies' );
+add_action( 'wp_ajax_laaldea_load_more_replies', 'laaldea_load_more_replies' );
+
+function laaldea_load_more_replies() {
+  $offset = $_POST['offset'];
+  $topic_id = $_POST['topicId'];
+
+  global $wp_query;
+  $posts_per_page = 6;
+
+  $new_args = array(
+    'post_parent' => $topic_id,
+    'posts_per_page' => $posts_per_page,
+    'offset' => $offset,
+  );
+  
+  if( bbp_has_replies($new_args) ) {
+    error_log('building replies html');
+    $bbp = bbpress();
+
+    $total_replies = $bbp -> reply_query-> found_posts;
+
+    ob_start();
+    while(bbp_replies()) {
+      bbp_the_reply();
+
+      $reply_id = bbp_get_reply_id();
+      $reply_date = bbp_get_reply_post_date();
+      $reply_content = bbp_get_reply_content(); 
+      $reply_author = bbp_get_reply_author_display_name();
+
+      $wp_query -> query_vars['laaldea_args']['reply_date'] = $reply_date;
+      $wp_query -> query_vars['laaldea_args']['reply_content'] = $reply_content;
+      $wp_query -> query_vars['laaldea_args']['reply_author'] = $reply_author;
+
+      $template_url = laaldea_load_template('topic-replies-single.php', 'forum/template-part');
+      load_template($template_url, false);
+    }
+    $html = ob_get_clean();
+  }
+
+  //error_log('html to add : ' . print_r($html,1));
+  $return_array = array(
+    'last' => $total_replies <= $posts_per_page,
+    'count' => $offset + $posts_per_page,
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
+}
