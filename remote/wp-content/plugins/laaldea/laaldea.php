@@ -284,10 +284,28 @@ function laaldea_promo_handler() {
 /******************* E-Learning home functions *******************/
 /*****************************************************************/
 function laaldea_build_learning_home () {
-	$template_url = laaldea_load_template('click-separator.php', 'learning');
+	$template_url = laaldea_load_template('home.php', 'learning');
 	load_template($template_url, true);
 }
 add_shortcode( 'laaldea_learing_home', 'laaldea_build_learning_home' );
+
+function laaldea_build_learning_news () {
+  global $wp_query;
+
+  $query_args  = array(
+    'post_type' => 'post',
+    'posts_per_page' => 3,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+  );
+  $recent_news = new WP_Query( $query_args );
+	
+	$wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
+
+	$template_url = laaldea_load_template('news.php', 'learning');
+	load_template($template_url, true);
+}
+add_shortcode( 'laaldea_learing_news', 'laaldea_build_learning_news' );
 
 /******************* Forum functions *******************/
 function laaldea_before_forum_title() {
@@ -399,3 +417,5 @@ function laaldea_load_more_replies() {
   echo json_encode($return_array);
   die();
 }
+
+/******************* News functions *******************/

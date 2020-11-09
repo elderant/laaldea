@@ -1,7 +1,9 @@
 /* Learning */
 
+/***********************************************/
+/******************** Forum ********************/
+/***********************************************/
 
-/* Forum */
 .bbpress #content.site-content {
   min-height: calc(100vh - 1.5*2rem - 4rem);
   background: url(https://laaldea.co/wp-content/uploads/forum-image.png);
@@ -817,4 +819,183 @@
 .bbpress .user #bbpress-forums .bbp-user-section {
   display: flex;
   flex-direction: column;
+}
+
+/* Search */
+.bbp-search .general #bbpress-forums .forums {
+  border: none;
+}
+
+/* search : forums */
+.bbp-search .general #bbpress-forums .forums .type-forum,
+.bbp-search .general #bbpress-forums .forums .type-forum.odd {
+  background-color: transparent;
+  border: none;
+}
+
+.bbp-search .general #bbpress-forums .forums {
+  float: none;
+  width: auto;
+}
+
+.bbp-search .general #bbpress-forums .forums .bbp-forum-header,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-header,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-header {
+  border: none;
+  background-color: transparent;
+}
+
+.bbp-search .general #bbpress-forums .forums .before-forum-title {
+  display: none;
+}
+
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.bbp-search .general #bbpress-forums .forums .bbp-forum-title h3,
+.bbp-search .general #bbpress-forums .forums .bbp-forum-title a,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title h3,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title a,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title .bbp-topic-title-meta,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-title h3,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-title a,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-title .bbp-reply-title-meta {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--cyan);
+}
+
+.bbp-search .general #bbpress-forums .forums .bbp-forum-title a:hover,
+.bbp-search .general #bbpress-forums .forums .bbp-forum-title a:focus,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title a:hover,
+.bbp-search .general #bbpress-forums .forums .bbp-topic-title a:focus,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-title a:hover,
+.bbp-search .general #bbpress-forums .forums .bbp-reply-title a:focus {
+  color: var(--gray);
+}
+
+.bbp-search .general #bbpress-forums .forums .bbp-forum-content {
+  padding: 2rem 0 0 3rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+/* search : topic, replies */
+.bbp-search #bbpress-forums .topic,
+.bbp-search #bbpress-forums .reply {
+  display: flex;
+  align-items: center;
+}
+
+.bbp-search #bbpress-forums .topic .bbp-topic-author,
+.bbp-search #bbpress-forums .reply .bbp-reply-author {
+  width: 20%;
+}
+
+.bbp-search .forums .topic .author-container,
+.bbp-search .forums .reply .author-container {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  background: url('/wp-content/uploads/forum-author-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bbp-search .forums .topic .bbp-topic-author .text-container,
+.bbp-search .forums .reply .bbp-reply-author .text-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 155px;
+  height: 102px;
+  left: 26%;
+  font-size: 14px;
+  font-family: 'titan_one';
+  color: var(--cyan);
+}
+
+.bbp-search .forums .topic .author-container .text-container a,
+.bbp-search .forums .reply .author-container .text-container a {
+  color: var(--cyan);
+}
+
+.bbp-search #bbpress-forums .forums .topic .bbp-topic-content,
+.bbp-search #bbpress-forums .forums .reply .bbp-reply-content {
+  width: 80%;
+  margin: 0;
+}
+
+.bbp-search .forums .topic .bbp-topic-content p,
+.bbp-search .forums .reply .bbp-reply-content p {
+  text-align: left;
+}
+
+/***********************************************/
+/******************** News *********************/
+/***********************************************/
+/* list */
+#news .news-container.column-3 .new-container {
+  width: 33.333333%;
+}
+
+#news .new-container .image-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#news .new-container .image-container img {
+  background-color: white;
+  border: 5px solid var(--white);
+  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
+}
+
+#news .new-container .post-excerpt p {
+  margin-top: 0.5rem;
+}
+
+#news .new-container .post-actions .open-container {
+  position: relative;
+  width: 200px;
+  height: 104px;
+  background: url('/wp-content/uploads/learning-button-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#news .new-container .post-actions .open-container .text-container {
+  position: absolute;
+  left: 15px;
+  width: 180px;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#news .new-container .post-actions .open-container .text-container a {
+  color: var(--cyan);
+}
+
+#news .new-container .post-actions .open-container .text-container a:hover,
+#news .new-container .post-actions .open-container .text-container a:focus {
+  color: var(--gray);
+}
+
+/* single */
+.single-post .post .post-thumbnail {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.single-post #page.learning .post h1.entry-title {
+  font-size: 3rem;
+  color: var(--cyan);
 }

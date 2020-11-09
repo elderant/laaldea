@@ -271,8 +271,16 @@ a:hover, a:focus  {
   color: var(--cyan);
 }
 
+.color-gray {
+  color: var(--gray);
+}
+
 .font-titan {
   font-family: 'titan_one', 'Helvetica', sans-serif;;
+}
+
+.font-sassoon {
+  font-family: 'sassoon', 'Helvetica', sans-serif;
 }
 
 .font-trademark {
@@ -548,14 +556,16 @@ header#masthead .navbar.secondary ul > li > a:focus {
 /* Learning : header */
 .page-template-learning header#masthead,
 .bbpress header#masthead,
-.page-template-user-flow header#masthead {
+.page-template-user-flow header#masthead,
+.single-post header#masthead {
   margin: 0;
   height: calc(1.5*2rem + 4rem);
 }
 
 .page-template-learning header .navbar,
 .bbpress header .navbar,
-.page-template-user-flow header .navbar{
+.page-template-user-flow header .navbar,
+.single-post header .navbar {
 	z-index: 1020;
 	position: fixed;
 	top: 0;
@@ -576,26 +586,30 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 .page-template-learning header .navbar.navbar-expand-sm,
 .bbpress header .navbar.navbar-expand-sm,
-.page-template-user-flow header .navbar.navbar-expand-sm {
+.page-template-user-flow header .navbar.navbar-expand-sm,
+.single-post header .navbar.navbar-expand-sm {
 	flex-flow: column nowrap;
 }
 
 .page-template-learning header#masthead .navbar #learning-nav,
 .bbpress header#masthead .navbar #learning-nav,
-.page-template-user-flow header#masthead .navbar #learning-nav {
+.page-template-user-flow header#masthead .navbar #learning-nav,
+.single-post header#masthead .navbar #learning-nav {
   width: 100%;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning,
 .bbpress header#masthead .navbar ul#menu-learning,
-.page-template-user-flow header#masthead .navbar ul#menu-learning {
+.page-template-user-flow header#masthead .navbar ul#menu-learning,
+.single-post header#masthead .navbar ul#menu-learning {
   width: inherit;
   justify-content: space-around;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li > a,
 .bbpress header#masthead .navbar ul#menu-learning > li > a,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a {
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a,
+.single-post header#masthead .navbar ul#menu-learning > li > a {
 	color: var(--gray);
 	font-weight: inherit;
 	font-family: inherit;
@@ -603,9 +617,18 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	padding: 0 1.3rem;
 }
 
+.page-template-learning header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
+.bbpress header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
+.single-post header#masthead .navbar ul#menu-learning > li.current-menu-item > a {
+  color: var(--cyan);
+}
+
+
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link,
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link {
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link,
+.single-post header#masthead .navbar ul#menu-learning > li.home-link {
   /* margin: 0 auto; */
   border-radius: 5px;
   padding: 0 0rem;
@@ -616,14 +639,16 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
+.single-post header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
   color: var(--white);
   padding: 0 0.5rem;
 }
 
 .page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a::after,
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a::after {
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a::after,
+.single-post header#masthead .navbar ul#menu-learning > li.home-link > a::after {
   content: '®';
   font-family: 'sassoon';
   font-size: 0.5em;
@@ -635,7 +660,9 @@ header#masthead .navbar.secondary ul > li > a:focus {
 .bbpress header#masthead .navbar ul#menu-learning > li > a:hover,
 .bbpress header#masthead .navbar ul#menu-learning > li > a:focus,
 .page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:hover,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:focus {
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:focus,
+.single-post header#masthead .navbar ul#menu-learning > li > a:hover,
+.single-post header#masthead .navbar ul#menu-learning > li > a:focus {
   color: var(--cyan);
 }
 
@@ -644,7 +671,9 @@ header#masthead .navbar.secondary ul > li > a:focus {
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link:hover,
 .bbpress header#masthead .navbar ul#menu-learning > li.home-link:focus,
 .page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:focus {  
+.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:focus,
+.single-post header#masthead .navbar ul#menu-learning > li.home-link:hover,
+.single-post header#masthead .navbar ul#menu-learning > li.home-link:focus {  
   background-color: var(--gray);
 }
 
@@ -947,7 +976,7 @@ body.page-politica-privacidad h2,
 body.page-politica-privacidad h3,
 body.page-politica-privacidad h4,
 body.page-politica-privacidad h5 {
-	color: var(--black);
+	color: var(--gray);
 	font-family: sassoon;
 }
 
@@ -1075,6 +1104,38 @@ body.page-politica-privacidad p {
 
 .bbpress .sidebar h4,
 .bbpress .sidebar .h4 {
+  font-family: 'titan_one';
+  margin-bottom: 2rem;
+}
+
+/**** Learning General ****/
+#page.learning,
+#page.learning label,
+#page.learning p,
+#page.learning h1,
+#page.learning h2,
+#page.learning h3,
+#page.learning h4,
+#page.learning h5,
+#page.learning h6 {
+  color: var(--gray);
+}
+
+#page.learning a {
+  color: var(--cyan);
+}
+
+#page.learning a:hover,
+#page.learning a:focus {
+  color: var(--gray);
+}
+
+.page-template-learning .page > .entry-header {
+  display: none;
+}
+
+.page-template-learning .sidebar h4,
+.page-template-learning .sidebar .h4 {
   font-family: 'titan_one';
   margin-bottom: 2rem;
 }
