@@ -370,10 +370,6 @@
   color: var(--cyan);
 }
 
-.bbpress .topic #bbpress-forums .load-more-link-container .image-container img {
-  height: 80px;
-}
-
 .bbpress .topic #bbpress-forums .bbp-pagination-count {
   padding-bottom: 5rem;
 }
@@ -941,23 +937,23 @@
 /******************** News *********************/
 /***********************************************/
 /* list */
-#news .news-container.column-3 .new-container {
-  width: 33.333333%;
-}
-
-#news .new-container .image-container {
+#news .new-container > .image-container {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-#news .new-container .image-container img {
+#news .new-container > .image-container img {
   background-color: white;
   border: 5px solid var(--white);
   box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
 }
 
-#news .new-container .post-excerpt p {
+#news .new-container .post-content p {
   margin-top: 0.5rem;
+}
+
+#news .new-container .post-content {
+  margin-bottom: 2rem;
 }
 
 #news .new-container .post-actions .open-container {
@@ -987,6 +983,59 @@
 #news .new-container .post-actions .open-container .text-container a:hover,
 #news .new-container .post-actions .open-container .text-container a:focus {
   color: var(--gray);
+}
+
+#news .new-container .post-actions button.load-more-link,
+#news .sidebar .actions button.load-more-link  {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#news .new-container .post-actions button.load-more-link.end-list,
+#news .sidebar .actions button.load-more-link.end-list {
+  opacity: 0;
+  display: none;
+}
+
+#news .new-container .post-actions .load-more-link .text-container,
+#news .sidebar .actions .load-more-link .text-container {
+  color: var(--cyan);
+}
+
+#news .news-row .sidebar {
+  border-left: 4px dashed var(--cyan);
+}
+
+#news .news-row .new-container {
+  width: 100%;
+  border-bottom: 4px dashed var(--cyan);
+}
+
+#news .news-row .new-container:last-child {
+  border-bottom: none;
+}
+
+#news .sidebar .new-container .post-actions .load-new-button {
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--cyan);
+}
+
+#news .sidebar .new-container .post-actions .open-container {
+  width: 144px;
+  height: 75px;
+}
+
+#news .sidebar .new-container .post-actions .open-container .text-container {
+  left: 10px;
+  width: 126px;
+  height: 60px;
+}
+
+#news .sidebar .actions {
+  width: 100%;
 }
 
 /* single */

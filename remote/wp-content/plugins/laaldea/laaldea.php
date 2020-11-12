@@ -291,16 +291,20 @@ add_shortcode( 'laaldea_learing_home', 'laaldea_build_learning_home' );
 
 function laaldea_build_learning_news () {
   global $wp_query;
+  $posts_per_page = 6;
 
   $query_args  = array(
     'post_type' => 'post',
-    'posts_per_page' => 3,
+    'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
   );
   $recent_news = new WP_Query( $query_args );
-	
-	$wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
+  $post_count = $recent_news -> found_posts;
+  
+  $wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
+  $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
 
 	$template_url = laaldea_load_template('news.php', 'learning');
 	load_template($template_url, true);
@@ -383,7 +387,6 @@ function laaldea_load_more_replies() {
   );
   
   if( bbp_has_replies($new_args) ) {
-    error_log('building replies html');
     $bbp = bbpress();
 
     $total_replies = $bbp -> reply_query-> found_posts;
@@ -419,3 +422,90 @@ function laaldea_load_more_replies() {
 }
 
 /******************* News functions *******************/
+// Add next new
+add_action( 'wp_ajax_nopriv_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
+add_action( 'wp_ajax_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
+
+function laaldea_load_next_new_main() {
+  $post_id = $_POST['postId'];
+
+  global $wp_query;
+
+  $query_args = array(
+    'p' => $post_id,
+  );
+  
+  $next_new = new WP_Query( $query_args );
+	
+  $wp_query -> query_vars['laaldea_args']['next_new'] = $next_new;
+
+  ob_start();
+  $template_url = laaldea_load_template('news-single-main.php', 'learning/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+  
+  //error_log('html to add : ' . print_r($html,1));
+  $return_array = array(
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
+}
+
+// Add more news sidebar
+add_action( 'wp_ajax_nopriv_laaldea_load_next_new_sidebar', 'laaldea_load_next_new_sidebar' );
+add_action( 'wp_ajax_laaldea_load_next_new_sidebar', 'laaldea_load_next_new_sidebar' );
+
+function laaldea_load_next_new_sidebar() {
+  $offset = $_POST['offset'];
+
+  global $wp_query;
+  $posts_per_page = 6;
+
+  $query_args  = array(
+    'post_type' => 'post',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'offset' => $offset,
+  );
+  $recent_news = new WP_Query( $query_args );
+  $post_count = $recent_news -> found_posts;
+  
+  if( $recent_news -> have_posts() ) {
+    $post_count = $recent_news -> found_posts;
+
+    ob_start();
+    $added = 0;
+    while ($recent_news -> have_posts()) {
+      $recent_news -> the_post(); 
+      $added += 1;
+      
+      $post_id = get_the_ID();
+      $post_thumb = get_the_post_thumbnail( $post_id, 'thumbnail' );
+      $post_title = get_the_title();
+      $post_author = get_the_author(); 
+
+      $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
+      $wp_query -> query_vars['laaldea_args']['post_thumb'] = $post_thumb;
+      $wp_query -> query_vars['laaldea_args']['post_title'] = $post_title;
+      $wp_query -> query_vars['laaldea_args']['post_author'] = $post_author;
+
+      $template_url = laaldea_load_template('news-single-sidebar.php', 'learning/template-part');
+      load_template($template_url, false);
+    }
+    $html = ob_get_clean();
+  }
+
+  //error_log('html to add : ' . print_r($html,1));
+  $return_array = array(
+    'last' => $post_count <= $posts_per_page,
+    'added' => $added,
+    'count' => $offset + $posts_per_page,
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
+}

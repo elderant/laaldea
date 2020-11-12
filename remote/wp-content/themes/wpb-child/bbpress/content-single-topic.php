@@ -48,8 +48,6 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php endif; ?>
 
-		<!-- <?php bbp_get_template_part( 'form', 'reply' ); ?> -->
-
 	<?php endif; ?>
 
 	<?php bbp_get_template_part( 'alert', 'topic-lock' ); ?>

@@ -110,6 +110,99 @@
     });
   }
 
+  var laaldea_handle_news_load_next = function(event) {
+    let $button = $(event.currentTarget);
+
+    let postId = $button.attr('data-postId');
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_load_next_new_main',
+        postId : postId,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let $mainContainer = $button.parents('.news-container');
+          let currentHeight = $mainContainer.height();
+
+          $mainContainer.append(data.html);
+          $mainContainer.css('height', 'auto');
+          let autoHeight = $mainContainer.height();
+          autoHeight -= $button.height();
+
+          let imageHeight = parseFloat($mainContainer.find('.new-container').last().children('.image-container').find('img').attr('height'));
+          autoHeight += imageHeight;
+
+          $mainContainer.height(currentHeight).animate({height: autoHeight}, 1000);
+
+          $mainContainer.find('.new-container').last().find('.load-more-link').on('click', function(event) {
+            event.preventDefault();
+            laaldea_handle_news_load_next(event);
+          });
+        }
+
+        $button.attr('data-offset', data.count);
+        $button.fadeTo(500, 0, function() {
+          $button.toggleClass('end-list');
+          $button.css('opacity','');
+        });
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
+
+  var laaldea_handle_news_load_more_sidebar = function(event) {
+    let $button = $(event.currentTarget);
+
+    let offset = $button.attr('data-offset');
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_load_next_new_sidebar',
+        offset : offset,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let $mainContainer = $button.parents('.sidebar').find('.news-container');
+          let currentHeight = $mainContainer.height();
+
+          $mainContainer.append(data.html);
+          $mainContainer.css('height', 'auto');
+          let autoHeight = $mainContainer.height();
+          autoHeight += 150*data.added;
+
+          $mainContainer.height(currentHeight).animate({height: autoHeight}, 1000);
+        }
+
+        $button.attr('data-offset',data.count);
+        $button.fadeTo(500, 0, function() {
+          $button.toggleClass('end-list');
+          $button.css('opacity','');
+        });
+
+        // TODO add event for each read more button
+
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -144,6 +237,18 @@
       $('.topic #bbpress-forums .load-more-link-container button').on('click', function(event){
         event.preventDefault();
         laaldea_handle_topic_load_more(event);
+      });
+    }
+
+    if($('#news').length > 0) {
+      $('#news .main-container .load-more-link').on('click', function(event){
+        event.preventDefault();
+        laaldea_handle_news_load_next(event);
+      });
+
+      $('#news .sidebar .actions .load-more-link').on('click', function(event){
+        event.preventDefault();
+        laaldea_handle_news_load_more_sidebar(event);
       });
     }
        
