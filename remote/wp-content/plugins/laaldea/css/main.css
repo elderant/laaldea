@@ -937,6 +937,10 @@
 /******************** News *********************/
 /***********************************************/
 /* list */
+#news .news-container {
+  overflow: hidden;
+}
+
 #news .new-container > .image-container {
   text-align: center;
   margin-bottom: 2rem;
@@ -1005,6 +1009,10 @@
 
 #news .news-row .sidebar {
   border-left: 4px dashed var(--cyan);
+}
+
+#news .news-row .sidebar .news-container {
+  overflow: hidden;
 }
 
 #news .news-row .new-container {

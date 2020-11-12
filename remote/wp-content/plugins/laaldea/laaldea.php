@@ -509,3 +509,43 @@ function laaldea_load_next_new_sidebar() {
   echo json_encode($return_array);
   die();
 }
+
+// Add new to end of main container handler
+// add_action( 'wp_ajax_nopriv_laaldea_get_main_new_html', 'laaldea_get_main_new_html' );
+// add_action( 'wp_ajax_laaldea_get_main_new_html', 'laaldea_get_main_new_html' );
+
+function laaldea_get_main_new_html() {
+  $post_id = $_POST['postId'];
+
+  global $wp_query;
+  $posts_per_page = 1;
+
+  $query_args  = array(
+    'p' => $post_id,
+  );
+  
+  $next_new = new WP_Query( $query_args );
+	
+  $wp_query -> query_vars['laaldea_args']['next_new'] = $next_new;
+
+  ob_start();
+  $template_url = laaldea_load_template('news-single-main.php', 'learning/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  
+  ob_start();
+
+  $html = ob_get_clean();
+
+  //error_log('html to add : ' . print_r($html,1));
+  $return_array = array(
+    'last' => $post_count <= $posts_per_page,
+    'added' => $added,
+    'count' => $offset + $posts_per_page,
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
+}

@@ -128,15 +128,12 @@
           let $mainContainer = $button.parents('.news-container');
           let currentHeight = $mainContainer.height();
 
+          $mainContainer.css('height', currentHeight + 'px');
           $mainContainer.append(data.html);
-          $mainContainer.css('height', 'auto');
-          let autoHeight = $mainContainer.height();
-          autoHeight -= $button.height();
-
-          let imageHeight = parseFloat($mainContainer.find('.new-container').last().children('.image-container').find('img').attr('height'));
-          autoHeight += imageHeight;
-
-          $mainContainer.height(currentHeight).animate({height: autoHeight}, 1000);
+         
+          $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 1000, function(){
+            $(this).height('auto');
+          });
 
           $mainContainer.find('.new-container').last().find('.load-more-link').on('click', function(event) {
             event.preventDefault();
@@ -177,12 +174,12 @@
           let $mainContainer = $button.parents('.sidebar').find('.news-container');
           let currentHeight = $mainContainer.height();
 
+          $mainContainer.css('height', currentHeight + 'px');
           $mainContainer.append(data.html);
-          $mainContainer.css('height', 'auto');
-          let autoHeight = $mainContainer.height();
-          autoHeight += 150*data.added;
-
-          $mainContainer.height(currentHeight).animate({height: autoHeight}, 1000);
+         
+          $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 1000, function(){
+            $(this).height('auto');
+          });
         }
 
         $button.attr('data-offset',data.count);
@@ -192,7 +189,55 @@
         });
 
         // TODO add event for each read more button
+        $('#news .sidebar .actions .load-more-link').on('click', function(event){
+          event.preventDefault();
+          laaldea_handle_news_load_more_sidebar(event);
+        });
 
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
+
+  var laaldea_handle_add_new_to_main_container = function(event) {
+    let $button = $(event.currentTarget);
+
+    let postId = $button.attr('data-postid');
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_load_next_new_main',
+        postId : postId,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let $mainContainer = $('#news .main-container .news-container');
+          let currentHeight = $mainContainer.height();
+
+          $mainContainer.css('height', currentHeight + 'px');
+          $mainContainer.append(data.html);
+         
+          $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 300, function(){
+            $(this).height('auto');
+
+            let $lastNew = $mainContainer.find('.new-container').last();
+            let newStart = $lastNew.offset().top - 150;
+  
+            $('html').stop().animate({ scrollTop: newStart }, 500);
+
+            $lastNew.find('.load-more-link').on('click', function(event) {
+              event.preventDefault();
+              laaldea_handle_news_load_next(event);
+            });
+          });
+        }
 
         webStateWaiting(false);
       },
@@ -249,6 +294,11 @@
       $('#news .sidebar .actions .load-more-link').on('click', function(event){
         event.preventDefault();
         laaldea_handle_news_load_more_sidebar(event);
+      });
+
+      $('#news .sidebar .new-container .load-new-button').on('click', function(event){
+        event.preventDefault();
+        laaldea_handle_add_new_to_main_container(event);
       });
     }
        
