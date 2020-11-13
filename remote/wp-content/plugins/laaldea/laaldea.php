@@ -311,6 +311,59 @@ function laaldea_build_learning_news () {
 }
 add_shortcode( 'laaldea_learing_news', 'laaldea_build_learning_news' );
 
+function laaldea_build_learning_tools () {
+  global $wp_query;
+  
+  // filter queries
+  $book_args = array (
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+    'parent'   => 19,
+  );
+
+  $book_terms = get_terms( $book_args );
+  $wp_query -> query_vars['laaldea_args']['book_terms'] = $book_terms;
+
+  $topic_args = array (
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+    'parent'   => 25,
+  );
+
+  $topic_terms = get_terms( $topic_args );
+  $wp_query -> query_vars['laaldea_args']['topic_terms'] = $topic_terms;
+
+  $action_args = array (
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+    'parent'   => 35,
+  );
+
+  $action_terms = get_terms( $action_args );
+  $wp_query -> query_vars['laaldea_args']['action_terms'] = $action_terms;
+
+  // main container query
+  $posts_per_page = 6;
+
+  $query_args  = array(
+    'post_type' => 'tool',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+  );
+  $recent_tools = new WP_Query( $query_args );
+  $post_count = $recent_tools -> found_posts;
+  
+  //error_log(print_r($recent_tools,1));
+
+  $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
+  $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
+
+	$template_url = laaldea_load_template('tools.php', 'learning');
+	load_template($template_url, true);
+}
+add_shortcode( 'laaldea_learing_tools', 'laaldea_build_learning_tools' );
+
 /******************* Forum functions *******************/
 function laaldea_before_forum_title() {
   echo '<span class="font-titan before-forum-title">Foro: </span>';

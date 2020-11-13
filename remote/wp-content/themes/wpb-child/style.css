@@ -1112,6 +1112,9 @@ body.page-politica-privacidad p {
 #page.learning,
 #page.learning label,
 #page.learning p,
+#page.learning button,
+#page.learning span,
+#page.learning div,
 #page.learning h1,
 #page.learning h2,
 #page.learning h3,
@@ -1128,6 +1131,12 @@ body.page-politica-privacidad p {
 #page.learning a:hover,
 #page.learning a:focus {
   color: var(--gray);
+}
+
+#page.learning button {
+  border: none;
+  outline: none;
+  background: none;
 }
 
 .page-template-learning .page > .entry-header {
