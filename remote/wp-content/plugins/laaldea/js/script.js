@@ -1,4 +1,16 @@
 ( function( $ ) {
+  $.fn.hasAnyClass = function() {
+    for (var i = 0; i < arguments.length; i++) {
+        var classes = arguments[i].split(" ");
+        for (var j = 0; j < classes.length; j++) {
+            if (this.hasClass(classes[j])) {
+                return true;
+            }
+        }
+    }
+    return false;
+  }
+
   var laadea_validate_promo_form_jquery = function() {
     let $form = $('.page-id-35 .covid-form-section .laaldea-form');
     let $inputs = $form.find('input:not([type="submit"]), select');
@@ -248,6 +260,75 @@
     });
   }
 
+  var laaldea_handle_filter_tools = function(filterValue, filterType) {
+    console.log('filterValue : ' + filterValue);
+
+    // updating filter array
+    if(window.aldea.tools.container.hasClass(filterValue) ) {
+      console.log('removing filter');
+      let index = window.aldea.tools.filters.indexOf(filterValue);
+
+      window.aldea.tools.filters.splice(index, 1);
+    }
+    else {
+      window.aldea.tools.filters.push(filterValue);
+    }
+    // adding new filter
+    window.aldea.tools.container.toggleClass(filterValue);
+
+    console.log('filters');
+    console.log(window.aldea.tools.filters);
+    
+    // calculating active elements.
+    let shownElements = 0;
+    let i = 0;
+    
+    let filter;
+    if(window.aldea.tools.filters.length > 0) {
+      window.aldea.tools.filterStr = '';
+      for(i=0; i<=window.aldea.tools.filters.length; i++) {
+        filter = window.aldea.tools.filters[i];
+  
+        window.aldea.tools.filterStr += filter + ' ';
+        shownElements += window.aldea.tools.container.find('.tool-container.' + filter).length;
+      }
+    }
+    else {
+      window.aldea.tools.filterStr = '';
+      shownElements = window.aldea.tools.container.find('.tool-container').length;
+    }
+
+    // showing/hiding elements
+    $.trim(window.aldea.tools.filterStr)
+    let elements = window.aldea.tools.container.find('.tool-container');
+    elements.each(function() {
+      console.log(window.aldea.tools.filters.length);
+      if(window.aldea.tools.filters.length == 0) {
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('show');
+      }
+      else if( $(this).hasAnyClass(window.aldea.tools.filterStr) ){
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('show');
+      }
+      else {
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('remove');
+      }
+    });
+
+    console.log('shownElements : ' + shownElements);
+    if(shownElements < window.aldea.tools.limit) {
+      console.log('Load more tools with ajax');
+    }
+  }
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -302,5 +383,28 @@
       });
     }
        
+    if($('#tools').length > 0) {
+      window.aldea = {};
+      window.aldea.tools = {container : $('#tools .main-container .tools-container'), filters : new Array()};
+      window.aldea.tools.limit = window.aldea.tools.container.attr('data-limit');
+      window.aldea.tools.filterStr = '';
+
+      $('.sidebar .term-container button').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        $button.toggleClass('active');
+
+        laaldea_handle_filter_tools('term-' + $button.attr('data-termid'), 'category');
+      });
+      $('.main-container .type-filter-container button').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        $button.toggleClass('active');
+
+        laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+      });
+
+
+    }
   });
 } (jQuery) );

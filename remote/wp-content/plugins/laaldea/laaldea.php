@@ -343,7 +343,8 @@ function laaldea_build_learning_tools () {
   $wp_query -> query_vars['laaldea_args']['action_terms'] = $action_terms;
 
   // main container query
-  $posts_per_page = 6;
+  $posts_per_page = 3;
+  $limit = $posts_per_page;
 
   $query_args  = array(
     'post_type' => 'tool',
@@ -358,6 +359,7 @@ function laaldea_build_learning_tools () {
 
   $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
   $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
+  $wp_query -> query_vars['laaldea_args']['limit'] = $limit;
 
 	$template_url = laaldea_load_template('tools.php', 'learning');
 	load_template($template_url, true);
@@ -601,4 +603,16 @@ function laaldea_get_main_new_html() {
 
   echo json_encode($return_array);
   die();
+}
+
+/******************* Tools functions *******************/
+function laaldea_get_tools_category_class($post_id) {
+  $post_terms = wp_get_post_terms( $post_id, 'category', array('fields' => 'ids') );
+
+  $category_class = '';
+  foreach($post_terms as $term_id) {
+    $category_class .= 'term-' . $term_id . ' ';
+  }
+
+  return $category_class;
 }

@@ -1120,6 +1120,33 @@
 /* Tools : Tool container */
 #tools .main-container .tool-container {
   position: relative;
+  display: flex;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+#tools .main-container .tool-container.remove {
+  /* position: absolute; */
+  animation-name: animationremove;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animationremove {
+  from {transform: scale(1);height: auto;margin-bottom:3rem;}
+  to {transform: scale(0);height: 0;margin-bottom:0rem;}
+}
+
+#tools .main-container .tool-container.show {
+  animation-name: animationshow;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animationshow {
+  from {transform: scale(0);height: 0;margin-bottom:0rem;}
+  to {transform: scale(1);height: auto;margin-bottom:3rem;}
 }
 
 #tools .tool-container .tool-background-image {

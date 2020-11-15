@@ -1,5 +1,9 @@
 <?php 
   $recent_tools = $laaldea_args['recent_tools'];
+  $limit = $laaldea_args['limit'];
+  $post_count = $laaldea_args['post_count'];
+
+  $limit = $post_count < $limit? $post_count: $limit;
 ?>
 
 <section id="tools" class="d-flex align-items-center justify-content-center">
@@ -61,24 +65,24 @@
 
       <div class="col-6 offset-1 main-container">
         <div class="type-filter-container">
-          <button>
+          <button class="video-type-filter-button" data-filter="video">
             <img class="filter-image video" src="/wp-content/uploads/tools-filter-video.png" alt="<?php _e('Imagen filtrar por video','laaldea')?>">
             <div class="text-container h6 font-titan"><?php _e('Video','laaldea');?></div>
             <img class="arrow-image" src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
           </button>
-          <button>
+          <button class="pdf-type-filter-button" data-filter="pdf">
             <img class="filter-image pdf" src="/wp-content/uploads/tools-filter-pdf.png" alt="<?php _e('Imagen filtrar por pdf','laaldea')?>">
             <div class="text-container h6 font-titan"><?php _e('PDF','laaldea');?></div>
             <img class="arrow-image" src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
           </button>
-          <button>
+          <button class="follow-type-filter-button" data-filter="follow">
             <img class="filter-image follow" src="/wp-content/uploads/tools-filter-follow.png" alt="<?php _e('Imagen filtrar por favoritos','laaldea')?>">
             <div class="text-container h6 font-titan"><?php _e('Favoritos','laaldea');?></div>
             <img class="arrow-image" src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
           </button>
         </div>
 
-        <div class="tools-container">
+        <div class="tools-container pt-5" data-limit="<?php echo $limit;?>">
           <?php if( $recent_tools -> have_posts() ) : ?>
             <?php while ($recent_tools -> have_posts()) : ?>
               <?php $recent_tools -> the_post(); 
@@ -86,9 +90,10 @@
                 $tool = get_field( "herramienta" );
                 $type = get_field( "type" );
                 $preview = get_field( "preview" );
+                $categories_class = laaldea_get_tools_category_class($post_id);
               ?>
               
-              <div class="tool-container post-id-<?php echo $post_id;?> tool-type-<?php echo $type;?> d-flex flex-wrap align-items-end p-3 my-5">
+              <div class="tool-container post-id-<?php echo $post_id;?> type-<?php echo strtolower($type);?> <?php echo $categories_class;?>flex-wrap align-items-end show">
                 <img class="tool-background-image" src="/wp-content/uploads/tools-single-background.png" alt="<?php _e('Tool item background','laaldea')?>">
                 <div class="title title-row pb-3">
                   <h4 class="font-titan"><?php the_title();?></h4>
