@@ -329,6 +329,37 @@
     }
   }
 
+  var laaldea_handle_add_follow = function(event) {
+    let $button = $(event.currentTarget);
+    let postId = $button.attr('data-postid');
+    let add = $button.attr('data-add');
+
+    console.log('adding to favorites');
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_add_to_follow',
+        postId : postId,
+        add : add,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+
+        if(true === data.result) {
+          $button.find('.follow-text').html(data.text);
+          $button.attr('data-add', '0');
+        }
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -402,6 +433,11 @@
         $button.toggleClass('active');
 
         laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+      });
+
+      $('.main-container .tool-container .follow-container button').on('click', function(event) {
+        event.preventDefault();
+        laaldea_handle_add_follow(event);
       });
 
 

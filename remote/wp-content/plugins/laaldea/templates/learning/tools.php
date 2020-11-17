@@ -91,9 +91,10 @@
                 $type = get_field( "type" );
                 $preview = get_field( "preview" );
                 $categories_class = laaldea_get_tools_category_class($post_id);
+                $add = laaldea_post_id_in_followed($post_id);
               ?>
               
-              <div class="tool-container post-id-<?php echo $post_id;?> type-<?php echo strtolower($type);?> <?php echo $categories_class;?>flex-wrap align-items-end show">
+              <div class="tool-container post-id-<?php echo $post_id;?> type-<?php echo strtolower($type);?> <?php echo $categories_class;?><?php echo $add>0?' type-follow ':'';?>flex-wrap align-items-end show">
                 <img class="tool-background-image" src="/wp-content/uploads/tools-single-background.png" alt="<?php _e('Tool item background','laaldea')?>">
                 <div class="title title-row pb-3">
                   <h4 class="font-titan"><?php the_title();?></h4>
@@ -125,9 +126,21 @@
                     </div>
                   </div>
                   <div class="follow-container">
-                    <button data-postId="<?php echo $post_id;?>">
+                    <button data-postId="<?php echo $post_id;?>" data-add="<?php echo $add; ?>"<?php echo $add==-1?' disabled':'';?>>
                       <img src="/wp-content/uploads/tools-button-follow.png" alt="<?php _e('Imagen añadir a favoritos','laaldea');?>">
-                      <span class="follow-text pl-3"><?php _e('Añadir a favoritos','laaldea')?></span>
+                      <span class="follow-text pl-3">
+                        <?php 
+                          if($add == 0) {
+                            _e('Añadir a favoritos','laaldea');
+                          }
+                          elseif($add > 0) {
+                            _e('Remover de favoritos','laaldea');
+                          }
+                          elseif($add == -1) {
+                            _e('Ingresar para agregar a favoritos','laaldea');
+                          }
+                        ?>
+                      </span>
                     </button>
                   </div>
                 </div>

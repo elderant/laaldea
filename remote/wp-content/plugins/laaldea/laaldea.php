@@ -616,3 +616,80 @@ function laaldea_get_tools_category_class($post_id) {
 
   return $category_class;
 }
+
+function laaldea_post_id_in_followed($post_id) {
+  $user = wp_get_current_user();
+  
+  //error_log(print_r($user,1));
+  
+  if($user->ID == 0) {
+    return -1;
+  }
+
+  $follow = get_user_meta( $user->ID, 'followed-tools', true );
+
+  error_log('$follow ' . print_r($follow,1));
+
+  if(empty($follow)) {
+    return 0;
+  }
+
+  $ids = explode(" ", $follow);
+  $index = array_search ( $post_id , $ids );
+
+  return FALSE === $index? 0: 1;
+}
+
+// Add to favorite
+add_action( 'wp_ajax_nopriv_laaldea_add_to_follow', 'laaldea_add_to_follow' );
+add_action( 'wp_ajax_laaldea_add_to_follow', 'laaldea_add_to_follow' );
+function laaldea_add_to_follow() {
+  $post_id = $_POST['postId'];
+  $add = $_POST['add'];
+
+  error_log('post values');
+  error_log($post_id);
+  error_log($add);
+
+  $user = wp_get_current_user();
+  $follow = get_user_meta( $user->ID, 'followed-tools', true );
+
+  error_log('follow : ' . print_r($follow,1));
+
+  if($add == 0) {
+    error_log('adding to followed');
+    if(empty($follow)) {
+      update_user_meta( $user->ID, 'followed-tools', $post_id );
+    }
+    else {
+      update_user_meta( $user->ID, 'followed-tools', $follow . ' ' . $post_id );
+    }
+  
+    error_log('ADDED from followed');
+    $return_array = array(
+      'result' => true,
+      'text' => __('Remover de favoritos','laaldea'),
+    );
+  }
+  else {
+    error_log('removing from followed');
+    $ids = explode(" ", $follow);
+    $index = array_search ( $post_id , $ids );
+
+    if(false !== $index) {
+      array_splice( $ids, $index, 1 );
+      $follow = implode(' ', $ids);
+      error_log('updated follow : ' .  print_r($follow,1));
+      update_user_meta( $user->ID, 'followed-tools', $follow );
+    }
+
+    error_log('REMOVED from followed');
+    $return_array = array(
+      'result' => true,
+      'text' => __('Añadir a favoritos','laaldea'),
+    );
+  }
+
+  echo json_encode($return_array);
+  die();
+}
