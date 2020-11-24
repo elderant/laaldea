@@ -12,8 +12,14 @@
   <div class="title-container h6 color-cyan font-titan">
     <?php echo $post_title; ?>
   </div>
-  <div class="title-author h6 color-cyan font-sassoon pl-2 mb-5">
+  <div class="title-author h6 color-cyan font-sassoon pl-2 mb-2">
     <?php _e('Escrito por: ','laaldea') . $post_author; ?>
+  </div>
+  <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-2">
+    <span><?php echo get_the_date(); ?></span>
+  </div>
+  <div class="post-excerpt h6 color-cyan font-sassoon capitalized pl-2 mb-5">
+    <span><?php echo the_excerpt(); ?></span>
   </div>
   <div class="post-actions d-flex align-items-center justify-content-center font-titan">
     <button class="load-new-button" data-postId="<?php echo $post_id;?>">

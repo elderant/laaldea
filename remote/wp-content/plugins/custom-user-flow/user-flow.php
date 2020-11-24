@@ -56,7 +56,7 @@ class CustomUserFlow {
     add_action( 'edit_user_profile_update', array( $this, 'update_custom_user_fields' )  );
 
     // Capcha Authentication fields
-    add_filter( 'admin_init' , array( $this, 'register_settings_fields' ) );
+    //add_filter( 'admin_init' , array( $this, 'register_settings_fields' ) );
     // Add Captcha js to register page
     add_action( 'wp_print_footer_scripts', array( $this, 'add_captcha_js_to_footer' ) );
 
@@ -414,7 +414,7 @@ class CustomUserFlow {
     }
 
     // Retrieve recaptcha key
-    $attributes['recaptcha_site_key'] = get_option( 'cuf-recaptcha-site-key', null );
+    // $attributes['recaptcha_site_key'] = get_option( 'cuf-recaptcha-site-key', null );
 
     if ( is_user_logged_in() ) {
         return __( 'You are already signed in.', 'user-flow' );
@@ -449,7 +449,7 @@ class CustomUserFlow {
    *
    * @return int|WP_Error         The id of the user that was created, or error if failed.
    */
-  private function register_user( $email, $first_name, $last_name, $user_phone, $user_area, $user_institution ) {
+  private function register_user( $email, $first_name, $last_name, $user_phone, $user_area, $user_institution, $user_avatar, $user_ip, $user_location ) {
     $errors = new WP_Error();
 
     // Email address is used as both username and email. It is also the only
@@ -482,8 +482,24 @@ class CustomUserFlow {
     update_user_meta( $user_id, 'user_phone', $user_phone );
     update_user_meta( $user_id, 'user_area', $user_area );
     update_user_meta( $user_id, 'user_institution', $user_institution );
+    update_user_meta( $user_id, 'user_avatar', $user_avatar );
+    update_user_meta( $user_id, 'user_ip', $user_ip );
+    update_user_meta( $user_id, 'user_location', $user_location );
 
     return $user_id;
+  }
+
+  private function getUserIpAddr(){
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        //ip from share internet
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        //ip pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
   }
 
   /**
@@ -499,9 +515,9 @@ class CustomUserFlow {
       if ( ! get_option( 'users_can_register' ) ) {
         // Registration closed, display error
         $redirect_url = add_query_arg( 'register-errors', 'closed', $redirect_url );
-      } elseif ( ! $this->verify_recaptcha() ) {
-        // Recaptcha check failed, display error
-        $redirect_url = add_query_arg( 'register-errors', 'captcha', $redirect_url );
+      // } elseif ( ! $this->verify_recaptcha() ) {
+      //   // Recaptcha check failed, display error
+      //   $redirect_url = add_query_arg( 'register-errors', 'captcha', $redirect_url );
       } else {
         $email = $_POST['email'];
         $first_name = sanitize_text_field( $_POST['first_name'] );
@@ -509,8 +525,22 @@ class CustomUserFlow {
         $user_phone = sanitize_text_field( $_POST['user_phone'] );
         $user_area = sanitize_text_field( $_POST['user_area'] );
         $user_institution = sanitize_text_field( $_POST['user_institution'] );
+        $user_avatar = esc_url_raw( $_POST['user_avatar'] );
+        
+        $user_ip = $this -> getUserIpAddr();
+        $user_location = wpb_child_get_location_from_ip($user_ip);
 
-        $result = $this->register_user( $email, $first_name, $last_name, $user_phone, $user_area, $user_institution );
+        $result = $this->register_user( 
+          $email, 
+          $first_name, 
+          $last_name, 
+          $user_phone, 
+          $user_area, 
+          $user_institution, 
+          $user_avatar,
+          $user_ip,
+          $user_location['region'] . ", " . $user_location['city']
+        );
 
         if ( is_wp_error( $result ) ) {
           // Parse errors into a string and append as parameter to redirect
@@ -533,6 +563,9 @@ class CustomUserFlow {
       'user_phone' => get_user_meta( $user -> ID, 'user_phone', true),
       'user_area' => get_user_meta( $user -> ID, 'user_area', true),
       'user_institution' => get_user_meta( $user -> ID, 'user_institution', true),
+      'user_avatar' => get_user_meta( $user -> ID, 'user_avatar', true),
+      'user_ip' => get_user_meta( $user -> ID, 'user_ip', true),
+      'user_location' => get_user_meta( $user -> ID, 'user_location', true),
     );
   
     $attributes['fields'] = $args;
@@ -541,9 +574,15 @@ class CustomUserFlow {
   }
   
   function update_custom_user_fields( $user_id ) {
-    update_user_meta( $user_id, 'user_phone', isset($_POST['user_phone']) ? $_POST['user_phone'] : '' );
-    update_user_meta( $user_id, 'user_area', isset($_POST['user_area']) ? $_POST['user_area'] : '' );
-    update_user_meta( $user_id, 'user_institution', isset($_POST['user_institution'] ) ? $_POST['user_institution'] : '' );
+    $user_phone = sanitize_text_field( $_POST['user_phone'] );
+    $user_area = sanitize_text_field( $_POST['user_area'] );
+    $user_institution = sanitize_text_field( $_POST['user_institution'] );
+    $user_avatar = esc_url_raw( $_POST['user_avatar'] );
+
+    update_user_meta( $user_id, 'user_phone', isset($_POST['user_phone']) ? $user_phone : '' );
+    update_user_meta( $user_id, 'user_area', isset($_POST['user_area']) ? $user_area : '' );
+    update_user_meta( $user_id, 'user_institution', isset($_POST['user_institution'] ) ? $user_institution : '' );
+    update_user_meta( $user_id, 'user_avatar', isset($_POST['user_avatar'] ) ? $user_avatar : '' );
   }
   
   /**

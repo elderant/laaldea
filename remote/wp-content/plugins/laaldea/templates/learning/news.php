@@ -3,8 +3,8 @@
   $offset = $laaldea_args['offset'];
   $load_more = $laaldea_args['load_more'];
 
-  error_log('offset : ' . print_r($offset,1));
-  error_log('load_more : ' . print_r($load_more,1));
+  // error_log('offset : ' . print_r($offset,1));
+  // error_log('load_more : ' . print_r($load_more,1));
 ?>
 
 <section id="news" class="d-flex align-items-center justify-content-center" data-menu="news">
@@ -18,17 +18,26 @@
         <div class="news-container">
           <?php if( $recent_news -> have_posts() ) : ?>
               <?php $recent_news -> the_post(); 
-                $post_id = get_the_ID();?>
+                $post_id = get_the_ID();
+                $author = get_the_author();
+                ?>
               
               <div class="new-container post-id-<?php echo $post_id;?> p-3 my-3">
                 <div class="image-container">
                   <?php the_post_thumbnail( 'large' );?>
                 </div>
                 <div class="title-container h4 color-cyan font-titan">
-                  <?php the_title();?>
+                  <span><?php the_title();?></span>
+                  <span class="tags font-sassoon h6 color-gray"><?php echo __('En ', 'laaldea') . get_the_tag_list( '', ', ', ''); ?></span>
                 </div>
-                <div class="title-author h6 color-cyan font-sassoon pl-2 mb-4">
-                  <?php _e('Escrito por: ','laaldea') . the_author();?>
+                <div class="post-author h6 color-cyan font-sassoon pl-2 mb-2">
+                  <span><?php _e('Escrito por: ','laaldea'); the_author();?></span>
+                </div>
+                <div class="author-location h6 font-sassoon pl-2 mb-2">
+                  <span><?php echo get_user_meta( $author -> ID, 'user_location', true); ?></span>
+                </div>
+                <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-4">
+                  <span><?php echo get_the_date();?></span>
                 </div>
                 <div class="post-content h5 font-sassoon color-gray p-0">
                   <?php the_content();?>
@@ -69,8 +78,14 @@
                 <div class="title-container h6 color-cyan font-titan">
                   <?php the_title();?>
                 </div>
-                <div class="title-author h6 color-cyan font-sassoon pl-2 mb-5">
+                <div class="title-author h6 color-cyan font-sassoon pl-2 mb-2">
                   <?php _e('Escrito por: ','laaldea') . the_author();?>
+                </div>
+                <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-2">
+                  <span><?php echo get_the_date(); ?></span>
+                </div>
+                <div class="post-excerpt h6 color-cyan font-sassoon capitalized pl-2 mb-5">
+                  <span><?php echo the_excerpt(); ?></span>
                 </div>
                 <div class="post-actions d-flex align-items-center justify-content-center font-titan">
                   <button class="load-new-button" data-postId="<?php echo $post_id;?>">

@@ -39,9 +39,18 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
 
-    <div class="author-container">
-      <div class="text-container text-center">
-        <?php bbp_reply_author_link( array( 'show_role' => true ) ); ?>
+    <div class="author-container d-flex align-items-center">
+      <div class="avatar-container">
+        <?php 
+          $reply_author_id = bbp_get_reply_author_id();
+          $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
+        ?>
+        <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
+      </div>
+      <div class="author-text-container">
+        <div class="text-container text-center">
+          <?php bbp_reply_author_link( array( 'show_role' => true ) ); ?>
+        </div>
       </div>
     </div>
 
@@ -50,6 +59,15 @@ defined( 'ABSPATH' ) || exit;
 			<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
 
 			<div class="bbp-reply-ip"><?php bbp_author_ip( bbp_get_reply_id() ); ?></div>
+
+      <div class="bbp-reply-location"><?php 
+        $args = array( 
+          'post_id' => bbp_get_reply_id(), 
+          'before' => '', 
+          'after' => '' 
+        );
+        wpb_child_the_location_from_ip( bbp_get_author_ip( $args ) ); ?>
+      </div>
 
 			<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
 

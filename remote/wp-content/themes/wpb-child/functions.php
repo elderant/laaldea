@@ -40,7 +40,10 @@ function wpb_child_include_custom_jquery() {
 }
 add_action('wp_enqueue_scripts', 'wpb_child_include_custom_jquery');
 
-
+function wpb_child_enqueue_admin_styles() {
+	wp_enqueue_style( 'wpb-child-admin', get_stylesheet_directory_uri() . '/inc/admin/style.css' );
+}
+add_action( 'admin_enqueue_scripts', 'wpb_child_enqueue_admin_styles' );
 /******************** Shared ********************/
 //Page Slug Body Class
 function laaldea_add_slug_body_class( $classes ) {
@@ -101,6 +104,40 @@ add_filter( 'the_content_more_link', 'filter_the_content_more_link', 10, 2 );
  */
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 	require_once(dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php');
+}
+
+/******************** Blog ********************/
+// The filter callback function.
+function wpb_child_learning_forum_menu_args( $classes, $item, $args, $depth ) {
+  if($item -> ID == 318) {
+    $identifier = '/learning-forums/';
+    if(FALSE === strpos($_SERVER['REQUEST_URI'], $identifier)) {
+      return $classes;
+    }
+
+    array_push($classes, 'current-menu-item');
+    array_push($classes, 'active');
+  }
+
+  return $classes;
+}
+add_filter( 'nav_menu_css_class', 'wpb_child_learning_forum_menu_args', 10, 4 );
+
+function wpb_child_get_location_from_ip ( $reply_ip ) {
+  // error_log('ip in wpb_child : ' . print_r($reply_ip,1));
+  $json     = file_get_contents("http://ipinfo.io/" . $reply_ip . "/geo");
+  $json     = json_decode($json, true);
+  // $country  = $json['country'];
+  // $region   = $json['region'];
+  // $city     = $json['city'];
+
+  return $json;
+}
+
+function wpb_child_the_location_from_ip( $reply_ip ) {
+  $array = wpb_child_get_location_from_ip($reply_ip);
+
+  echo $json['region'] . ", " . $json['city'];
 }
 
 function wpb_child_forum_sidebar() {

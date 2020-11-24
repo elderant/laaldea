@@ -14,6 +14,8 @@
       $reply_date = bbp_get_reply_post_date();
       $reply_content = bbp_get_reply_content(); 
       $reply_author = bbp_get_reply_author_display_name();
+      $reply_author_id = bbp_get_reply_author_id();
+      $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
     ?>
 
     <?php if ( bbp_is_topic( $reply_id ) ) : ?>
@@ -21,8 +23,13 @@
     <?php else:?>
       <div class="reply-container bbp-list-reply d-flex align-items-center">
     <?php endif;?>
-        <div class="author-container">
-          <div class="text-container text-center"><?php echo $reply_author; ?></div>
+        <div class="author-container d-flex align-items-center">
+          <div class="avatar-container">
+            <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
+          </div>
+          <div class="author-text-container">
+            <div class="text-container text-center"><?php echo $reply_author; ?></div>
+          </div>
         </div>
         <div class="content-container">
           <?php echo $reply_content; ?>

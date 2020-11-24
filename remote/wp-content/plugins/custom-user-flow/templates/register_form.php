@@ -37,6 +37,27 @@
       <input type="text" name="user_institution" id="user-institution">
     </div>
     <div class="form-row">
+      <label><?php _e('Avatar', 'user-flow'); ?></label>
+      <div class="radio-buttons">
+        <div class="avatar1-container">
+          <input type="radio" id="avatar1" name="user_avatar" value="/wp-content/uploads/user-avatar1.png">
+          <label for="avatar1"><img src="/wp-content/uploads/user-avatar1.png" alt="<?php _e('Avatar 1 image','laaldea');?>"></label>
+        </div>
+        <div class="avatar2-container">
+          <input type="radio" id="avatar2" name="user_avatar" value="/wp-content/uploads/user-avatar2.png">
+          <label for="avatar2"><img src="/wp-content/uploads/user-avatar2.png" alt="<?php _e('Avatar 2 image','laaldea');?>"></label>
+        </div>
+        <div class="avatar3-container">
+          <input type="radio" id="avatar3" name="user_avatar" value="/wp-content/uploads/user-avatar3.png">
+          <label for="avatar3"><img src="/wp-content/uploads/user-avatar3.png" alt="<?php _e('Avatar 3 image','laaldea');?>"></label>
+        </div>
+        <div class="avatar4-container">
+          <input type="radio" id="avatar4" name="user_avatar" value="/wp-content/uploads/user-avatar4.png">
+          <label for="avatar4"><img src="/wp-content/uploads/user-avatar4.png" alt="<?php _e('Avatar 4 image','laaldea');?>"></label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
       <?php _e( 'Note: Your password will be generated automatically and sent to your email address.', 'user-flow' ); ?>
     </div>
     <?php if ( $attributes['recaptcha_site_key'] ) : ?>

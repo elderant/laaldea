@@ -40,6 +40,16 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php endif; ?>
 
+    <?php if ( true ) : ?>
+
+    <div class="bbp-topic-title color-cyan font-titan">
+
+      <span><?php _e('Topic:','wpb_child');?> <?php bbp_topic_title();?></span>
+
+    </div>
+
+    <?php endif; ?>
+
 		<?php if ( bbp_has_replies() ) : ?>
 
 			<?php bbp_get_template_part( 'loop',       'replies' ); ?>

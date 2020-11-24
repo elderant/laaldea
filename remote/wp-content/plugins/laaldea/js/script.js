@@ -94,7 +94,7 @@
           let $repliesMainContainer = $button.parents('.topic-replies');
           let currentHeight = $repliesMainContainer.height();
 
-          $('.bbpress .topic #bbpress-forums .load-more-link-container').before(data.html);
+          $('.bbpress .topic-section #bbpress-forums .load-more-link-container').before(data.html);
           $repliesMainContainer.css('height', 'auto');
           let autoHeight = $repliesMainContainer.height();
 
@@ -170,7 +170,6 @@
 
   var laaldea_handle_news_load_more_sidebar = function(event) {
     let $button = $(event.currentTarget);
-
     let offset = $button.attr('data-offset');
 
     $.ajax({
@@ -261,24 +260,19 @@
   }
 
   var laaldea_handle_filter_tools = function(filterValue, filterType) {
-    console.log('filterValue : ' + filterValue);
-
     // updating filter array
     if(window.aldea.tools.container.hasClass(filterValue) ) {
-      console.log('removing filter');
       let index = window.aldea.tools.filters.indexOf(filterValue);
 
       window.aldea.tools.filters.splice(index, 1);
     }
     else {
       window.aldea.tools.filters.push(filterValue);
+      window.aldea.tools.loadMoreButton.removeClass('end-list');
     }
     // adding new filter
     window.aldea.tools.container.toggleClass(filterValue);
 
-    console.log('filters');
-    console.log(window.aldea.tools.filters);
-    
     // calculating active elements.
     let shownElements = 0;
     let i = 0;
@@ -286,7 +280,7 @@
     let filter;
     if(window.aldea.tools.filters.length > 0) {
       window.aldea.tools.filterStr = '';
-      for(i=0; i<=window.aldea.tools.filters.length; i++) {
+      for(i=0; i <= window.aldea.tools.filters.length - 1; i++) {
         filter = window.aldea.tools.filters[i];
   
         window.aldea.tools.filterStr += filter + ' ';
@@ -299,10 +293,9 @@
     }
 
     // showing/hiding elements
-    $.trim(window.aldea.tools.filterStr)
+    window.aldea.tools.filterStr = $.trim(window.aldea.tools.filterStr)
     let elements = window.aldea.tools.container.find('.tool-container');
     elements.each(function() {
-      console.log(window.aldea.tools.filters.length);
       if(window.aldea.tools.filters.length == 0) {
         $(this).removeClass('show');
         $(this).removeClass('remove');
@@ -323,10 +316,67 @@
       }
     });
 
-    console.log('shownElements : ' + shownElements);
     if(shownElements < window.aldea.tools.limit) {
-      console.log('Load more tools with ajax');
+      laaldea_handle_tools_load_more(window.aldea.tools.loadMoreButton)
     }
+  }
+
+  var laaldea_handle_tools_load_more = function($button) {
+    let offset = 0;
+    let filter;
+
+    if(window.aldea.tools.filters.length > 0) {
+      offset = window.aldea.tools.container.find('.tool-container.show').length;
+      filter = JSON.stringify(window.aldea.tools.filters);
+    }
+    else {
+      offset = $button.attr('data-offset');
+    }
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_tools_load_more',
+        offset : offset,
+        filter : filter,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let $mainContainer = window.aldea.tools.container;
+          let currentHeight = $mainContainer.height();
+
+          $mainContainer.css('height', currentHeight + 'px');
+          $mainContainer.append(data.html);
+         
+          $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 1000, function(){
+            $(this).height('auto');
+          });
+        }
+
+        $button.attr('data-offset', data.count);
+        $button.attr('data-limit', data.limit);
+        if(true === data.last) {
+          $button.fadeTo(500, 0, function() {
+            $(this).toggleClass('end-list');
+            $(this).css('opacity','');
+          });
+        }
+
+        $('.main-container .tool-container .follow-container button').on('click', function(event) {
+          event.preventDefault();
+          laaldea_handle_add_follow(event);
+        });
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+
   }
 
   var laaldea_handle_add_follow = function(event) {
@@ -334,7 +384,6 @@
     let postId = $button.attr('data-postid');
     let add = $button.attr('data-add');
 
-    console.log('adding to favorites');
     $.ajax({
       url : ajax_params.ajax_url,
       type : 'post',
@@ -349,6 +398,8 @@
         if(true === data.result) {
           $button.find('.follow-text').html(data.text);
           $button.attr('data-add', '0');
+
+          $button.parents('tool-container').toggleClass('type-follow');
         }
 
         webStateWaiting(false);
@@ -358,6 +409,72 @@
         return true;
       },
     });
+  }
+
+  var laaldeea_handle_tools_video_click = function(event, currentTarget) {
+    // hide any active players
+    $('body #page > div.modal-root .modal-dialog video.active').each(function(){
+      $(this).toggleClass('active');
+    });
+
+    let currentId = $(currentTarget).attr('data-postId');
+    let currentUrl = $(currentTarget).attr('href');
+    window.aldea.tools.currentPlayer.id = currentId;
+    let $modal = $('body #page > div.modal-root');
+    let $video = $modal.find('.modal-dialog video.post-' + currentId);
+    
+    if($video.length == 0) {
+      if($modal.length == 0) {
+        let $htmlObject = $('<div></div>')
+          .addClass('modal-root')
+          .addClass('out')
+          .append(
+            $('<div></div>')
+              .addClass('modal-overlay')
+          )
+          .append(
+            $('<div></div>')
+              .addClass('modal-helpler')
+          )
+          .append(
+            $('<div></div>')
+              .addClass('modal-dialog')
+          );
+        $('body #page').append($htmlObject);
+        $modal = $('body #page > div.modal-root');
+
+        $('body #page > div.modal-root .modal-overlay').on('click', function(event){
+          laaldea_handle_tools_overlay_click(event);
+        });
+      }
+
+      let $htmlObject = $('<video />', {
+        class: 'post-' + currentId,
+        src: currentUrl,
+        type: 'video/mp4',
+        controls: true
+      });
+      
+      $modal.find('.modal-dialog').append($htmlObject);
+      $video = $('body #page > div.modal-root .modal-dialog video.post-' + currentId);
+    }
+
+    $modal.toggleClass('out');
+    setTimeout(function(){
+      $modal.toggleClass('in');
+    },10);
+    $video.toggleClass('active');
+
+  }
+
+  var laaldea_handle_tools_overlay_click = function(event) {
+    let $modal = $(event.currentTarget).parents('.modal-root');
+    $modal.toggleClass('transition');
+    $modal.toggleClass('in');
+    setTimeout(function(){
+      $modal.toggleClass('transition');
+      $modal.toggleClass('out');
+    },500);
   }
 
   /**
@@ -391,7 +508,7 @@
     }
 
     if($('.bbpress.single-forum').length > 0) {
-      $('.topic #bbpress-forums .load-more-link-container button').on('click', function(event){
+      $('.topic-section .topic-replies .load-more-link-container button').on('click', function(event) {
         event.preventDefault();
         laaldea_handle_topic_load_more(event);
       });
@@ -416,10 +533,23 @@
        
     if($('#tools').length > 0) {
       window.aldea = {};
-      window.aldea.tools = {container : $('#tools .main-container .tools-container'), filters : new Array()};
-      window.aldea.tools.limit = window.aldea.tools.container.attr('data-limit');
-      window.aldea.tools.filterStr = '';
+      window.aldea.tools = {
+        container : $('#tools .main-container .tools-container'), 
+        filters : new Array(),
+        limit : $('#tools .main-container .tools-container').attr('data-limit'),
+        filterStr : '',
+        loadMoreButton : $('.main-container .load-more-container button'),
+        currentPlayer: {},
+        videos: {},
+      };
 
+      $('.sidebar .follow button').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        $button.toggleClass('active');
+
+        laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+      });
       $('.sidebar .term-container button').on('click', function(event) {
         event.preventDefault();
         let $button = $(event.currentTarget);
@@ -440,7 +570,29 @@
         laaldea_handle_add_follow(event);
       });
 
+      $('.main-container .tool-container .resourse-container button').on('click', function(event) {
+        event.preventDefault();
+        var tempInput = document.createElement("input");
+        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+        tempInput.value = $(this).html();
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+      });
+      
 
+      $('.main-container .tool-container .download-link-column .view-link.type-video').on('click', function(event) {
+        event.preventDefault();
+        laaldeea_handle_tools_video_click(event, this)
+        // laaldea_handle_tool_view_video(event);
+      });
+
+      $('.main-container .load-more-container button').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        laaldea_handle_tools_load_more($button);
+      });
     }
   });
 } (jQuery) );

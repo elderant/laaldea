@@ -9,21 +9,21 @@ get_header('learning');?>
     <div id="sidebar-main" class="sidebar offset-1 col-3">
       <?php dynamic_sidebar( 'forum-sidebar' ); ?>
     </div>
-	  <section id="primary" class="content-area col-sm-7 forum">
+	  <section id="primary" class="content-area col-sm-7 forum-section">
   <?php elseif( bbp_is_single_forum() ) : ?>
     <div id="sidebar-main" class="sidebar offset-1 col-3">
       <?php dynamic_sidebar( 'topic-sidebar' ); ?>
     </div>
-	  <section id="primary" class="content-area col-sm-7 topic">
+	  <section id="primary" class="content-area col-sm-7 topic-section">
   <?php elseif( bbp_is_single_topic() ) : ?>
     <div id="sidebar-main" class="sidebar offset-1 col-3">
       <?php dynamic_sidebar( 'replies-sidebar' ); ?>
     </div>
-	  <section id="primary" class="content-area col-sm-7 replies">
+	  <section id="primary" class="content-area col-sm-7 replies-section">
   <?php elseif( bbp_is_single_user() ) : ?>
 	  <section id="primary" class="content-area col-sm-12 user">
   <?php else: ?>
-    <section id="primary" class="content-area offset-1 col-sm-10 general">
+    <section id="primary" class="content-area offset-1 col-sm-10 general-section">
   <?php endif; ?>
 		<main id="main" class="site-main" role="main">
 

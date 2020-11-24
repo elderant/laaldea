@@ -1,0 +1,33 @@
+:root{
+  --white: white;
+}
+
+/**** User flow ****/
+.user-edit-php .radio-buttons {
+  width: 100%;
+  height: calc(150px + 10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-edit-php .radio-buttons input[type="radio"] {
+  opacity: 0;
+}
+
+.user-edit-php .radio-buttons label  {
+  height: 150px;
+}
+
+.user-edit-php .radio-buttons label img {
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  border: 0px solid var(--white);
+  transition: all 0.5s ease-in-out;
+}
+
+.user-edit-php .radio-buttons input[type="radio"]:checked ~ label img {
+  border-width: 4px;
+  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
+}
