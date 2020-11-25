@@ -321,6 +321,34 @@
     }
   }
 
+  var laaldea_handle_filter_control = function($button) {
+    let $filterContainer = $button.parents('.filters-container')
+    let $hiddenFilters = $filterContainer.find('.term-container.hidden');
+
+    if($button.hasClass('active')) {
+      let currentHeight = $filterContainer.height();
+      $filterContainer.css('height', currentHeight + 'px');
+      $filterContainer.attr('data-initial-height', currentHeight);
+  
+      $hiddenFilters.each(function() {
+        $(this).toggleClass('hidden');
+      });
+  
+      $filterContainer.animate({height: $filterContainer.get(0).scrollHeight}, 1000, function(){
+        $(this).height('auto');
+      });
+    }
+    else {
+      let targetHeight = $filterContainer.attr('data-initial-height');;
+      $filterContainer.animate({height: targetHeight}, 1000);
+    }
+
+    let $FilterIcons = $filterContainer.find('.filter-icon .icon');
+    $FilterIcons.each(function(){
+      $(this).toggleClass('hidden');
+    })
+  }
+
   var laaldea_handle_tools_load_more = function($button) {
     let offset = 0;
     let filter;
@@ -364,9 +392,32 @@
           });
         }
 
-        $('.main-container .tool-container .follow-container button').on('click', function(event) {
+        // events for the new tools loaded
+        $('.main-container .tool-container.loaded .follow-container button').on('click', function(event) {
           event.preventDefault();
           laaldea_handle_add_follow(event);
+        });
+        $('.main-container .tool-container.loaded .thumbnail-container .view-link.type-video').on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this)
+        });
+        $('.main-container .tool-container.loaded .related-tool-container .view-link-rel.type-video').on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this)
+        });
+        $('.main-container .tool-container.loaded .resourse-container button').on('click', function(event) {
+          event.preventDefault();
+          var tempInput = document.createElement("input");
+          tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+          tempInput.value = $(this).html();
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+        });
+
+        $('.main-container .tool-container.loaded').each(function(){
+          $(this).toggleClass('loaded');
         });
 
         webStateWaiting(false);
@@ -542,7 +593,9 @@
         currentPlayer: {},
         videos: {},
       };
+      $('.main-container .type-filter-container').attr('data-top', $('.main-container .type-filter-container').offset().top);
 
+      // Filter events
       $('.sidebar .follow button').on('click', function(event) {
         event.preventDefault();
         let $button = $(event.currentTarget);
@@ -565,11 +618,22 @@
         laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
       });
 
+      // Filter control event
+      $('.sidebar .filters-container .filter-contol').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        $button.toggleClass('active');
+
+        laaldea_handle_filter_control($button);
+      });
+
+      // Follow link event
       $('.main-container .tool-container .follow-container button').on('click', function(event) {
         event.preventDefault();
         laaldea_handle_add_follow(event);
       });
 
+      // Copy resoursse link
       $('.main-container .tool-container .resourse-container button').on('click', function(event) {
         event.preventDefault();
         var tempInput = document.createElement("input");
@@ -580,13 +644,17 @@
         document.execCommand("copy");
         document.body.removeChild(tempInput);
       });
-      
 
-      $('.main-container .tool-container .download-link-column .view-link.type-video').on('click', function(event) {
+      // View video
+      $('.main-container .tool-container .thumbnail-container .view-link.type-video').on('click', function(event) {
         event.preventDefault();
         laaldeea_handle_tools_video_click(event, this)
-        // laaldea_handle_tool_view_video(event);
       });
+      $('.main-container .tool-container .related-tool-container .view-link-rel.type-video').on('click', function(event) {
+        event.preventDefault();
+        laaldeea_handle_tools_video_click(event, this)
+      });
+
 
       $('.main-container .load-more-container button').on('click', function(event) {
         event.preventDefault();
@@ -595,4 +663,29 @@
       });
     }
   });
+
+  $(window).scroll(function () {
+		"use strict";
+		var topOfWindow = $(window).scrollTop();
+
+		function _checkOffset_menu(className) {
+			return function () {
+				var $this = $(this),
+          imagePos = $this.attr('data-top');
+
+        if(topOfWindow + 118 >= imagePos && !$this.hasClass(className)) {
+          $this.toggleClass(className);
+        }
+        else if(topOfWindow + 118 < imagePos && $this.hasClass(className)) {
+          $this.toggleClass(className);
+        }
+			};
+		}
+    
+    if($('#tools').length > 0) {
+      $('.main-container .type-filter-container').each(_checkOffset_menu('fixed'));
+    }
+		
+  });
+  
 } (jQuery) );

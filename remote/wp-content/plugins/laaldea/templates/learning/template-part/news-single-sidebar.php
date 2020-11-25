@@ -12,8 +12,8 @@
   <div class="title-container h6 color-cyan font-titan">
     <?php echo $post_title; ?>
   </div>
-  <div class="title-author h6 color-cyan font-sassoon pl-2 mb-2">
-    <?php _e('Escrito por: ','laaldea') . $post_author; ?>
+  <div class="post-place h6 color-cyan font-sassoon pl-2 mb-2">
+    <?php _e('Lugar: ','laaldea') . get_field( "place" ); ?>
   </div>
   <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-2">
     <span><?php echo get_the_date(); ?></span>

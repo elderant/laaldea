@@ -12,11 +12,8 @@
       <span><?php the_title();?></span>
       <span class="tags font-sassoon h6 color-gray"><?php echo __('En ', 'laaldea') . get_the_tag_list( '', ', ', ''); ?></span>
     </div>
-    <div class="post-author h6 color-cyan font-sassoon pl-2 mb-2">
-      <?php _e('Escrito por: ','laaldea') . the_author();?>
-    </div>
-    <div class="author-location h6 font-sassoon pl-2 mb-2">
-      <span><?php echo get_user_meta( $author -> ID, 'user_location', true); ?></span>
+    <div class="post-place h6 color-cyan font-sassoon pl-2 mb-2">
+      <?php _e('Lugar: ','laaldea') . get_field( "place" );?>
     </div>
     <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-4">
       <span><?php echo get_the_date(); ?></span>

@@ -459,7 +459,6 @@ add_shortcode( 'laaldea_replies_sidebar', 'laaldea_build_replies_sidebar' );
 // Add aditional replies
 add_action( 'wp_ajax_nopriv_laaldea_load_more_replies', 'laaldea_load_more_replies' );
 add_action( 'wp_ajax_laaldea_load_more_replies', 'laaldea_load_more_replies' );
-
 function laaldea_load_more_replies() {
   $offset = $_POST['offset'];
   $topic_id = $_POST['topicId'];
@@ -486,10 +485,13 @@ function laaldea_load_more_replies() {
       $reply_date = bbp_get_reply_post_date();
       $reply_content = bbp_get_reply_content(); 
       $reply_author = bbp_get_reply_author_display_name();
+      $reply_author_id = bbp_get_reply_author_id();
+      $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
 
       $wp_query -> query_vars['laaldea_args']['reply_date'] = $reply_date;
       $wp_query -> query_vars['laaldea_args']['reply_content'] = $reply_content;
       $wp_query -> query_vars['laaldea_args']['reply_author'] = $reply_author;
+      $wp_query -> query_vars['laaldea_args']['reply_avatar'] = $avatar_url;
 
       $template_url = laaldea_load_template('topic-replies-single.php', 'forum/template-part');
       load_template($template_url, false);
@@ -507,6 +509,13 @@ function laaldea_load_more_replies() {
   echo json_encode($return_array);
   die();
 }
+
+// Add text before freshness
+function laaldea_add_freshness_text(){
+  echo '<span>' . __('Última entrada: ') . '</span>';
+  return;
+}
+add_action('bbp_theme_before_topic_freshness_link', 'laaldea_add_freshness_text');
 
 /******************* News functions *******************/
 // Add next new
@@ -780,7 +789,7 @@ function laaldea_tools_load_more() {
       $add = laaldea_post_id_in_followed($post_id);
       // $preview = get_field( "preview" );
 
-      $container_class = 'tool-container flex-wrap align-items-end show post-id-';
+      $container_class = 'loaded tool-container flex-wrap align-items-end show post-id-';
       $container_class .= $post_id;
       $container_class .= ' type-' . $type;
       $container_class .= ' ' . $categories_class;
@@ -789,7 +798,7 @@ function laaldea_tools_load_more() {
       $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
       $wp_query -> query_vars['laaldea_args']['title'] = get_the_title();
       $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail();
-      $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'thumbnail' );
+      $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'small' );
       $wp_query -> query_vars['laaldea_args']['type'] = $type;
       $wp_query -> query_vars['laaldea_args']['content'] = get_the_content();
       $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
