@@ -554,20 +554,12 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 /* Learning : header */
-.page-template-learning header#masthead,
-.bbpress header#masthead,
-.page-template-user-flow header#masthead,
-.single-post header#masthead,
-.archive.tag header#masthead {
+#page.learning header#masthead {
   margin: 0;
   height: calc(1.5*2rem + 4rem);
 }
 
-.page-template-learning header .navbar,
-.bbpress header .navbar,
-.page-template-user-flow header .navbar,
-.single-post header .navbar,
-.archive.tag header .navbar {
+#page.learning header .navbar {
 	z-index: 1020;
 	position: fixed;
 	top: 0;
@@ -586,36 +578,20 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
 }
 
-.page-template-learning header .navbar.navbar-expand-sm,
-.bbpress header .navbar.navbar-expand-sm,
-.page-template-user-flow header .navbar.navbar-expand-sm,
-.single-post header .navbar.navbar-expand-sm,
-.archive.tag header .navbar.navbar-expand-sm {
+#page.learning header .navbar.navbar-expand-sm {
 	flex-flow: column nowrap;
 }
 
-.page-template-learning header#masthead .navbar #learning-nav,
-.bbpress header#masthead .navbar #learning-nav,
-.page-template-user-flow header#masthead .navbar #learning-nav,
-.single-post header#masthead .navbar #learning-nav,
-.archive.tag header#masthead .navbar #learning-nav {
+#page.learning header#masthead .navbar #learning-nav {
   width: 100%;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning,
-.bbpress header#masthead .navbar ul#menu-learning,
-.page-template-user-flow header#masthead .navbar ul#menu-learning,
-.single-post header#masthead .navbar ul#menu-learning,
-.archive.tag header#masthead .navbar ul#menu-learning {
+#page.learning header#masthead .navbar ul#menu-learning {
   width: inherit;
   justify-content: space-around;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li > a,
-.bbpress header#masthead .navbar ul#menu-learning > li > a,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a,
-.single-post header#masthead .navbar ul#menu-learning > li > a,
-.archive.tag header#masthead .navbar ul#menu-learning > li > a {
+#page.learning header#masthead .navbar ul#menu-learning > li > a {
 	color: var(--gray);
 	font-weight: inherit;
 	font-family: inherit;
@@ -623,20 +599,12 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	padding: 0 1.3rem;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
-.bbpress header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
-.single-post header#masthead .navbar ul#menu-learning > li.current-menu-item > a,
-.archive.tag header#masthead .navbar ul#menu-learning > li.current-menu-item > a {
+#page.learning header#masthead .navbar ul#menu-learning > li.current-menu-item > a {
   color: var(--cyan);
 }
 
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link,
-.single-post header#masthead .navbar ul#menu-learning > li.home-link,
-.archive.tag header#masthead .navbar ul#menu-learning > li.home-link {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link {
   /* margin: 0 auto; */
   border-radius: 5px;
   padding: 0 0rem;
@@ -645,49 +613,25 @@ header#masthead .navbar.secondary ul > li > a:focus {
   transition: background-color 0.5s ease-in-out;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.single-post header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link,
-.archive.tag header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link > a.nav-link {
   color: var(--white);
   padding: 0 0.5rem;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.single-post header#masthead .navbar ul#menu-learning > li.home-link > a::after,
-.archive.tag header#masthead .navbar ul#menu-learning > li.home-link > a::after {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link > a::after {
   content: '®';
   font-family: 'sassoon';
   font-size: 0.5em;
   vertical-align: super;
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li > a:hover,
-.page-template-learning header#masthead .navbar ul#menu-learning > li > a:focus,
-.bbpress header#masthead .navbar ul#menu-learning > li > a:hover,
-.bbpress header#masthead .navbar ul#menu-learning > li > a:focus,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:hover,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li > a:focus,
-.single-post header#masthead .navbar ul#menu-learning > li > a:hover,
-.single-post header#masthead .navbar ul#menu-learning > li > a:focus,
-.archive.tag header#masthead .navbar ul#menu-learning > li > a:hover,
-.archive.tag header#masthead .navbar ul#menu-learning > li > a:focus {
+#page.learning header#masthead .navbar ul#menu-learning > li > a:hover,
+#page.learning header#masthead .navbar ul#menu-learning > li > a:focus {
   color: var(--cyan);
 }
 
-.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.page-template-learning header#masthead .navbar ul#menu-learning > li.home-link:focus,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.bbpress header#masthead .navbar ul#menu-learning > li.home-link:focus,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.page-template-user-flow header#masthead .navbar ul#menu-learning > li.home-link:focus,
-.single-post header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.single-post header#masthead .navbar ul#menu-learning > li.home-link:focus,
-.archive.tag header#masthead .navbar ul#menu-learning > li.home-link:hover,
-.archive.tag header#masthead .navbar ul#menu-learning > li.home-link:focus {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link:hover,
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link:focus {
   background-color: var(--gray);
 }
 

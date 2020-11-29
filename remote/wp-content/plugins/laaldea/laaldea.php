@@ -825,3 +825,20 @@ function laaldea_tools_load_more() {
   echo json_encode($return_array);
   die();
 }
+
+/******************* LMS functions *******************/
+add_action('tutor_course/archive/before_loop', 'laaldea_remove_default_content_before_loop', 5);
+
+function laaldea_remove_default_content_before_loop() {
+  remove_action('tutor_course/archive/before_loop', 'tutor_course_archive_filter_bar');
+}
+
+function laaldea_build_courses_sidebar () {
+  ob_start();
+  $template_url = laaldea_load_template('courses-sidebar.php', 'learning');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+  
+  return $html;
+}
+add_shortcode( 'laaldea_courses_sidebar', 'laaldea_build_courses_sidebar' );

@@ -188,6 +188,22 @@ function wpb_child_replies_sidebar() {
 }
 add_action( 'widgets_init', 'wpb_child_replies_sidebar' );
 
+function wpb_child_courses_sidebar() {
+  $args = array(
+    'name'          => 'Main Courses Sidebar',
+    'id'            => 'courses-sidebar',
+    'description'   => 'Sidebar to use on the courses archive page',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widgettitle">',
+    'after_title'   => '</h4>',
+  );
+  
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'wpb_child_courses_sidebar' );
+
 /******************** App functinality ********************/ 
 /**
  * Reescribe el tamaño maximo de los archivos a subir

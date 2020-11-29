@@ -1691,3 +1691,77 @@
 .modal-root .modal-dialog video.active {
   display: block;
 }
+
+/**************************************************/
+/******************** Courses *********************/
+/**************************************************/
+/* Courses : filter column */
+.courses-sidebar {
+  border-right: 4px dashed var(--cyan);
+}
+
+.courses-sidebar .filters-container {
+  overflow: hidden;
+  border-bottom: 4px dashed var(--cyan);
+}
+
+.courses-sidebar .filters-container:first-child {
+  padding-top: 0;
+}
+
+.courses-sidebar .filters-container .filter-title img {
+  height: 35px;
+}
+
+.courses-sidebar .filters-container:last-child {
+  border-bottom: none;
+}
+
+.courses-sidebar .filters-container .filter-title {
+  width: 100%;
+}
+
+.courses-sidebar .filters-container .filter-contol {
+  width: inherit;
+}
+
+.courses-sidebar .filters-container.status-filter button img {
+  filter: grayscale(0.7);
+  transition: filter 0.5s ease-in-out;
+}
+
+.courses-sidebar .filters-container.status-filter button img {
+  height: 50px;
+}
+
+.courses-sidebar .filters-container.status-filter button .text-container {
+  color: var(--gray);
+  transition: color 0.5s ease-in-out;
+}
+
+.courses-sidebar .filters-container.status-filter button.active span,
+.courses-sidebar .filters-container.status-filter button:hover span {
+  color: var(--cyan);
+}
+
+.courses-sidebar .filters-container.status-filter button.active img,
+.courses-sidebar .filters-container.status-filter button:hover img {
+  filter: grayscale(0);
+}
+
+.courses-sidebar .filters-container.status-filter button span {
+  padding-left: 2rem;
+}
+
+/* Courses : Courses */
+.courses-section .tutor-course-loop-meta > div {
+  display: flex;
+}
+
+.courses-section .tutor-course-loop-meta .meta-container {
+  font-size: 1.5rem;
+}
+
+.courses-section .tutor-course-loop-meta .meta-container img {
+  padding-right: 1rem;
+}
