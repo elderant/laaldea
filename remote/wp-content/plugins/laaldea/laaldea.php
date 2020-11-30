@@ -834,6 +834,48 @@ function laaldea_remove_default_content_before_loop() {
 }
 
 function laaldea_build_courses_sidebar () {
+  global $wp_query;
+  
+  $course_post_type = tutor() -> course_post_type;
+  $args = array(
+    'post_type' 	=> $course_post_type,
+    'post_status'   => 'publish',
+
+    'id'       		=> '',
+    'exclude_ids'   => '',
+    'category'     	=> '',
+
+    'orderby'       => 'ID',
+    'order'         => 'DESC',
+    'count'     	=> 4,
+  );
+
+  if (!empty($args['id'])) {
+    $ids = (array) explode(',', $args['id']);
+    $args['post__in'] = $ids;
+  }
+
+  if (!empty($args['exclude_ids'])) {
+    $exclude_ids = (array) explode(',', $args['exclude_ids']);
+    $args['post__not_in'] = $exclude_ids;
+  }
+  if (!empty($args['category'])) {
+    $category = (array) explode(',', $args['category']);
+
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'course-category',
+        'field'    => 'term_id',
+        'terms'    => $category,
+        'operator' => 'IN',
+      ),
+    );
+  }
+  $args['posts_per_page'] = (int) $args['count'];
+
+  $course_query = new WP_Query( $args );
+  $wp_query -> query_vars['laaldea_args']['course_query'] = $course_query;
+
   ob_start();
   $template_url = laaldea_load_template('courses-sidebar.php', 'learning');
   load_template($template_url, false);
@@ -842,3 +884,45 @@ function laaldea_build_courses_sidebar () {
   return $html;
 }
 add_shortcode( 'laaldea_courses_sidebar', 'laaldea_build_courses_sidebar' );
+
+
+function laaldea_course_enroll_button( $echo = true ) {
+  $isLoggedIn = is_user_logged_in();
+  $enrolled = tutor_utils()->is_enrolled();
+
+  $is_administrator = current_user_can('administrator');
+  $is_instructor = tutor_utils()->is_instructor_of_this_course();
+  $course_content_access = (bool) get_tutor_option('course_content_access_for_ia');
+
+  ob_start();
+  if ( $enrolled ) {
+    $template_url = laaldea_load_template('course-enrolled-button.php', 'tutor/loop');
+    load_template($template_url, false);
+  } 
+  else if ( $course_content_access && ($is_administrator || $is_instructor) ) {
+    $template_url = laaldea_load_template('course-continue-lesson.php', 'tutor/loop');
+    load_template($template_url, false);
+  } 
+  else {
+    $template_url = laaldea_load_template('course-enroll.php', 'tutor/loop');
+    load_template($template_url, false);
+  }
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
+}
+
+function laaldea_course_benefits_html($echo = true) {
+  ob_start();
+  $template_url = laaldea_load_template('course-benefits-html.php', 'tutor/loop');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ($echo){
+      echo $html;
+  }
+  return $html;
+}

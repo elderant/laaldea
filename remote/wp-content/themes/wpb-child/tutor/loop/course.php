@@ -30,16 +30,23 @@ do_action('tutor_course/loop/before_meta');
 do_action('tutor_course/loop/meta');
 do_action('tutor_course/loop/after_meta');
 
-
 do_action('tutor_course/loop/before_excerpt');
 do_action('tutor_course/loop/excerpt');
 do_action('tutor_course/loop/after_excerpt');
 
+tutor_course_content();
+
+laaldea_course_enroll_button();
+
+laaldea_course_benefits_html();
+
+// tutor_course_topics();
+
 do_action('tutor_course/loop/end_content_wrap');
 
-do_action('tutor_course/loop/before_footer');
-do_action('tutor_course/loop/footer');
-do_action('tutor_course/loop/after_footer');
+// do_action('tutor_course/loop/before_footer');
+// do_action('tutor_course/loop/footer');
+// do_action('tutor_course/loop/after_footer');
 
 do_action('tutor_course/loop/after_content');
 

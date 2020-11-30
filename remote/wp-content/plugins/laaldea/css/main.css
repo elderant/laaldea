@@ -1753,7 +1753,99 @@
   padding-left: 2rem;
 }
 
-/* Courses : Courses */
+/* filter column : other courses */
+.courses-sidebar .other-courses .other-courses-container {
+  width: 100%;
+  text-align: center;
+}
+
+.courses-sidebar .other-courses .course-container {
+  padding: 2rem 0;
+  margin: 0 auto;
+}
+
+#page .courses-sidebar .other-courses .course-button {
+  width: 325px;
+  height: 166px;
+  border: 4px solid currentColor;
+  border-radius: 5px;
+  padding: 0;
+  background-size: cover;
+  color: var(--white);;
+  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
+}
+
+#page .courses-sidebar .other-courses .row-1 .course-button {background: url(/wp-content/uploads/courses-other-background1.jpg);}
+#page .courses-sidebar .other-courses .row-2 .course-button {background: url(/wp-content/uploads/courses-other-background2.jpg);}
+#page .courses-sidebar .other-courses .row-3 .course-button {background: url(/wp-content/uploads/courses-other-background3.jpg);}
+
+#page .courses-sidebar .other-courses .title-container {
+  color: var(--white);
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+
+#page .courses-sidebar .other-courses .title-container.html-title {
+  font-size: 3.5rem;
+}
+
+#page .courses-sidebar .other-courses .title-container div {
+  color: inherit;
+}
+
+.courses-sidebar .other-courses .title-container > div.subtitle {
+  font-size: 0.5em;
+}
+
+/* Courses : Courses archive */
+
+/* Courses archive :container */
+.courses-section .tutor-course-loop {
+  height: fit-content;
+  border: none;
+  border-radius: 0;
+  background: url(/wp-content/uploads/learning-course-background.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.courses-section .tutor-course-loop:hover {
+  box-shadow: none;
+}
+
+.courses-section .tutor-loop-course-container {
+  padding: 1rem 2.5rem 4.5rem; 
+}
+
+/* Courses archive : title */
+.courses-section .tutor-course-loop-title,
+.courses-section .tutor-course-header,
+.courses-section .tutor-course-loop-meta,
+.courses-section .tutor-single-course-segment,
+.courses-section .tutor-course-loop-button {
+  margin-bottom: 2rem;
+}
+
+.courses-section .tutor-course-loop-title .before-title {
+  font-size: 2rem;
+}
+
+.courses-section .tutor-course-loop-title h2 {
+  font-weight: 400;
+  text-align: left;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.courses-section .tutor-course-loop-title h2 .subtitle {
+  font-size: 0.65em;
+}
+
+#page.learning .tutor-course-loop-title h2 > div {
+  color: inherit;
+}
+
+/* courses archive : meta */
 .courses-section .tutor-course-loop-meta > div {
   display: flex;
 }
@@ -1764,4 +1856,75 @@
 
 .courses-section .tutor-course-loop-meta .meta-container img {
   padding-right: 1rem;
+}
+
+/* courses archive : description */
+.courses-section .tutor-single-course-segment .course-content-title {
+  display: none;
+}
+
+/* courses archive : enroll button */
+.courses-section .tutor-course-loop-button {
+  border: none;
+  text-align: center;
+}
+
+#page .courses-section .tutor-course-loop-button a.tutor-button, 
+#page .courses-section .tutor-course-loop-button button {
+  display: inline-block;
+  width: fit-content;
+  border: none;
+  padding: 2rem 3rem 3rem;
+  background-color: transparent;
+  color: var(--gray);
+  font-family: 'titan_one';
+  font-size: 2rem;
+  background-image: url(/wp-content/uploads/learning-button-background.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: none;
+  transition: color 0.5s ease-in-out;
+}
+
+#page .courses-section .tutor-course-loop-button a.tutor-button:hover,
+#page .courses-section .tutor-course-loop-button button:hover {
+  color: var(--cyan);
+}
+
+/* courses archive : benefits */
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items {
+  display: flex;
+  justify-content: flex-start;
+  column-count: unset;
+  column-gap: unset;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.75rem;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li:first-child {
+  padding-left: 0;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li:last-child {
+  padding-right: 0;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li img {
+  padding-bottom: 0.5rem;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li span {
+  max-width: 50px;
+  font-size: 0.65em;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.courses-section .tutor-loop-course-segment .tutor-course-benefits-items li::before {
+  content: none;
 }
