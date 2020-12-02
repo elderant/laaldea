@@ -35,7 +35,7 @@ if ($course_filter && count($supported_filters)) {
     <div id="sidebar-main" class="courses-sidebar offset-1 col-3">
       <?php dynamic_sidebar( 'courses-sidebar' ); ?>
     </div>
-    <section id="primary" class="content-area col-sm-7 courses-section">
+    <section id="primary" class="content-area col-sm-7 px-5 courses-section">
       <div class="<?php tutor_container_classes(); ?>">
         <?php tutor_load_template('archive-course-init'); ?>
       </div>

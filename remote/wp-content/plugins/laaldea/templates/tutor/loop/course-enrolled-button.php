@@ -1,4 +1,4 @@
-<div class="tutor-course-loop-button">
+<div class="tutor-single-course-segment tutor-course-single-button">
   <?php do_action('tutor_course/single/actions_btn_group/before'); ?>
   <?php
     if ( $wp_query->query['post_type'] !== 'lesson') :

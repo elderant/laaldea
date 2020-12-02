@@ -8,7 +8,8 @@ global $post, $authordata;
 
 // $profile_url = tutor_utils()->profile_url($authordata->ID);
 $course_duration = get_tutor_course_duration_context();
-$course_modules = "MODULOS?";
+$count = laaldea_tutor_get_topic_count();
+$course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), number_format_i18n( $count ) );
 ?>
 
 

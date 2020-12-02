@@ -915,6 +915,18 @@ function laaldea_course_enroll_button( $echo = true ) {
   return $html;
 }
 
+function laaldea_course_course_button( $echo = true ) {
+  ob_start();
+  $template_url = laaldea_load_template('course-button-html.php', 'tutor/loop');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ($echo){
+      echo $html;
+  }
+  return $html;
+}
+
 function laaldea_course_benefits_html($echo = true) {
   ob_start();
   $template_url = laaldea_load_template('course-benefits-html.php', 'tutor/loop');
@@ -925,4 +937,80 @@ function laaldea_course_benefits_html($echo = true) {
       echo $html;
   }
   return $html;
+}
+
+function laaldea_tutor_get_topic_count($course_id = 0) {
+  global $wpdb;
+
+  if ( ! $course_id){
+    $course_id = get_the_ID();
+    if ( ! $course_id){
+      $course_id = -1;
+    }
+  }
+
+  $type = 'topics';
+  $query = "SELECT post_status, COUNT( * ) AS num_posts FROM {$wpdb -> posts} WHERE post_type = %s AND post_parent = %s";
+  $query_text = $wpdb->prepare( $query, $type, $course_id);
+  $results = (array) $wpdb->get_results( $wpdb->prepare( $query, $type, $course_id), ARRAY_A );
+  $counts  = array_fill_keys( get_post_stati(), 0 );
+
+  foreach ( $results as $row ) {
+    $counts[ $row['post_status'] ] = $row['num_posts'];
+  }
+
+  $counts = (object) $counts;
+
+  return $counts -> publish;
+}
+
+function laaldea_get_tutor_header($fullScreen = false, $header_slug){
+  $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
+
+  if ($enable_spotlight_mode || $fullScreen){
+    ?>
+          <!doctype html>
+          <html <?php language_attributes(); ?>>
+          <head>
+              <meta charset="<?php bloginfo( 'charset' ); ?>" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <link rel="profile" href="https://gmpg.org/xfn/11" />
+      <?php wp_head(); ?>
+          </head>
+          <body <?php body_class(); ?>>
+          <div id="tutor-page-wrap" class="tutor-site-wrap site">
+    <?php
+  }else{
+    get_header($header_slug);
+  }
+
+}
+
+function laaldea_get_tutor_course_thumbnail($size = 'post-thumbnail', $url = false, $post_id = 0) {
+  if ( ! $course_id){
+    $course_id = get_the_ID();
+    if ( ! $course_id){
+      $course_id = -1;
+    }
+  }
+  
+  $post_thumbnail_id = (int) get_post_thumbnail_id( $post_id );
+
+  if ( $post_thumbnail_id ) {
+      //$size = apply_filters( 'post_thumbnail_size', $size, $post_id );
+      $size = apply_filters( 'tutor_course_thumbnail_size', $size, $post_id );
+      if ($url){
+          return wp_get_attachment_image_url($post_thumbnail_id, $size);
+      }
+
+      $html = wp_get_attachment_image( $post_thumbnail_id, $size, false );
+  } else {
+      $placeHolderUrl = tutor()->url . 'assets/images/placeholder.jpg';
+      if ($url){
+          return $placeHolderUrl;
+      }
+      $html = sprintf('<img alt="%s" src="' . $placeHolderUrl . '" />', __('Placeholder', 'tutor'));
+  }
+
+  echo $html;
 }

@@ -1061,6 +1061,79 @@ body.page-politica-privacidad p {
   box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
 }
 
+/**** User flow specific ****/
+form .user-flow-label {
+  position: relative;
+  font-family: 'titan_one';
+  color: var(--cyan);
+  font-size: 1.5rem;
+}
+
+form .user-flow-label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -4rem;
+  height: 30px;
+  width: 4rem;
+  background-image: url(/wp-content/uploads/user-flow-leaf.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(0%, -50%);
+}
+
+form input.user-flow-input[type="text"],
+form input.user-flow-input[type="password"] {
+  border-radius: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  border-bottom: 4px dashed var(--cyan);
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+form input.user-flow-input[type="text"]:active,
+form input.user-flow-input[type="text"]:focus,
+form input.user-flow-input[type="password"]:focus,
+form input.user-flow-input[type="password"]:active {
+  border-color: var(--cyan);
+}
+
+form a.user-flow-link {
+  color: var(--gray);
+}
+
+form a.user-flow-link:hover,
+form a.user-flow-link:focus {
+  color: var(--cyan);
+}
+
+form input[type="submit"].user-flow-button {
+  border: none;
+  padding: 2rem 1.5rem 2.5rem;
+  color: var(--cyan);
+  font-family: 'titan_one';
+  font-size: 2rem;
+  background: url(/wp-content/uploads/learning-button-background.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+form input[type="submit"].user-flow-button:hover {
+  border: none;
+  padding: 2rem 1.5rem 2.5rem;
+  color: var(--gray);
+  font-family: 'titan_one';
+  font-size: 2rem;
+  background: url(/wp-content/uploads/learning-button-background.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 /**** Forum General ****/
 .bbpress,
 .bbpress a,

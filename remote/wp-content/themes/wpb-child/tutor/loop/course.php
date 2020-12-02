@@ -36,7 +36,8 @@ do_action('tutor_course/loop/after_excerpt');
 
 tutor_course_content();
 
-laaldea_course_enroll_button();
+//laaldea_course_enroll_button();
+laaldea_course_course_button();
 
 laaldea_course_benefits_html();
 

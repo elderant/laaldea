@@ -49,16 +49,16 @@
     wp_login_form(
       array(
         'label_username' => __( 'Email', 'user-flow' ),
-        'label_log_in' => __( 'Log In', 'user-flow' ),
+        'label_log_in' => __( 'Ingresa', 'user-flow' ),
         'redirect' => $attributes['redirect'],
       )
     );
   ?>
     
   <a class="forgot-password" href="<?php echo wp_lostpassword_url(); ?>">
-    <?php _e( 'Forgot your password?', 'user-flow' ); ?>
+    <?php _e( '¿Olvido su contraseña?', 'user-flow' ); ?>
   </a>
   <a class="forgot-password" href="../register">
-    <?php _e( 'Sign In', 'user-flow' ); ?>
+    <?php _e( 'Registrate', 'user-flow' ); ?>
   </a>
 </div>
