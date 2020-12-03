@@ -19,7 +19,7 @@ $currentPost = $post;
 $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
 ?>
 
-<div id="sidebar-main" class="course-sidebar offset-1 col-3">
+<div id="sidebar-main" class="lesson-sidebar offset-1 col-3">
   <div class="tutor-lesson-sidebar">
     <?php tutor_lessons_sidebar(); ?>
   </div>

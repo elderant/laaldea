@@ -662,6 +662,17 @@
         laaldea_handle_tools_load_more($button);
       });
     }
+
+    if($('.single-lesson, .single-tutor_quiz').length > 0) {
+      $('.tutor-lesson-sidebar-hide-bar').each(function(){
+        $(this).on('click', function(event){
+          let $container = $(this).parents('.lesson-section');
+          $container.toggleClass('col-sm-7');
+          $container.toggleClass('col-sm-12');
+        })
+      })
+    }
+
   });
 
   $(window).scroll(function () {
