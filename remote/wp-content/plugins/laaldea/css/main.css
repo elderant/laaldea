@@ -2026,6 +2026,10 @@
 }
 
 /* course single : benefits */
+.single-courses .course-section .course-benefits-title h4 {
+  font-size: inherit;
+}
+
 .single-courses .course-section .tutor-course-benefits-items {
   display: flex;
   justify-content: flex-start;

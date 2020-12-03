@@ -1113,6 +1113,7 @@ form a.user-flow-link:focus {
 form input[type="submit"].user-flow-button {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
+  outline: none;
   color: var(--cyan);
   font-family: 'titan_one';
   font-size: 2rem;

@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) )
       <label class="user-flow-label" for="pwd">
         <?php echo esc_html( $args['label_password'] )?>
       </label>
-			<input type="password" name="" id="<?= esc_attr( $args['id_password'] )?>" class="input user-flow-input" value="" size="20"/>
+			<input type="password" name="pwd" id="<?= esc_attr( $args['id_password'] )?>" class="input user-flow-input" value="" size="20"/>
     </div>
 		
 		<?php 
@@ -84,16 +84,14 @@ if ( ! defined( 'ABSPATH' ) )
     ?>
     
 		<div class="tutor-login-rememeber-wrap">
-			<?php  if($args['remember']):?>
+			<?php if($args['remember']) : ?>
 			<div class="login-remember">
 				<label>
-					<input name="rememberme" type="checkbox" id="<?= esc_attr( $args['id_remember'] )?>" value="forever" 
-					 <?php $args['value_remember'] ? 'checked' : '';?>
-					>
+					<input name="rememberme" type="checkbox" id="<?= esc_attr( $args['id_remember'] )?>" value="forever" <?php $args['value_remember'] ? 'checked' : '';?>>
 					<?= esc_html($args['label_remember']);?>
 				</label>
       </div>
-			<?php endif;?>
+			<?php endif; ?>
 		</div>
 		
 		<?php do_action("tutor_login_form_end");?>

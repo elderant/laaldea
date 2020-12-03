@@ -44,19 +44,6 @@ $title = empty($title_html) ? get_the_title() : $title_html;
           </div>
         </div>
         <?php tutor_course_content(); ?>
-
-              <!-- to delete -->
-        <?php if($course_completion > 0) : ?>
-          <div class="tutor-single-course-segment tutor-course-completion-percent">
-            <div class="percent-container font-titan">
-              <?php echo sprintf("%.0f%%", $course_completion * 100)?>
-            </div> 
-            <label class="font-titan color-cyan">
-              <?php _e('Avance','laaldea');?>
-            </label>
-          </div>
-        <?php endif; ?><!-- end to delete -->
-
       </div>
     </div>
   </div>
@@ -87,9 +74,6 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                     ?>
                     <?php if ( !$disable_course_author) : ?>
                       <div class="tutor-single-course-author-meta pb-4">
-                        <!-- <div class="tutor-single-course-avatar">
-                          <a href="<?php echo $profile_url; ?>"> <?php echo tutor_utils()->get_tutor_avatar($post->post_author); ?></a>
-                        </div> -->
                         <div class="tutor-single-course-author-name">
                           <span><?php _e('Profesor: ', 'tutor'); ?></span>
                           <a href="<?php echo tutor_utils()->profile_url($authordata->ID); ?>"><?php echo get_the_author(); ?></a>
