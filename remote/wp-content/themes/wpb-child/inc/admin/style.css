@@ -5,10 +5,11 @@
 /**** User flow ****/
 .user-edit-php .radio-buttons {
   width: 100%;
-  height: calc(150px + 10px);
+  height: auto;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .user-edit-php .radio-buttons input[type="radio"] {

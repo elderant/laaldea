@@ -233,12 +233,12 @@
           let currentHeight = $mainContainer.height();
 
           $mainContainer.css('height', currentHeight + 'px');
-          $mainContainer.append(data.html);
+          $mainContainer.prepend(data.html);
          
           $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 300, function(){
             $(this).height('auto');
 
-            let $lastNew = $mainContainer.find('.new-container').last();
+            let $lastNew = $mainContainer.find('.new-container').first();
             let newStart = $lastNew.offset().top - 150;
   
             $('html').stop().animate({ scrollTop: newStart }, 500);
@@ -464,15 +464,21 @@
 
   var laaldeea_handle_tools_video_click = function(event, currentTarget) {
     // hide any active players
-    $('body #page > div.modal-root .modal-dialog video.active').each(function(){
+    $('body #page > div.modal-root .modal-dialog video.active,' +
+      'body #page > div.modal-root .modal-dialog audio.active,' +
+      'body #page > div.modal-root .modal-dialog iframe.active').each(function(){
       $(this).toggleClass('active');
     });
 
     let currentId = $(currentTarget).attr('data-postId');
+    let type = $(currentTarget).attr('data-type');
+    let link = $(currentTarget).attr('data-link');
+    type = link? 'iframe': 'video';
     let currentUrl = $(currentTarget).attr('href');
     window.aldea.tools.currentPlayer.id = currentId;
     let $modal = $('body #page > div.modal-root');
-    let $video = $modal.find('.modal-dialog video.post-' + currentId);
+    
+    let $video = $modal.find('.modal-dialog ' + type + '.post-' + currentId);
     
     if($video.length == 0) {
       if($modal.length == 0) {
@@ -499,15 +505,29 @@
         });
       }
 
-      let $htmlObject = $('<video />', {
-        class: 'post-' + currentId,
-        src: currentUrl,
-        type: 'video/mp4',
-        controls: true
-      });
+      let $htmlObject;
+      if(!link) {
+        $htmlObject = $('<video />', {
+          class: 'post-' + currentId + ' type-' + type,
+          src: currentUrl,
+          type: type == 'video' ? 'video/mp4' : 'audio/mpeg',
+          controls: true
+        });
+      }
+      else if(type == 'iframe') {
+        let index = link.search(/\?v=/i);
+        var id = link.substring(index+3);
+
+        $htmlObject = $('<iframe />', {
+          class: 'post-' + currentId + ' type-' + type,
+          src: "https://www.youtube.com/embed/" + id, 
+          frameborder : "0",
+          allowfullscreen: true,
+        });
+      }
       
       $modal.find('.modal-dialog').append($htmlObject);
-      $video = $('body #page > div.modal-root .modal-dialog video.post-' + currentId);
+      $video = $('body #page > div.modal-root .modal-dialog ' + type + '.post-' + currentId);
     }
 
     $modal.toggleClass('out');
@@ -648,11 +668,19 @@
       // View video
       $('.main-container .tool-container .thumbnail-container .view-link.type-video').on('click', function(event) {
         event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this)
+        laaldeea_handle_tools_video_click(event, this);
       });
       $('.main-container .tool-container .related-tool-container .view-link-rel.type-video').on('click', function(event) {
         event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this)
+        laaldeea_handle_tools_video_click(event, this);
+      });
+      $('.main-container .tool-container .thumbnail-container .view-link.type-audio').on('click', function(event) {
+        event.preventDefault();
+        laaldeea_handle_tools_video_click(event, this);
+      });
+      $('.main-container .tool-container .related-tool-container .view-link-rel.type-audio').on('click', function(event) {
+        event.preventDefault();
+        laaldeea_handle_tools_video_click(event, this);
       });
 
 

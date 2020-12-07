@@ -785,6 +785,7 @@ function laaldea_tools_load_more() {
       $post_id = get_the_ID();
       $tool = get_field( "herramienta" );
       $type = strtolower(get_field( "type" ));
+      $link = $type == 'video'? get_field( "link_youtube" ):'';
       $categories_class = laaldea_get_tools_category_class($post_id);
       $add = laaldea_post_id_in_followed($post_id);
       // $preview = get_field( "preview" );
@@ -800,6 +801,7 @@ function laaldea_tools_load_more() {
       $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail();
       $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'small' );
       $wp_query -> query_vars['laaldea_args']['type'] = $type;
+      $wp_query -> query_vars['laaldea_args']['link'] = $link;
       $wp_query -> query_vars['laaldea_args']['content'] = get_the_content();
       $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
       $wp_query -> query_vars['laaldea_args']['follow_status'] = $add;

@@ -10,10 +10,10 @@
     </div>
     <div class="post-title h4 color-cyan font-titan">
       <span><?php the_title();?></span>
-      <span class="tags font-sassoon h6 color-gray"><?php echo __('En ', 'laaldea') . get_the_tag_list( '', ', ', ''); ?></span>
+      <span class="tags font-sassoon h6 color-gray"><?php echo get_the_tag_list( __('En ', 'laaldea'), ', ', ''); ?></span>
     </div>
     <div class="post-place h6 color-cyan font-sassoon pl-2 mb-2">
-      <?php _e('Lugar: ','laaldea') . get_field( "place" );?>
+      <?php echo !empty(get_field( "place" )) ? __('Lugar: ','laaldea') . get_field( "place"):'';?>
     </div>
     <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-4">
       <span><?php echo get_the_date(); ?></span>

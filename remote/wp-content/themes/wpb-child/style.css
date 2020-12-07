@@ -1031,21 +1031,56 @@ body.page-politica-privacidad p {
   color: var(--red-dark-tone);
 }
 
+.user-flow .form-row {
+  flex-direction: column;
+  padding: 1rem 12rem;
+}
+
+.user-flow #content > .container-fluid > .row {
+  background-image: url(/wp-content/uploads/user-flow-background.png);
+  background-repeat: no-repeat;
+  background-size: 84% auto;
+  background-position: 50% 95%;
+}
+
+.user-flow .page {
+  padding: 1rem 0 5rem 0;
+  background: url(/wp-content/uploads/learning-course-background.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.user-flow .page .entry-header h1 {
+  border: none;
+  color: var(--cyan);
+  font-size: 3rem;
+  text-align: center;
+}
+
 .user-flow #register-form .radio-buttons {
   width: 100%;
-  height: calc(150px + 10px);
+  height: auto;/*calc(150px + 10px);*/
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.user-flow #register-form .radio-buttons .avatar-container {
+  position: relative;
+  height: 135px;
+  width: 135px;
+  margin: 0.25rem 0.25rem;
 }
 
 .user-flow #register-form .radio-buttons input[type="radio"] {
+  position: absolute;
   height: 0;
   width: 0;
 }
 
 .user-flow #register-form .radio-buttons label img {
-  height: 150px;
+  /* height: 150px; */
 }
 
 .user-flow #register-form .radio-buttons label {
@@ -1062,14 +1097,16 @@ body.page-politica-privacidad p {
 }
 
 /**** User flow specific ****/
-form .user-flow-label {
+form label.user-flow-label,
+.user-flow #loginform label {
   position: relative;
   font-family: 'titan_one';
   color: var(--cyan);
   font-size: 1.5rem;
 }
 
-form .user-flow-label::before {
+form .user-flow-label::before,
+.user-flow #loginform label::before  {
   content: '';
   position: absolute;
   top: 50%;
@@ -1083,7 +1120,13 @@ form .user-flow-label::before {
 }
 
 form input.user-flow-input[type="text"],
-form input.user-flow-input[type="password"] {
+form input.user-flow-input[type="email"],
+form input.user-flow-input[type="tel"],
+form input.user-flow-input[type="password"],
+.user-flow #loginform input[type="text"],
+.user-flow #loginform input[type="email"],
+.user-flow #loginform input[type="tel"],
+.user-flow #loginform input[type="password"] {
   border-radius: 0;
   border: none;
   outline: none;
@@ -1096,21 +1139,40 @@ form input.user-flow-input[type="password"] {
 
 form input.user-flow-input[type="text"]:active,
 form input.user-flow-input[type="text"]:focus,
+form input.user-flow-input[type="email"]:active,
+form input.user-flow-input[type="email"]:focus,
+form input.user-flow-input[type="tel"]:active,
+form input.user-flow-input[type="tel"]:focus,
 form input.user-flow-input[type="password"]:focus,
-form input.user-flow-input[type="password"]:active {
+form input.user-flow-input[type="password"]:active,
+.user-flow #loginform input[type="text"]:active,
+.user-flow #loginform input[type="text"]:focus,
+.user-flow #loginform input[type="email"]:active,
+.user-flow #loginform input[type="email"]:focus,
+.user-flow #loginform input[type="tel"]:active,
+.user-flow #loginform input[type="tel"]:focus,
+.user-flow #loginform input[type="password"]:focus,
+.user-flow #loginform input[type="password"]:active  {
   border-color: var(--cyan);
 }
 
-form a.user-flow-link {
+form a.user-flow-link,
+.user-flow.page-id-328 .page a {
+  opacity: 0.5;
   color: var(--gray);
+  transition: all 0.5s ease-in-out;
 }
 
 form a.user-flow-link:hover,
-form a.user-flow-link:focus {
+form a.user-flow-link:focus,
+.user-flow.page-id-328 .page a:hover,
+.user-flow.page-id-328 .page a:focus {
+  opacity: 1;
   color: var(--cyan);
 }
 
-form input[type="submit"].user-flow-button {
+form input[type="submit"].user-flow-button,
+.user-flow #loginform input[type="submit"] {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
   outline: none;
@@ -1123,7 +1185,8 @@ form input[type="submit"].user-flow-button {
   background-position: center;
 }
 
-form input[type="submit"].user-flow-button:hover {
+form input[type="submit"].user-flow-button:hover,
+.user-flow #loginform input[type="submit"].user-flow-button:hover {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
   color: var(--gray);
@@ -1133,6 +1196,35 @@ form input[type="submit"].user-flow-button:hover {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+/* login page */
+.user-flow #loginform {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-flow.page-id-328 #content > .container-fluid > .row {
+  background-size: 51% auto;
+}
+
+.user-flow .post-328 {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.user-flow #loginform > p label,
+.user-flow #loginform > p input {
+  display: block;
+}
+
+.user-flow #loginform > p.login-remember input {
+  display: inline-block;
+}
+
+.user-flow.page-id-328 .page a {
+  display: block;
+  text-align: center;
 }
 
 /**** Forum General ****/
@@ -1165,31 +1257,31 @@ form input[type="submit"].user-flow-button:hover {
 }
 
 /**** Learning General ****/
-#page.learning,
-#page.learning label,
-#page.learning p,
-#page.learning button,
-#page.learning div,
-#page.learning h1,
-#page.learning h2,
-#page.learning h3,
-#page.learning h4,
-#page.learning h5,
-#page.learning h6 {
+.learning,
+.learning label,
+.learning p,
+.learning button,
+.learning div,
+.learning h1,
+.learning h2,
+.learning h3,
+.learning h4,
+.learning h5,
+.learning h6 {
   color: var(--gray);
 }
 
-#page.learning a {
+.learning a {
   color: var(--cyan);
 }
 
-#page.learning a:hover,
-#page.learning a:focus {
+.learning a:hover,
+.learning a:focus {
   color: var(--gray);
 }
 
-#page.learning button,
-#page.learning .button {
+.learning button,
+.learning .button {
   border: none;
   outline: none;
   background: none;

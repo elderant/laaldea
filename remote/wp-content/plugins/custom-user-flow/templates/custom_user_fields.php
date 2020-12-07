@@ -7,22 +7,134 @@
   $user_location = $attributes['fields']['user_location'];
 
   switch ( $user_avatar ) {
-    case '/wp-content/uploads/user-avatar1.png':
+    case '/wp-content/uploads/user-avatar-arnold.png':
       $current_avatar = 1;
       break;
-    case '/wp-content/uploads/user-avatar2.png':
+    case '/wp-content/uploads/user-avatar-lucy.png':
       $current_avatar = 2;
       break;
-    case '/wp-content/uploads/user-avatar3.png':
+    case '/wp-content/uploads/user-avatar-harry.png':
       $current_avatar = 3;
       break;
-    case '/wp-content/uploads/user-avatar4.png':
+    case '/wp-content/uploads/user-avatar-ernest.png':
       $current_avatar = 4;
+      break;
+    case '/wp-content/uploads/user-avatar-macaw.png':
+      $current_avatar = 5;
+      break;
+    case '/wp-content/uploads/user-avatar-carol.png':
+      $current_avatar = 6;
+      break;
+    case '/wp-content/uploads/user-avatar-peter.png':
+      $current_avatar = 7;
+      break;
+    case '/wp-content/uploads/user-avatar-ant.png':
+      $current_avatar = 8;
+      break;
+    case '/wp-content/uploads/user-avatar-bee.png':
+      $current_avatar = 9;
+      break;
+    case '/wp-content/uploads/user-avatar-moorhen.png':
+      $current_avatar = 10;
+      break;
+    case '/wp-content/uploads/user-avatar-owl.png':
+      $current_avatar = 11;
       break;
     default:
       $current_avatar = 1;
       break;
   }
+
+  $user_avatars = array(
+    'arnulfo' => array (
+      'container-class' => 'avatar-container arnulfo',
+      'input-id' => 'avatar-arnulfo',
+      'input-value' => '/wp-content/uploads/user-avatar-arnold.png',
+      'avatar_checked' => $current_avatar == 1? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-arnold.png',
+      'label-alt' => __('Imagen Avatar Arnulfo','laaldea'),
+    ),
+    'lucy' => array (
+      'container-class' => 'avatar-container lucy',
+      'input-id' => 'avatar-lucy',
+      'input-value' => '/wp-content/uploads/user-avatar-lucy.png',
+      'avatar_checked' => $current_avatar == 2? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-lucy.png',
+      'label-alt' => __('Imagen Avatar Lorena','laaldea'),
+    ),
+    'enrique' => array (
+      'container-class' => 'avatar-container harry',
+      'input-id' => 'avatar-harry',
+      'input-value' => '/wp-content/uploads/user-avatar-harry.png',
+      'avatar_checked' => $current_avatar == 3? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-harry.png',
+      'label-alt' => __('Imagen Avatar Enrique','laaldea'),
+    ),
+    'efren' => array (
+      'container-class' => 'avatar-container ernest',
+      'input-id' => 'avatar-ernest',
+      'input-value' => '/wp-content/uploads/user-avatar-ernest.png',
+      'avatar_checked' => $current_avatar == 4? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-ernest.png',
+      'label-alt' => __('Imagen Avatar Efrén','laaldea'),
+    ),
+    'macaw' => array (
+      'container-class' => 'avatar-container macaw',
+      'input-id' => 'avatar-macaw',
+      'input-value' => '/wp-content/uploads/user-avatar-macaw.png',
+      'avatar_checked' => $current_avatar == 5? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-macaw.png',
+      'label-alt' => __('Imagen Avatar guacamaya','laaldea'),
+    ),
+    'carmen' => array (
+      'container-class' => 'avatar-container carol',
+      'input-id' => 'avatar-carol',
+      'input-value' => '/wp-content/uploads/user-avatar-carol.png',
+      'avatar_checked' => $current_avatar == 6? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-carol.png',
+      'label-alt' => __('Imagen Avatar Carmen','laaldea'),
+    ),
+    'paco' => array (
+      'container-class' => 'avatar-container peter',
+      'input-id' => 'avatar-peter',
+      'input-value' => '/wp-content/uploads/user-avatar-peter.png',
+      'avatar_checked' => $current_avatar == 7? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-peter.png',
+      'label-alt' => __('Imagen Avatar Paco','laaldea'),
+    ),
+    'ant' => array (
+      'container-class' => 'avatar-container ant',
+      'input-id' => 'avatar-ant',
+      'input-value' => '/wp-content/uploads/user-avatar-ant.png',
+      'avatar_checked' => $current_avatar == 8? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-ant.png',
+      'label-alt' => __('Imagen Avatar hormiga','laaldea'),
+    ),
+    'bee' => array (
+      'container-class' => 'avatar-container bee',
+      'input-id' => 'avatar-bee',
+      'input-value' => '/wp-content/uploads/user-avatar-bee.png',
+      'avatar_checked' => $current_avatar == 9? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-bee.png',
+      'label-alt' => __('Imagen Avatar Abeja','laaldea'),
+    ),
+    'gallineta' => array (
+      'container-class' => 'avatar-container moorhen',
+      'input-id' => 'avatar-moorhen',
+      'input-value' => '/wp-content/uploads/user-avatar-moorhen.png',
+      'avatar_checked' => $current_avatar == 10? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-moorhen.png',
+      'label-alt' => __('Imagen Avatar gallineta','laaldea'),
+    ),
+    'owl' => array (
+      'container-class' => 'avatar-container owl',
+      'input-id' => 'avatar-owl',
+      'input-value' => '/wp-content/uploads/user-avatar-owl.png',
+      'avatar_checked' => $current_avatar == 11? 'checked':'',
+      'label-img' => '/wp-content/uploads/user-avatar-owl.png',
+      'label-alt' => __('Imagen Avatar búho','laaldea'),
+    ),
+  );
 ?>
 
 <h3 class="heading"><?php _e('Custom fields', 'user-flow');?></h3>
@@ -69,22 +181,20 @@
     </th>
     <td>
       <div class="radio-buttons">
-        <div class="avatar1-container">
-          <input type="radio" id="avatar1" name="user_avatar" value="/wp-content/uploads/user-avatar1.png"<?php echo $current_avatar === 1?' checked="checked"':''; ?>>
-          <label for="avatar1"><img src="/wp-content/uploads/user-avatar1.png" alt="<?php _e('Avatar 1 image','laaldea');?>"></label>
-        </div>
-        <div class="avatar2-container">
-          <input type="radio" id="avatar2" name="user_avatar" value="/wp-content/uploads/user-avatar2.png"<?php echo $current_avatar === 2?' checked="checked"':''; ?>>
-          <label for="avatar2"><img src="/wp-content/uploads/user-avatar2.png" alt="<?php _e('Avatar 2 image','laaldea');?>"></label>
-        </div>
-        <div class="avatar3-container">
-          <input type="radio" id="avatar3" name="user_avatar" value="/wp-content/uploads/user-avatar3.png"<?php echo $current_avatar === 3?' checked="checked"':''; ?>>
-          <label for="avatar3"><img src="/wp-content/uploads/user-avatar3.png" alt="<?php _e('Avatar 3 image','laaldea');?>"></label>
-        </div>
-        <div class="avatar4-container">
-          <input type="radio" id="avatar4" name="user_avatar" value="/wp-content/uploads/user-avatar4.png"<?php echo $current_avatar === 4?' checked="checked"':''; ?>>
-          <label for="avatar4"><img src="/wp-content/uploads/user-avatar4.png" alt="<?php _e('Avatar 4 image','laaldea');?>"></label>
-        </div>
+        <?php foreach($user_avatars as $avatar) :?>
+          <div class="<?php echo $avatar['container-class'];?>">
+            <input 
+              type="radio" name="user_avatar"
+              value="<?php echo $avatar['input-value'];?>"
+              id="<?php echo $avatar['input-id'];?>"
+              <?php echo $avatar['avatar_checked']?' checked="checked"':'';?>>
+            <label for="<?php echo $avatar['input-id'];?>">
+              <img 
+                src="<?php echo $avatar['label-img'];?>" 
+                alt="<?php echo $avatar['label-alt'];?>">
+            </label>
+          </div>
+        <?php endforeach;?>
       </div>
     </td>
   </tr>

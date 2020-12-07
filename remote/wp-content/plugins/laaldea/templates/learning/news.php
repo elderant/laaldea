@@ -2,9 +2,6 @@
   $recent_news = $laaldea_args['recent_news'];
   $offset = $laaldea_args['offset'];
   $load_more = $laaldea_args['load_more'];
-
-  // error_log('offset : ' . print_r($offset,1));
-  // error_log('load_more : ' . print_r($load_more,1));
 ?>
 
 <section id="news" class="d-flex align-items-center justify-content-center" data-menu="news">
@@ -28,7 +25,7 @@
                 </div>
                 <div class="title-container h4 color-cyan font-titan">
                   <span><?php the_title();?></span>
-                  <span class="tags font-sassoon h6 color-gray"><?php get_the_tag_list( 'En ', ', ', ''); ?></span>
+                  <span class="tags font-sassoon h6 color-gray"><?php echo get_the_tag_list( __('En ', 'laaldea'), ', ', ''); ?></span>
                 </div>
                 <div class="post-place h6 color-cyan font-sassoon pl-2 mb-2">
                   <span><?php echo !empty(get_field( "place" )) ? __('Lugar: ','laaldea') . get_field( "place"):'';?></span>

@@ -112,6 +112,7 @@
                 $post_id = get_the_ID();
                 $tool = get_field( "herramienta" );
                 $type = get_field( "type" );
+                $link = $type == 'Video'? get_field( "link_youtube" ):'';
                 $related = get_field( "related_tools" );
                 $categories_class = laaldea_get_tools_category_class($post_id);
                 $add = laaldea_post_id_in_followed($post_id);
@@ -131,7 +132,7 @@
                 </div>
                 <div class="row middle-row pb-3">
                   <div class="col-4 thumbnail-container d-flex align-items-center justify-content-center">
-                    <a href="<?php echo $tool?>" class="view-link type-<?php echo strtolower($type);?>" target="_blank" data-postId="<?php echo $post_id;?>">
+                    <a href="<?php echo $tool?>" class="view-link type-<?php echo strtolower($type);?>" target="_blank" data-postId="<?php echo $post_id;?>" data-type="<?php echo strtolower($type);?>" data-link="<?php echo $link;?>">
                       <?php if(has_post_thumbnail()) :?>
                         <?php the_post_thumbnail( 'small' ); ?>
                       <?php else :?>
@@ -141,6 +142,8 @@
                             <?php _e('PDF', 'laaldea')?>
                           <?php elseif($type == 'Video') : ?>
                             <?php _e('Video', 'laaldea')?>
+                          <?php elseif($type == 'Audio') : ?>
+                            <?php _e('Audio', 'laaldea')?>
                           <?php else : ?>
                             <?php _e('Herramienta', 'laaldea')?>
                           <?php endif; ?>
@@ -173,6 +176,8 @@
                         <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga pdf', 'laaldea')?>">
                       <?php elseif($type == 'Video') : ?>
                         <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga video', 'laaldea')?>">
+                      <?php elseif($type == 'Audio') : ?>
+                        <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga audio', 'laaldea')?>">
                       <?php else : ?>
                         <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga general', 'laaldea')?>">
                       <?php endif; ?>
@@ -193,10 +198,11 @@
                       $related_post_id = $related[$i];
                       $related_tool = get_field( "herramienta", $related_post_id );
                       $related_type = get_field( "type", $related_post_id );
+                      $related_link = $related_type == 'Video'? get_field( "link_youtube", $related_post_id ):'';
                       $related_title = get_the_title( $related_post_id );
                     ?>
                     <div class="related-tool-container col-11">
-                      <a href="<?php echo $related_tool?>" class="view-link-rel type-<?php echo strtolower($related_type);?>" target="_blank" data-postId="<?php echo $related_post_id;?>">
+                      <a href="<?php echo $related_tool?>" class="view-link-rel type-<?php echo strtolower($related_type);?>" target="_blank" data-postId="<?php echo $related_post_id;?>" data-link="<?php echo $link;?>">
                         <?php echo $related_title;?>
                       </a>
                       <a class="text-center down-link-rel" href="<?php echo $related_tool?>" download>
@@ -204,6 +210,8 @@
                           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga pdf', 'laaldea')?>">
                         <?php elseif($related_type == 'Video') : ?>
                           <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga video', 'laaldea')?>">
+                        <?php elseif($related_type == 'Audio') : ?>
+                          <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga audio', 'laaldea')?>">
                         <?php else : ?>
                           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga general', 'laaldea')?>">
                         <?php endif; ?>
