@@ -75,8 +75,10 @@ class CustomUserFlow {
     add_action( 'login_form_resetpass', array( $this, 'do_password_change' ) );
 
     add_filter('show_admin_bar', array( $this, 'hide_adminbar_for_subscribers' ));
+
+    add_filter( 'lostpassword_url', array( $this, 'lostpassword_url' ), 10, 2 );
   }
-     
+  
   /**
    * Plugin activation hook.
    *
@@ -166,7 +168,8 @@ class CustomUserFlow {
     $show_title = $attributes['show_title'];
 
     if ( is_user_logged_in() ) {
-      return __( 'You are already signed in.', 'user-flow' );
+      $html = '<div class="logged-in description">' . __( 'You are already signed in.', 'user-flow' ) . '</div>';
+      return $html;
     }
     
     // Pass the redirect parameter to the WordPress login functionality: by default,
@@ -182,6 +185,7 @@ class CustomUserFlow {
 
     // Check if the user just registered
     $attributes['registered'] = isset( $_REQUEST['registered'] );
+    $attributes['register_url'] = $this -> get_register_url();
 
     // Check if the user just requested a new password 
     $attributes['password_reset_sent'] = isset( $_REQUEST['checkemail'] ) && $_REQUEST['checkemail'] == 'confirm';
@@ -217,7 +221,7 @@ class CustomUserFlow {
       }
 
       // The rest are redirected to the login page
-      $login_url = home_url( 'login' );
+      $login_url = home_url( $this -> get_login_url() );
       if ( ! empty( $redirect_to ) ) {
         $login_url = add_query_arg( 'redirect_to', $redirect_to, $login_url );
       }
@@ -271,7 +275,7 @@ class CustomUserFlow {
       if ( is_wp_error( $user ) ) {
         $error_codes = join( ',', $user->get_error_codes() );
 
-        $login_url = home_url( 'login' );
+        $login_url = home_url( $this -> get_login_url() );
         $login_url = add_query_arg( 'login', $error_codes, $login_url );
 
         wp_redirect( $login_url );
@@ -417,9 +421,11 @@ class CustomUserFlow {
     // $attributes['recaptcha_site_key'] = get_option( 'cuf-recaptcha-site-key', null );
 
     if ( is_user_logged_in() ) {
-        return __( 'You are already signed in.', 'user-flow' );
+      $html = '<div class="logged-in description">' . __( 'You are already signed in.', 'user-flow' ) . '</div>';
+      return $html;
     } elseif ( ! get_option( 'users_can_register' ) ) {
-        return __( 'Registering new users is currently not allowed.', 'user-flow' );
+      $html = '<div class="registering-disabled description">' . __( 'Registering new users is currently not allowed.', 'user-flow' ) . '</div>';
+      return $html ;
     } else {
         return $this->get_template_html( 'register_form', $attributes );
     }
@@ -434,7 +440,8 @@ class CustomUserFlow {
         if ( is_user_logged_in() ) {
             $this -> redirect_logged_in_user();
         } else {
-            wp_redirect( home_url( 'register' ) );
+            
+            wp_redirect( home_url( $this -> get_register_url() ) );
         }
         exit;
     }
@@ -510,14 +517,14 @@ class CustomUserFlow {
    */
   public function do_register_user() {
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
-      $redirect_url = home_url( 'register' );
+      $redirect_url = home_url( $this->get_register_url() );
 
       if ( ! get_option( 'users_can_register' ) ) {
         // Registration closed, display error
         $redirect_url = add_query_arg( 'register-errors', 'closed', $redirect_url );
-      // } elseif ( ! $this->verify_recaptcha() ) {
-      //   // Recaptcha check failed, display error
-      //   $redirect_url = add_query_arg( 'register-errors', 'captcha', $redirect_url );
+        // } elseif ( ! $this->verify_recaptcha() ) {
+        //   // Recaptcha check failed, display error
+        //   $redirect_url = add_query_arg( 'register-errors', 'captcha', $redirect_url );
       } else {
         $email = $_POST['email'];
         $first_name = sanitize_text_field( $_POST['first_name'] );
@@ -548,7 +555,8 @@ class CustomUserFlow {
           $redirect_url = add_query_arg( 'register-errors', $errors, $redirect_url );
         } else {
           // Success, redirect to login page.
-          $redirect_url = home_url( 'login' );
+          
+          $redirect_url = home_url( $this->get_login_url() );
           $redirect_url = add_query_arg( 'registered', $email, $redirect_url );
         }
       }
@@ -671,7 +679,7 @@ class CustomUserFlow {
         exit;
       }
 
-      wp_redirect( home_url( 'password-reset' ) );
+      wp_redirect( home_url( $this -> get_password_reset_url_with_referer() ) );
       exit;
     }
   }
@@ -700,7 +708,8 @@ class CustomUserFlow {
     }
 
     if ( is_user_logged_in() ) {
-      return __( 'You are already signed in.', 'user-flow' );
+      $html = '<div class="logged-in description">' . __( 'You are already signed in.', 'user-flow' ) . '</div>';
+      return $html;
     } else {
       return $this->get_template_html( 'password_reset_form', $attributes );
     }
@@ -714,12 +723,12 @@ class CustomUserFlow {
       $errors = retrieve_password();
       if ( is_wp_error( $errors ) ) {
         // Errors found
-        $redirect_url = home_url( 'password-reset' );
+        $redirect_url = home_url( $this -> get_password_reset_url() );
         $redirect_url = add_query_arg( 'errors', join( ',', $errors->get_error_codes() ), $redirect_url );
       } else {
         // Email sent
-        $redirect_url = home_url( 'login' );
-        $redirect_url = add_query_arg( 'checkemail', 'confirm', $redirect_url );
+        $login_url = home_url( $this -> get_login_url() );
+        $redirect_url = add_query_arg( 'checkemail', 'confirm', $login_url );
       }
 
       wp_redirect( $redirect_url );
@@ -760,14 +769,14 @@ class CustomUserFlow {
       $user = check_password_reset_key( $_REQUEST['key'], $_REQUEST['login'] );
       if ( ! $user || is_wp_error( $user ) ) {
         if ( $user && $user->get_error_code() === 'expired_key' ) {
-          wp_redirect( home_url( 'login?login=expiredkey' ) );
+          wp_redirect( home_url( $this->get_login_url() . '?login=expiredkey' ) );
         } else {
-          wp_redirect( home_url( 'login?login=invalidkey' ) );
+          wp_redirect( home_url( $this->get_login_url() . '?login=invalidkey' ) );
         }
         exit;
       }
 
-      $redirect_url = home_url( 'password-change' );
+      $redirect_url = home_url( $this -> get_password_change_url() );
       $redirect_url = add_query_arg( 'login', esc_attr( $_REQUEST['login'] ), $redirect_url );
       $redirect_url = add_query_arg( 'key', esc_attr( $_REQUEST['key'] ), $redirect_url );
       
@@ -790,7 +799,8 @@ class CustomUserFlow {
     $attributes = shortcode_atts( $default_attributes, $attributes );
 
     if ( is_user_logged_in() ) {
-      return __( 'You are already signed in.', 'user-flow' );
+      $html = '<div class="logged-in description">' . __( 'You are already signed in.', 'user-flow' ) . '</div>';
+      return $html;
     } else {
       if ( isset( $_REQUEST['login'] ) && isset( $_REQUEST['key'] ) ) {
         $attributes['login'] = $_REQUEST['login'];
@@ -809,7 +819,8 @@ class CustomUserFlow {
 
         return $this->get_template_html( 'password_change_form', $attributes );
       } else {
-        return __( 'Invalid password reset link.', 'user-flow' );
+        $html = '<div class="invalid-link description">' . __( 'Invalid password reset link.', 'user-flow' ) . '</div>';
+        return $html;
       }
     }
   }
@@ -826,9 +837,9 @@ class CustomUserFlow {
 
       if ( ! $user || is_wp_error( $user ) ) {
         if ( $user && $user->get_error_code() === 'expired_key' ) {
-          wp_redirect( home_url( 'login?login=expiredkey' ) );
+          wp_redirect( home_url( $this->get_login_url() . '?login=expiredkey' ) );
         } else {
-          wp_redirect( home_url( 'login?login=invalidkey' ) );
+          wp_redirect( home_url( $this->get_login_url() . '?login=invalidkey' ) );
         }
         exit;
       }
@@ -836,7 +847,8 @@ class CustomUserFlow {
       if ( isset( $_POST['pass1'] ) ) {
         if ( $_POST['pass1'] != $_POST['pass2'] ) {
           // Passwords don't match
-          $redirect_url = home_url( 'password-change' );
+          
+          $redirect_url = home_url( $this->get_password_change_url() );
 
           $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
           $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
@@ -848,7 +860,7 @@ class CustomUserFlow {
 
         if ( empty( $_POST['pass1'] ) ) {
           // Password is empty
-          $redirect_url = home_url( 'password-change' );
+          $redirect_url = home_url( $this->get_password_change_url() );
 
           $redirect_url = add_query_arg( 'key', $rp_key, $redirect_url );
           $redirect_url = add_query_arg( 'login', $rp_login, $redirect_url );
@@ -860,12 +872,72 @@ class CustomUserFlow {
 
         // Parameter checks OK, reset password
         reset_password( $user, $_POST['pass1'] );
-        wp_redirect( home_url( 'login?password=changed' ) );
+        wp_redirect( home_url( $this->get_login_url() . '?password=changed' ) );
       } else {
           echo "Invalid request.";
       }
 
       exit;
+    }
+  }
+
+  public function get_login_url() {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/login';
+    }
+    else {
+      return '/ingreso';
+    }
+  }
+  
+  public function get_register_url() {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/register';
+    }
+    else {
+      return '/registro';
+    }
+  }
+
+  public function get_register_url() {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/register/';
+    }
+    else {
+      return '/registro/';
+    }
+  }
+
+  public function get_password_reset_url () {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/password-reset';
+    }
+    else {
+      return '/reinicio-contrasena';
+    }
+  }
+
+  public function get_password_reset_url_with_referer () {
+    $en = FALSE !== strpos($_SERVER['HTTP_REFERER'], '/en/');
+    if(TRUE === $en) {
+      return '/password-reset';
+    }
+    else {
+      return '/reinicio-contrasena';
+    }
+  }
+
+  public function get_password_change_url () {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/change-password';
+    }
+    else {
+      return '/cambio-contrasena';
     }
   }
 }

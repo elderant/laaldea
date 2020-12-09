@@ -15,13 +15,13 @@
       <?php endforeach; ?>
     <?php endif; ?>
 
-    <div>
-      <label for="pass1"><?php _e( 'New password', 'user-flow' ) ?></label>
-      <input type="password" name="pass1" id="pass1" class="input" size="20" value="" autocomplete="off" />
+    <div class="form-row">
+      <label for="pass1" class="user-flow-label"><?php _e( 'New password', 'user-flow' ) ?></label>
+      <input type="password" name="pass1" id="pass1" class="input user-flow-input" size="20" value="" autocomplete="off" />
     </div>
-    <div>
-      <label for="pass2"><?php _e( 'Repeat new password', 'user-flow' ) ?></label>
-      <input type="password" name="pass2" id="pass2" class="input" size="20" value="" autocomplete="off" />
+    <div class="form-row">
+      <label for="pass2" class="user-flow-label"><?php _e( 'Repeat new password', 'user-flow' ) ?></label>
+      <input type="password" name="pass2" id="pass2" class="input user-flow-input" size="20" value="" autocomplete="off" />
     </div>
       
     <div class="description"><p><?php echo wp_get_password_hint(); ?></p></div>
@@ -31,7 +31,7 @@
         type="submit" 
         name="submit" 
         id="resetpass-button"
-        class="button" 
+        class="button user-flow-button" 
         value="<?php _e( 'Reset Password', 'user-flow' ); ?>" />
     </div>
   </form>

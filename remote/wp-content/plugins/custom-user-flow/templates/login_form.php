@@ -54,11 +54,10 @@
       )
     );
   ?>
-    
   <a class="forgot-password" href="<?php echo wp_lostpassword_url(); ?>">
     <?php _e( '¿Olvido su contraseña?', 'user-flow' ); ?>
   </a>
-  <a class="forgot-password" href="../register">
+  <a class="forgot-password" href="<?php echo $attributes['register_url']; ?>">
     <?php _e( 'Registrate', 'user-flow' ); ?>
   </a>
 </div>

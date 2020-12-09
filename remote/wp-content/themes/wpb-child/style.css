@@ -314,17 +314,6 @@ header .navbar.show {
 	transition: border-width 0.3s, background-color 0.3s, height 0s;
 }
 
-
-/* .bt-overlay {
-	position: absolute;
-	width: 100%;
-}
-
-.bt-menu-open .bt-overlay {
-	height: 100%;
-} */
-
-
 header .navbar .navbar-toggler {
 	position: fixed;
 	top: 5px;
@@ -1097,13 +1086,13 @@ body.page-politica-privacidad p {
 }
 
 .user-flow .login-info,
-.user-flow .login-error {
+.user-flow .error {
   display: flex;
   max-width: 80%;
   margin: 0 auto;
 }
 
-.user-flow .login-error a {
+.user-flow .error a {
   display: inline-block;
 }
 
@@ -1168,7 +1157,7 @@ form input.user-flow-input[type="password"]:active,
 }
 
 form a.user-flow-link,
-.user-flow.page-id-328 .page a {
+.user-flow.page-login .page a {
   opacity: 0.5;
   color: var(--gray);
   transition: all 0.5s ease-in-out;
@@ -1176,8 +1165,8 @@ form a.user-flow-link,
 
 form a.user-flow-link:hover,
 form a.user-flow-link:focus,
-.user-flow.page-id-328 .page a:hover,
-.user-flow.page-id-328 .page a:focus {
+.user-flow.page-login .page a:hover,
+.user-flow.page-login .page a:focus {
   opacity: 1;
   color: var(--cyan);
 }
@@ -1209,17 +1198,23 @@ form input[type="submit"].user-flow-button:hover,
   background-position: center;
 }
 
+.user-flow .logged-in.description,
+.user-flow .registering-disabled.description,
+.user-flow .invalid-link.description {
+  padding: 1rem 4rem;
+}
+
 /* login page */
 .user-flow #loginform {
   display: flex;
   flex-direction: column;
 }
 
-.user-flow.page-id-328 #content > .container-fluid > .row {
+.user-flow.page-login #content > .container-fluid > .row {
   background-size: 51% auto;
 }
 
-.user-flow .post-328 {
+.user-flow.page-login #main > .page {
   width: 60%;
   margin: 0 auto;
 }
@@ -1233,9 +1228,27 @@ form input[type="submit"].user-flow-button:hover,
   display: inline-block;
 }
 
-.user-flow.page-id-328 .page a {
+.user-flow.page-login .page a {
   display: block;
   text-align: center;
+}
+
+/* change password page */
+#changepassform .description,
+#password-lost-form .description {
+  padding: 1rem 4rem;
+}
+
+#changepassform .resetpass-submit,
+#password-lost-form .lostpassword-submit {
+  text-align: center;
+}
+
+#changepassform .resetpass-submit input[type="submit"],
+#password-lost-form .lostpassword-submit input[type="submit"] {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 320px;
 }
 
 /**** Forum General ****/

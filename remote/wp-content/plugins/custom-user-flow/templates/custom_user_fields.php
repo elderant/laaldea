@@ -52,7 +52,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-arnold.png',
       'avatar_checked' => $current_avatar == 1? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-arnold.png',
-      'label-alt' => __('Imagen Avatar Arnulfo','laaldea'),
+      'label-alt' => __('Imagen Avatar Arnulfo','user-flow'),
     ),
     'lucy' => array (
       'container-class' => 'avatar-container lucy',
@@ -60,7 +60,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-lucy.png',
       'avatar_checked' => $current_avatar == 2? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-lucy.png',
-      'label-alt' => __('Imagen Avatar Lorena','laaldea'),
+      'label-alt' => __('Imagen Avatar Lorena','user-flow'),
     ),
     'enrique' => array (
       'container-class' => 'avatar-container harry',
@@ -68,7 +68,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-harry.png',
       'avatar_checked' => $current_avatar == 3? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-harry.png',
-      'label-alt' => __('Imagen Avatar Enrique','laaldea'),
+      'label-alt' => __('Imagen Avatar Enrique','user-flow'),
     ),
     'efren' => array (
       'container-class' => 'avatar-container ernest',
@@ -76,7 +76,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-ernest.png',
       'avatar_checked' => $current_avatar == 4? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-ernest.png',
-      'label-alt' => __('Imagen Avatar Efrén','laaldea'),
+      'label-alt' => __('Imagen Avatar Efrén','user-flow'),
     ),
     'macaw' => array (
       'container-class' => 'avatar-container macaw',
@@ -84,7 +84,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-macaw.png',
       'avatar_checked' => $current_avatar == 5? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-macaw.png',
-      'label-alt' => __('Imagen Avatar guacamaya','laaldea'),
+      'label-alt' => __('Imagen Avatar guacamaya','user-flow'),
     ),
     'carmen' => array (
       'container-class' => 'avatar-container carol',
@@ -92,7 +92,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-carol.png',
       'avatar_checked' => $current_avatar == 6? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-carol.png',
-      'label-alt' => __('Imagen Avatar Carmen','laaldea'),
+      'label-alt' => __('Imagen Avatar Carmen','user-flow'),
     ),
     'paco' => array (
       'container-class' => 'avatar-container peter',
@@ -100,7 +100,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-peter.png',
       'avatar_checked' => $current_avatar == 7? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-peter.png',
-      'label-alt' => __('Imagen Avatar Paco','laaldea'),
+      'label-alt' => __('Imagen Avatar Paco','user-flow'),
     ),
     'ant' => array (
       'container-class' => 'avatar-container ant',
@@ -108,7 +108,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-ant.png',
       'avatar_checked' => $current_avatar == 8? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-ant.png',
-      'label-alt' => __('Imagen Avatar hormiga','laaldea'),
+      'label-alt' => __('Imagen Avatar hormiga','user-flow'),
     ),
     'bee' => array (
       'container-class' => 'avatar-container bee',
@@ -116,7 +116,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-bee.png',
       'avatar_checked' => $current_avatar == 9? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-bee.png',
-      'label-alt' => __('Imagen Avatar Abeja','laaldea'),
+      'label-alt' => __('Imagen Avatar Abeja','user-flow'),
     ),
     'gallineta' => array (
       'container-class' => 'avatar-container moorhen',
@@ -124,7 +124,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-moorhen.png',
       'avatar_checked' => $current_avatar == 10? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-moorhen.png',
-      'label-alt' => __('Imagen Avatar gallineta','laaldea'),
+      'label-alt' => __('Imagen Avatar gallineta','user-flow'),
     ),
     'owl' => array (
       'container-class' => 'avatar-container owl',
@@ -132,7 +132,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-owl.png',
       'avatar_checked' => $current_avatar == 11? 'checked':'',
       'label-img' => '/wp-content/uploads/user-avatar-owl.png',
-      'label-alt' => __('Imagen Avatar búho','laaldea'),
+      'label-alt' => __('Imagen Avatar búho','user-flow'),
     ),
   );
 ?>
@@ -165,7 +165,7 @@
   </tr>
   <tr>
     <th>
-      <label for="user_institution"><?php _e('Teaching institution', 'user-flow'); ?></label>
+      <label for="user_institution"><?php _e('Teaching Institution', 'user-flow'); ?></label>
     </th>
     <td>
       <input type="text" 
