@@ -24,7 +24,12 @@ function wpb_child_enqueue_styles() {
 		wp_enqueue_script('wpb-child-home-inine', get_stylesheet_directory_uri() . '/inc/assets/js/home/inline.js', array('wpb-child-home-toucheffects'), false, true );
 
 		// wp_enqueue_script('wpb-child-home-googlemaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array('jquery'), false, true );
-	}
+  }
+  
+  if(is_page(312)) {
+    wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
+    wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
+  }
 } 
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );

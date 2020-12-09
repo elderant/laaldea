@@ -37,10 +37,27 @@ do_action('tutor_quiz/single/before/top');
         $time_limit = tutor_utils()->get_quiz_option(get_the_ID(), 'time_limit.time_value');
         if ($time_limit) :
           $time_type = tutor_utils()->get_quiz_option(get_the_ID(), 'time_limit.time_type'); 
+          switch ($time_type){
+            case 'seconds':
+              $time_type_label = __('segundos', 'laaldea');
+              break;
+            case 'minutes':
+              $time_type_label = __('minutos', 'laaldea');
+              break;
+            case 'hours':
+              $time_type_label = __('horas', 'laaldea');
+              break;
+            case 'days':
+              $time_type_label = __('dias', 'laaldea');
+              break;
+            case 'weeks':
+              $time_type_label = __('semanas', 'laaldea');
+              break;
+          }
       ?>
         <li>
           <strong><?php _e('Time', 'tutor'); ?> :</strong>
-          <?php echo $time_limit.' '.$time_type; ?>
+          <?php echo $time_limit.' '.$time_type_label; ?>
         </li>
       <?php endif; ?>
 

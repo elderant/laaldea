@@ -69,7 +69,6 @@ function laaldea_file_build_path(...$segments) {
 	return join(DIRECTORY_SEPARATOR, $segments);
 }
 
-
 /************************************************************/
 /********************** Home functions **********************/
 /************************************************************/
@@ -308,14 +307,48 @@ function laaldea_build_learning_home () {
   $wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
 
   // forum query
-  $args = array(
+  $query_args = array(
     'posts_per_page' => $posts_per_page,
-    'post_type' => 'topic',
+    'post_type' => bbp_get_reply_post_type(),
+    'post_status' => bbp_get_public_reply_statuses(),
     'orderby' => 'date',
-    'order' => 'DESC'
+    'order' => 'DESC',
+
+    'ignore_sticky_posts'    => true,
+    'no_found_rows'          => true,
+    'update_post_term_cache' => false,
+    'update_post_meta_cache' => false
   );
+  
   $recent_replies = new WP_Query( $query_args );
   $wp_query -> query_vars['laaldea_args']['recent_replies'] = $recent_replies;
+
+  // Current courses query
+  $user_id = tutor_utils()->get_user_id();
+  $course_ids = tutor_utils()->get_enrolled_courses_ids_by_user($user_id);
+
+  if (count($course_ids)){
+    $course_post_type = tutor()->course_post_type;
+    $course_args = array(
+      'post_type'     => $course_post_type,
+      'post_status'   => 'publish',
+      'post__in'      => $course_ids,
+      'posts_per_page' => $posts_per_page,
+    );
+
+    $current_courses = new WP_Query($course_args);
+    $wp_query -> query_vars['laaldea_args']['current_courses'] = $current_courses;
+
+    $course_args = array(
+      'post_type'       => $course_post_type,
+      'post_status'     => 'publish',
+      'post__not_in'    => $course_ids,
+      'posts_per_page'  => $posts_per_page/2,
+    );
+
+    $recommended_courses = new WP_Query($course_args);
+    $wp_query -> query_vars['laaldea_args']['recommended_courses'] = $recommended_courses;
+  }
 
 	$template_url = laaldea_load_template('home.php', 'learning');
 	load_template($template_url, true);
@@ -399,6 +432,40 @@ function laaldea_build_learning_tools () {
 	load_template($template_url, true);
 }
 add_shortcode( 'laaldea_learing_tools', 'laaldea_build_learning_tools' );
+
+/******************* Panel functions *******************/
+function laaldea_get_current_lesson_name( $course_id = 0 ) {
+  $course_id = tutor_utils()->get_post_id($course_id);
+  global $wpdb;
+
+  $user_id = get_current_user_id();
+
+  $lessons = $wpdb->get_results("SELECT items.post_title, items.ID FROM {$wpdb->posts} topic
+      INNER JOIN {$wpdb->posts} items ON topic.ID = items.post_parent 
+      WHERE topic.post_parent = {$course_id} AND items.post_status = 'publish' order by topic.menu_order ASC, items.menu_order ASC;");
+
+  $first_lesson = false;
+  error_log('first lesson ' . print_r($lessons,1));
+  if (tutils()->count($lessons)){
+    if (! empty($lessons[0])){
+      $first_lesson = $lessons[0];
+    }
+
+    foreach ($lessons as $lesson){
+      $is_complete = get_user_meta($user_id, "_tutor_completed_lesson_id_{$lesson->ID}", true);
+      if ( ! $is_complete){
+        $first_lesson = $lesson;
+        break;
+      }
+    }
+
+    if (! empty($first_lesson->ID)){
+      return $first_lesson -> post_title;
+    }
+  }
+  
+  return '';
+}
 
 /******************* Forum functions *******************/
 function laaldea_before_forum_title() {

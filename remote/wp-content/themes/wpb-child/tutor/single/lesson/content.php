@@ -28,6 +28,8 @@ if ($best_watch_time > 0){
 $course_id = get_post_meta(get_the_ID(), '_tutor_course_id_for_lesson', true);
 $title_html = get_field( 'title_html', $course_id );
 $title = empty($title_html) ? get_the_title() : $title_html;
+
+$is_completed_lesson = tutor_utils()->is_completed_lesson();
 ?>
 
 
@@ -54,9 +56,6 @@ $title = empty($title_html) ? get_the_title() : $title_html;
       <i class="tutor-icon-home"></i><span><?php echo __('Go to Course Home', 'tutor') ; ?></span>
     </a>
   </div>
-  <div class="tutor-topbar-item tutor-topbar-mark-to-done">
-      <?php tutor_lesson_mark_complete_html(); ?>
-  </div>
 </div>
 
 
@@ -65,7 +64,12 @@ $title = empty($title_html) ? get_the_title() : $title_html;
     <input type="hidden" id="tutor_video_tracking_information" value="<?php echo esc_attr(json_encode($jsonData)); ?>">
 	<?php tutor_lesson_video(); ?>
 	<?php the_content(); ?>
-	<?php get_tutor_posts_attachments(); ?>
+  <?php get_tutor_posts_attachments(); ?>
+  <?php if ( ! $is_completed_lesson) : ?>
+    <div class="tutor-topbar-item tutor-topbar-mark-to-done">
+      <?php tutor_lesson_mark_complete_html(); ?>
+    </div>
+  <?php endif;?>
 	<?php tutor_next_previous_pagination(); ?>
 </div>
 

@@ -574,6 +574,48 @@
       laadea_validate_promo_form_jquery();
     }
 
+    if($('.learning-home').length > 0) {
+      $('.tools-row .tools-carousel').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        variableWidth: false,
+        prevArrow: '.tools-row .slick-prev',
+        nextArrow: '.tools-row .slick-next',
+      });
+
+      let maxHeight = 0;
+      let height;
+      debugger;
+      $('.news-container .new-section').each(function(){
+        height = $(this).height();
+        if(height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+      $('.news-container').css('height', maxHeight + 'px');
+
+      setInterval(function(){
+        $sibling = $('.news-container .new-section.active + .new-section');
+        $active = $('.news-container .new-section.active');
+
+        if($sibling.length == 0) {
+          $sibling = $('.news-container .new-section:first-child');
+        }
+
+        $active.fadeOut(500, function(){
+          $(this).toggleClass('active');
+        });
+        $sibling.fadeIn(500, function(){
+          $(this).toggleClass('active');
+        });
+      },4000);
+      
+    }
+
     if($('.bbpress').length > 0) {
       $('.bbp-breadcrumb .bbp-breadcrumb-home').attr('href','https://laaldea.co/learning-home/');
     }
@@ -691,10 +733,19 @@
       });
     }
 
-    if($('.single-lesson, .single-tutor_quiz').length > 0) {
+    if($('.single-lesson').length > 0) {
       $('.tutor-lesson-sidebar-hide-bar').each(function(){
         $(this).on('click', function(event){
           let $container = $(this).parents('.lesson-section');
+          $container.toggleClass('col-sm-7');
+          $container.toggleClass('col-sm-12');
+        })
+      })
+    }
+    if($('.single-tutor_quiz').length > 0) {
+      $('.tutor-lesson-sidebar-hide-bar').each(function(){
+        $(this).on('click', function(event){
+          let $container = $(this).parents('.quiz-section');
           $container.toggleClass('col-sm-7');
           $container.toggleClass('col-sm-12');
         })

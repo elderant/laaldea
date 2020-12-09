@@ -46,8 +46,9 @@ $title = empty($title_html) ? get_the_title() : $title_html;
       <div class="tutor-single-page-top-bar">
         <div class="tutor-topbar-item tutor-topbar-content-title-wrap">
           <?php
-          tutor_utils()->get_lesson_type_icon(get_the_ID(), true, true);
-          the_title('<span>', '</span>'); ?>
+            tutor_utils()->get_lesson_type_icon(get_the_ID(), true, true);
+            the_title('<span>', '</span>'); 
+          ?>
         </div>
         <div class="tutor-topbar-item tutor-hide-sidebar-bar tutor-back-to-course">
           <a href="<?php echo get_the_permalink($course->ID); ?>"  class="tutor-topbar-home-btn">
