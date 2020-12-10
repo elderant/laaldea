@@ -9,6 +9,7 @@
   $container_class = $laaldea_args['container_class'];
   $follow_status = $laaldea_args['follow_status'];
   $tool = $laaldea_args['tool'];
+  $related = $laaldea_args['related'];
 ?>
 
 <div class="<?php echo $container_class; ?>">
@@ -18,7 +19,7 @@
       <h4 class="font-titan"><?php echo $title;?></h4>
     </div>
     <div class="col-3 follow-column text-right">
-      <button data-postId="<?php echo $post_id;?>" data-add="<?php echo $add; ?>"<?php echo $add==-1?' disabled':'';?>>
+      <button data-postId="<?php echo $post_id;?>" data-add="<?php echo $follow_status; ?>"<?php echo $follow_status==-1?' disabled':'';?>>
         <img src="/wp-content/uploads/tools-button-follow.png" alt="<?php _e('Imagen añadir a favoritos','laaldea');?>">
       </button>
     </div>

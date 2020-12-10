@@ -75,8 +75,6 @@ class CustomUserFlow {
     add_action( 'login_form_resetpass', array( $this, 'do_password_change' ) );
 
     add_filter('show_admin_bar', array( $this, 'hide_adminbar_for_subscribers' ));
-
-    add_filter( 'lostpassword_url', array( $this, 'lostpassword_url' ), 10, 2 );
   }
   
   /**
@@ -358,7 +356,7 @@ class CustomUserFlow {
    * Redirect to custom login page after the user has been logged out.
    */
   public function redirect_after_logout() {
-    $redirect_url = home_url( 'login?logged_out=true' );
+    $redirect_url = home_url( $this -> get_login_url() . '?logged_out=true' );
     wp_safe_redirect( $redirect_url );
     exit;
   }
@@ -388,7 +386,7 @@ class CustomUserFlow {
       }
     } else {
       // Non-admin users always go to their account page after login
-      $redirect_url = home_url( 'learning-home' );
+      $redirect_url = home_url( '/learning-home' );
     }
 
     return wp_validate_redirect( $redirect_url, home_url() );
@@ -884,13 +882,17 @@ class CustomUserFlow {
   public function get_login_url() {
     $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
     if(TRUE === $en) {
+      // $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+      // $acceptLang = ['fr', 'it', 'en']; 
+      // $lang = in_array($lang, $acceptLang) ? $lang : 'en';
+      // require_once "index_{$lang}.php";
       return '/login';
     }
     else {
       return '/ingreso';
     }
   }
-  
+
   public function get_register_url() {
     $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
     if(TRUE === $en) {
@@ -898,16 +900,6 @@ class CustomUserFlow {
     }
     else {
       return '/registro';
-    }
-  }
-
-  public function get_register_url() {
-    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
-    if(TRUE === $en) {
-      return '/register/';
-    }
-    else {
-      return '/registro/';
     }
   }
 

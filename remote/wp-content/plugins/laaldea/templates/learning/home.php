@@ -144,28 +144,32 @@
                       $topic_id = bbp_get_reply_topic_id( $reply_id );
 
                       $i++;
-                      $class = $i > 1? 'd-none': 'd-flex';
+                      $class = 1 === $i? 'active': '';
                     ?>
-                    <div class="reply-container flex-wrap align-items-center <?php echo $class;?>">
-                      <div class="bbp-reply-author">
-                        <div class="author-container d-flex align-items-center">
-                          <div class="avatar-container">
-                            <?php 
-                              $reply_author_id = bbp_get_reply_author_id();
-                              $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
-                            ?>
-                            <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
+                    <div class="reply-section <?php echo $class;?>">
+                      <div class="reply-container d-flex flex-wrap align-items-center">
+                        <div class="topic-link-container pb-3">
+                          <span><?php _e('Ir al tema ','laaldea')?></span>
+                          <a class="bbp-topic-permalink font-titan" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title($topic_id);?></a>
+                        </div>
+                        <div class="bbp-reply-author">
+                          <div class="author-container d-flex align-items-center">
+                            <div class="avatar-container">
+                              <?php 
+                                $reply_author_id = bbp_get_reply_author_id();
+                                $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
+                              ?>
+                              <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="bbp-reply-content px-3">
-                        <?php bbp_reply_content(); ?>
-                      </div>
-                      <div class="bbp-reply-meta pr-3">
-                        <span><?php _e('Publicado en ','laaldea')?></span>
-                        <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
-                        <span><?php _e(' con fecha ','laaldea')?></span>
-                        <a class="bbp-topic-permalink" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title($topic_id);?></a>
+                        <div class="bbp-reply-content px-3">
+                          <?php bbp_reply_content(); ?>
+                        </div>
+                        <div class="bbp-reply-meta pr-3">
+                          <span><?php _e('Publicado el ','laaldea')?></span>
+                          <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+                        </div>
                       </div>
                     </div>
                     

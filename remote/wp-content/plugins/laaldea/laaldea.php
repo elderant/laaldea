@@ -219,7 +219,6 @@ function laaldea_promo_handler() {
 	
 		if(!empty($error) && $error) {
 			set_transient( 'laaldea_activation_error', $laaldea_activation_error, MINUTE_IN_SECONDS );
-			//error_log(print_r($laaldea_activation_error,1));
 			wp_redirect('/especial-covid/');
 			return;
 		}
@@ -269,7 +268,6 @@ function laaldea_promo_handler() {
 		else if(strcasecmp($download, "2") == 0) {
 			$file = "https://laaldea.co/wp-content/uploads/UnaPausaNecesaria.zip";
 		}
-		
 		
 		header('Content-Type: application/pdf');
 		header('Content-Disposition: attachment; filename="' . $file . '"');
@@ -328,7 +326,7 @@ function laaldea_build_learning_home () {
   $course_ids = tutor_utils()->get_enrolled_courses_ids_by_user($user_id);
 
   if (count($course_ids)){
-    $course_post_type = tutor()->course_post_type;
+    $course_post_type = tutor() -> course_post_type;
     $course_args = array(
       'post_type'     => $course_post_type,
       'post_status'   => 'publish',
@@ -421,8 +419,6 @@ function laaldea_build_learning_tools () {
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
   
-  //error_log(print_r($recent_tools,1));
-
   $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
   $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
   $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
@@ -445,7 +441,6 @@ function laaldea_get_current_lesson_name( $course_id = 0 ) {
       WHERE topic.post_parent = {$course_id} AND items.post_status = 'publish' order by topic.menu_order ASC, items.menu_order ASC;");
 
   $first_lesson = false;
-  error_log('first lesson ' . print_r($lessons,1));
   if (tutils()->count($lessons)){
     if (! empty($lessons[0])){
       $first_lesson = $lessons[0];
@@ -566,7 +561,6 @@ function laaldea_load_more_replies() {
     $html = ob_get_clean();
   }
 
-  //error_log('html to add : ' . print_r($html,1));
   $return_array = array(
     'last' => $total_replies <= $posts_per_page,
     'count' => $offset + $posts_per_page,
@@ -607,7 +601,6 @@ function laaldea_load_next_new_main() {
   load_template($template_url, false);
   $html = ob_get_clean();
   
-  //error_log('html to add : ' . print_r($html,1));
   $return_array = array(
     'html' => $html,
   );
@@ -661,7 +654,6 @@ function laaldea_load_next_new_sidebar() {
     $html = ob_get_clean();
   }
 
-  //error_log('html to add : ' . print_r($html,1));
   $return_array = array(
     'last' => $post_count <= $posts_per_page,
     'added' => $added,
@@ -701,7 +693,6 @@ function laaldea_get_main_new_html() {
 
   $html = ob_get_clean();
 
-  //error_log('html to add : ' . print_r($html,1));
   $return_array = array(
     'last' => $post_count <= $posts_per_page,
     'added' => $added,
@@ -728,15 +719,11 @@ function laaldea_get_tools_category_class($post_id) {
 function laaldea_post_id_in_followed($post_id) {
   $user = wp_get_current_user();
   
-  //error_log(print_r($user,1));
-  
   if($user->ID == 0) {
     return -1;
   }
 
   $follow = get_user_meta( $user->ID, 'followed-tools', true );
-
-  //error_log('$follow ' . print_r($follow,1));
 
   if(empty($follow)) {
     return 0;
@@ -755,46 +742,33 @@ function laaldea_add_to_follow() {
   $post_id = $_POST['postId'];
   $add = $_POST['add'];
 
-  // error_log('post values');
-  // error_log($post_id);
-  // error_log($add);
-
   $user = wp_get_current_user();
   $follow = get_user_meta( $user->ID, 'followed-tools', true );
 
-  // error_log('follow : ' . print_r($follow,1));
-
   if($add == 0) {
-    // error_log('adding to followed');
     if(empty($follow)) {
       update_user_meta( $user->ID, 'followed-tools', $post_id );
     }
     else {
-      update_user_meta( $user->ID, 'followed-tools', $follow . ' ' . $post_id );
+      update_user_meta( $user->ID, 'followed-tools', trim($follow) . ' ' . $post_id );
     }
   
-    // error_log('ADDED from followed');
     $return_array = array(
       'result' => true,
-      'text' => __('Remover de favoritos','laaldea'),
     );
   }
   else {
-    // error_log('removing from followed');
-    $ids = explode(" ", $follow);
+    $ids = explode(" ", trim($follow));
     $index = array_search ( $post_id , $ids );
 
     if(false !== $index) {
       array_splice( $ids, $index, 1 );
       $follow = implode(' ', $ids);
-      // error_log('updated follow : ' .  print_r($follow,1));
-      update_user_meta( $user->ID, 'followed-tools', $follow );
+      update_user_meta( $user->ID, 'followed-tools', trim($follow) );
     }
 
-    // error_log('REMOVED from followed');
     $return_array = array(
-      'result' => true,
-      'text' => __('Añadir a favoritos','laaldea'),
+      'result' => false,
     );
   }
 
@@ -827,7 +801,6 @@ function laaldea_tools_load_more() {
   //filtered query
   if(!empty($filters)) {
     foreach($filters as $filter) {
-      error_log(print_r($filter,1));
       if(FALSE !== stripos($filter, 'type-') ) {
         $identifier = 'type-';
         $type = substr( $filter, strlen($identifier) );
@@ -855,6 +828,7 @@ function laaldea_tools_load_more() {
       $link = $type == 'video'? get_field( "link_youtube" ):'';
       $categories_class = laaldea_get_tools_category_class($post_id);
       $add = laaldea_post_id_in_followed($post_id);
+      $related = get_field( "related_tools" );
       // $preview = get_field( "preview" );
 
       $container_class = 'loaded tool-container flex-wrap align-items-end show post-id-';
@@ -873,16 +847,13 @@ function laaldea_tools_load_more() {
       $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
       $wp_query -> query_vars['laaldea_args']['follow_status'] = $add;
       $wp_query -> query_vars['laaldea_args']['tool'] = $tool;
+      $wp_query -> query_vars['laaldea_args']['related'] = $related;
       
       $template_url = laaldea_load_template('tools-single.php', 'learning/template-part');
       load_template($template_url, false);
     }
   }
   $html = ob_get_clean();
-
-  error_log('$post_count : ' . print_r($post_count,1));
-  error_log('$posts_per_page : ' . print_r($posts_per_page,1));
-  error_log('$post_count <= $posts_per_page : ' . print_r($post_count <= $posts_per_page,1));
 
   $return_array = array(
     'last' => $post_count <= $posts_per_page,
@@ -985,6 +956,22 @@ function laaldea_course_enroll_button( $echo = true ) {
 }
 
 function laaldea_course_course_button( $echo = true ) {
+  global $wp_query;
+
+  $enrolled = tutor_utils()->is_enrolled();
+  
+  $button_text = '';
+  if ( $enrolled ) {
+    $button_text = __('Continuar','laaldea');
+  } 
+  else if ( $course_content_access && ($is_administrator || $is_instructor) ) {
+    $button_text = __('Continuar','laaldea');
+  } 
+  else {
+    $button_text = __('Comenzar','laaldea');
+  }
+  $wp_query -> query_vars['laaldea_args']['button_text'] = $button_text;
+
   ob_start();
   $template_url = laaldea_load_template('course-button-html.php', 'tutor/loop');
   load_template($template_url, false);

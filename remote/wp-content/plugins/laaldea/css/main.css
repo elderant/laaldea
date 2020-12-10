@@ -133,6 +133,31 @@
 }
 
 /* Learning home : forum area */
+#learning-home .forums-container {
+  overflow: hidden;
+}
+
+#learning-home .forums-container .reply-section {
+  min-width: 100%;
+  /* padding: 0 1rem; */
+  display: none;
+}
+
+#learning-home .forums-container .reply-section.active {display: block;}
+
+#learning-home .reply-container .topic-link-container {
+  font-size: 1.5rem;
+}
+
+#learning-home .reply-container .topic-link-container .bbp-topic-permalink {
+  color: var(--cyan);  
+}
+
+#learning-home .reply-container .topic-link-container .bbp-topic-permalink:hover {
+  color: var(--gray);
+}
+
+#learning-home .reply-container .topic-link-container {width: 100%;}
 #learning-home .reply-container .bbp-reply-author {width: 10%;}
 #learning-home .reply-container .bbp-reply-content {width: 90%;}
 
@@ -149,15 +174,6 @@
 
 #learning-home .reply-container .bbp-reply-meta .bbp-reply-post-date {
   font-weight: bold;
-}
-
-#learning-home .reply-container .bbp-reply-meta .bbp-topic-permalink {
-  color: var(--cyan);
-  font-weight: bold;
-}
-
-#learning-home .reply-container .bbp-reply-meta .bbp-topic-permalink:hover {
-  color: var(--gray);
 }
 
 /* Learning home : current course area */
@@ -209,6 +225,7 @@
   color: var(--white);
   padding: 1rem 2rem;
   font-size: 1rem;
+  text-align: center;
 }
 
 #learning-home .current-container .course-container .course-button div {
@@ -240,6 +257,11 @@
   color: var(--white);
   padding: 1rem 2rem;
   font-size: 1rem;
+  text-align: center;
+}
+
+#learning-home .recommended-container .course-container .course-button div {
+  color: inherit;
 }
 
 /***********************************************/

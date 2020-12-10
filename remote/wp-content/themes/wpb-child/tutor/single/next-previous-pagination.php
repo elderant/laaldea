@@ -19,6 +19,8 @@
         <img src="/wp-content/uploads/learning-arrow-left.png" alt="<?php _e('Arrow left','laaldea')?>">
         <?php _e('Previous'); ?>
       </a>
+  <?php else : ?>
+    <div></div>
   <?php endif;?>
 
 	<?php if ($next_id) : ?>
@@ -26,5 +28,7 @@
       <?php _e('Next'); ?>
 			<img src="/wp-content/uploads/learning-arrow-right.png" alt="<?php _e('Arrow right','laaldea')?>">
 		</a>
+  <?php else : ?>
+    <div></div>
 	<?php endif;?>
 </div>

@@ -393,28 +393,37 @@
         }
 
         // events for the new tools loaded
-        $('.main-container .tool-container.loaded .follow-container button').on('click', function(event) {
-          event.preventDefault();
-          laaldea_handle_add_follow(event);
+        $('.main-container .tool-container.loaded .follow-column button').each(function (){
+          $(this).on('click', function(event) {
+            event.preventDefault();
+            laaldea_handle_add_follow(event);
+          });
         });
-        $('.main-container .tool-container.loaded .thumbnail-container .view-link.type-video').on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this)
+        $('.main-container .tool-container.loaded .thumbnail-container .view-link.type-video').each(function (){
+          $(this).on('click', function(event) {
+            event.preventDefault();
+            laaldeea_handle_tools_video_click(event, this)
+          });
+        })
+        $('.main-container .tool-container.loaded .related-tool-container .view-link-rel.type-video').each(function() {
+          $(this).on('click', function(event) {
+            event.preventDefault();
+            laaldeea_handle_tools_video_click(event, this)
+          });
         });
-        $('.main-container .tool-container.loaded .related-tool-container .view-link-rel.type-video').on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this)
+        $('.main-container .tool-container.loaded .resourse-container button').each(function() {
+          $(this).on('click', function(event) {
+            event.preventDefault();
+            var tempInput = document.createElement("input");
+            tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+            tempInput.value = $(this).html();
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+          });
         });
-        $('.main-container .tool-container.loaded .resourse-container button').on('click', function(event) {
-          event.preventDefault();
-          var tempInput = document.createElement("input");
-          tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-          tempInput.value = $(this).html();
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          document.execCommand("copy");
-          document.body.removeChild(tempInput);
-        });
+        
 
         $('.main-container .tool-container.loaded').each(function(){
           $(this).toggleClass('loaded');
@@ -434,7 +443,7 @@
     let $button = $(event.currentTarget);
     let postId = $button.attr('data-postid');
     let add = $button.attr('data-add');
-
+    
     $.ajax({
       url : ajax_params.ajax_url,
       type : 'post',
@@ -446,11 +455,15 @@
       success : function( response ) {
         let data = JSON.parse(response);
 
-        if(true === data.result) {
-          $button.find('.follow-text').html(data.text);
+        if(false === data.result) {
+          //$button.find('.follow-text').html(data.text);
           $button.attr('data-add', '0');
-
-          $button.parents('tool-container').toggleClass('type-follow');
+          $button.parents('.tool-container').toggleClass('type-follow');
+        }
+        else {
+          //$button.find('.follow-text').html(data.text);
+          $button.attr('data-add', '1');
+          $button.parents('.tool-container').toggleClass('type-follow');
         }
 
         webStateWaiting(false);
@@ -589,7 +602,6 @@
 
       let maxHeight = 0;
       let height;
-      debugger;
       $('.news-container .new-section').each(function(){
         height = $(this).height();
         if(height > maxHeight) {
@@ -597,19 +609,43 @@
         }
       });
       $('.news-container').css('height', maxHeight + 'px');
+      
+      maxHeight = 0;
+      height;
+      $('.forums-container .reply-section').each(function(){
+        height = $(this).height();
+        if(height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+      $('.forums-container').css('height', maxHeight + 'px');
 
       setInterval(function(){
         $sibling = $('.news-container .new-section.active + .new-section');
         $active = $('.news-container .new-section.active');
 
+        $replySibling = $('.forums-container .reply-section.active + .reply-section');
+        $replyActive = $('.forums-container .reply-section.active');
+
         if($sibling.length == 0) {
           $sibling = $('.news-container .new-section:first-child');
+        }
+
+        if($replySibling.length == 0) {
+          $replySibling = $('.forums-container .reply-section:first-child');
         }
 
         $active.fadeOut(500, function(){
           $(this).toggleClass('active');
         });
         $sibling.fadeIn(500, function(){
+          $(this).toggleClass('active');
+        });
+
+        $replyActive.fadeOut(500, function(){
+          $(this).toggleClass('active');
+        });
+        $replySibling.fadeIn(500, function(){
           $(this).toggleClass('active');
         });
       },4000);
@@ -665,64 +701,83 @@
 
         laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
       });
-      $('.sidebar .term-container button').on('click', function(event) {
-        event.preventDefault();
-        let $button = $(event.currentTarget);
-        $button.toggleClass('active');
-
-        laaldea_handle_filter_tools('term-' + $button.attr('data-termid'), 'category');
+      $('.sidebar .term-container button').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_tools('term-' + $button.attr('data-termid'), 'category');
+        });
       });
-      $('.main-container .type-filter-container button').on('click', function(event) {
-        event.preventDefault();
-        let $button = $(event.currentTarget);
-        $button.toggleClass('active');
-
-        laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+      
+      $('.main-container .type-filter-container button').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+        });
       });
 
       // Filter control event
-      $('.sidebar .filters-container .filter-contol').on('click', function(event) {
-        event.preventDefault();
-        let $button = $(event.currentTarget);
-        $button.toggleClass('active');
-
-        laaldea_handle_filter_control($button);
+      $('.sidebar .filters-container .filter-contol').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_control($button);
+        });
       });
 
       // Follow link event
-      $('.main-container .tool-container .follow-container button').on('click', function(event) {
-        event.preventDefault();
-        laaldea_handle_add_follow(event);
+      $('.main-container .tool-container .follow-column button').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldea_handle_add_follow(event);
+        });
       });
 
-      // Copy resoursse link
-      $('.main-container .tool-container .resourse-container button').on('click', function(event) {
-        event.preventDefault();
-        var tempInput = document.createElement("input");
-        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-        tempInput.value = $(this).html();
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
+      // Copy resourse link
+      $('.main-container .tool-container .resourse-container button').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          var tempInput = document.createElement("input");
+          tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+          tempInput.value = $(this).html();
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+        });
       });
 
       // View video
-      $('.main-container .tool-container .thumbnail-container .view-link.type-video').on('click', function(event) {
-        event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this);
+      $('.main-container .tool-container .thumbnail-container .view-link.type-video').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this);
+        });
       });
-      $('.main-container .tool-container .related-tool-container .view-link-rel.type-video').on('click', function(event) {
-        event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this);
+      $('.main-container .tool-container .related-tool-container .view-link-rel.type-video').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this);
+        });
       });
-      $('.main-container .tool-container .thumbnail-container .view-link.type-audio').on('click', function(event) {
-        event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this);
+      $('.main-container .tool-container .thumbnail-container .view-link.type-audio').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this);
+        });
       });
-      $('.main-container .tool-container .related-tool-container .view-link-rel.type-audio').on('click', function(event) {
-        event.preventDefault();
-        laaldeea_handle_tools_video_click(event, this);
+      $('.main-container .tool-container .related-tool-container .view-link-rel.type-audio').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldeea_handle_tools_video_click(event, this);
+        });
       });
 
 
