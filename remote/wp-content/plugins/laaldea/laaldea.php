@@ -362,14 +362,25 @@ function laaldea_build_learning_news () {
     'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
+    'fields' => 'ids',
   );
+  if(isset($_GET['id'])) {
+    $query_args['post__not_in'] = array($_GET['id']);
+  }
+
   $recent_news = new WP_Query( $query_args );
   $post_count = $recent_news -> found_posts;
   
   $wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
   $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
   $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
+  $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
 
+  // Requested new
+  if(isset($_GET['id'])) {
+    $wp_query -> query_vars['laaldea_args']['requested_new_id'] = $_GET['id'];
+  }
+  
 	$template_url = laaldea_load_template('news.php', 'learning');
 	load_template($template_url, true);
 }
@@ -415,7 +426,11 @@ function laaldea_build_learning_tools () {
     'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
+    'fields' => 'ids',
   );
+  if(isset($_GET['id'])) {
+    $query_args['post__not_in'] = array($_GET['id']);
+  }
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
   
@@ -423,6 +438,12 @@ function laaldea_build_learning_tools () {
   $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
   $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
   $wp_query -> query_vars['laaldea_args']['limit'] = $limit;
+  $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = null;
+
+  // Requested tool
+  if(isset($_GET['id'])) {
+    $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = $_GET['id'];
+  }
 
 	$template_url = laaldea_load_template('tools.php', 'learning');
 	load_template($template_url, true);
@@ -677,20 +698,20 @@ function laaldea_get_main_new_html() {
 
   $query_args  = array(
     'p' => $post_id,
+    'fields' => 'ids',
   );
-  
   $next_new = new WP_Query( $query_args );
-	
   $wp_query -> query_vars['laaldea_args']['next_new'] = $next_new;
 
   ob_start();
-  $template_url = laaldea_load_template('news-single-main.php', 'learning/template-part');
-  load_template($template_url, false);
-  $html = ob_get_clean();
+  if( $next_new -> have_posts() ) {
+    while($next_new -> have_posts()) {
+      $next_new -> the_post();
+      $post_id = get_the_ID();
 
-  
-  ob_start();
-
+      laaldea_get_new_html( $post_id );
+    }
+  }
   $html = ob_get_clean();
 
   $return_array = array(
@@ -702,6 +723,63 @@ function laaldea_get_main_new_html() {
 
   echo json_encode($return_array);
   die();
+}
+
+function laaldea_get_new_html( $post_id = 0, $additional_class = '', $echo = true ) {
+  global $wp_query;
+  global $post;
+
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  // Check if $tool is a "post" post type
+  if(get_post_type( $post_id ) !== 'post') {
+    return '';
+  }
+  
+  $tag_list = get_the_tag_list( __('En ', 'laaldea'), ', ', '', $post_id);
+  $place = !empty(get_field( "place", $post_id )) ? __('Lugar: ','laaldea') . get_field( "place", $post_id ):'';
+  $content = get_the_content(null, false, $post_id);
+  $content = apply_filters( 'the_content', $content );
+  $content = str_replace( ']]>', ']]&gt;', $content );
+  
+  // Get adjacent post
+  $post_temp = $post;
+  setup_postdata($post_id);
+  $post = $post_id;
+  
+  $adjacent_post = get_adjacent_post();
+
+  $post = $post_temp ;
+  wp_reset_postdata();
+
+  $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
+  $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail( $post_id );
+  $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'large' );
+  $wp_query -> query_vars['laaldea_args']['title'] = get_the_title( $post_id );
+  $wp_query -> query_vars['laaldea_args']['tag_list'] = $tag_list;
+  $wp_query -> query_vars['laaldea_args']['place_text'] = $place;
+  $wp_query -> query_vars['laaldea_args']['date'] = get_the_date('', $post_id);
+  $wp_query -> query_vars['laaldea_args']['content'] = $content;
+  $wp_query -> query_vars['laaldea_args']['adjacent_post'] = $adjacent_post;
+  
+  ob_start();
+  $template_url = laaldea_load_template('news-single.php', 'learning/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
 }
 
 /******************* Tools functions *******************/
@@ -776,6 +854,63 @@ function laaldea_add_to_follow() {
   die();
 }
 
+function laaldea_get_tool_html( $post_id = 0, $additional_class = '', $echo = true ) {
+  global $wp_query;
+
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  if(get_post_type( $post_id ) !== 'tool') {
+    return '';
+  }
+  // Check if $tool is a tool post type
+  $tool_url = get_field( "herramienta", $post_id );
+  $type = strtolower(get_field( "type", $post_id ));
+  $tool_name = get_field( "tool_name", $post_id );
+  $tool_name = empty($tool_name)?get_the_title( $post_id ):$tool_name;
+  $link = $type == 'video'? get_field( "link_youtube", $post_id ):'';
+  $categories_class = laaldea_get_tools_category_class($post_id);
+  $add = laaldea_post_id_in_followed($post_id);
+  $related = get_field( "related_tools", $post_id );
+
+  $container_class = $additional_class . 'tool-container flex-wrap align-items-end show post-id-';
+  $container_class .= $post_id;
+  $container_class .= ' type-' . $type;
+  $container_class .= ' ' . $categories_class;
+  $container_class .= $add>0 ?' type-follow ':'';
+
+  $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
+  $wp_query -> query_vars['laaldea_args']['title'] = get_the_title( $post_id );
+  $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail( $post_id );
+  $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'small' );
+  $wp_query -> query_vars['laaldea_args']['type'] = $type;
+  $wp_query -> query_vars['laaldea_args']['link'] = $link;
+  $wp_query -> query_vars['laaldea_args']['content'] = get_the_content(null, false, $post_id);
+  $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
+  $wp_query -> query_vars['laaldea_args']['follow_status'] = $add;
+  $wp_query -> query_vars['laaldea_args']['tool'] = $tool_url;
+  $wp_query -> query_vars['laaldea_args']['tool_name'] = $tool_name;
+  $wp_query -> query_vars['laaldea_args']['related'] = $related;
+  
+  ob_start();
+  $template_url = laaldea_load_template('tools-single.php', 'learning/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
+}
+
 add_action( 'wp_ajax_nopriv_laaldea_tools_load_more', 'laaldea_tools_load_more' );
 add_action( 'wp_ajax_laaldea_tools_load_more', 'laaldea_tools_load_more' );
 function laaldea_tools_load_more() {
@@ -824,6 +959,8 @@ function laaldea_tools_load_more() {
       $recent_tools -> the_post();
       $post_id = get_the_ID();
       $tool = get_field( "herramienta" );
+      $tool_name = get_field( "tool_name" );
+      $tool_name = empty($tool_name)?get_the_title( ):$tool_name;
       $type = strtolower(get_field( "type" ));
       $link = $type == 'video'? get_field( "link_youtube" ):'';
       $categories_class = laaldea_get_tools_category_class($post_id);
@@ -847,6 +984,7 @@ function laaldea_tools_load_more() {
       $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
       $wp_query -> query_vars['laaldea_args']['follow_status'] = $add;
       $wp_query -> query_vars['laaldea_args']['tool'] = $tool;
+      $wp_query -> query_vars['laaldea_args']['tool_name'] = $tool_name;
       $wp_query -> query_vars['laaldea_args']['related'] = $related;
       
       $template_url = laaldea_load_template('tools-single.php', 'learning/template-part');
@@ -927,7 +1065,6 @@ add_shortcode( 'laaldea_courses_sidebar', 'laaldea_build_courses_sidebar' );
 
 
 function laaldea_course_enroll_button( $echo = true ) {
-  $isLoggedIn = is_user_logged_in();
   $enrolled = tutor_utils()->is_enrolled();
 
   $is_administrator = current_user_can('administrator');
@@ -959,6 +1096,10 @@ function laaldea_course_course_button( $echo = true ) {
   global $wp_query;
 
   $enrolled = tutor_utils()->is_enrolled();
+
+  $is_administrator = current_user_can('administrator');
+  $is_instructor = tutor_utils()->is_instructor_of_this_course();
+  $course_content_access = (bool) get_tutor_option('course_content_access_for_ia');
   
   $button_text = '';
   if ( $enrolled ) {
@@ -1043,10 +1184,10 @@ function laaldea_get_tutor_header($fullScreen = false, $header_slug){
 }
 
 function laaldea_get_tutor_course_thumbnail($size = 'post-thumbnail', $url = false, $post_id = 0) {
-  if ( ! $course_id){
-    $course_id = get_the_ID();
-    if ( ! $course_id){
-      $course_id = -1;
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
     }
   }
   

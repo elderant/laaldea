@@ -3,12 +3,13 @@
   $title = $laaldea_args['title'];
   $has_thumbnail = $laaldea_args['has_thumbnail'];
   $thumbnail = $laaldea_args['thumbnail'];
-  $type = $laaldea_args['type'];
+  $type = strtolower($laaldea_args['type']);
   $link = $laaldea_args['link'];
   $content = $laaldea_args['content'];
   $container_class = $laaldea_args['container_class'];
   $follow_status = $laaldea_args['follow_status'];
   $tool = $laaldea_args['tool'];
+  $tool_name = $laaldea_args['tool_name'];
   $related = $laaldea_args['related'];
 ?>
 
@@ -26,17 +27,17 @@
   </div>
   <div class="row middle-row pb-3">
     <div class="col-4 thumbnail-container d-flex align-items-center justify-content-center">
-      <a href="<?php echo $tool?>" class="view-link type-<?php echo strtolower($type);?>" target="_blank" data-postId="<?php echo $post_id;?>" data-type="<?php echo strtolower($type);?>" data-link="<?php echo $link;?>">
+      <a href="<?php echo $tool?>" class="view-link type-<?php echo $type;?>" target="_blank" data-postId="<?php echo $post_id;?>" data-type="<?php echo $type;?>" data-link="<?php echo $link;?>">
         <?php if($has_thumbnail) :?>
           <?php echo $thumbnail; ?>
         <?php else :?>
           <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
           <span class="default-text d-flex align-items-center justify-content-center">
-            <?php if($type == 'PDF') : ?>
+            <?php if($type == 'pdf') : ?>
               <?php _e('PDF', 'laaldea')?>
-            <?php elseif($type == 'Video') : ?>
+            <?php elseif($type == 'video') : ?>
               <?php _e('Video', 'laaldea')?>
-            <?php elseif($type == 'Audio') : ?>
+            <?php elseif($type == 'audio') : ?>
               <?php _e('Audio', 'laaldea')?>
             <?php else : ?>
               <?php _e('Herramienta', 'laaldea')?>
@@ -55,15 +56,22 @@
   </div>
   <div class="row bottom-row pb-3">
     <div class="col-8 resource-column d-flex align-items-center justify-content-start">
-      <button class="link-container color-cyan"><?php echo $tool?></button>
+      <button class="link-container d-flex align-items-center" data-url="<?php echo $tool;?>">
+        <div class="copy-icon-container text-center pr-3">
+          <i class="fa fa-copy"></i>
+          <div><?php _e('Copiar vinculo','laaldea')?></div>
+        </div>
+        <div><?php echo $tool_name?></div>
+        <span class="tooltiptext"><?php _e('Texto Copiado','laaldea');?></span>
+      </button>
     </div>
     <div class="col-3 download-link-column d-flex align-items-center justify-content-end">
       <a class="text-center" href="<?php echo $tool?>" download>
-        <?php if($type == 'PDF') : ?>
+        <?php if($type == 'pdf') : ?>
           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga pdf', 'laaldea')?>">
-        <?php elseif($type == 'Video') : ?>
+        <?php elseif($type == 'video') : ?>
           <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga video', 'laaldea')?>">
-        <?php elseif($type == 'Audio') : ?>
+        <?php elseif($type == 'audio') : ?>
           <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga audio', 'laaldea')?>">
         <?php else : ?>
           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga general', 'laaldea')?>">
@@ -84,7 +92,7 @@
     <?php  
       $related_post_id = $related[$i];
       $related_tool = get_field( "herramienta", $related_post_id );
-      $related_type = get_field( "type", $related_post_id );
+      $related_type = strtolower(get_field( "type", $related_post_id ));
       $related_link = $related_type == 'Video'? get_field( "link_youtube", $related_post_id ):'';
       $related_title = get_the_title( $related_post_id );
     ?>
@@ -93,11 +101,11 @@
         <?php echo $related_title;?>
       </a>
       <a class="text-center down-link-rel" href="<?php echo $related_tool?>" download>
-        <?php if($related_type == 'PDF') : ?>
+        <?php if($related_type == 'pdf') : ?>
           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga pdf', 'laaldea')?>">
-        <?php elseif($related_type == 'Video') : ?>
+        <?php elseif($related_type == 'video') : ?>
           <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga video', 'laaldea')?>">
-        <?php elseif($related_type == 'Audio') : ?>
+        <?php elseif($related_type == 'audio') : ?>
           <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga audio', 'laaldea')?>">
         <?php else : ?>
           <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga general', 'laaldea')?>">

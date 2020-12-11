@@ -33,36 +33,39 @@
                 <?php if( $recent_tools -> have_posts() ) : ?>
                   <?php while ($recent_tools -> have_posts()) : ?>
                     <?php 
-                      $recent_tools -> the_post(); 
+                      $recent_tools -> the_post();
+                      $id = get_the_id();
                       $type = get_field( "type" );
                     ?>
                     <div class="tool-container">
-                      <div class="row">
-                        <div class="thumbnail-container col-4 d-flex align-items-center justify-content-center">
-                          <?php if(has_post_thumbnail()) :?>
-                            <?php the_post_thumbnail( 'thumbnail' ); ?>
-                          <?php else :?>
-                            <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
-                            <span class="default-text">
-                              <?php if($type == 'PDF') : ?>
-                                <?php _e('PDF', 'laaldea')?>
-                              <?php elseif($type == 'Video') : ?>
-                                <?php _e('Video', 'laaldea')?>
-                              <?php else : ?>
-                                <?php _e('Herramienta', 'laaldea')?>
-                              <?php endif; ?>
-                            </span>
-                          <?php endif;?>
+                      <a href="/tools/?id=<?php echo $id;?>" class="tool-link">
+                        <div class="row">
+                          <div class="thumbnail-container col-4 d-flex align-items-center justify-content-center">
+                            <?php if(has_post_thumbnail()) :?>
+                              <?php the_post_thumbnail( 'thumbnail' ); ?>
+                            <?php else :?>
+                              <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
+                              <span class="default-text">
+                                <?php if($type == 'PDF') : ?>
+                                  <?php _e('PDF', 'laaldea')?>
+                                <?php elseif($type == 'Video') : ?>
+                                  <?php _e('Video', 'laaldea')?>
+                                <?php else : ?>
+                                  <?php _e('Herramienta', 'laaldea')?>
+                                <?php endif; ?>
+                              </span>
+                            <?php endif;?>
+                          </div>
+                          <div class="col-7 d-flex align-items-start description-container flex-column">
+                            <h4 class="font-titan"><?php the_title();?></h4>
+                            <?php if(!empty(get_the_content())) :?>
+                              <?php the_content(); ?>
+                            <?php else :?>
+                              <p><?php _e('Sin Descripción','laaldea')?></p>
+                            <?php endif;?>
+                          </div>
                         </div>
-                        <div class="col-7 d-flex align-items-start description-container flex-column">
-                          <h4 class="font-titan"><?php the_title();?></h4>
-                          <?php if(!empty(get_the_content())) :?>
-                            <?php the_content(); ?>
-                          <?php else :?>
-                            <p><?php _e('Sin Descripción','laaldea')?></p>
-                          <?php endif;?>
-                        </div>
-                      </div>
+                      </a>
                     </div>
 
                   <?php endwhile; ?>
@@ -100,7 +103,7 @@
                         </div>
                         <div class="info-container">
                           <div class="title-container h6 color-cyan font-titan">
-                            <?php the_title();?>
+                            <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
                           </div>
                           <div class="title-author h6 color-cyan font-sassoon pl-2 mb-2">
                             <?php _e('Escrito por: ','laaldea') . the_author();?>

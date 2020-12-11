@@ -60,15 +60,41 @@ function laaldea_add_slug_body_class( $classes ) {
 }
 //add_filter( 'body_class', 'laaldea_add_slug_body_class' );
 
+//redirect user to login 
+function wpb_child_admin_redirect() {
+  global $wp_query;
+  $page_id = get_the_ID();
+  $home_ids = array(2,259,304,308, 58);
+  $user_ids = array(332, 544, 328, 547, 550, 553, 330, 331);
+
+  $is_home = in_array($page_id,$home_ids);
+  $is_user_flow = in_array($page_id,$user_ids);
+
+  if(is_user_logged_in()) {
+    return;
+  }
+  if($is_home) {
+    return;
+  }
+  if($is_user_flow) {
+    return;
+  }
+  auth_redirect();
+  exit;
+}
+add_action('get_header', 'wpb_child_admin_redirect');
+
 function laaldea_register_secondary_menu() {
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'wpb-child' ));
   register_nav_menu('learning-menu', __( 'E-Learning menu', 'wpb-child' ));
+
+  register_nav_menu('learning-user', __( 'E-Learning user menu', 'wpb-child' ));
+  register_nav_menu('learning-mobile', __( 'E-Learning mobile menu', 'wpb-child' ));
 }
 add_action( 'init', 'laaldea_register_secondary_menu' );
 
 function wpb_child_add_acf_custom_body_class($classes) {
 	if(get_field("custom_body_class") <> "") {
-		// error_log("Adding class");
 		$classes[] = get_field("custom_body_class");
 	}
 	return $classes;
@@ -76,6 +102,40 @@ function wpb_child_add_acf_custom_body_class($classes) {
 	
 add_filter('body_class','wpb_child_add_acf_custom_body_class');
 
+add_filter( 'walker_nav_menu_start_el', 'wpb_child_add_user_menu_html', 10, 4 );
+function wpb_child_add_user_menu_html($item_output, $item, $depth, $args) {
+  if(in_array('user-link',$item -> classes) ) {
+    if(!is_user_logged_in()) {
+      return;
+    }
+    
+    $user_id = get_current_user_id();
+    $user = wp_get_current_user();
+    $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
+    
+    $html = '<button class="menu-button collapsed" type="button" data-toggle="collapse" data-target="#user-navbar">' .
+        '<img src="' . $avatar_url . '" alt="' . __('User avatar','wpb_child') . '">' .
+      '</button>';
+    
+    $item_output = $html;
+  }
+
+  if(in_array('logout-link',$item -> classes) ) {
+    if(!is_user_logged_in()) {
+      return;
+    }
+    
+    $user_id = get_current_user_id();
+    $user = wp_get_current_user();
+    $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
+     
+    $html = '<a title="Cerrar Sesión" href="' . wp_logout_url( ) . '" class="nav-link">Cerrar Sesión</a>';
+    
+    $item_output = $html;
+  }
+
+  return $item_output;
+}
 /******************** Blog ********************/
 // define the the_content_more_link callback 
 function filter_the_content_more_link( $link, $link_text ) { 
@@ -129,7 +189,6 @@ function wpb_child_learning_forum_menu_args( $classes, $item, $args, $depth ) {
 add_filter( 'nav_menu_css_class', 'wpb_child_learning_forum_menu_args', 10, 4 );
 
 function wpb_child_get_location_from_ip ( $reply_ip ) {
-  // error_log('ip in wpb_child : ' . print_r($reply_ip,1));
   $json     = file_get_contents("http://ipinfo.io/" . $reply_ip . "/geo");
   $json     = json_decode($json, true);
   // $country  = $json['country'];

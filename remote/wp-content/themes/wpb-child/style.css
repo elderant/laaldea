@@ -550,7 +550,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	width: 100vw;
   height: auto;
   padding: 2.2rem 0;
-  color: var(--black);
+  color: var(--gray);
   background-color: var(--white);
 	font-family: titan_one;
 	font-weight: 400;
@@ -582,15 +582,25 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	padding: 0 1.3rem;
 }
 
+#page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li > a  {
+  color: var(--gray-light);
+  pointer-events: none;
+}
+
+#page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li.home-link > a  {
+  color: var(--white);
+  /* change to all when link is to front */
+  pointer-events: none;
+}
+
 #page.learning header#masthead .navbar ul#menu-learning > li.current-menu-item > a {
   color: var(--cyan);
 }
 
-
-#page.learning header#masthead .navbar ul#menu-learning > li.home-link {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link a {
   /* margin: 0 auto; */
+  /* padding: 0 0rem; */
   border-radius: 5px;
-  padding: 0 0rem;
   background-color: var(--cyan);
   color: var(--white);
   transition: background-color 0.5s ease-in-out;
@@ -613,9 +623,60 @@ header#masthead .navbar.secondary ul > li > a:focus {
   color: var(--cyan);
 }
 
-#page.learning header#masthead .navbar ul#menu-learning > li.home-link:hover,
-#page.learning header#masthead .navbar ul#menu-learning > li.home-link:focus {
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link a:hover,
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link a:focus {
   background-color: var(--gray);
+}
+
+/* learning header user menu */
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link img {
+  height: 50px;
+}
+
+#page.learning header#masthead .navbar.user-navbar.show {
+  /* display: block; */
+  height: 195px;
+  border-width: 1px;
+}
+
+#page.learning header#masthead .navbar.user-navbar.collapsing {
+  /* height: 0; */
+}
+
+#page.learning header .navbar.user-navbar {
+  z-index: 1020;
+  overflow: hidden;
+  position: relative;
+  height: 0;
+  width: fit-content;
+  border: 0px solid var(--gray);
+  padding: 0rem;
+  border-radius: 5px;
+  top: 112px;
+  margin: 0 20px 0 auto;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.35s ease-in-out;
+	transition: all 0.35s ease-in-out;
+}
+
+#page.learning header .navbar.user-navbar .user-navbar-container {
+  display: block;
+  margin: 1rem;
+}
+
+#page.learning header .navbar.user-navbar .navbar-nav {
+  padding: 0 15px
+}
+
+#page.learning header#masthead .navbar.user-navbar ul > li > a {
+  font-weight: inherit;
+  color: var(--gray);
+}
+
+#page.learning header#masthead .navbar.user-navbar ul > li > a:hover,
+#page.learning header#masthead .navbar.user-navbar ul > li > a:focus {
+  color: var(--cyan);
 }
 
 /******************** Home ********************/

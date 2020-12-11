@@ -1771,7 +1771,7 @@ body.page-id-346 {
   border-color: transparent var(--cyan) transparent transparent;
 }
 
-#tools .tool-container .resource-column button:focus .tooltiptext {
+#tools .tool-container .resource-column button.active .tooltiptext {
   visibility: visible;
   opacity: 1;
 }

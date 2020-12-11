@@ -2,6 +2,7 @@
   $recent_news = $laaldea_args['recent_news'];
   $offset = $laaldea_args['offset'];
   $load_more = $laaldea_args['load_more'];
+  $requested_new_id = $laaldea_args['requested_new_id'];
 ?>
 
 <section id="news" class="d-flex align-items-center justify-content-center" data-menu="news">
@@ -13,45 +14,16 @@
       <div class="col-7 offset-1 main-container">
 
         <div class="news-container">
+          <?php if(!empty($requested_new_id)) : ?>
+            <?php laaldea_get_new_html($requested_new_id, '', true); ?>
+          <?php endif;?>
+          
           <?php if( $recent_news -> have_posts() ) : ?>
-              <?php $recent_news -> the_post(); 
-                $post_id = get_the_ID();
-                $author = get_the_author();
-                ?>
-              
-              <div class="new-container post-id-<?php echo $post_id;?> p-3 my-3">
-                <div class="image-container">
-                  <?php the_post_thumbnail( 'large' );?>
-                </div>
-                <div class="title-container h4 color-cyan font-titan">
-                  <span><?php the_title();?></span>
-                  <span class="tags font-sassoon h6 color-gray"><?php echo get_the_tag_list( __('En ', 'laaldea'), ', ', ''); ?></span>
-                </div>
-                <div class="post-place h6 color-cyan font-sassoon pl-2 mb-2">
-                  <span><?php echo !empty(get_field( "place" )) ? __('Lugar: ','laaldea') . get_field( "place"):'';?></span>
-                </div>
-                <div class="post-date h6 color-cyan font-sassoon capitalized pl-2 mb-4">
-                  <span><?php echo get_the_date();?></span>
-                </div>
-                <div class="post-content h5 font-sassoon color-gray p-0">
-                  <?php the_content();?>
-                </div>
-                <div class="post-actions d-flex align-items-center justify-content-center font-titan">
-                  <?php $post = get_adjacent_post(); ?>
-                  <?php if(!empty($post)) : ?>
-                    <?php $post_id = $post -> ID; ?>
-                    <button class="load-more-link" data-postId="<?php echo $post_id?>">
-                      <div class="text-container h6">
-                        <span><?php echo get_the_title($post_id); ?></span>
-                      </div>
-                      <div class="image-container">
-                        <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
-                      </div>
-                    </button>
-                  <?php endif;?>
-                </div>
-              </div>
-
+            <?php 
+              $recent_news -> the_post();
+              $post_id = get_the_ID();
+              laaldea_get_new_html($post_id, '', true);
+            ?>
           <?php endif; ?>
         </div>
           

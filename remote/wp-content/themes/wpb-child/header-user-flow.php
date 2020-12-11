@@ -50,11 +50,15 @@
             </button>
 
             <?php
+            $class ='';
+            if(!is_user_logged_in()) {
+              $class = ' disabled';
+            }
             wp_nav_menu(array(
-            'theme_location'    => 'learning-menu',
+            'theme_location'  => 'learning-menu',
             'container'       => 'div',
             'container_id'    => 'learning-nav',
-            'container_class' => 'collapse navbar-collapse justify-content-end',
+            'container_class' => 'collapse navbar-collapse justify-content-end' . $class,
             'menu_id'         => false,
             'menu_class'      => 'navbar-nav',
             'depth'           => 3,

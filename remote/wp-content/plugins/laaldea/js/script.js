@@ -151,6 +151,10 @@
             event.preventDefault();
             laaldea_handle_news_load_next(event);
           });
+
+          let $lastNew = $mainContainer.find('.new-container').last();
+          let newStart = $lastNew.offset().top - 150;
+          $('html').stop().animate({ scrollTop: newStart }, 500);
         }
 
         $button.attr('data-offset', data.count);
@@ -741,16 +745,22 @@
       });
 
       // Copy resourse link
-      $('.main-container .tool-container .resourse-container button').each(function(){
+      $('.main-container .tool-container .resource-column button').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
           var tempInput = document.createElement("input");
           tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-          tempInput.value = $(this).html();
+          tempInput.value = $(this).attr('data-url');
           document.body.appendChild(tempInput);
           tempInput.select();
           document.execCommand("copy");
           document.body.removeChild(tempInput);
+
+          $button = $(this);
+          $button.toggleClass('active');
+          setTimeout(function(){
+            $button.toggleClass('active');
+          },2000)
         });
       });
 
