@@ -19,7 +19,7 @@ $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
 
 $course_id = $course->ID;
 $title_html = get_field( 'title_html', $course_id );
-$title = empty($title_html) ? get_the_title() : $title_html;
+$title = empty($title_html) ? get_the_title($course_id) : $title_html;
 ?>
 
 <div id="sidebar-main" class="lesson-sidebar quiz-sidebar offset-1 col-3">

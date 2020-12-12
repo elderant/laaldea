@@ -124,7 +124,12 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                   </div>
                 </div>
                 
-                <?php laaldea_course_enroll_button(); ?>
+                <div class="actions-container">
+                  <?php laaldea_course_enroll_button(); ?>
+                  <?php if (100 == $completed_count) : ?>
+                    <?php tutor_course_mark_complete_html(); ?>
+                  <?php endif;?>
+                </div>
             </div>
         </div>
     </div>

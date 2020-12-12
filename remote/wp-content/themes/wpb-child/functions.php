@@ -189,20 +189,28 @@ function wpb_child_learning_forum_menu_args( $classes, $item, $args, $depth ) {
 add_filter( 'nav_menu_css_class', 'wpb_child_learning_forum_menu_args', 10, 4 );
 
 function wpb_child_get_location_from_ip ( $reply_ip ) {
+  error_log('ip : ' . print_r($reply_ip,1));
   $json     = file_get_contents("http://ipinfo.io/" . $reply_ip . "/geo");
   $json     = json_decode($json, true);
   // $country  = $json['country'];
   // $region   = $json['region'];
   // $city     = $json['city'];
 
+  error_log('response : ' . print_r($json,1));
   return $json;
 }
 
 function wpb_child_the_location_from_ip( $reply_ip ) {
   $array = wpb_child_get_location_from_ip($reply_ip);
 
-  echo $json['region'] . ", " . $json['city'];
+  echo $array['region'] . ", " . $array['city'];
 }
+
+function wpb_child_bbp_reverse_reply_order( $query = array() ) {
+  $query['order']='DESC';
+  return $query;
+}
+add_filter('bbp_has_replies_query','wpb_child_bbp_reverse_reply_order');
 
 function wpb_child_forum_sidebar() {
   $args = array(

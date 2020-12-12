@@ -25,10 +25,12 @@ if ($best_watch_time > 0){
 	$jsonData['best_watch_time'] = $best_watch_time;
 }
 
+$user_id = tutor_utils()->get_user_id();
 $course_id = get_post_meta(get_the_ID(), '_tutor_course_id_for_lesson', true);
 $title_html = get_field( 'title_html', $course_id );
-$title = empty($title_html) ? get_the_title() : $title_html;
+$title = empty($title_html) ? get_the_title($course_id) : $title_html;
 
+$completed_percent = tutor_utils()->get_course_completed_percent($course_id, $user_id);
 $is_completed_lesson = tutor_utils()->is_completed_lesson();
 ?>
 
@@ -40,7 +42,7 @@ $is_completed_lesson = tutor_utils()->is_completed_lesson();
     <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar"><i class="tutor-icon-angle-left"></i></a>
   </div>
   <?php do_action('tutor_course/single/title/before'); ?>
-  <div class="before-title font-titan pb-2"><?php _e('Curso: ','laaldea');?></div>
+  <div class="before-title font-titan"><?php _e('Curso: ','laaldea');?></div>
   <h2 class="color-cyan"><?php echo $title; ?></h2>
   <?php do_action('tutor_course/single/title/after'); ?>
 </div>
@@ -62,13 +64,16 @@ $is_completed_lesson = tutor_utils()->is_completed_lesson();
 <div class="tutor-lesson-content-area">
 
     <input type="hidden" id="tutor_video_tracking_information" value="<?php echo esc_attr(json_encode($jsonData)); ?>">
+  <?php the_content(); ?>
 	<?php tutor_lesson_video(); ?>
-	<?php the_content(); ?>
   <?php get_tutor_posts_attachments(); ?>
   <?php if ( ! $is_completed_lesson) : ?>
     <div class="tutor-topbar-item tutor-topbar-mark-to-done">
       <?php tutor_lesson_mark_complete_html(); ?>
     </div>
+  <?php endif;?>
+  <?php if (100 == $completed_percent) : ?>
+    <?php laaldea_tutor_course_mark_complete_html_lesson(); ?>
   <?php endif;?>
 	<?php tutor_next_previous_pagination(); ?>
 </div>

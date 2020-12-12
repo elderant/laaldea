@@ -17,7 +17,7 @@
                 <div class="icon-container tools">
                   <img class="area-icon" src="/wp-content/uploads/learning-home-tools-icon.png" alt="<?php _e('Icono herramientas','laaldea');?>">
                 </div>
-                <span class="text-container"><?php _e('Herramientas para ti','laaldea');?></span>
+                <span class="text-container"><?php _e('Herramientas','laaldea');?></span>
               </h4>
             </div>
           </div>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="row news-row">
-            <div class="col-9 offset-3">
+            <div class="col-12">
               <div class="news-container">
                 <?php $i = 0;?>
                 <?php if( $recent_news -> have_posts() ) : ?>
@@ -105,10 +105,10 @@
                           <div class="title-container h6 color-cyan font-titan">
                             <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
                           </div>
-                          <div class="title-author h6 color-cyan font-sassoon pl-2 mb-2">
+                          <div class="title-author h6 color-cyan font-sassoon mb-2">
                             <?php _e('Escrito por: ','laaldea') . the_author();?>
                           </div>
-                          <div class="post-excerpt h6 color-cyan font-sassoon capitalized pl-2 mb-2">
+                          <div class="post-excerpt h6 color-cyan font-sassoon capitalized mb-2">
                             <span><?php echo the_excerpt(); ?></span>
                           </div>
                         </div>
@@ -136,7 +136,7 @@
             </div>
           </div>
           <div class="row forum-row">
-            <div class="col-9 offset-3">
+            <div class="col-12">
               <div class="forums-container d-flex">
                 <?php bbpress()->reply_query = $recent_replies; ?>
                 <?php if( $recent_replies -> have_posts() ) : ?>
@@ -151,10 +151,6 @@
                     ?>
                     <div class="reply-section <?php echo $class;?>">
                       <div class="reply-container d-flex flex-wrap align-items-center">
-                        <div class="topic-link-container pb-3">
-                          <span><?php _e('Ir al tema ','laaldea')?></span>
-                          <a class="bbp-topic-permalink font-titan" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title($topic_id);?></a>
-                        </div>
                         <div class="bbp-reply-author">
                           <div class="author-container d-flex align-items-center">
                             <div class="avatar-container">
@@ -166,12 +162,18 @@
                             </div>
                           </div>
                         </div>
-                        <div class="bbp-reply-content px-3">
-                          <?php bbp_reply_content(); ?>
-                        </div>
-                        <div class="bbp-reply-meta pr-3">
-                          <span><?php _e('Publicado el ','laaldea')?></span>
-                          <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+                        <div class="info-container">
+                          <div class="topic-link-container h6">
+                            <span><?php _e('Ir al tema ','laaldea')?></span>
+                            <a class="bbp-topic-permalink font-titan" href="<?php bbp_topic_permalink($topic_id); ?>"><?php bbp_topic_title($topic_id);?></a>
+                          </div>
+                          <div class="bbp-reply-meta h6 mb-2 color-cyan font-sassoon">
+                            <span><?php _e('Publicado: ','laaldea')?></span>
+                            <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+                          </div>
+                          <div class="bbp-reply-content h6 mb-2">
+                            <?php bbp_reply_content(); ?>
+                          </div>
                         </div>
                       </div>
                     </div>

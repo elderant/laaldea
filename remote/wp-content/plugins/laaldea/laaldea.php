@@ -502,6 +502,8 @@ function laaldea_add_last_replies() {
   $new_args = array(
     'post_parent' => $topic_id,
     'posts_per_page' => $posts_per_page,
+    'orderby' => 'date',
+    'order' => 'DESC',
   );
   
   if( bbp_has_replies($new_args) ) {
@@ -553,6 +555,8 @@ function laaldea_load_more_replies() {
     'post_parent' => $topic_id,
     'posts_per_page' => $posts_per_page,
     'offset' => $offset,
+    'orderby' => 'date',
+    'order' => 'DESC',
   );
   
   if( bbp_has_replies($new_args) ) {
@@ -660,7 +664,7 @@ function laaldea_load_next_new_sidebar() {
       $added += 1;
       
       $post_id = get_the_ID();
-      $post_thumb = get_the_post_thumbnail( $post_id, 'thumbnail' );
+      $post_thumb = get_the_post_thumbnail( $post_id, 'medium' );
       $post_title = get_the_title();
       $post_author = get_the_author(); 
 
@@ -1210,4 +1214,51 @@ function laaldea_get_tutor_course_thumbnail($size = 'post-thumbnail', $url = fal
   }
 
   echo $html;
+}
+
+function laaldea_add_course_filter_classes($classes) {
+  // Current courses query
+  $user_id = tutor_utils()->get_user_id();
+  $course_id = get_the_id();
+
+  array_push($classes, 'tutor-course-container');
+  $completed = tutor_utils() -> is_completed_course($course_id, $user_id);
+  if(FALSE !== $completed) {
+    array_push($classes, 'state-completed');
+    return $classes;
+  }
+  
+  $started = tutor_utils() -> is_enrolled($course_id, $user_id);
+  if(FALSE !== $started) {
+    array_push($classes, 'state-started');
+  }
+  
+  return $classes;
+}
+add_filter( 'tutor_course_loop_col_classes', 'laaldea_add_course_filter_classes' );
+
+function laaldea_tutor_course_mark_complete_html_lesson( $echo = true ) {
+  ob_start();
+  $template_url = laaldea_load_template('complete_form.php', 'tutor/single/lesson');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+      echo $html;
+  }
+
+  return $html;
+}
+function laaldea_tutor_course_mark_complete_html_quiz( $echo = true ) {
+  ob_start();
+  $template_url = laaldea_load_template('complete_form.php', 'tutor/single/quiz');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+  
+
+  if ( $echo ) {
+      echo $html;
+  }
+
+  return $html;
 }

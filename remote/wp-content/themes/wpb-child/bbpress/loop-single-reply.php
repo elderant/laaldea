@@ -54,13 +54,15 @@ defined( 'ABSPATH' ) || exit;
       </div>
     </div>
 
-		<?php if ( current_user_can( 'moderate', bbp_get_reply_id() ) ) : ?>
+    <?php if(true) : ?>
 
 			<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
 
-			<div class="bbp-reply-ip"><?php bbp_author_ip( bbp_get_reply_id() ); ?></div>
+      <?php if ( current_user_can( 'moderate', bbp_get_reply_id() ) ) : ?>
+        <div class="bbp-reply-ip"><?php bbp_author_ip( bbp_get_reply_id() ); ?></div>
+      <?php endif;?>
 
-      <div class="bbp-reply-location"><?php 
+      <div class="bbp-reply-location pr-5"><?php 
         $args = array( 
           'post_id' => bbp_get_reply_id(), 
           'before' => '', 

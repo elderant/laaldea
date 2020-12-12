@@ -101,10 +101,10 @@
 
 /* Learning home : news area */
 #learning-home .news-row {
-  background-image: url(/wp-content/uploads/learning-home-news-image.png);
+  /* background-image: url(/wp-content/uploads/learning-home-news-image.png);
   background-repeat: no-repeat;
   background-size: auto 80%;
-  background-position: 5% 100%;
+  background-position: 5% 100%; */
 }
 
 #learning-home .news-container {
@@ -117,7 +117,6 @@
 
 #learning-home .new-section {
   min-width: 100%;
-  padding: 0 1rem;
   display: none;
 }
 
@@ -125,7 +124,7 @@
   display: block;
 }
 
-#learning-home .new-container .image-container {width: 20%;}
+#learning-home .new-container .image-container {width: 20%; text-align: center;}
 #learning-home .new-container .info-container {width: 80%;}
 
 #learning-home .new-container .info-container .post-excerpt {
@@ -157,23 +156,17 @@
   color: var(--gray);
 }
 
-#learning-home .reply-container .topic-link-container {width: 100%;}
-#learning-home .reply-container .bbp-reply-author {width: 10%;}
-#learning-home .reply-container .bbp-reply-content {width: 90%;}
+#learning-home .reply-container .bbp-reply-author {width: 20%;}
+#learning-home .reply-container .info-container {width: 80%;}
 
 #learning-home .reply-container .bbp-reply-author .avatar-container {
   margin: 0 auto;
 }
 
-#learning-home .reply-container .bbp-reply-author img {width: 100px; height:auto;}
+#learning-home .reply-container .bbp-reply-author img {width: 150px; height:auto;}
 
 #learning-home .reply-container .bbp-reply-meta {
   width: 100%;
-  text-align: right;
-}
-
-#learning-home .reply-container .bbp-reply-meta .bbp-reply-post-date {
-  font-weight: bold;
 }
 
 /* Learning home : current course area */
@@ -208,7 +201,7 @@
   display: inline-block;
   width: 325px;
   height: 166px;
-  margin: 0 0 0 auto;
+  margin: 0 auto 0 4rem;
   border: 4px solid currentColor;
   border-radius: 5px;
   padding: 0;
@@ -420,6 +413,16 @@
   line-height: 1.5;
 }
 
+.bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content ul {
+  padding-left: 2rem;
+  list-style: disc;
+  font-size: 0.8em;
+}
+
+.bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content ul li {
+  list-style: inherit;
+}
+
 /* Topic : sidebar */
 .bbpress .widget_text {
   margin: 0;
@@ -592,6 +595,10 @@
   text-align: left;
 }
 
+.bbpress #bbpress-forums .bbp-topics .topic.type-topic .topic-replies {
+  width: 100%;
+}
+
 .bbpress .bbp-topics .topic.type-topic .topic-replies .bbp-list-reply {
   margin: 0.5rem 0 1rem;
 }
@@ -600,14 +607,18 @@
   width: 30%;
 }
 
+.bbpress .bbp-topics .topic.type-topic .topic-replies .avatar-container {
+  padding: 0 0.5rem;
+}
+
 .bbpress .bbp-topics .topic.type-topic .topic-replies .avatar-container img {
-  width: 140px;
+  width: 100px;
 }
 
 .bbpress .bbp-topics .topic.type-topic .topic-replies .author-text-container {
   position: relative;
   height: 135px;
-  width: calc(100% - 140px);
+  width: calc(100% - 100px);
   background: url('/wp-content/uploads/forum-author-background.png');
   background-size: auto 100%;
   background-repeat: no-repeat;
@@ -911,16 +922,17 @@
 }
 
 .bbpress .bbp-replies .bbp-reply-header .bbp-reply-post-date {
+  display: inline-block;
   width: 100%;
   line-height: 1;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .bbpress .bbp-replies .bbp-reply-header .bbp-admin-links {
   float: none;
   display: block;
-  margin-top: 1rem;
 }
 
 .bbpress .bbp-replies .bbp-reply-header .bbp-admin-links a {
@@ -948,14 +960,18 @@
   width: 30%;
 }
 
+.bbpress .bbp-replies .reply-container .author-container .avatar-container {
+  padding: 0 0.5rem;
+}
+
 .bbpress .bbp-replies .reply-container .author-container .avatar-container img {
-  width: 140px;
+  width: 100px;
 }
 
 .bbpress .bbp-replies .reply-container .author-container .author-text-container {
   position: relative;
   height: 135px;
-  width: calc(100% - 140px);
+  width: calc(100% - 100px);
   background: url('/wp-content/uploads/forum-author-background.png');
   background-size: auto 100%;
   background-repeat: no-repeat;
@@ -978,6 +994,10 @@
 
 .bbpress .bbp-replies .reply-container .author-container .text-container a {
   color: var(--cyan);
+}
+
+.bbpress .bbp-replies .reply-container .bbp-reply-location {
+  text-align: right;
 }
 
 .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content {
@@ -1326,8 +1346,7 @@ body.page-id-346 {
   background-image: url(/wp-content/uploads/news-background-bird.png);
   background-repeat: no-repeat;
   background-size: 200px auto;
-  background-position: 20px 145px;
-  background-attachment: fixed;
+  background-position: 40px 145px;
 }
 
 #news .news-container {
@@ -1340,11 +1359,16 @@ body.page-id-346 {
 }
 
 /* depends on image size*/
-#news .new-container > .image-container {
-  background-image: url(/wp-content/uploads/news-background-leafLeft.png), url(/wp-content/uploads/news-background-leafRight.png);
+#news .main-container .new-container > .image-container {
+  /* background-image: url(/wp-content/uploads/news-background-leafLeft.png), url(/wp-content/uploads/news-background-leafRight.png);
   background-repeat: no-repeat, no-repeat;
   background-size: 150px auto, 150px auto;
-  background-position: calc(50% - 333px/2 - 150px + 20px) calc(100% - 4rem + 40px), calc(50% + 333px/2 + 150px - 20px) calc(0% + 181px/5);
+  background-position: calc(50% - 333px/2 - 150px + 20px) calc(100% - 4rem + 40px), calc(50% + 333px/2 + 150px - 20px) calc(0% + 181px/5); */
+
+  background-image: url('/wp-content/uploads/news-background-leaf.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
 }
 
 #news .new-container > .image-container img {
@@ -1355,8 +1379,7 @@ body.page-id-346 {
 }
 
 #news .main-container .new-container > .image-container img {
-  width: 510px;
-  height: 343px;
+  max-height: 400px;
 }
 
 #news .new-container .post-content p {
@@ -1421,6 +1444,7 @@ body.page-id-346 {
   color: var(--gray);
 }
 
+/* sidebar */
 #news .news-row .sidebar {
   border-left: 4px dashed var(--cyan);
 }
@@ -1439,6 +1463,23 @@ body.page-id-346 {
 }
 
 #news .sidebar .new-container > div {
+  line-height: 1.2;
+}
+
+#news .sidebar .new-container .image-container img {
+  max-width: 220px;
+}
+
+#news .sidebar .new-container > .image-container {
+  text-align: center;
+}
+
+#news .sidebar .new-container .post-place span, 
+#news .sidebar .new-container .post-date span {
+  font-size: 0.8em;
+}
+
+#news .sidebar .new-container .post-excerpt {
   line-height: 1.5;
 }
 
@@ -1525,7 +1566,7 @@ body.page-id-346 {
 #tools .sidebar .filters-container .term-container button,
 #tools .sidebar .filters-container.follow button {
   padding: 0;
-  padding-left: calc(1.5rem + 47px);
+  /* padding-left: calc(1.5rem + 47px); */
 }
 
 #tools .sidebar .filters-container .term-container button img,
@@ -1560,12 +1601,12 @@ body.page-id-346 {
 
 #tools .sidebar .filters-container .term-container button span,
 #tools .sidebar .filters-container.follow button span {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 #tools .sidebar .filters-container .term-container.term-27 button span,
 #tools .sidebar .filters-container .term-container.term-37 button span {
-  padding-left: calc(2rem - 8px);
+  padding-left: calc(1rem - 8px);
 }
 
 /* Tools : Type filter */
@@ -1654,8 +1695,8 @@ body.page-id-346 {
 }
 
 @keyframes animationshow {
-  from {transform: scale(0);height: 0;margin-bottom:0rem;}
-  to {transform: scale(1);height: auto;margin-bottom:3rem;}
+  from {transform: scale(0);height:0;margin-bottom:0rem;}
+  to {transform: scale(1);height:auto;margin-bottom:3rem;}
 }
 
 #tools .tool-container .tool-background-image {
@@ -1955,8 +1996,10 @@ body.page-id-346 {
 }
 
 #page .courses-sidebar .other-courses .course-button {
+  display: inline-block;
   width: 325px;
   height: 166px;
+  margin: 0 auto;
   border: 4px solid currentColor;
   border-radius: 5px;
   padding: 0;
@@ -2005,6 +2048,33 @@ body.page-id-346 {
 
 .courses-section .tutor-loop-course-container {
   padding: 1rem 2.5rem 4.5rem; 
+}
+
+.courses-section .tutor-course-container {
+  padding: 1rem;
+}
+
+.courses-section .tutor-course-container.remove {
+  animation-name: animationremovecourse;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animationremovecourse {
+  from {transform:scale(1);height:auto;width:50%;margin-bottom:3rem;padding:1rem;}
+  to {transform:scale(0);height:0;width:0;margin-bottom:0rem;padding:0;}
+}
+
+.courses-section .tutor-course-container.show {
+  animation-name: animationshowcourse;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  /* max-width: 50%; */
+}
+
+@keyframes animationshowcourse {
+  from {transform:scale(0);height:0;width:0;margin-bottom:0rem;padding:0;}
+  to {transform: scale(1);height:auto;width:50%;margin-bottom:3rem;padding:1rem;}
 }
 
 /* Courses archive : title */
@@ -2287,16 +2357,31 @@ body.page-id-346 {
   padding: 0;
 }
 
-/* course single : enroll button */
+/* course single : actions */
+.single-courses .course-section .actions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .single-courses .course-section .tutor-course-single-button {
   width: fit-content;
-  margin: 0 auto;
   border: none;
   text-align: center;
+  padding: 0 1rem;
+  margin: 0;
+}
+
+.single-courses #page .course-section .tutor-course-compelte-form-wrap {
+  width: fit-content;
+  border: none;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .single-courses #page .course-section .tutor-course-single-button a, 
-.single-courses #page .course-section .tutor-course-single-button button {
+.single-courses #page .course-section .tutor-course-single-button button,
+.single-courses #page .course-section .tutor-course-compelte-form-wrap button {
   display: inline-block;
   width: fit-content;
   border: none;
@@ -2305,6 +2390,8 @@ body.page-id-346 {
   color: var(--gray);
   font-family: 'titan_one';
   font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.8;
   background-image: url(/wp-content/uploads/learning-button-background.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -2313,7 +2400,8 @@ body.page-id-346 {
 }
 
 .single-courses #page .course-section .tutor-course-single-button a:hover,
-.single-courses #page .course-section .tutor-course-single-button > div:hover button {
+.single-courses #page .course-section .tutor-course-single-button > div:hover button,
+.single-courses #page .course-section .tutor-course-compelte-form-wrap button:hover {
   color: var(--cyan);
 }
 
@@ -2484,6 +2572,7 @@ body.page-id-346 {
 .lesson-section .tutor-single-lesson-title h2 {
   display: flex;
   margin: 0;
+  font-size: 2.5rem;
 }
 
 #page .lesson-section .tutor-single-lesson-title h2 > div {
@@ -2509,11 +2598,12 @@ body.page-id-346 {
 }
 
 .lesson-section .tutor-topbar-content-title-wrap .tutor-icon-document {
-  padding: 0 4px;
+  padding: 0 4px 0 0;
+  width: 32px;
 }
 
 #page .lesson-section .tutor-topbar-content-title-wrap span {
-  padding: 0 2rem;
+  padding: 0 2.8rem;
   line-height: 1;
 }
 
@@ -2525,15 +2615,17 @@ body.page-id-346 {
 
 .lesson-section .tutor-back-to-course .tutor-topbar-home-btn .tutor-icon-home {
   margin: 0;
-  padding: 0 12px;
+  padding: 0px 8px;
+  margin-right: 3px;
 }
 
 .lesson-section .tutor-back-to-course .tutor-topbar-home-btn span {
-  padding: 0 2rem;
+  padding: 0 2.8rem;
   line-height: 1;
 }
 
-.lesson-section .tutor-lesson-content-area {
+.lesson-section .tutor-lesson-content-area,
+.lesson-section .tutor-quiz-single-wrap {
   margin: 0 5rem;
 }
 
@@ -2555,6 +2647,30 @@ body.page-id-346 {
 #page .lesson-section .tutor-quiz-single-wrap input[type="submit"]:hover,
 #page .lesson-section .tutor-quiz-single-wrap button:hover {
   color: var(--cyan);
+}
+
+#page .lesson-section .tutor-course-compelte-form-wrap button {
+  display: inline-block;
+  width: fit-content;
+  max-width: 160px;
+  margin: 1rem 0;
+  padding: 1rem 2rem 2rem;
+  font-size: 1rem;
+  font-family: 'titan_one';
+  line-height: 1.2;
+  color: var(--cyan);
+  background: url(/wp-content/uploads/learning-button-background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: none;
+  white-space: normal;
+  word-break: break-word;
+  transition: color 0.5s ease-in-out;
+}
+
+#page .lesson-section .tutor-course-compelte-form-wrap button:hover {
+  color: var(--gray);
 }
 
 .lesson-section .tutor-next-previous-pagination-wrap .tutor-previous-link,

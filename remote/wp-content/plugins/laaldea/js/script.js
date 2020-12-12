@@ -565,6 +565,90 @@
     },500);
   }
 
+  var laaldea_handle_filter_courses = function(filterValue) {
+    // updating filter array
+    if(window.aldea.courses.container.hasClass(filterValue) ) {
+      let index = window.aldea.courses.filters.indexOf(filterValue);
+
+      window.aldea.courses.filters.splice(index, 1);
+    }
+    else {
+      window.aldea.courses.filters.push(filterValue);
+      //window.aldea.courses.loadMoreButton.removeClass('end-list');
+    }
+    // adding new filter
+    window.aldea.courses.container.toggleClass(filterValue);
+
+    // calculating active elements.
+    let shownElements = 0;
+    let i = 0;
+    
+    let filter;
+    if(window.aldea.courses.filters.length > 0) {
+      window.aldea.courses.filterStr = '';
+      for(i=0; i <= window.aldea.courses.filters.length - 1; i++) {
+        filter = window.aldea.courses.filters[i];
+  
+        window.aldea.courses.filterStr += filter + ' ';
+        shownElements += window.aldea.courses.container.find('.tutor-course-container.' + filter).length;
+      }
+    }
+    else {
+      window.aldea.courses.filterStr = '';
+      shownElements = window.aldea.courses.container.find('.tutor-course-container').length;
+    }
+
+    // showing/hiding elements
+    window.aldea.courses.filterStr = $.trim(window.aldea.courses.filterStr)
+    let elements = window.aldea.courses.container.find('.tutor-course-container');
+    elements.each(function() {
+      if(window.aldea.courses.filters.length == 0) {
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('show');
+      }
+      else if( $(this).hasAnyClass(window.aldea.courses.filterStr) ){
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('show');
+      }
+      else {
+        $(this).removeClass('show');
+        $(this).removeClass('remove');
+
+        $(this).addClass('remove');
+      }
+    });
+
+    // if(shownElements < window.aldea.tools.limit) {
+    //   laaldea_handle_tools_load_more(window.aldea.tools.loadMoreButton)
+    // }
+  }
+
+  var laaldea_handle_filter_control_courses = function($button) {
+    let $filterContainer = $button.parents('.filters-container');
+
+    if($button.hasClass('active')) {
+      let currentHeight = $filterContainer.height();
+      $filterContainer.css('height', currentHeight + 'px');
+
+      $filterContainer.animate({height: $filterContainer.get(0).scrollHeight}, 1000, function(){
+        $(this).height('auto');
+      });
+    }
+    else {
+      let targetHeight = $filterContainer.attr('data-initial-height');;
+      $filterContainer.animate({height: targetHeight}, 1000);
+    }
+
+    let $FilterIcons = $filterContainer.find('.filter-icon .icon');
+    $FilterIcons.each(function(){
+      $(this).toggleClass('hidden');
+    })
+  }
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -795,6 +879,42 @@
         event.preventDefault();
         let $button = $(event.currentTarget);
         laaldea_handle_tools_load_more($button);
+      });
+    }
+
+    if($('.post-type-archive-courses').length > 0) {
+      window.aldea = {};
+      window.aldea.courses = {
+        container : $('.courses-section .tutor-courses'), 
+        filters : new Array(),
+        filterStr : '',
+      };
+
+      // Filter control event
+      $('.courses-sidebar .filters-container .filter-contol').each(function(){
+        let $buttonContainer = $(this).parents('.filter-title');
+        let $filterContainer = $(this).parents('.filters-container');
+        let collapsedHeight = $buttonContainer.outerHeight();
+        $filterContainer.attr('data-initial-height', collapsedHeight);
+
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_control_courses($button);
+        });
+      });
+
+      // State filters
+      $('.courses-sidebar .status-filter button').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_courses($button.attr('data-filter'));
+        });
       });
     }
 

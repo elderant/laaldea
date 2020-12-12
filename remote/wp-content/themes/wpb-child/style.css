@@ -574,6 +574,10 @@ header#masthead .navbar.secondary ul > li > a:focus {
   justify-content: space-around;
 }
 
+#page.learning header#masthead .navbar ul#menu-learning li {
+  position: relative;
+}
+
 #page.learning header#masthead .navbar ul#menu-learning > li > a {
 	color: var(--gray);
 	font-weight: inherit;
@@ -626,6 +630,30 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header#masthead .navbar ul#menu-learning > li.home-link a:hover,
 #page.learning header#masthead .navbar ul#menu-learning > li.home-link a:focus {
   background-color: var(--gray);
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  border-radius: 5px;
+  background-color: var(--cyan);
+  transform: translate(-50%, 0);
+  transition: width 0.5s ease-in-out;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li:focus::after,
+#page.learning header#masthead .navbar ul#menu-learning > li:hover::after,
+#page.learning header#masthead .navbar ul#menu-learning > li.active::after {
+  width: 75%;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link::after,
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link::after {
+  content: unset;
 }
 
 /* learning header user menu */
