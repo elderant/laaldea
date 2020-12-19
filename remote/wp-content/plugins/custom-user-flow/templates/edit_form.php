@@ -90,46 +90,52 @@
     ),
   );
 
+  $user = get_userdata( get_current_user_id() );
+  $user_meta = get_user_meta(  get_current_user_id() );
 ?>
 
-<div id="register-form" class="widecolumn">
+<div id="edit-form" class="widecolumn">
   <?php if ( $attributes['show_title'] ) : ?>
-    <h3><?php _e( 'Register', 'user-flow' ); ?></h3>
+    <h3><?php _e( 'Edit User', 'user-flow' ); ?></h3>
   <?php endif; ?>
 
   <?php if ( count( $attributes['errors'] ) > 0 ) : ?>
     <?php foreach ( $attributes['errors'] as $error ) : ?>
-      <div class="error resgistration-error">
+      <div class="error edit-error">
         <p><?php echo $error; ?></p>
       </div>
     <?php endforeach; ?>
   <?php endif; ?>
 
 
-  <form id="signupform" action="<?php echo wp_registration_url(); ?>" method="post">
+  <form id="edit-user-form" action="<?php echo 'https://laaldea.co/account/'; ?>" method="post">
     <div class="form-row">
       <label for="email" class="user-flow-label"><?php _e( 'Email', 'user-flow' ); ?> <strong>*</strong></label>
-      <input type="email" name="email" id="email" class="user-flow-input">
+      <input type="email" name="email" id="email" class="user-flow-input" value="<?php echo $user->data->user_email; ?>">
     </div>
     <div class="form-row">
       <label for="first_name" class="user-flow-label"><?php _e( 'First name', 'user-flow' ); ?></label>
-      <input type="text" name="first_name" id="first-name" class="user-flow-input">
+      <input type="text" name="first_name" id="first-name" class="user-flow-input" value="<?php echo $user_meta['first_name']['0']; ?>">
     </div>
     <div class="form-row">
       <label for="last_name" class="user-flow-label"><?php _e( 'Last name', 'user-flow' ); ?></label>
-      <input type="text" name="last_name" id="last-name" class="user-flow-input">
+      <input type="text" name="last_name" id="last-name" class="user-flow-input" value="<?php echo $user_meta['last_name']['0']; ?>">
+    </div>
+    <div class="form-row">
+      <label for="display_name" class="user-flow-label"><?php _e( 'Display name', 'user-flow' ); ?></label>
+      <input type="text" name="display_name" id="display-name" class="user-flow-input" value="<?php echo $user->data->display_name; ?>">
     </div>
     <div class="form-row">
       <label for="user_phone" class="user-flow-label"><?php _e( 'Phone', 'user-flow' ); ?></label>
-      <input type="text" name="user_phone" id="user-phone" class="user-flow-input">
+      <input type="text" name="user_phone" id="user-phone" class="user-flow-input" value="<?php echo $user_meta['user_phone']['0']; ?>">
     </div>
     <div class="form-row">
       <label for="user_area" class="user-flow-label"><?php _e( 'Teaching Area', 'user-flow' ); ?></label>
-      <input type="text" name="user_area" id="user-area" class="user-flow-input">
+      <input type="text" name="user_area" id="user-area" class="user-flow-input" value="<?php echo $user_meta['user_area']['0']; ?>">
     </div>
     <div class="form-row">
       <label for="user_institution" class="user-flow-label"><?php _e( 'Teaching Institution', 'user-flow' ); ?></label>
-      <input type="text" name="user_institution" id="user-institution" class="user-flow-input">
+      <input type="text" name="user_institution" id="user-institution" class="user-flow-input" value="<?php echo $user_meta['user_institution']['0']; ?>">
     </div>
     <div class="form-row">
       <label class="user-flow-label"><?php _e('Avatar', 'user-flow'); ?></label>
@@ -139,7 +145,7 @@
             <input 
               type="radio" name="user_avatar"
               value="<?php echo $avatar['input-value'];?>"
-              id="<?php echo $avatar['input-id'];?>">
+              id="<?php echo $avatar['input-id'];?>"<?php echo $avatar['input-value'] === $user_meta['user_avatar']['0']?' checked="checked"':'';?>>
             <label for="<?php echo $avatar['input-id'];?>">
               <img 
                 src="<?php echo $avatar['label-img'];?>" 
@@ -149,19 +155,11 @@
         <?php endforeach;?>
       </div>
     </div>
-    <div class="form-row">
-      <?php _e( 'Note: Your password will be generated automatically and sent to your email address.', 'user-flow' ); ?>
-    </div>
-    <?php if ( isset($attributes['recaptcha_site_key']) && $attributes['recaptcha_site_key'] ) : ?>
-      <div class="recaptcha-container">
-        <div class="g-recaptcha" data-sitekey="<?php echo $attributes['recaptcha_site_key']; ?>"></div>
-      </div>
-    <?php endif; ?>
-    <div class="form-row signup-submit">
+    <div class="form-row edit-user-submit">
       <input type="submit" 
         name="submit" 
-        class="register-button user-flow-button" 
-        value="<?php _e( 'Register', 'user-flow' ); ?>"/>
+        class="edit-button user-flow-button" 
+        value="<?php _e( 'Update Profile', 'user-flow' ); ?>"/>
     </div>
   </form>
 

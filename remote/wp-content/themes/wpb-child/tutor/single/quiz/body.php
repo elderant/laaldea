@@ -65,8 +65,9 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
                         <ul>
 							<?php
 							foreach ($questions as $question) {
-								$question_i++;
-								echo "<li><a href='#quiz-attempt-single-question-{$question->question_id}' class='tutor-quiz-question-paginate-item'>{$question_i}</a> </li>";
+                $question_i++;
+                $pagination_extra_class = $question_i == 1?'active':'';
+								echo "<li><a href='#quiz-attempt-single-question-{$question->question_id}' class='tutor-quiz-question-paginate-item {$pagination_extra_class}'>{$question_i}</a> </li>";
 							}
 							?>
                         </ul>
@@ -111,12 +112,48 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 							$show_question_mark = (bool) tutor_utils()->avalue_dot('show_question_mark', $question_settings);
 							$answer_required = (bool) tutils()->array_get('answer_required', $question_settings);
 
-							echo '<h4 class="question-text">';
+							echo '<h6 class="question-text color-cyan">';
 							if ( ! $hide_question_number_overview){
 								echo $question_i. ". ";
 							}
 							echo stripslashes($question->question_title);
-							echo '</h4>';
+							echo '</h6>';
+
+              $custom_html = '<p class="question-explanation px-5 pb-3">';
+              switch ($question_type) {
+                case 'true_false' :
+                  $custom_html .= __('Pregunta tipo verdader o falso, escoja la opción correcta.','wpb_child');
+                  break;
+                case 'single_choice' :
+                  $custom_html .= __('Pregunta tipo seleccion única, escoja la opción correcta.','wpb_child');
+                  break;
+                case 'multiple_choice' :
+                  $custom_html .= __('Pregunta tipo seleccion multiple, escoja <strong>todas</strong> las opciones correctas.','wpb_child');
+                  break;
+                case 'fill_in_the_blank' :
+                  $custom_html .= __('Llene los espacios en blanco del siguiente parrafo con el texto mas apropiado.','wpb_child');
+                  break;
+                case 'ordering' :
+                  $custom_html .= __('Ordene los contenedores mostrados a continuación, haciendo click sostenido sobre las tres rayas y desplazando el mouse a la posición deseada.','wpb_child');
+                  break;
+                case 'matching' :
+                case 'image_matching' :
+                  $custom_html .= __('Arrastre los bloques de texto, haciendo click sostenido sobre las tres rayas y desplazando el mouse, al area punteada correspondiente a la mejor respuesta.','wpb_child');
+                  break;
+                case 'image_answering' :
+                  $custom_html .= __('Escriba en cada area en blanco, el texto mas apropiado, a la imagen correspondiente. El texto debe estar en minúsculas.','wpb_child');
+                  break;
+                case 'open_ended' :
+                case 'short_answer' :
+                  $custom_html .= __('Escriba en el espacio a continuación la respuesta más apropiada, esta pregunta sera evaluada manualmente en el menor tiempo posible.','wpb_child');
+                  break;
+                default :
+                  $custom_html .= __('Tipo de pregunta no reconocido, Haga su mejor intento :)','wpb_child');
+                    break;
+              }
+              $custom_html .= '</p>';
+
+              echo $custom_html;
 
 							if ($show_question_mark){
 								echo '<p class="question-marks"> '.__('Marks : ', 'tutor').$question->question_mark.' </p>';
@@ -124,7 +161,7 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 
 							$question_description = stripslashes($question->question_description);
 							if ($question_description){
-							    echo "<p class='question-description'>{$question_description}</p>";
+							    echo "<p class='question-description pb-3'>{$question_description}</p>";
                             }
 							?>
 

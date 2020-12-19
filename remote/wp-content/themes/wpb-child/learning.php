@@ -2,7 +2,6 @@
 /**
 * Template Name: Learning
  */
-
 get_header('learning');?>
 
 	<section id="primary" class="content-area col-sm-12">

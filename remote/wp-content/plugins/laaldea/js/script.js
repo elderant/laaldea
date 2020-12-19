@@ -75,6 +75,7 @@
   
   var laaldea_handle_topic_load_more = function(event) {
     let $button = $(event.currentTarget);
+    let $buttonContainer = $button.parents('.load-more-link-container');
 
     let offset = $button.attr('data-offset');
     let total = $button.attr('data-total');
@@ -94,7 +95,7 @@
           let $repliesMainContainer = $button.parents('.topic-replies');
           let currentHeight = $repliesMainContainer.height();
 
-          $('.bbpress .topic-section #bbpress-forums .load-more-link-container').before(data.html);
+          $buttonContainer.before(data.html);
           $repliesMainContainer.css('height', 'auto');
           let autoHeight = $repliesMainContainer.height();
 
@@ -479,23 +480,19 @@
     });
   }
 
-  var laaldeea_handle_tools_video_click = function(event, currentTarget) {
+  var laaldeea_handle_tools_preview_click = function(event, currentTarget) {
     // hide any active players
-    $('body #page > div.modal-root .modal-dialog video.active,' +
-      'body #page > div.modal-root .modal-dialog audio.active,' +
-      'body #page > div.modal-root .modal-dialog iframe.active').each(function(){
+    $('body #page > div.modal-root .modal-dialog iframe.active').each(function(){
       $(this).toggleClass('active');
     });
 
     let currentId = $(currentTarget).attr('data-postId');
     let type = $(currentTarget).attr('data-type');
     let link = $(currentTarget).attr('data-link');
-    type = link? 'iframe': 'video';
-    let currentUrl = $(currentTarget).attr('href');
+    
     window.aldea.tools.currentPlayer.id = currentId;
     let $modal = $('body #page > div.modal-root');
-    
-    let $video = $modal.find('.modal-dialog ' + type + '.post-' + currentId);
+    let $video = $modal.find('.modal-dialog .type-' + type + '.post-' + currentId);
     
     if($video.length == 0) {
       if($modal.length == 0) {
@@ -523,28 +520,16 @@
       }
 
       let $htmlObject;
-      if(!link) {
-        $htmlObject = $('<video />', {
-          class: 'post-' + currentId + ' type-' + type,
-          src: currentUrl,
-          type: type == 'video' ? 'video/mp4' : 'audio/mpeg',
-          controls: true
-        });
-      }
-      else if(type == 'iframe') {
-        let index = link.search(/\?v=/i);
-        var id = link.substring(index+3);
 
-        $htmlObject = $('<iframe />', {
-          class: 'post-' + currentId + ' type-' + type,
-          src: "https://www.youtube.com/embed/" + id, 
-          frameborder : "0",
-          allowfullscreen: true,
-        });
-      }
+      $htmlObject = $('<iframe />', {
+        class: 'post-' + currentId + ' type-' + type,
+        src: link, 
+        frameborder : "0",
+        allowfullscreen: true,
+      });
       
       $modal.find('.modal-dialog').append($htmlObject);
-      $video = $('body #page > div.modal-root .modal-dialog ' + type + '.post-' + currentId);
+      $video = $('body #page > div.modal-root .modal-dialog .type-' + type + '.post-' + currentId);
     }
 
     $modal.toggleClass('out');
@@ -691,7 +676,8 @@
       let maxHeight = 0;
       let height;
       $('.news-container .new-section').each(function(){
-        height = $(this).height();
+        $(this).css('display', 'block');
+        height = $(this).outerHeight();
         if(height > maxHeight) {
           maxHeight = height;
         }
@@ -699,13 +685,15 @@
       $('.news-container').css('height', maxHeight + 'px');
       
       maxHeight = 0;
-      height;
+      height = 0;
       $('.forums-container .reply-section').each(function(){
-        height = $(this).height();
+        $(this).css('display', 'block');
+        height = $(this).outerHeight();
         if(height > maxHeight) {
           maxHeight = height;
         }
       });
+      console.log('height : ' + height);
       $('.forums-container').css('height', maxHeight + 'px');
 
       setInterval(function(){
@@ -779,7 +767,7 @@
         currentPlayer: {},
         videos: {},
       };
-      $('.main-container .type-filter-container').attr('data-top', $('.main-container .type-filter-container').offset().top);
+      $('.main-container .target-filter-container').attr('data-top', $('.main-container .target-filter-container').offset().top);
 
       // Filter events
       $('.sidebar .follow button').on('click', function(event) {
@@ -799,13 +787,13 @@
         });
       });
       
-      $('.main-container .type-filter-container button').each(function(){
+      $('.main-container .target-filter-container button').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
           let $button = $(event.currentTarget);
           $button.toggleClass('active');
   
-          laaldea_handle_filter_tools('type-' + $button.attr('data-filter'), 'category');
+          laaldea_handle_filter_tools('target-' + $button.attr('data-filter'), 'category');
         });
       });
 
@@ -829,7 +817,7 @@
       });
 
       // Copy resourse link
-      $('.main-container .tool-container .resource-column button').each(function(){
+      $('.main-container .tool-container .resource-section button').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
           var tempInput = document.createElement("input");
@@ -849,31 +837,23 @@
       });
 
       // View video
-      $('.main-container .tool-container .thumbnail-container .view-link.type-video').each(function() {
+      $('.main-container .tool-container .thumbnail-container .view-link').each(function() {
         $(this).on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this);
+          if($(this).attr('data-link')) {
+            event.preventDefault();
+            laaldeea_handle_tools_preview_click(event, this);
+          }
         });
       });
-      $('.main-container .tool-container .related-tool-container .view-link-rel.type-video').each(function(){
+      $('.main-container .tool-container .related-tool-container .view-link-rel').each(function(){
         $(this).on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this);
+          if($(this).attr('data-link')) {
+            console.log('preventing default');
+            event.preventDefault();
+            laaldeea_handle_tools_preview_click(event, this);
+          }
         });
       });
-      $('.main-container .tool-container .thumbnail-container .view-link.type-audio').each(function(){
-        $(this).on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this);
-        });
-      });
-      $('.main-container .tool-container .related-tool-container .view-link-rel.type-audio').each(function(){
-        $(this).on('click', function(event) {
-          event.preventDefault();
-          laaldeea_handle_tools_video_click(event, this);
-        });
-      });
-
 
       $('.main-container .load-more-container button').on('click', function(event) {
         event.preventDefault();
@@ -958,7 +938,7 @@
 		}
     
     if($('#tools').length > 0) {
-      $('.main-container .type-filter-container').each(_checkOffset_menu('fixed'));
+      $('.main-container .target-filter-container').each(_checkOffset_menu('fixed'));
     }
 		
   });

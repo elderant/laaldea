@@ -79,6 +79,9 @@ function wpb_child_admin_redirect() {
   if($is_user_flow) {
     return;
   }
+  if(is_404()) {
+    return;
+  }
   auth_redirect();
   exit;
 }
@@ -124,23 +127,51 @@ function wpb_child_add_user_menu_html($item_output, $item, $depth, $args) {
     if(!is_user_logged_in()) {
       return;
     }
-    
-    $user_id = get_current_user_id();
-    $user = wp_get_current_user();
-    $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
      
     $html = '<a title="Cerrar Sesión" href="' . wp_logout_url( ) . '" class="nav-link">Cerrar Sesión</a>';
-    
     $item_output = $html;
   }
 
+  if(in_array('image-link',$item -> classes) ) {
+    $image_url;$alt_text;
+    if(in_array('crea-link',$item -> classes) ) {
+      $image_url = '/wp-content/uploads/page-crea-icon.png';
+      $alt_text = __('Icono de crea', 'laaldea');
+    }
+    elseif(in_array('click-link',$item -> classes) ) {
+      $image_url = '/wp-content/uploads/page-click-icon.png';
+      $alt_text = __('Icono de click', 'laaldea');
+    }
+    else {
+      $image_url = '/wp-content/uploads/tools-filter-canciones.png';
+      $alt_text = __('Placeholder image', 'laaldea');
+    }
+
+    $target = (isset($item -> target) && !empty($item -> target )) ? ' target="' . $item -> target . '"':'';
+
+    error_log(print_r($target,1));
+
+    $html = '<a class="image-link"' . $target . ' href="' . $item -> url . '">' .
+        '<img src="' . $image_url . '" alt="' . $alt_text . '">' .
+      '</a>';
+
+    error_log(print_r($html,1));
+    $item_output = $html;
+  }
+
+  if(in_array('forum-dashboard-link',$item -> classes)) {
+    // error_log(print_r($item_output,1));
+    // error_log(print_r($item,1));
+    $profile_url = bbp_get_user_profile_url( get_current_user_id() );
+
+    $html = '<a title="' . $item -> title . '" href="' . $profile_url . '" class="nav-link">' . $item -> title . '</a>';
+    $item_output = $html;
+  }
   return $item_output;
 }
 /******************** Blog ********************/
 // define the the_content_more_link callback 
 function filter_the_content_more_link( $link, $link_text ) { 
-	// 
-	
 	$read_more_link = new DOMDocument('1.0', 'utf-8');
 	$read_more_link -> loadHTML(utf8_decode($link));
 	$link_list = $read_more_link -> getElementsByTagName('a');
@@ -171,11 +202,19 @@ if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
 	require_once(dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php');
 }
 
-/******************** Blog ********************/
 // The filter callback function.
 function wpb_child_learning_forum_menu_args( $classes, $item, $args, $depth ) {
   if($item -> ID == 318) {
     $identifier = '/learning-forums/';
+    if(FALSE === strpos($_SERVER['REQUEST_URI'], $identifier)) {
+      return $classes;
+    }
+
+    array_push($classes, 'current-menu-item');
+    array_push($classes, 'active');
+  }
+  if($item -> ID == 317) {
+    $identifier = '/courses/';
     if(FALSE === strpos($_SERVER['REQUEST_URI'], $identifier)) {
       return $classes;
     }
@@ -189,14 +228,12 @@ function wpb_child_learning_forum_menu_args( $classes, $item, $args, $depth ) {
 add_filter( 'nav_menu_css_class', 'wpb_child_learning_forum_menu_args', 10, 4 );
 
 function wpb_child_get_location_from_ip ( $reply_ip ) {
-  error_log('ip : ' . print_r($reply_ip,1));
   $json     = file_get_contents("http://ipinfo.io/" . $reply_ip . "/geo");
   $json     = json_decode($json, true);
   // $country  = $json['country'];
   // $region   = $json['region'];
   // $city     = $json['city'];
 
-  error_log('response : ' . print_r($json,1));
   return $json;
 }
 
@@ -210,7 +247,7 @@ function wpb_child_bbp_reverse_reply_order( $query = array() ) {
   $query['order']='DESC';
   return $query;
 }
-add_filter('bbp_has_replies_query','wpb_child_bbp_reverse_reply_order');
+//add_filter('bbp_has_replies_query','wpb_child_bbp_reverse_reply_order');
 
 function wpb_child_forum_sidebar() {
   $args = array(

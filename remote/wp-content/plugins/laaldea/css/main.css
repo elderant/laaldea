@@ -3,6 +3,10 @@
 /******************** Home ********************/
 /**********************************************/
 
+#learning-home p {
+  margin: 0;
+}
+
 #learning-home .left-column {
   border-right: 4px dashed var(--cyan);
   padding-right: 0rem;
@@ -13,6 +17,49 @@
   margin: 0 1rem 0 0;
   border-bottom: 4px dashed var(--cyan);
   padding: 1rem 0; 
+}
+
+#learning-home #content {
+  padding-top: 0;
+}
+
+#learning-home .learning-home-greet-row {
+  position: relative;
+}
+
+#learning-home .learning-home-greet-row .greet-texts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#learning-home .learning-home-greet-row .user-greet {
+  position: absolute;
+  left: 5%;
+  top: 12.5%;
+  width: 17.5%;
+  height: auto;
+}
+
+#learning-home .learning-home-greet-row .user-greet .greet-container {
+  font-size: 2rem;
+}
+
+#learning-home .learning-home-greet-row .general-greet {
+  position: absolute;
+  right: 10%;
+  top: 19%;
+  width: 24%;
+  height: auto;
+}
+
+#learning-home .learning-home-greet-row .general-greet p {
+  margin: 0;
+  font-size: 1.75rem;
+  text-align: center;
+  line-height: 1.4;
 }
 
 #learning-home .area-container.news-area {
@@ -30,15 +77,11 @@
 
 #learning-home .title-row .icon-container {
   margin-right: 1rem;
-  border-radius: 50%;
-  padding: 0.7rem;
 }
 
-#learning-home .title-row .icon-container.tools {background-color: #dcb934;}
-#learning-home .title-row .icon-container.news {background-color: #00468d;}
-#learning-home .title-row .icon-container.forum {background-color: #dcb934;}
-#learning-home .title-row .icon-container.current {background-color: #35495e;}
-#learning-home .title-row .icon-container.courses {background-color: #4492cf;}
+#learning-home .title-row .icon-container img {
+  min-width: 75px;
+}
 
 #learning-home .tools-area .carousel-column {
   display: flex;
@@ -100,19 +143,12 @@
 }
 
 /* Learning home : news area */
-#learning-home .news-row {
-  /* background-image: url(/wp-content/uploads/learning-home-news-image.png);
-  background-repeat: no-repeat;
-  background-size: auto 80%;
-  background-position: 5% 100%; */
-}
-
 #learning-home .news-container {
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
+  margin: 1rem 0;
 }
 
 #learning-home .new-section {
@@ -127,6 +163,10 @@
 #learning-home .new-container .image-container {width: 20%; text-align: center;}
 #learning-home .new-container .info-container {width: 80%;}
 
+#learning-home .new-container .info-container .post-date {
+  text-transform: capitalize;
+}
+
 #learning-home .new-container .info-container .post-excerpt {
   line-height: 1.5;
 }
@@ -134,6 +174,8 @@
 /* Learning home : forum area */
 #learning-home .forums-container {
   overflow: hidden;
+  margin: 1rem 0;
+  min-height: 150px;
 }
 
 #learning-home .forums-container .reply-section {
@@ -169,6 +211,10 @@
   width: 100%;
 }
 
+#learning-home .reply-container .bbp-reply-meta .bbp-reply-post-date {
+  text-transform: capitalize;
+}
+
 /* Learning home : current course area */
 #learning-home .current-container .course-container {
   position: relative;
@@ -199,8 +245,7 @@
 
 #learning-home .current-container .course-container .course-button {
   display: inline-block;
-  width: 325px;
-  height: 166px;
+  min-height: 175px;
   margin: 0 auto 0 4rem;
   border: 4px solid currentColor;
   border-radius: 5px;
@@ -221,15 +266,15 @@
   text-align: center;
 }
 
-#learning-home .current-container .course-container .course-button div {
+#learning-home .current-container .course-container .course-button div,
+#learning-home .current-container .course-container .course-button p {
   color: inherit;
 }
 
 /* Learning home : recommended course area */
 #learning-home .recommended-container .course-button {
   display: inline-block;
-  width: 325px;
-  height: 166px;
+  min-height: 175px;
   margin: 0 auto;
   border: 4px solid currentColor;
   border-radius: 5px;
@@ -253,7 +298,8 @@
   text-align: center;
 }
 
-#learning-home .recommended-container .course-container .course-button div {
+#learning-home .recommended-container .course-container .course-button div,
+#learning-home .recommended-container .course-container .course-button p {
   color: inherit;
 }
 
@@ -326,11 +372,12 @@
   margin-bottom: 2rem;
 }
 
-.bbpress .forum-section #bbpress-forums .bbp-breadcrumb p {
+.bbpress #bbpress-forums div.bbp-breadcrumb p {
   margin: 0;
-  font-size: 28.7px;
   line-height: 1.2;
   font-family: 'titan_one';
+  text-align: left;
+  padding: 0;
 }
 
 .bbpress .forum-section .bbp-breadcrumb p a:hover,
@@ -383,6 +430,7 @@
 
 .bbpress .forum-section #bbpress-forums .bbp-forums .type-forum,
 .bbpress .forum-section #bbpress-forums .bbp-forums .type-forum.odd {
+  padding: 0;
   background-color: transparent;
   border: none;
 }
@@ -395,6 +443,7 @@
 .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .before-forum-title {
   font-size: 2.5rem;
   color: var(--cyan);
+  line-height: 1.2;
 }
 
 .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-title {
@@ -434,7 +483,7 @@
 }
 
 .bbpress .widget_text .bbp-topic-form .title {
-  color: var(--gray);
+  color: var(--cyan);
 }
 
 .bbpress .widget_text .bbp-topic-form .forum {
@@ -461,6 +510,43 @@
   margin: 2rem auto;
 }
 
+.bbpress .widget_text .bbp-topic-form .topic-tile,
+.bbpress .widget_text .bbp-topic-form .bbp-the-content-wrapper,
+.bbpress .widget_text .bbp-topic-form .topic-tags,
+.bbpress .widget_text .bbp-topic-form .topic-subscription {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.bbpress .widget_text .bbp-topic-form .bbp-the-content-wrapper {
+  width: 97%;
+}
+
+.bbpress .widget_text .bbp-topic-form .wp-editor-container {
+  border: none;
+  border-bottom: 4px dashed var(--cyan);
+}
+
+.bbpress .widget_text .bbp-topic-form .quicktags-toolbar {
+  display: none;
+}
+
+.bbpress .widget_text .bbp-topic-form .bbp-the-content {
+  height: calc(5*1.5rem*1.2);
+  font-family: 'sassoon';
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.bbpress .widget_text .bbp-topic-form .topic-subscription {
+  display: flex;
+  align-items: center;
+}
+
+.bbpress .widget_text .bbp-topic-form .topic-subscription label {
+  padding: 0 1rem;
+}
+
 .bbpress .widget_text .bbp-topic-form input[type="text"] {
   width: 100%;
   outline: none;
@@ -471,17 +557,9 @@
 }
 
 .bbpress .widget_text .bbp-topic-form .bbp-submit-wrapper button {
-  border: none;
-  background: none;
-  color: var(--gray);
-  font-family: 'titan_one';
   font-size: 27.8px;
   line-height: 1.2;
   outline: none;
-}
-
-.bbpress .widget_text .bbp-topic-form .bbp-submit-wrapper #bbp_topic_submit:hover {
-  color: var(--cyan);
 }
 
 /* notice user not logged in */
@@ -573,9 +651,9 @@
 
 .bbpress .bbp-topics .topic.type-topic .bbp-topic-title {
   width: 100%;
-  line-height: 1;
   font-size: 2.5rem;
   color: var(--cyan);
+  line-height: 1.2;
 }
 
 .bbpress .bbp-topics .topic.type-topic .bbp-topic-title a {
@@ -595,62 +673,9 @@
   text-align: left;
 }
 
-.bbpress #bbpress-forums .bbp-topics .topic.type-topic .topic-replies {
+/* last replies and load more*/
+.bbpress #bbpress-forums .bbp-topics .topic-replies {
   width: 100%;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .bbp-list-reply {
-  margin: 0.5rem 0 1rem;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .author-container {
-  width: 30%;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .avatar-container {
-  padding: 0 0.5rem;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .avatar-container img {
-  width: 100px;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .author-text-container {
-  position: relative;
-  height: 135px;
-  width: calc(100% - 100px);
-  background: url('/wp-content/uploads/forum-author-background.png');
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .author-text-container .text-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 105px;
-  left: 13%;
-  font-size: 14px;
-  font-family: 'titan_one';
-  color: var(--cyan);
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .content-container {
-  width: 70%;
-  font-size: 1rem;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .content-container p {
-  font-size: inherit;
-  line-height: 1.5;
-  text-align: left;
-}
-
-.bbpress .bbp-topics .topic.type-topic .topic-replies .content-container .date {
-  font-size: inherit;
 }
 
 .bbpress .topic-section #bbpress-forums .load-more-link-container {
@@ -678,18 +703,14 @@
   color: var(--gray);
 }
 
+.bbpress .topic-section #bbpress-forums .load-more-link-container img {
+  width: 30px;
+}
+
 /* Topic : content : header */
 .bbpress .topic-section .bbp-breadcrumb {
   margin-bottom: 2rem;
   float: none;
-}
-
-.bbpress .topic-section #bbpress-forums .bbp-breadcrumb p {
-  margin: 0;
-  font-size: 28.7px;
-  line-height: 1.2;
-  font-family: 'titan_one';
-  text-align: left;
 }
 
 .bbpress .topic-section .bbp-breadcrumb p a:hover,
@@ -734,7 +755,7 @@
 }
 
 .bbpress .widget_text .bbp-reply-form .title {
-  color: var(--gray);
+  color: var(--cyan);
 }
 
 .bbpress .widget_text .bbp-reply-form .bbp-template-notice {
@@ -748,6 +769,43 @@
   list-style: none;
 }
 
+.bbpress .widget_text .bbp-reply-form .title,
+.bbpress .widget_text .bbp-reply-form .bbp-the-content-wrapper,
+.bbpress .widget_text .bbp-reply-form .topic-tags,
+.bbpress .widget_text .bbp-reply-form .topic-subscription {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.bbpress .widget_text .bbp-reply-form .bbp-the-content-wrapper {
+  width: 97%;
+}
+
+.bbpress .widget_text .bbp-reply-form .wp-editor-container {
+  border: none;
+  border-bottom: 4px dashed var(--cyan);
+}
+
+.bbpress .widget_text .bbp-reply-form .quicktags-toolbar {
+  display: none;
+}
+
+.bbpress .widget_text .bbp-reply-form .bbp-the-content {
+  height: calc(5*1.5rem*1.2);
+  font-family: 'sassoon';
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.bbpress .widget_text .bbp-reply-form .topic-subscription {
+  display: flex;
+  align-items: center;
+}
+
+.bbpress .widget_text .bbp-reply-form .topic-subscription label {
+  padding: 0 1rem;
+}
+
 .bbpress .widget_text .bbp-reply-form input[type="text"] {
   width: 97%;
   outline: none;
@@ -755,20 +813,13 @@
 
 .bbpress .widget_text .bbp-reply-form .bbp-submit-wrapper {
   float: none;
+  margin: 0;
 }
 
 .bbpress .widget_text .bbp-reply-form .bbp-submit-wrapper button {
-  border: none;
-  background: none;
-  color: var(--gray);
-  font-family: 'titan_one';
   font-size: 27.8px;
   line-height: 1.2;
   outline: none;
-}
-
-.bbpress .widget_text .bbp-reply-form .bbp-submit-wrapper #bbp_reply_submit:hover {
-  color: var(--cyan);
 }
 
 /* notice user not logged in */
@@ -829,14 +880,6 @@
   float: none;
 }
 
-.bbpress .replies-section #bbpress-forums .bbp-breadcrumb p {
-  margin: 0;
-  font-size: 28.7px;
-  line-height: 1.2;
-  font-family: 'titan_one';
-  text-align: left;
-}
-
 .bbpress .replies-section .bbp-breadcrumb p a:hover,
 .bbpress .replies-section .bbp-breadcrumb p a:focus {
   color: var(--cyan);
@@ -878,9 +921,9 @@
 
 .bbpress .replies-section #bbpress-forums .bbp-topic-title {
   font-size: 2.5rem;
-  line-height: 1.5;
-  text-align: center;
-  margin: 1.5rem 0;
+  line-height: 1.2;
+  text-align: left;
+  margin: 0 0 1.5rem;
 }
 
 /* Replies : content : list */
@@ -893,20 +936,26 @@
   border: none;
 }
 
+#bbpress-forums .topic-replies .reply-container,
 .bbpress .replies-section #bbpress-forums .bbp-replies .topic.type-topic {
   position: relative;
   overflow: visible;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   border: none;
   margin: 0 0 1rem;
   padding: 0 0 0.5rem;
   background-color: transparent;
 }
 
+/* remove bbpress defaults*/
 .bbpress .replies-section #bbpress-forums div.odd, #bbpress-forums ul.odd {
   background-color: transparent;
+}
+
+.bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+  margin-left: 4rem;
+}
+.bbpress .replies-section #bbpress-forums .bbp-replies ul li:first-child {
+  margin-left: 0;
 }
 
 .bbpress .replies-section #bbpress-forums .bbp-replies .reply-container {
@@ -914,14 +963,16 @@
   overflow: visible;
 }
 
-.bbpress .replies-section #bbpress-forums .bbp-replies .bbp-reply-header {
+.bbpress .replies-section #bbpress-forums .bbp-replies .bbp-reply-header,
+#bbpress-forums.bbpress-wrapper div.bbp-reply-header {
   border: none;
   margin: 0 0 1rem;
   padding: 0 0 0.5rem;
   background-color: transparent;
 }
 
-.bbpress .bbp-replies .bbp-reply-header .bbp-reply-post-date {
+.bbpress .bbp-replies .bbp-reply-header .bbp-reply-post-date,
+#bbpress-forums.bbpress-wrapper .bbp-reply-header .bbp-reply-post-date {
   display: inline-block;
   width: 100%;
   line-height: 1;
@@ -930,18 +981,31 @@
   margin-bottom: 0.5rem;
 }
 
-.bbpress .bbp-replies .bbp-reply-header .bbp-admin-links {
+.bbpress .bbp-replies .bbp-reply-header .bbp-admin-links,
+#bbpress-forums.bbpress-wrapper .bbp-reply-header .bbp-admin-links  {
   float: none;
   display: block;
 }
 
-.bbpress .bbp-replies .bbp-reply-header .bbp-admin-links a {
+.bbpress .bbp-admin-links-container {
+  padding: 0 5rem;
+  width: 100%;
+}
+
+.bbpress span.bbp-admin-links a {
   font-size: 1rem;
   line-height: 1.2;
+  color: var(--cyan);
+  text-transform: capitalize;
+}
+
+.bbpress span.bbp-admin-links a:hover,
+.bbpress span.bbp-admin-links a:focus {
   color: var(--gray);
 }
 
-.bbpress .bbp-replies .bbp-reply-header .bbp-admin-links a:hover {
+.bbpress .bbp-replies .bbp-reply-header .bbp-admin-links a:hover,
+#bbpress-forums.bbpress-wrapper .bbp-reply-header .bbp-admin-links a:hover {
   color: var(--cyan);
 }
 
@@ -950,64 +1014,109 @@
 }
 
 .bbpress .bbp-replies .reply-container .type-topic,
-.bbpress .bbp-replies .reply-container .type-reply {
+.bbpress .bbp-replies .reply-container .type-reply,
+#bbpress-forums.bbpress-wrapper .type-reply.reply {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: none;
 }
 
+#bbpress-forums .topic-replies .reply-container .author-container,
 .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
-  width: 30%;
+  width: 20%;
 }
 
-.bbpress .bbp-replies .reply-container .author-container .avatar-container {
-  padding: 0 0.5rem;
+.col-sm-10 #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-author {
+  width: 20%;
 }
 
-.bbpress .bbp-replies .reply-container .author-container .avatar-container img {
+/*.bbpress #bbpress-forums .topic-replies .content-container .reply-background-image,*/
+#bbpress-forums .topic-replies .reply-container .author-container .avatar-container img,
+.bbpress .bbp-replies .reply-container .author-container .avatar-container img,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .avatar-container img  {
   width: 100px;
 }
 
-.bbpress .bbp-replies .reply-container .author-container .author-text-container {
-  position: relative;
+#bbpress-forums .topic-replies .reply-container .author-container .author-text-container,
+.bbpress .bbp-replies .reply-container .author-container .author-text-container,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .author-text-container {
+  padding-top: 0.25rem;
+  /* position: relative;
   height: 135px;
   width: calc(100% - 100px);
   background: url('/wp-content/uploads/forum-author-background.png');
   background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
-.bbpress .bbp-replies .reply-container .author-container .text-container {
-  position: absolute;
+#bbpress-forums .topic-replies .reply-container .author-container .text-container,
+.bbpress .bbp-replies .reply-container .author-container .text-container,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .text-container {
+  /* position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 140px;
   height: 105px;
-  left: 13%;
-  font-size: 14px;
+  left: 13%; */
+  font-size: initial;
   font-family: 'titan_one';
   color: var(--cyan);
 }
 
-.bbpress .bbp-replies .reply-container .author-container .text-container a {
+#bbpress-forums .topic-replies .reply-container .author-container .text-container a,
+.bbpress .bbp-replies .reply-container .author-container .text-container a,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .text-container a {
   color: var(--cyan);
 }
 
-.bbpress .bbp-replies .reply-container .bbp-reply-location {
-  text-align: right;
+.bbpress #bbpress-forums div.bbp-forum-author .bbp-author-role, 
+.bbpress #bbpress-forums div.bbp-reply-author .bbp-author-role, 
+.bbpress #bbpress-forums div.bbp-topic-author .bbp-author-role {
+  font-style: normal;
+  font-size: 0.75em;
 }
 
-.bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content {
-  width: 70%;
+.bbpress .bbp-replies .reply-container .bbp-reply-location,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-location {
+  /* text-align: right; */
+  padding-top: 0.25rem;
+}
+
+#bbpress-forums .topic-replies .reply-container .content-container,
+.bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+  position: relative;
+  width: 75%;
   margin: 0;
+  margin-bottom: 1rem;
+  padding: 1rem 5rem 1rem 1rem;
   line-height: 1.5;
   font-size: 1rem;
 }
 
-.bbpress .bbp-replies .reply-container .bbp-reply-content p {
+#bbpress-forums .topic-replies .reply-container .reply-background-image,
+.bbpress #bbpress-forums div.bbp-reply-content .reply-background-image {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 107.5%;
+  width: 100%;
+  left: -40px;
+}
+
+#bbpress-forums .topic-replies .reply-container h6,
+.bbpress #bbpress-forums div.bbp-reply-content h6 {
+  line-height: 1.5;
+}
+
+#bbpress-forums .topic-replies .reply-container .content-container p,
+.bbpress .bbp-replies .reply-container .bbp-reply-content p,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content p {
   text-align: left;
   font-size: inherit;
 }
@@ -1142,6 +1251,10 @@
   font-size: 2rem;
 }
 
+.bbpress .user #bbpress-forums .bbp-topics .type-topic {
+  background: none;
+}
+
 .bbpress .user #bbpress-forums .bbp-replies {
   border: none;
 }
@@ -1202,6 +1315,7 @@
 .bbpress .user #bbpress-forums #bbp-single-user-details #bbp-user-navigation li a {
   font-family: 'titan_one';
   font-size: 1.5rem;
+  line-height: 1.2;
   padding: 1rem 0 ;
 }
 
@@ -1286,18 +1400,21 @@
 
 /* search : topic, replies */
 .bbp-search #bbpress-forums .topic,
-.bbp-search #bbpress-forums .reply {
+.bbp-search #bbpress-forums .reply,
+.reply #bbpress-forums .reply {
   display: flex;
   align-items: center;
 }
 
 .bbp-search #bbpress-forums .topic .bbp-topic-author,
-.bbp-search #bbpress-forums .reply .bbp-reply-author {
+.bbp-search #bbpress-forums .reply .bbp-reply-author,
+.reply #bbpress-forums .reply .bbp-reply-author {
   width: 20%;
 }
 
 .bbp-search .forums .topic .author-container,
-.bbp-search .forums .reply .author-container {
+.bbp-search .forums .reply .author-container,
+.reply .forums .reply .author-container {
   position: relative;
   width: 100%;
   height: 135px;
@@ -1308,7 +1425,8 @@
 }
 
 .bbp-search .forums .topic .bbp-topic-author .text-container,
-.bbp-search .forums .reply .bbp-reply-author .text-container {
+.bbp-search .forums .reply .bbp-reply-author .text-container,
+.reply .forums .reply .bbp-reply-author .text-container {
   position: absolute;
   display: flex;
   align-items: center;
@@ -1323,18 +1441,21 @@
 }
 
 .bbp-search .forums .topic .author-container .text-container a,
-.bbp-search .forums .reply .author-container .text-container a {
+.bbp-search .forums .reply .author-container .text-container a,
+.reply .forums .reply .author-container .text-container a {
   color: var(--cyan);
 }
 
 .bbp-search #bbpress-forums .forums .topic .bbp-topic-content,
-.bbp-search #bbpress-forums .forums .reply .bbp-reply-content {
+.bbp-search #bbpress-forums .forums .reply .bbp-reply-content,
+.reply #bbpress-forums .forums .reply .bbp-reply-content {
   width: 80%;
   margin: 0;
 }
 
 .bbp-search .forums .topic .bbp-topic-content p,
-.bbp-search .forums .reply .bbp-reply-content p {
+.bbp-search .forums .reply .bbp-reply-content p,
+.reply .forums .reply .bbp-reply-content p {
   text-align: left;
 }
 
@@ -1446,7 +1567,7 @@ body.page-id-346 {
 
 /* sidebar */
 #news .news-row .sidebar {
-  border-left: 4px dashed var(--cyan);
+  border-right: 4px dashed var(--cyan);
 }
 
 #news .news-row .sidebar .news-container {
@@ -1610,12 +1731,12 @@ body.page-id-346 {
 }
 
 /* Tools : Type filter */
-#tools .type-filter-container,
+#tools .target-filter-container,
 #tools .tools-container {
   padding-left: 8.333333%;
 }
 
-#tools .type-filter-container {
+#tools .target-filter-container {
   position: absolute;
   width: calc(58.333333vw - 40px);
   top: 0;
@@ -1624,44 +1745,44 @@ body.page-id-346 {
   background-color: white;
 }
 
-#tools .type-filter-container.fixed {
+#tools .target-filter-container.fixed {
   z-index: 20;
   position: fixed;
-  top: 118px;
+  top: 124px;
   left: calc(33.333333vw + 15px);
   width: calc(58.333333vw - 40px);
   border: none;
 }
 
-#tools .type-filter-container button {
+#tools .target-filter-container button {
   padding: 0 3rem;
 }
 
-#tools .type-filter-container button .filter-image {
+#tools .target-filter-container button .filter-image {
   filter: grayscale(0.7);
   transition: filter 0.5s ease-in-out;
 }
 
-#tools .type-filter-container button.active .filter-image,
-#tools .type-filter-container button:hover .filter-image {
+#tools .target-filter-container button.active .filter-image,
+#tools .target-filter-container button:hover .filter-image {
   filter: grayscale(0);
 }
 
-#tools .type-filter-container button .text-container {
+#tools .target-filter-container button .text-container {
   transition: color 0.5s ease-in-out;
 }
 
-#tools .type-filter-container button.active .text-container,
-#tools .type-filter-container button:hover .text-container {
+#tools .target-filter-container button.active .text-container,
+#tools .target-filter-container button:hover .text-container {
   color: var(--cyan);
 }
 
-#tools .type-filter-container img.filter-image {
+#tools .target-filter-container img.filter-image {
   height: 40px;
   /* margin-bottom: 1rem; */
 }
 
-#tools .type-filter-container img.arrow-image {
+#tools .target-filter-container img.arrow-image {
   height: 40px;
 }
 
@@ -1713,8 +1834,13 @@ body.page-id-346 {
 }
 
 #tools .tool-container .follow-column button {
+  padding: 0;
   filter: grayscale(0.7);
   transition: all 0.5s ease-in-out;
+}
+
+#tools .tool-container .follow-column button img {
+  width: 30px;
 }
 
 #tools .tool-container .follow-column button:hover,
@@ -1743,97 +1869,27 @@ body.page-id-346 {
   border-radius: 5px;
 }
 
-#tools .tool-container .resource-column button {
-  position: relative;
-  color: var(--cyan);
-  transition: color 0.5s ease-in-out;
+/* bottom row */
+#tools .tool-container .related-column h6 {
+  padding: 0;
 }
 
-#tools .tool-container .resource-column button:hover {
-  color: var(--gray);
-}
-
-.copy-icon-container {
-  color: inherit;
-  transition: inherit;
-}
-
-.copy-icon-container i {
-  font-size: 2rem;
-}
-
-.copy-icon-container div {
-  font-size: 0.8rem;
-}
-
-#tools .tool-container .resource-column button div {
-  color: inherit;
-  transition: inherit;
-}
-
-#tools .tool-container .download-link-column .view-link img {
-  width: 56px;
-}
-
-#tools .main-container .load-more-container {
-  text-align: center;
-}
-
-#tools .load-more-container button .text-container {
-  color: var(--cyan);
-  transition: color 0.5s ease-in-out;
-}
-
-#tools .tool-container .resource-column button .tooltiptext {
-  visibility: hidden;
-  background-color: var(--cyan);
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 0.25rem 0.25rem;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  right: 0%;
-  opacity: 0;
-  transform: translate(110%, -50%);
-  transition: opacity 0.3s;
-}
-
-#tools .tool-container .resource-column button .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(0, -50%);
-  margin-left: -10px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent var(--cyan) transparent transparent;
-}
-
-#tools .tool-container .resource-column button.active .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-#tools .load-more-container button:hover .text-container,
-#tools .load-more-container button:focus .text-container {
-  color: var(--gray);
-}
-
-#tools .load-more-container button.end-list {
-  opacity: 0;
-  display: none;
+/* related tool */
+#tools .tool-container .related-tool-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #tools .tool-container .related-tool-container .view-link-rel,
 #tools .tool-container .related-tool-container .down-link-rel {
-  width: 20%;
   overflow: hidden;
   display: inline-block;
-  text-align: center;
+  text-align: left;
 }
+
+#tools .tool-container .related-tool-container .view-link-rel {width: 80%;}
+#tools .tool-container .related-tool-container .down-link-rel {width: 20%;}
 
 #tools .tool-container .related-tool-container .down-link-rel img {
   height: 30px;
@@ -1843,6 +1899,73 @@ body.page-id-346 {
 
 #tools .tool-container .related-tool-container .down-link-rel:hover img {
   filter: grayscale(0);
+}
+
+/* actions */
+#tools .tool-container .resource-section button {
+  position: relative;
+  color: var(--cyan);
+  transition: color 0.5s ease-in-out;
+}
+
+#tools .tool-container .resource-section button:hover {
+  color: var(--gray);
+}
+
+#tools .tool-container .resource-section .copy-icon-container {
+  color: inherit;
+  transition: inherit;
+}
+
+#tools .tool-container .resource-section .copy-icon-container i {
+  font-size: 2rem;
+}
+
+#tools .tool-container .resource-section button div {
+  color: inherit;
+  transition: inherit;
+}
+
+#tools .tool-container .resource-section button .tooltiptext {
+  visibility: hidden;
+  background-color: var(--cyan);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.25rem 0.25rem;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0%;
+  opacity: 0;
+  transform: translate(-110%, -50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+#tools .tool-container .resource-section button .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(100%, -50%);
+  margin-left: -10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent var( --cyan);
+}
+
+#tools .tool-container .resource-section button.active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+#tools .tool-container .actions-column {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#tools .tool-container .download-link-section a img {
+  height: 32px;
 }
 
 .modal-root {
@@ -1909,8 +2032,9 @@ body.page-id-346 {
 
 .modal-root .modal-dialog iframe {
   display: none;
-  width: 600px;
-  height: 338px;
+  width: 60vw;
+  height: 60vh;
+  max-width: unset;
 }
 
 .modal-root .modal-dialog .type-audio,
@@ -1921,6 +2045,29 @@ body.page-id-346 {
 .modal-root .modal-dialog video.active,
 .modal-root .modal-dialog iframe.active {
   display: block;
+}
+
+#tools .main-container .load-more-container {
+  text-align: center;
+}
+
+#tools .load-more-container button .text-container {
+  color: var(--cyan);
+  transition: color 0.5s ease-in-out;
+}
+
+#tools .load-more-container button .image-container img {
+  width: 30px;
+}
+
+#tools .load-more-container button:hover .text-container,
+#tools .load-more-container button:focus .text-container {
+  color: var(--gray);
+}
+
+#tools .load-more-container button.end-list {
+  opacity: 0;
+  display: none;
 }
 
 /**************************************************/
@@ -2022,7 +2169,8 @@ body.page-id-346 {
   font-size: 3.5rem;
 }
 
-#page .courses-sidebar .other-courses .title-container div {
+#page .courses-sidebar .other-courses .title-container div,
+#page .courses-sidebar .other-courses .title-container p {
   color: inherit;
 }
 
@@ -2097,11 +2245,13 @@ body.page-id-346 {
   line-height: 1;
 }
 
-.courses-section .tutor-course-loop-title h2 .subtitle {
+.courses-section .tutor-course-loop-title h2 .subtitle,
+.courses-section .tutor-course-loop-title h2 .subtitle p {
   font-size: 0.65em;
 }
 
-#page.learning .tutor-course-loop-title h2 > div {
+#page.learning .tutor-course-loop-title h2 > div,
+#page.learning .tutor-course-loop-title h2 p {
   color: inherit;
 }
 
@@ -2283,8 +2433,15 @@ body.page-id-346 {
   padding-right: 1rem;
 }
 
-.single-courses #page .course-section h2 div {
+.single-courses #page .course-section h2 div,
+.single-courses #page .course-section h2 p {
   color: var(--cyan);
+}
+
+.single-courses #page .course-section h2 p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* course single : body */
@@ -2496,6 +2653,8 @@ body.page-id-346 {
 
 .lesson-sidebar .tutor-lesson-list .list-header a span {
   line-height: inherit;
+  font-size: inherit;
+  pointer-events: none;
 }
 
 .lesson-sidebar .tutor-lesson-list .list-content .tutor-topics-title h3 {
@@ -2551,7 +2710,8 @@ body.page-id-346 {
   background: none;
 }
 
-.lesson-section .tutor-single-lesson-title {
+.lesson-section .tutor-single-lesson-title,
+.lesson-section .tutor-single-module-title {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -2572,7 +2732,6 @@ body.page-id-346 {
 .lesson-section .tutor-single-lesson-title h2 {
   display: flex;
   margin: 0;
-  font-size: 2.5rem;
 }
 
 #page .lesson-section .tutor-single-lesson-title h2 > div {
@@ -2580,21 +2739,28 @@ body.page-id-346 {
   color: var(--cyan);
 }
 
-.lesson-section .tutor-single-page-top-bar {
-  background: none;
-  flex-direction: column;
-  align-items: flex-start;
+#page .lesson-section .tutor-single-lesson-title h2 p {
+  margin: 0;
+  font-size: inherit;
+  color: var(--cyan);
+  line-height: inherit;
 }
 
-#page .lesson-section .tutor-topbar-content-title-wrap {
+.lesson-section .tutor-single-lesson-title,
+.lesson-section .tutor-single-module-title {
+  background: none;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.lesson-section .tutor-topbar-content-title-wrap {
   overflow: visible;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   text-align: left;
   color: var(--cyan);
   font-family: 'titan_one';
-  font-size: 2rem;
 }
 
 .lesson-section .tutor-topbar-content-title-wrap .tutor-icon-document {
@@ -2602,9 +2768,11 @@ body.page-id-346 {
   width: 32px;
 }
 
-#page .lesson-section .tutor-topbar-content-title-wrap span {
-  padding: 0 2.8rem;
-  line-height: 1;
+.lesson-section .tutor-topbar-content-title-wrap h2,
+.lesson-section .tutor-single-module-title h5 {
+  color: var(--cyan);
+  padding: 0 5rem;
+  line-height: 1.5;
 }
 
 .lesson-section .tutor-back-to-course .tutor-topbar-home-btn {
@@ -2626,7 +2794,19 @@ body.page-id-346 {
 
 .lesson-section .tutor-lesson-content-area,
 .lesson-section .tutor-quiz-single-wrap {
-  margin: 0 5rem;
+  position: relative;
+  margin: 0;
+  padding: 0 5rem;
+}
+
+.lesson-section .tutor-lesson-content-area div,
+.lesson-section .tutor-quiz-single-wrap div {
+  z-index: 1;
+}
+
+.lesson-section .tutor-lesson-content-area .tutor-next-previous-pagination-wrap,
+.lesson-section .tutor-quiz-single-wrap .tutor-next-previous-pagination-wrap {
+  z-index: 0;
 }
 
 #page .lesson-section .tutor-quiz-single-wrap input[type="submit"],
@@ -2673,21 +2853,6 @@ body.page-id-346 {
   color: var(--gray);
 }
 
-.lesson-section .tutor-next-previous-pagination-wrap .tutor-previous-link,
-.lesson-section .tutor-next-previous-pagination-wrap .tutor-next-link,
-.lesson-section .tutor-lesson-content-area .tutor-topbar-mark-to-done {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 138px;
-  height: 75px;
-  padding-bottom: 0.5rem;
-  background: url(/wp-content/uploads/learning-button-background.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .lesson-section .tutor-lesson-content-area .tutor-lesson-compelte-form-wrap {
   margin: 0;
 }
@@ -2702,11 +2867,43 @@ body.page-id-346 {
   color: var(--gray);
 }
 
+.lesson-section .tutor-next-previous-pagination-wrap {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.lesson-section .tutor-next-previous-pagination-wrap .tutor-previous-link,
+.lesson-section .tutor-next-previous-pagination-wrap .tutor-next-link {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 0 12px;
+  background: var(--cyan);
+  color: var(--white);
+  line-height: 4.8;
+}
+
 .lesson-section .tutor-next-previous-pagination-wrap .tutor-previous-link img,
 .lesson-section .tutor-next-previous-pagination-wrap .tutor-next-link img {
   height: 20px;
   width: auto;
   margin: 0.25rem;
+}
+
+.lesson-section .tutor-lesson-content-area .tutor-topbar-mark-to-done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 138px;
+  height: 75px;
+  padding-bottom: 0.5rem;
+  background: url(/wp-content/uploads/learning-button-background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* lesson single : quiz meta */
@@ -2784,4 +2981,130 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 
 #tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span.result-pass {
   background-color: var(--green-light);
+}
+
+/* question navigation */
+.single-tutor_quiz .tutor-quiz-questions-pagination ul {
+  margin: 2rem 1rem;
+}
+
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li {
+  position: relative;
+}
+
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  top: 50%;
+  right: 0;
+  background-color: var(--cyan);
+  transform: translate(0, -50%);
+}
+
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li:last-child:after {
+  content: unset;
+}
+
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li a {
+  margin-right: 50px;
+  background-color: var(--cyan);
+  color: var(--white);
+  font-family: 'titan_one';
+  transition: all 0.5s ease-in-out;
+}
+
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li a.active,
+.single-tutor_quiz .tutor-quiz-questions-pagination ul li a:hover {
+  margin-right: 50px;
+  background-color: var(--yellow);
+  color: var(--white);
+  font-family: 'titan_one';
+}
+
+/* questions */
+.single-tutor_quiz .tutor-quiz-single-wrap .question-text {
+  font-weight: 400;
+}
+
+.single-tutor_quiz .tutor-quiz-single-wrap .question-explanation {
+  color: var(--cyan);
+  opacity: 0.8;
+}
+
+.single-tutor_quiz .tutor-quiz-answers-wrap label input:checked+span,
+.single-tutor_quiz .tutor-quiz-answers-wrap label input:checked+span {
+  background-color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.single-tutor_quiz .tutor-quiz-answers-wrap .quiz-image-answering-input-field-wrap input {
+  outline-color: var(--cyan);
+  padding: 0.25rem 0.5rem;
+}
+
+.single-tutor_quiz .quiz-draggable-rand-answers {
+  height: auto !important;
+}
+
+/* tutor dashboard */
+.tutor-dashboard .tutor-dashboard-header {
+  border-bottom: 4px dashed var(--cyan);
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks {
+  border-right: 4px dashed var(--cyan);
+}
+
+/* tutor dashboard : sidebar */
+.tutor-dashboard .tutor-dashboard-permalinks li a {
+  position: relative;
+  display: inline-block;
+  color: var(--gray);
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks li a:before {
+  color: var(--gray);
+  opacity: 1;
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks li.active a,
+.tutor-dashboard .tutor-dashboard-permalinks li.active a:hover,
+.tutor-dashboard .tutor-dashboard-permalinks li a:hover {
+  background-color: transparent;
+  color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks li.active a:before,
+.tutor-dashboard .tutor-dashboard-permalinks li a:hover:before {
+  color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks li a::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--cyan);
+  transform: translate(-50%, 0);
+  transition: width 0.5s ease-in-out;
+}
+
+.tutor-dashboard .tutor-dashboard-permalinks li.active a::after,
+.tutor-dashboard .tutor-dashboard-permalinks li a:hover::after {
+  width: 75%;
+}
+
+/* tutor dashboard : dashboard */
+.tutor-dashboard .tutor-dashboard-content h3 {
+  color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-dashboard-info-cards .tutor-dashboard-info-card p {
+  background-color: var(--cyan);
+  color: var(--white);
 }

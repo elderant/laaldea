@@ -269,6 +269,10 @@ a:hover, a:focus  {
   color: var(--gray) !important;
 }
 
+.color-white {
+  color: var(--white) !important;
+}
+
 .font-titan {
   font-family: 'titan_one', 'Helvetica', sans-serif;;
 }
@@ -591,10 +595,11 @@ header#masthead .navbar.secondary ul > li > a:focus {
   pointer-events: none;
 }
 
+#page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li.click-link > a,
+#page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li.crea-link > a,
 #page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li.home-link > a  {
   color: var(--white);
-  /* change to all when link is to front */
-  pointer-events: none;
+  pointer-events: all;
 }
 
 #page.learning header#masthead .navbar ul#menu-learning > li.current-menu-item > a {
@@ -651,9 +656,16 @@ header#masthead .navbar.secondary ul > li > a:focus {
   width: 75%;
 }
 
+.user-flow #page.learning header#masthead .navbar ul#menu-learning > li::after,
 #page.learning header#masthead .navbar ul#menu-learning > li.home-link::after,
-#page.learning header#masthead .navbar ul#menu-learning > li.user-link::after {
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link::after,
+#page.learning header#masthead .navbar ul#menu-learning > li.image-link::after {
   content: unset;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li.image-link a {
+  display: inline-block;
+  padding: 0;
 }
 
 /* learning header user menu */
@@ -661,14 +673,15 @@ header#masthead .navbar.secondary ul > li > a:focus {
   height: 50px;
 }
 
-#page.learning header#masthead .navbar.user-navbar.show {
-  /* display: block; */
-  height: 195px;
-  border-width: 1px;
+#page.learning header#masthead .navbar.user-navbar {
+  position: fixed;
+  right: 15px;
 }
 
-#page.learning header#masthead .navbar.user-navbar.collapsing {
-  /* height: 0; */
+#page.learning header#masthead .navbar.user-navbar.show {
+  /* height: calc(100vh - 162px); */
+  height: 336px;
+  border-width: 1px;
 }
 
 #page.learning header .navbar.user-navbar {
@@ -682,6 +695,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
   border-radius: 5px;
   top: 112px;
   margin: 0 20px 0 auto;
+  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
   backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: all 0.35s ease-in-out;
@@ -691,6 +705,18 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header .navbar.user-navbar .user-navbar-container {
   display: block;
   margin: 1rem;
+}
+
+#page.learning header .navbar.user-navbar .user-navbar-container .menu-header {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  font-family: 'sassoon';
+}
+
+#page.learning header .navbar.user-navbar .user-navbar-container .menu-header img {
+  width: 75px;
 }
 
 #page.learning header .navbar.user-navbar .navbar-nav {
@@ -1080,6 +1106,44 @@ body.page-politica-privacidad p {
 	color: var(--black);
 }
 
+/* Learning header titles */
+.user-flowh1, .user-flow .h1,
+.bbpress h1, .bbpress .h1,
+.learning h1, .learning .h1 {
+	font-size: 3rem;
+}
+
+.user-flow h2, .user-flow .h2,
+.bbpress h2, .bbpress .h2,
+.learning h2, .learning .h2 {
+	font-size: 2.5rem;
+}
+
+.user-flow h3, .user-flow .h3,
+.bbpress h3, .bbpress .h3,
+.learning h3, .learning .h3 {
+	font-size: 2rem;
+}
+
+.user-flow h4, .user-flow .h4,
+.bbpress h4, .bbpress .h4,
+.learning h4, .learning .h4 {
+	font-size: 1.75rem;
+}
+
+.user-flow h5, .user-flow .h5,
+.bbpress h5, .bbpress .h5,
+.learning h5, .learning .h5 {
+	font-size: 1.5rem;
+}
+
+.user-flow h6, .user-flow .h6,
+.bbpress h6, .bbpress .h6,
+.learning h6, .learning .h6 {
+	font-size: 1.25rem;
+}
+
+
 /**** User flow General ****/
 .user-flow,
 .user-flow label,
@@ -1115,9 +1179,9 @@ body.page-politica-privacidad p {
 }
 
 .user-flow #content > .container-fluid > .row {
+  padding: 0rem 1rem 5rem;
   background-image: url(/wp-content/uploads/user-flow-background.png);
   background-repeat: no-repeat;
-  background-size: 84% auto;
   background-position: 50% 95%;
 }
 
@@ -1187,7 +1251,8 @@ body.page-politica-privacidad p {
 
 /**** User flow specific ****/
 form label.user-flow-label,
-.user-flow #loginform label {
+.user-flow #loginform label,
+form label.learning-label {
   position: relative;
   font-family: 'titan_one';
   color: var(--cyan);
@@ -1215,7 +1280,11 @@ form input.user-flow-input[type="password"],
 .user-flow #loginform input[type="text"],
 .user-flow #loginform input[type="email"],
 .user-flow #loginform input[type="tel"],
-.user-flow #loginform input[type="password"] {
+.user-flow #loginform input[type="password"],
+form input.learning-input[type="text"],
+form input.learning-input[type="email"],
+form input.learning-input[type="tel"],
+form input.learning-input[type="password"] {
   border-radius: 0;
   border: none;
   outline: none;
@@ -1241,11 +1310,20 @@ form input.user-flow-input[type="password"]:active,
 .user-flow #loginform input[type="tel"]:active,
 .user-flow #loginform input[type="tel"]:focus,
 .user-flow #loginform input[type="password"]:focus,
-.user-flow #loginform input[type="password"]:active  {
+.user-flow #loginform input[type="password"]:active,
+form input.learning-input[type="text"]:active,
+form input.learning-input[type="text"]:focus,
+form input.learning-input[type="email"]:active,
+form input.learning-input[type="email"]:focus,
+form input.learning-input[type="tel"]:active,
+form input.learning-input[type="tel"]:focus,
+form input.learning-input[type="password"]:focus,
+form input.learning-input[type="password"]:active {
   border-color: var(--cyan);
 }
 
 form a.user-flow-link,
+form a.learning-link,
 .user-flow.page-login .page a {
   opacity: 0.5;
   color: var(--gray);
@@ -1254,6 +1332,8 @@ form a.user-flow-link,
 
 form a.user-flow-link:hover,
 form a.user-flow-link:focus,
+form a.learning-link:hover,
+form a.learning-link:focus,
 .user-flow.page-login .page a:hover,
 .user-flow.page-login .page a:focus {
   opacity: 1;
@@ -1261,13 +1341,16 @@ form a.user-flow-link:focus,
 }
 
 form input[type="submit"].user-flow-button,
+form button[type="submit"].user-flow-button,
+form input[type="submit"].learning-button,
+form button[type="submit"].learning-button,
 .user-flow #loginform input[type="submit"] {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
   outline: none;
   color: var(--cyan);
   font-family: 'titan_one';
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: url(/wp-content/uploads/learning-button-background.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -1275,6 +1358,9 @@ form input[type="submit"].user-flow-button,
 }
 
 form input[type="submit"].user-flow-button:hover,
+form button[type="submit"].user-flow-button:hover,
+form input[type="submit"].learning-button:hover,
+form button[type="submit"].learning-button:hover,
 .user-flow #loginform input[type="submit"].user-flow-button:hover {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
@@ -1297,10 +1383,6 @@ form input[type="submit"].user-flow-button:hover,
 .user-flow #loginform {
   display: flex;
   flex-direction: column;
-}
-
-.user-flow.page-login #content > .container-fluid > .row {
-  background-size: 51% auto;
 }
 
 .user-flow.page-login #main > .page {
@@ -1408,4 +1490,13 @@ form input[type="submit"].user-flow-button:hover,
 .page-template-learning .sidebar .h4 {
   font-family: 'titan_one';
   margin-bottom: 2rem;
+}
+
+/* 404 */
+.error-404 .page-content {
+  text-align: center;
+}
+
+.error-404 .page-content img {
+  width: 75%;
 }

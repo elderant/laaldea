@@ -9,42 +9,33 @@ $course = tutor_utils()->get_course_by_quiz(get_the_ID());
 $course_id = $course -> ID;
 $title_html = get_field( 'title_html', $course_id );
 $title = empty($title_html) ? get_the_title() : $title_html;
+
+$topic = laaldea_get_topic_from_lesson(get_post());
+$topic_name = get_the_title( $topic -> ID );
 ?>
 
-<div class="tutor-single-lesson-title mb-5">
-  <div class="tutor-hide-sidebar-bar">
-    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar"><i class="tutor-icon-angle-left"></i></a>
-  </div>
-  <?php do_action('tutor_course/single/title/before'); ?>
-  <div class="before-title font-titan pb-2"><?php _e('Curso: ','laaldea');?></div>
-  <h2 class="color-cyan"><?php echo $title; ?></h2>
-  <?php do_action('tutor_course/single/title/after'); ?>
-</div>
-
-<div class="tutor-single-page-top-bar">
-  <div class="tutor-topbar-item tutor-topbar-content-title-wrap">
+<div class="tutor-single-lesson-title mb-2">
+  <div class="tutor-top-bar-item tutor-topbar-content-title-wrap">
+    <?php do_action('tutor_course/single/title/before'); ?>
     <?php
-      tutor_utils()->get_lesson_type_icon(get_the_ID(), true, true);
-      the_title('<span>', '</span>'); 
-    ?>
+      the_title('<h2>', '</h2>'); ?>
+    <?php do_action('tutor_course/single/title/after'); ?>
   </div>
-  <div class="tutor-topbar-item tutor-hide-sidebar-bar tutor-back-to-course">
-    <a href="<?php echo get_the_permalink($course->ID); ?>"  class="tutor-topbar-home-btn">
-      <i class="tutor-icon-home"></i>
-      <span><?php echo __('Go to Course Home', 'tutor') ; ?></span>
-    </a>
-  </div>
-
-  <div class="tutor-topbar-item tutor-topbar-mark-to-done" style="width: 150px;"></div>
 </div>
 
+<div class="tutor-single-module-title mb-5">
+  <h5 class="color-cyan">
+    <span class="before-title font-titan color-gray"><?php _e('Modulo: ','laaldea');?></span>
+    <?php echo $topic_name; ?>
+  </h5>
+</div>
 
 <div class="tutor-quiz-single-wrap ">
     <input type="hidden" name="tutor_quiz_id" id="tutor_quiz_id" value="<?php the_ID(); ?>">
 
 	<?php
 	if ($course){
-		tutor_single_quiz_top();
+		//tutor_single_quiz_top();
 		tutor_single_quiz_body();
 	}else{
 		tutor_single_quiz_no_course_belongs();

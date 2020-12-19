@@ -18,29 +18,26 @@
       $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
     ?>
 
-    <?php if ( bbp_is_topic( $reply_id ) ) : ?>
-      <div class="topic-container bbp-list-reply d-flex align-items-center">
-    <?php else:?>
-      <div class="reply-container bbp-list-reply d-flex align-items-center">
-    <?php endif;?>
-        <div class="author-container d-flex align-items-center">
-          <div class="avatar-container">
-            <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
-          </div>
-          <div class="author-text-container">
-            <div class="text-container text-center"><?php echo $reply_author; ?></div>
-          </div>
+    <div class="reply-container bbp-list-reply d-flex align-items-center justify-content-between">
+      <div class="author-container text-center">
+        <div class="avatar-container">
+          <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
         </div>
-        <div class="content-container">
-          <?php echo $reply_content; ?>
-          <div class="date text-right color-cyan"><?php echo $reply_date; ?></div>
+        <div class="author-text-container">
+          <div class="text-container text-center"><?php echo $reply_author; ?></div>
         </div>
       </div>
+      <div class="content-container">
+        <img class="reply-background-image" src="/wp-content/uploads/tools-single-background.png" alt="<?php _e('Tool item background','laaldea')?>">
+        <?php echo $reply_content; ?>
+        <div class="date text-right color-cyan"><?php echo $reply_date; ?></div>
+      </div>
+    </div>
   <?php endwhile;?>
   <?php if($total_replies > $offset) : ?>
     <div class="load-more-link-container">
       <button class="load-more-link" data-offset="<?php echo $offset?>" data-total="<?php echo $total_replies?>" data-topicId="<?php echo $topic_id?>">
-        <div class="text-container h5">
+        <div class="text-container h6">
           <span><?php _e('Ver más','laaldea');?></span>
         </div>
         <div class="image-container">

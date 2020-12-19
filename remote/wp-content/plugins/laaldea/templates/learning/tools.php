@@ -11,13 +11,13 @@
 <section id="tools" class="d-flex align-items-center justify-content-center">
   <div class="container-fluid">
     <div class="row title-row hidden">
-      <h2><?php _e('Herramientas','laaldea');?></h2>
+      <h2><?php _e('Contenidos','laaldea');?></h2>
     </div>
     <div class="row tools-row">
       <div class="col-3 offset-1 sidebar">
         <div class="title-container d-flex align-items-center pb-5">
           <img src="/wp-content/uploads/tools-icon.png" alt="<?php _e('Herramientas icon', 'laaldea'); ?>">
-          <h4><?php _e('Herramientas','laaldea');?></h4>
+          <h4><?php _e('Contenidos','laaldea');?></h4>
         </div>
         <div class="filters-container follow d-flex flex-column justify-content-between align-items-start pb-5">
           <button class="follow-type-filter-button pl-5" data-filter="follow">
@@ -92,14 +92,14 @@
       </div>
 
       <div class="col-7 main-container">
-        <div class="type-filter-container pb-4 d-flex align-items-center">
-          <button class="video-type-filter-button d-flex align-items-center" data-filter="video">
-            <img class="filter-image video" src="/wp-content/uploads/tools-filter-video.png" alt="<?php _e('Imagen filtrar por video','laaldea')?>">
-            <div class="text-container h6 font-titan"><?php _e('Video','laaldea');?></div>
+        <div class="target-filter-container pb-4 d-flex align-items-center">
+          <button class="docente-target-filter-button d-flex align-items-center" data-filter="docente">
+            <img class="filter-image docente" src="/wp-content/uploads/tools-filter-video.png" alt="<?php _e('Imagen filtrar para docentes','laaldea')?>">
+            <div class="text-container h6 font-titan"><?php _e('Para docentes','laaldea');?></div>
           </button>
-          <button class="pdf-type-filter-button d-flex align-items-center" data-filter="pdf">
-            <img class="filter-image pdf" src="/wp-content/uploads/tools-filter-pdf.png" alt="<?php _e('Imagen filtrar por pdf','laaldea')?>">
-            <div class="text-container h6 font-titan"><?php _e('PDF','laaldea');?></div>
+          <button class="estudiante-target-filter-button d-flex align-items-center" data-filter="estudiante">
+            <img class="filter-image estudiante" src="/wp-content/uploads/tools-filter-pdf.png" alt="<?php _e('Imagen filtrar para estudiantes','laaldea')?>">
+            <div class="text-container h6 font-titan"><?php _e('Para Estudiantes','laaldea');?></div>
           </button>
         </div>
 

@@ -18,9 +18,9 @@ do_action('tutor_course/loop/badge');
 
 do_action('tutor_course/loop/start_content_wrap');
 
-do_action('tutor_course/loop/before_title');
-do_action('tutor_course/loop/title');
-do_action('tutor_course/loop/after_title');
+// do_action('tutor_course/loop/before_title');
+// do_action('tutor_course/loop/title');
+// do_action('tutor_course/loop/after_title');
 
 do_action('tutor_course/loop/before_header');
 do_action('tutor_course/loop/header');

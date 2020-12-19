@@ -11,26 +11,8 @@
       <h2><?php _e('Noticias','laaldea');?></h2>
     </div>
     <div class="row news-row">
-      <div class="col-7 offset-1 main-container">
 
-        <div class="news-container">
-          <?php if(!empty($requested_new_id)) : ?>
-            <?php laaldea_get_new_html($requested_new_id, '', true); ?>
-          <?php endif;?>
-          
-          <?php if( $recent_news -> have_posts() ) : ?>
-            <?php 
-              $recent_news -> the_post();
-              $post_id = get_the_ID();
-              laaldea_get_new_html($post_id, '', true);
-            ?>
-          <?php endif; ?>
-        </div>
-          
-      </div> <!-- col end -->
-      
-      <div class="col-3 sidebar">
-
+      <div class="col-3 offset-1 sidebar">
         <div class="news-container d-flex flex-column justify-content-between align-items-start">
           <?php if( $recent_news -> have_posts() ) : ?>
             <?php while ($recent_news -> have_posts()) : ?>
@@ -82,6 +64,23 @@
         </div>
 
       </div>
+
+      <div class="col-7 main-container">
+        <div class="news-container">
+          <?php if(!empty($requested_new_id)) : ?>
+            <?php laaldea_get_new_html($requested_new_id, '', true); ?>
+          <?php endif;?>
+          
+          <?php if( $recent_news -> have_posts() ) : ?>
+            <?php 
+              $recent_news -> the_post();
+              $post_id = get_the_ID();
+              laaldea_get_new_html($post_id, '', true);
+            ?>
+          <?php endif; ?>
+        </div>
+          
+      </div> <!-- col end -->
     </div> <!-- news-row END -->
   </div>
 </section>

@@ -13,9 +13,12 @@ class CustomUserFlow {
    * To keep the initialization fast, only add filter and action
    * hooks in the constructor.
    */
-  public function __construct() {
+  public function __construct() {   
     // Login page shortcode
     add_shortcode( 'cuf-login-form', array( $this, 'build_login_form_html' ) );
+
+    // Account page shortcode
+    add_shortcode( 'cuf-account-info', array( $this, 'build_edit_form_html' ) );
     
     // Custom registration page
     add_shortcode( 'cuf-register-form', array( $this, 'build_register_form' ) );
@@ -32,6 +35,9 @@ class CustomUserFlow {
     // Redirect to custom Register page
     add_filter( 'login_form_register', array( $this, 'redirect_to_custom_register' ), 10, 3 );
 
+    // Redirect to custom Edit page
+    add_action( 'load-profile.php', array( $this, 'redirect_to_custom_edit' ), 10, 3 );
+
     // Redirect to custom Reset password page
     add_filter( 'login_form_lostpassword', array( $this, 'redirect_to_custom_password_reset' ), 10, 3 );
 
@@ -46,6 +52,9 @@ class CustomUserFlow {
 
     // Handle user registration
     add_action( 'login_form_register', array( $this, 'do_register_user' ) );
+
+    // Handle user edit
+    add_action( 'load-profile.php', array( $this, 'do_edit_user' ) );
 
     // Display custom user fields
     add_action( 'show_user_profile', array( $this, 'show_custom_user_fields' ) );
@@ -390,6 +399,125 @@ class CustomUserFlow {
     }
 
     return wp_validate_redirect( $redirect_url, home_url() );
+  }
+
+  public function build_edit_form_html( $attributes, $content = null ) {
+    // Parse shortcode attributes
+    $default_attributes = array( 'show_title' => false );
+    $attributes = shortcode_atts( $default_attributes, $attributes );
+
+    // Retrieve possible errors from request parameters
+    $attributes['errors'] = array();
+    if ( isset( $_REQUEST['update-errors'] ) ) {
+      $error_codes = explode( ',', $_REQUEST['update-errors'] );
+    
+      foreach ( $error_codes as $error_code ) {
+        $attributes['errors'] []= $this->get_error_message( $error_code );
+      }
+    }
+
+    if ( !is_user_logged_in() ) {
+      $html = '<div class="not-logged-in description">' . __( 'You are not logged in.', 'user-flow' ) . '</div>';
+      return $html;
+    } else {
+        return $this->get_template_html( 'edit_form', $attributes );
+    }
+  }
+
+  /**
+   * Redirects the user to the custom registration page instead
+   * of wp-login.php?action=register.
+   */
+  public function redirect_to_custom_edit() {
+    if ( 'GET' == $_SERVER['REQUEST_METHOD'] ) {
+      if ( !is_user_logged_in() ) {
+        $this -> redirect_logged_in_user();
+      } elseif( ! current_user_can( 'manage_options' ) ) {
+        wp_redirect( home_url( '/account' ) );  
+        exit;
+      } 
+    }
+  }
+
+  private function edit_user( $email, $first_name, $last_name, $display_name, $user_phone, $user_area, $user_institution, $user_avatar, $user_ip, $user_location ) {
+    $errors = new WP_Error();
+
+    // Email address is used as both username and email. It is also the only
+    // parameter we need to validate
+    if ( ! is_email( $email ) ) {
+      $errors->add( 'email', $this->get_error_message( 'email' ) );
+      return $errors;
+    }
+
+    if ( username_exists( $email ) || email_exists( $email ) ) {
+      $errors->add( 'email_exists', $this->get_error_message( 'email_exists') );
+      return $errors;
+    }
+
+    $user_data = array(
+      'user_email'    => $email,
+      'display_name'  => $display_name
+    );
+
+    $user_id = wp_update_user( $user_data );
+
+    //add first and last name
+    update_user_meta( $user_id, 'first_name', $first_name );
+    update_user_meta( $user_id, 'last_name', $last_name );
+    update_user_meta( $user_id, 'user_phone', $user_phone );
+    update_user_meta( $user_id, 'user_area', $user_area );
+    update_user_meta( $user_id, 'user_institution', $user_institution );
+    update_user_meta( $user_id, 'user_avatar', $user_avatar );
+    update_user_meta( $user_id, 'user_ip', $user_ip );
+    update_user_meta( $user_id, 'user_location', $user_location );
+
+    return $user_id;
+  }
+
+  public function do_edit_user() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
+      $redirect_url = home_url( $this->get_edit_profile_url() );
+      if(current_user_can( 'manage_options' )) {
+        return;
+      }
+
+      $email = $_POST['email'];
+      $first_name = sanitize_text_field( $_POST['first_name'] );
+      $last_name = sanitize_text_field( $_POST['last_name'] );
+      $display_name = sanitize_text_field( $_POST['first_name'] );'theDisplayName';
+      $user_phone = sanitize_text_field( $_POST['user_phone'] );
+      $user_area = sanitize_text_field( $_POST['user_area'] );
+      $user_institution = sanitize_text_field( $_POST['user_institution'] );
+      $user_avatar = esc_url_raw( $_POST['user_avatar'] );
+      
+      $user_ip = $this -> getUserIpAddr();
+      $user_location = wpb_child_get_location_from_ip($user_ip);
+
+      $result = $this->edit_user( 
+        $email, 
+        $first_name, 
+        $last_name, 
+        $display_name,
+        $user_phone, 
+        $user_area, 
+        $user_institution, 
+        $user_avatar,
+        $user_ip,
+        $user_location['region'] . ", " . $user_location['city']
+      );
+
+      if ( is_wp_error( $result ) ) {
+        // Parse errors into a string and append as parameter to redirect
+        $errors = join( ',', $result->get_error_codes() );
+        $redirect_url = add_query_arg( 'edit-errors', $errors, $redirect_url );
+      } else {
+        // Success, redirect to login page.
+        $redirect_url = home_url( '/learning-home/' );
+      }
+
+      wp_redirect( $redirect_url );
+      exit;
+    }
   }
 
   /**

@@ -23,11 +23,7 @@ do_action( 'bbp_template_before_replies_loop' ); ?>
 
 			<?php while ( bbp_replies() ) : bbp_the_reply(); ?>
 
-        <div id="reply-<?php bbp_reply_id(); ?>-container" class="reply-container">
-      
-          <?php bbp_get_template_part( 'loop', 'single-reply' ); ?>
-      
-        </div>
+        <?php bbp_get_template_part( 'loop', 'single-reply' ); ?>
 
 			<?php endwhile; ?>
 

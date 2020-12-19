@@ -36,14 +36,16 @@ $completed_count = tutor_utils()->get_course_completed_percent($course_id);
 
 $course_duration = get_tutor_course_duration_context($course_id);
 $count = laaldea_tutor_get_topic_count($course_id);
-$course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), number_format_i18n( $count ) );
+$course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ), number_format_i18n( $count ) );
 ?>
 
 <?php do_action('tutor_lesson/single/before/lesson_sidebar'); ?>
 
   <div class="lesson-container">
     <div class="tutor-single-lesson-segment tutor-lesson-thumbnail">
-      <?php laaldea_get_tutor_course_thumbnail( 'medium', false, $course_id );?>
+      <a href="<?php echo get_the_permalink($course_id); ?>" class="tutor-sidebar-home-btn">
+        <?php laaldea_get_tutor_course_thumbnail( 'medium', false, $course_id );?>
+      </a>
     </div>
     <div class="tutor-single-lesson-segment tutor-lesson-loop-meta">
       <div class="row">
@@ -64,11 +66,11 @@ $course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), n
 
     <div class="tutor-single-lesson-segment tutor-sidebar-tabs-wrap tutor-lesson-list">
       <div class="tutor-tabs-btn-group list-header">
-        <a href="#tutor-lesson-sidebar-tab-content" class="<?php echo $enable_q_and_a_on_course ? "active" : ""; ?>">
+        <a href="#tutor-lesson-sidebar-tab-content" class="h5 color-cyan <?php echo $enable_q_and_a_on_course ? "active" : ""; ?>">
           <span><?php esc_html_e('Estructura del curso', 'laaldea'); ?></span>
         </a>
         <?php if($enable_q_and_a_on_course) : ?>
-          <a href="#tutor-lesson-sidebar-qa-tab-content"> 
+          <a href="#tutor-lesson-sidebar-qa-tab-content" class="h5 color-cyan"> 
             <span><?php esc_html_e('FAQ', 'tutor'); ?></span>
           </a>
         <?php endif;?>
@@ -124,7 +126,7 @@ $course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), n
                                   $time_limit = tutor_utils()->get_quiz_option($quiz->ID, 'time_limit.time_value');
                                   if ($time_limit){
                                     $time_type = tutor_utils()->get_quiz_option($quiz->ID, 'time_limit.time_type');
-                                    echo "<span class='quiz-time-limit'>{$time_limit} {$time_type}</span>";
+                                    //echo "<span class='quiz-time-limit'>{$time_limit} {$time_type}</span>";
                                   }
                                   ?>
                                   </span>
@@ -196,7 +198,7 @@ $course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), n
                                   <?php
                                   do_action('tutor/lesson_list/right_icon_area', $post);
                                   if ( $play_time ) {
-                                    echo "<i class='tutor-play-duration'>".tutor_utils()->get_optimized_duration($play_time)."</i>";
+                                    //echo "<i class='tutor-play-duration'>".tutor_utils()->get_optimized_duration($play_time)."</i>";
                                   }
                                   $lesson_complete_icon = $is_completed_lesson ? 'tutor-icon-mark tutor-done' : '';
                                   echo "<i class='tutor-lesson-complete $lesson_complete_icon'></i>";

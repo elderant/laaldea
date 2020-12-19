@@ -66,7 +66,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php do_action( 'bbp_theme_after_topic_freshness_link' ); ?>
 
   </li>
-  <?php do_action( 'wpb_child_bbp_after_single_topic' ); ?>
+  <?php do_action( 'wpb_child_bbp_after_single_topic', bbp_get_topic_id() ); ?>
 </ul><!-- #bbp-topic-<?php bbp_topic_id(); ?> -->
 
 

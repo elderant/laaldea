@@ -14,9 +14,9 @@ defined( 'ABSPATH' ) || exit;
 
 <div id="bbpress-forums" class="bbpress-wrapper">
 
-	<?php bbp_breadcrumb(); ?>
+	<?php bbp_breadcrumb(array('include_home' => false, 'before' => '<div class="bbp-breadcrumb"><p class="h6">')); ?>
 
-  <div class="actions">
+  <div class="actions hidden">
 
     <?php bbp_topic_subscription_link(array('before' => '', 'after' => '<span class="separator"> |</span>')); ?>
 
@@ -31,24 +31,17 @@ defined( 'ABSPATH' ) || exit;
 		<?php bbp_get_template_part( 'form', 'protected' ); ?>
 
 	<?php else : ?>
-
-		<?php bbp_topic_tag_list(); ?>
+    <?php if ( bbp_has_replies() ) : ?>
+      <div class="bbp-topic-title color-cyan font-titan">
+        <span><?php _e('Tema:','wpb_child');?> <?php bbp_topic_title();?></span>
+      </div>
+    <?php endif; ?>
 
 		<?php if ( bbp_show_lead_topic() ) : ?>
 
 			<?php bbp_get_template_part( 'content', 'single-topic-lead' ); ?>
 
 		<?php endif; ?>
-
-    <?php if ( true ) : ?>
-
-    <div class="bbp-topic-title color-cyan font-titan">
-
-      <span><?php _e('Topic:','wpb_child');?> <?php bbp_topic_title();?></span>
-
-    </div>
-
-    <?php endif; ?>
 
 		<?php if ( bbp_has_replies() ) : ?>
 
@@ -59,6 +52,11 @@ defined( 'ABSPATH' ) || exit;
 		<?php endif; ?>
 
 	<?php endif; ?>
+
+  <?php 
+    $before = '<div class="bbp-topic-tags pt-4"><p>' . esc_html__( 'Tagged:', 'bbpress' ) . '&nbsp;';
+    bbp_topic_tag_list(0, array('before' => $before));
+  ?>
 
 	<?php bbp_get_template_part( 'alert', 'topic-lock' ); ?>
 

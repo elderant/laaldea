@@ -90,9 +90,6 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                       ?>
                       <?php if ( !$disable_course_author) : ?>
                         <div class="tutor-single-course-author-meta pb-4">
-                          <!-- <div class="tutor-single-course-avatar">
-                            <a href="<?php echo $profile_url; ?>"> <?php echo tutor_utils()->get_tutor_avatar($post->post_author); ?></a>
-                          </div> -->
                           <div class="tutor-single-course-author-name">
                             <span><?php _e('Profesor: ', 'tutor'); ?></span>
                             <a href="<?php echo tutor_utils()->profile_url($authordata->ID); ?>"><?php echo get_the_author(); ?></a>

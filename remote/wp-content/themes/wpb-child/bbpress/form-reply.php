@@ -69,6 +69,7 @@ if ( bbp_is_reply_edit() ) : ?>
 
 					<?php do_action( 'bbp_theme_before_reply_form_content' ); ?>
 
+          <label class="learning-label"><?php _e( 'Respuesta:', 'wpb_child' ); ?></label><br />
 					<?php bbp_the_content( array( 'context' => 'reply' ) ); ?>
 
 					<?php do_action( 'bbp_theme_after_reply_form_content' ); ?>
@@ -86,9 +87,9 @@ if ( bbp_is_reply_edit() ) : ?>
 
 						<?php do_action( 'bbp_theme_before_reply_form_tags' ); ?>
 
-						<p>
-							<label for="bbp_topic_tags"><?php esc_html_e( 'Tags:', 'bbpress' ); ?></label><br />
-							<input type="text" value="<?php bbp_form_topic_tags(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+						<p class="topic-tags">
+							<label class="learning-label" for="bbp_topic_tags"><?php esc_html_e( 'Tags:', 'bbpress' ); ?></label><br />
+							<input class="learning-input" type="text" value="<?php bbp_form_topic_tags(); ?>" placeholder="<?php _e('Etiqueta1,Etiqueta2...', 'laaldea');?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_reply_form_tags' ); ?>
@@ -99,7 +100,7 @@ if ( bbp_is_reply_edit() ) : ?>
 
 						<?php do_action( 'bbp_theme_before_reply_form_subscription' ); ?>
 
-						<p>
+						<p class="topic-subscription">
 
 							<input name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe"<?php bbp_form_topic_subscribed(); ?> />
 
@@ -173,7 +174,7 @@ if ( bbp_is_reply_edit() ) : ?>
 
 						<?php bbp_cancel_reply_to_link(); ?>
 
-						<button type="submit" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
+						<button type="submit" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit learning-button"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
 
 						<?php do_action( 'bbp_theme_after_reply_form_submit_button' ); ?>
 
