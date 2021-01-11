@@ -149,13 +149,13 @@ function wpb_child_add_user_menu_html($item_output, $item, $depth, $args) {
 
     $target = (isset($item -> target) && !empty($item -> target )) ? ' target="' . $item -> target . '"':'';
 
-    error_log(print_r($target,1));
+    //error_log(print_r($target,1));
 
     $html = '<a class="image-link"' . $target . ' href="' . $item -> url . '">' .
         '<img src="' . $image_url . '" alt="' . $alt_text . '">' .
       '</a>';
 
-    error_log(print_r($html,1));
+    //error_log(print_r($html,1));
     $item_output = $html;
   }
 
@@ -313,7 +313,215 @@ function wpb_child_courses_sidebar() {
 }
 add_action( 'widgets_init', 'wpb_child_courses_sidebar' );
 
-/******************** App functinality ********************/ 
+
+/******************** Tutor ********************/
+add_action('template_redirect', 'wpb_child_custom_form_handler');
+function wpb_child_custom_form_handler() {
+  // handle complete lesson button action.
+  if ( isset($_POST['tutor_action'])  &&  $_POST['tutor_action'] !== 'tutor_complete_lesson_custom' ) {
+    wpb_child_mark_lesson_complete();
+  }
+
+  if ( isset($_POST['tutor_action'])  &&  $_POST['tutor_action'] !== 'tutor_complete_course_custom' ) {
+    wpb_child_mark_course_complete();
+  }
+
+  return;
+}
+
+/* handle complete lesson button action. */
+function wpb_child_mark_lesson_complete() {
+  //Checking nonce
+  tutor_utils() -> checking_nonce();
+
+  $user_id = get_current_user_id();
+
+  //TODO: need to show view if not signed_in
+  if ( ! $user_id){
+    die(__('Please Sign-In', 'tutor'));
+  }
+
+  $lesson_id = (int) sanitize_text_field($_POST['lesson_id']);
+
+  do_action('tutor_lesson_completed_before', $lesson_id);
+  /**
+   * Marking lesson at user meta, meta format, _tutor_completed_lesson_id_{id} and value = tutor_time();
+   */
+  tutor_utils() -> mark_lesson_complete($lesson_id);
+
+  // for last lesson : check if the course should be marked as completed.
+  
+  // UNCOMMENT THE FUNCTION TO MARK THE COURSE AS COMPLETE
+  $course_id = tutor_utils()->get_course_id_by_lesson($lesson_id);
+  $status = wpb_child_tutor_course_complete_status($course_id);
+  if($status == 1) {
+    $_POST['course_id'] = $course_id;
+    $_POST['tutor_action'] = 'tutor_complete_course_custom';
+    wpb_child_mark_course_complete();
+  }
+}
+
+function wpb_child_tutor_course_complete_status($course_id) {
+  $completion_mode = tutils()->get_option('course_completion_process');
+
+  if ($completion_mode !== 'strict'){
+    return 0;
+  }
+
+  $completed_lesson = tutils()->get_completed_lesson_count_by_course($course_id);
+  $lesson_count = tutils()->get_lesson_count_by_course($course_id);
+
+  if ($completed_lesson < $lesson_count){
+    return 2;
+  }
+
+  $quizzes = array();
+
+  $course_contents = tutils()->get_course_contents_by_id($course_id);
+  if (tutils()->count($course_contents)){
+    foreach ($course_contents as $content){
+      if ($content->post_type === 'tutor_quiz'){
+        $quizzes[] = $content;
+      }
+    }
+  }
+
+  $is_pass = true;
+  $required_quiz_pass = 0;
+
+  if (tutils()->count($quizzes)){
+    foreach ($quizzes as $quiz){
+
+      $attempt = tutils()->get_quiz_attempt($quiz->ID);
+      if ($attempt) {
+        $passing_grade = tutor_utils()->get_quiz_option($quiz->ID, 'passing_grade', 0);
+        $earned_percentage = $attempt->earned_marks > 0 ? (number_format(($attempt->earned_marks * 100) / $attempt->total_marks)) : 0;
+
+        if ($earned_percentage < $passing_grade) {
+          $required_quiz_pass++;
+          $is_pass = false;
+        }
+      }else{
+        $required_quiz_pass++;
+        $is_pass = false;
+      }
+    }
+  }
+
+  if ( ! $is_pass){
+    return 3;
+  }
+
+  return 1;
+}
+
+add_action( 'wp_ajax_nopriv_wpb_child_complete_and_next_lesson', 'wpb_child_mark_lesson_complete_ajax' );
+add_action( 'wp_ajax_wpb_child_complete_and_next_lesson', 'wpb_child_mark_lesson_complete_ajax' );
+function wpb_child_mark_lesson_complete_ajax() {
+  wpb_child_mark_lesson_complete();
+
+  $return_array = array(
+    'success' => 'true',
+  );
+
+  echo json_encode($return_array);
+  die();
+}
+
+/* Complete course */
+// Add course in lesson complete button.
+if ( ! function_exists('wpb_child_tutor_in_lesson_course_mark_complete_html')) {
+  function wpb_child_tutor_in_lesson_course_mark_complete_html( $course_id, $echo = true ) {
+    ob_start();
+    tutor_load_template( 'single.course.in_lesson_complete_form' );
+    $output = apply_filters( 'tutor_course/single/in_lesson_complete_form', ob_get_clean(), $course_id );
+
+    if ( $echo ) {
+        echo $output;
+    }
+
+    return $output;
+  }
+}
+
+//Hide course complete button in lesson.
+add_filter('tutor_course/single/in_lesson_complete_form', 'wpb_child_tutor_lms_hide_course_complete_btn_in_lesson', 10, 2);
+function wpb_child_tutor_lms_hide_course_complete_btn_in_lesson($html, $course_id) {
+  $status = wpb_child_tutor_course_complete_status($course_id);
+
+  if($status == 0) {
+    return $html;
+  }
+  else if($status == 2) {
+    return '<p class="suggestion-before-course-complete">'.__('complete all lessons to mark this course as complete', 'tutor').'</p>';
+  }
+  else if($status == 3) {
+    return '<p class="suggestion-before-course-complete">'.sprintf(__('You have to pass %s quizzes to complete this course.', 'tutor'), $required_quiz_pass).'</p>';
+  }
+  else {
+    return $html;
+  }
+}
+
+/* handle in lesson complete course button action. */
+function wpb_child_mark_course_complete(){
+  //Checking nonce
+  tutor_utils()->checking_nonce();
+
+  $user_id = get_current_user_id();
+
+  //TODO: need to show view if not signed_in
+  if ( ! $user_id){
+    die(__('Please Sign-In', 'tutor'));
+  }
+
+  $course_id = (int) sanitize_text_field($_POST['course_id']);
+
+  do_action('tutor_course_complete_before', $course_id);
+  /**
+   * Marking course completed at Comment
+   */
+
+  global $wpdb;
+
+  $date = date("Y-m-d H:i:s", tutor_time());
+
+  //Making sure that, hash is unique
+  do{
+    $hash = substr(md5(wp_generate_password(32).$date.$course_id.$user_id), 0, 16);
+    $hasHash = (int) $wpdb->get_var("SELECT COUNT(comment_ID) from {$wpdb->comments} WHERE comment_agent = 'TutorLMSPlugin' AND comment_type = 'course_completed' AND comment_content = '{$hash}' ");
+  }while($hasHash > 0);
+
+  $data = array(
+    'comment_post_ID'   => $course_id,
+    'comment_author'    => $user_id,
+    'comment_date'      => $date,
+    'comment_date_gmt'  => get_gmt_from_date($date),
+    'comment_content'   => $hash, //Identification Hash
+    'comment_approved'  => 'approved',
+    'comment_agent'     => 'TutorLMSPlugin',
+    'comment_type'      => 'course_completed',
+    'user_id'           => $user_id,
+  );
+
+  $wpdb->insert($wpdb->comments, $data);
+
+  do_action('tutor_course_complete_after', $course_id, $user_id);
+}
+
+add_action( 'wp_ajax_nopriv_wpb_child_complete_course_and_next', 'wpb_child_mark_course_complete_ajax' );
+add_action( 'wp_ajax_wpb_child_complete_course_and_next', 'wpb_child_mark_course_complete_ajax' );
+function wpb_child_mark_course_complete_ajax() {
+  wpb_child_mark_course_complete();
+
+  $return_array = array(
+    'success' => 'true',
+  );
+
+  echo json_encode($return_array);
+  die();
+}
+/******************** App functinality ********************/
 /**
  * Reescribe el tamaño maximo de los archivos a subir
  */

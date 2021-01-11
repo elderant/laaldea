@@ -36,12 +36,19 @@ defined( 'ABSPATH' ) || exit;
           <?php 
             $reply_author_id = bbp_get_reply_author_id();
             $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
+            $teaching_institution = get_user_meta( $reply_author_id, 'user_institution', true);
           ?>
           <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
         </div>
         <div class="author-text-container">
           <div class="text-container text-center">
             <?php bbp_reply_author_link( array( 'show_role' => true ) ); ?>
+          </div>
+        </div>
+
+        <div class="author-teaching-institution">
+          <div class="text-container text-center">
+            <?php echo $teaching_institution; ?>
           </div>
         </div>
 

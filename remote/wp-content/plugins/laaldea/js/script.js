@@ -898,25 +898,6 @@
       });
     }
 
-    if($('.single-lesson').length > 0) {
-      $('.tutor-lesson-sidebar-hide-bar').each(function(){
-        $(this).on('click', function(event){
-          let $container = $(this).parents('.lesson-section');
-          $container.toggleClass('col-sm-7');
-          $container.toggleClass('col-sm-12');
-        })
-      })
-    }
-    if($('.single-tutor_quiz').length > 0) {
-      $('.tutor-lesson-sidebar-hide-bar').each(function(){
-        $(this).on('click', function(event){
-          let $container = $(this).parents('.quiz-section');
-          $container.toggleClass('col-sm-7');
-          $container.toggleClass('col-sm-12');
-        })
-      })
-    }
-
   });
 
   $(window).scroll(function () {
@@ -939,6 +920,7 @@
     
     if($('#tools').length > 0) {
       $('.main-container .target-filter-container').each(_checkOffset_menu('fixed'));
+      $('.sidebar .tools-sidebar-container').each(_checkOffset_menu('fixed'));
     }
 		
   });

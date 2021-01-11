@@ -1028,6 +1028,10 @@
   width: 20%;
 }
 
+#bbpress-forums div.bbp-reply-author .author-container {
+  font-size: 1rem;
+}
+
 .col-sm-10 #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-author {
   width: 20%;
 }
@@ -1068,6 +1072,19 @@
   color: var(--cyan);
 }
 
+.bbpress .bbp-replies .reply-container .author-container .author-teaching-institution,
+.bbpress .bbp-replies .reply-container .author-container .bbp-reply-location {
+  font-size: 0.75em;
+}
+
+.bbpress .bbp-replies .reply-container .author-container .author-teaching-institution .text-container,
+#bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .author-teaching-institution .text-container {
+  padding-top: 0.25rem;
+  font-size: inherit;
+  font-family: 'sassoon';
+  color: var(--gray);
+}
+
 #bbpress-forums .topic-replies .reply-container .author-container .text-container a,
 .bbpress .bbp-replies .reply-container .author-container .text-container a,
 #bbpress-forums.bbpress-wrapper .type-reply.reply .author-container .text-container a {
@@ -1079,12 +1096,6 @@
 .bbpress #bbpress-forums div.bbp-topic-author .bbp-author-role {
   font-style: normal;
   font-size: 0.75em;
-}
-
-.bbpress .bbp-replies .reply-container .bbp-reply-location,
-#bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-location {
-  /* text-align: right; */
-  padding-top: 0.25rem;
 }
 
 #bbpress-forums .topic-replies .reply-container .content-container,
@@ -1119,6 +1130,10 @@
 #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content p {
   text-align: left;
   font-size: inherit;
+}
+
+.bbpress .bbp-replies .bbp-admin-links-container {
+  font-family: 'titan_one';
 }
 
 /* General */
@@ -1697,7 +1712,7 @@ body.page-id-346 {
 }
 
 #tools .sidebar .filters-container.follow button img {
-  height: 50px;
+  width: 41px;
 }
 
 #tools .sidebar .filters-container .term-container button span,
@@ -1731,7 +1746,6 @@ body.page-id-346 {
 }
 
 /* Tools : Type filter */
-#tools .target-filter-container,
 #tools .tools-container {
   padding-left: 8.333333%;
 }
@@ -1743,15 +1757,21 @@ body.page-id-346 {
   left: 15px;
   border-bottom: 4px dashed var(--cyan);
   background-color: white;
+  padding-left: 85px;
 }
 
 #tools .target-filter-container.fixed {
   z-index: 20;
   position: fixed;
   top: 124px;
-  left: calc(33.333333vw + 15px);
+  left: calc(33.333333vw + 9px);
   width: calc(58.333333vw - 40px);
-  border: none;
+}
+
+#tools .tools-sidebar-container.fixed {
+  position: fixed;
+  top: calc(124px + 4rem);
+  width: calc(25vw - 40px);
 }
 
 #tools .target-filter-container button {
@@ -2893,9 +2913,13 @@ body.page-id-346 {
   margin: 0.25rem;
 }
 
+.lesson-section .tutor-topbar-mark-course-to-done {
+  display: none;
+}
+
 .lesson-section .tutor-lesson-content-area .tutor-topbar-mark-to-done {
-  display: flex;
-  justify-content: center;
+  display: none;
+  /* justify-content: center;
   align-items: center;
   width: 138px;
   height: 75px;
@@ -2903,7 +2927,7 @@ body.page-id-346 {
   background: url(/wp-content/uploads/learning-button-background.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 /* lesson single : quiz meta */
@@ -3033,7 +3057,6 @@ div.tutor-quiz-header .tutor-quiz-meta li {
   opacity: 0.8;
 }
 
-.single-tutor_quiz .tutor-quiz-answers-wrap label input:checked+span,
 .single-tutor_quiz .tutor-quiz-answers-wrap label input:checked+span {
   background-color: var(--cyan);
   border-color: var(--cyan);

@@ -30,6 +30,10 @@ $topic_name = get_the_title( $topic -> ID );
   </h5>
 </div>
 
+<div class="tutor-topbar-item tutor-topbar-mark-course-to-done">
+  <?php wpb_child_tutor_in_lesson_course_mark_complete_html($course_id); ?>
+</div>
+
 <div class="tutor-quiz-single-wrap ">
     <input type="hidden" name="tutor_quiz_id" id="tutor_quiz_id" value="<?php the_ID(); ?>">
 

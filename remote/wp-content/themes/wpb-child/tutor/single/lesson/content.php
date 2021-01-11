@@ -66,6 +66,10 @@ $topic_name = get_the_title( $topic -> ID );
   </h5>
 </div>
 
+<div class="tutor-topbar-item tutor-topbar-mark-course-to-done">
+  <?php wpb_child_tutor_in_lesson_course_mark_complete_html($course_id); ?>
+</div>
+
 <div class="tutor-lesson-content-area">
 
     <input type="hidden" id="tutor_video_tracking_information" value="<?php echo esc_attr(json_encode($jsonData)); ?>">
