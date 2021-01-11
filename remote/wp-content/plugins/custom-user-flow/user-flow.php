@@ -29,6 +29,9 @@ class CustomUserFlow {
     // Custom password change page
     add_shortcode( 'cuf-password-change-form', array( $this, 'build_password_change_form' ) );
 
+    // Custom update user
+    add_shortcode( 'cuf-account-update', array( $this, 'build_update_user_form' ) );
+
     // Redirect to custom Login page
     add_action( 'login_form_login', array( $this, 'redirect_to_custom_login' ) );
     
@@ -84,6 +87,10 @@ class CustomUserFlow {
     add_action( 'login_form_resetpass', array( $this, 'do_password_change' ) );
 
     add_filter('show_admin_bar', array( $this, 'hide_adminbar_for_subscribers' ));
+
+    // Handle user update post
+    add_action( 'admin_post_nopriv_cuf_update_user', array( $this, 'do_update_user' ) );
+    add_action( 'admin_post_cuf_update_user', array( $this, 'do_update_user' ) );
   }
   
   /**
@@ -1007,6 +1014,142 @@ class CustomUserFlow {
     }
   }
 
+  public function build_update_user_form($attributes, $content = null) {
+    // Parse shortcode attributes
+    $default_attributes = array( 'show_title' => false );
+    $attributes = shortcode_atts( $default_attributes, $attributes );
+
+    if ( !is_user_logged_in() ) {
+      return __( 'You are not signed in.', 'user-flow' );
+    } else {
+      // Retrieve possible errors from request parameters
+      $attributes['errors'] = array();
+      if ( isset( $_REQUEST['update-user-errors'] ) ) {
+        $error_codes = explode( ',', $_REQUEST['update-user-errors'] );
+      
+        foreach ( $error_codes as $error_code ) {
+          $attributes['errors'] []= $this->get_error_message( $error_code );
+        }
+      }
+
+      // Check if the user was updated
+      $attributes['updated'] = isset( $_REQUEST['updated'] );
+
+      // Current values
+      //$attributes['current-values'] = wp_get_current_user();
+      $data = array();
+      $user = wp_get_current_user();
+      $user_id = $user -> ID;
+      $data['email'] = $user -> data -> user_email;
+      
+      $meta = get_user_meta( $user_id );
+      //error_log(print_r($meta,1));
+      $data['first_name'] = $meta['first_name'][0];
+      $data['last_name'] = $meta['last_name'][0];
+      $data['user_phone'] = $meta['user_phone'][0];
+      $data['user_area'] = $meta['user_area'][0];
+      $data['user_institution'] = $meta['user_institution'][0];
+      $data['user_avatar'] = $meta['user_avatar'][0];
+      $attributes['data'] = $data;
+
+      if ( !is_user_logged_in() ) {
+          return __( 'You are not signed in.', 'user-flow' );
+      } else {
+          return $this->get_template_html( 'update_user_form', $attributes );
+      }
+    }
+  }
+
+  /**
+   * Validates and then completes the user update process if all went well.
+   *
+   * @param string $fields        array with the user fields
+   *
+   * @return int|WP_Error         The id of the user that was created, or error if failed.
+   */
+  private function update_user( $fields ) {
+    $email = $fields['email'];
+    $first_name = $fields['first_name'];
+    $last_name = $fields['last_name'];
+    $user_phone = $fields['user_phone'];
+    $user_area = $fields['user_area'];
+    $user_institution = $fields['user_institution'];
+    $user_avatar = $fields['user_avatar'];
+    $user_ip = $fields['user_ip'];
+    $user_location = $fields['user_location'];
+
+    $errors = new WP_Error();
+
+    if ( !username_exists( $email ) || !email_exists( $email ) ) {
+      $errors->add( 'invalid_username', $this->get_error_message( 'invalid_username') );
+      return $errors;
+    }
+
+    $user_id = get_current_user_id();
+
+    //add first and last name
+    update_user_meta( $user_id, 'first_name', $first_name );
+    update_user_meta( $user_id, 'last_name', $last_name );
+    update_user_meta( $user_id, 'user_phone', $user_phone );
+    update_user_meta( $user_id, 'user_area', $user_area );
+    update_user_meta( $user_id, 'user_institution', $user_institution );
+    update_user_meta( $user_id, 'user_avatar', $user_avatar );
+    update_user_meta( $user_id, 'user_ip', $user_ip );
+    update_user_meta( $user_id, 'user_location', $user_location );
+
+    return $user_id;
+  }
+
+  /**
+   * Handles the update of a user.
+   *
+   * Used through a menu action activated on wp-login.php
+   */
+  public function do_update_user() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && strcasecmp($_POST['action'], 'cuf_update_user') == 0 ) {
+      $redirect_url = home_url( $this->get_update_user_url() );
+
+      $user = wp_get_current_user();
+      $email = $user -> data -> user_email;
+      error_log(print_r($email,1));
+
+      $first_name = sanitize_text_field( $_POST['first_name'] );
+      $last_name = sanitize_text_field( $_POST['last_name'] );
+      $user_phone = sanitize_text_field( $_POST['user_phone'] );
+      $user_area = sanitize_text_field( $_POST['user_area'] );
+      $user_institution = sanitize_text_field( $_POST['user_institution'] );
+      $user_avatar = esc_url_raw( $_POST['user_avatar'] );
+      
+      $user_ip = $this -> getUserIpAddr();
+      $user_location = wpb_child_get_location_from_ip($user_ip);
+
+      $result = $this->update_user( array(
+        'email' => $email, 
+        'first_name' => $first_name, 
+        'last_name' => $last_name, 
+        'user_phone' => $user_phone, 
+        'user_area' => $user_area, 
+        'user_institution' => $user_institution, 
+        'user_avatar' => $user_avatar,
+        'user_ip' => $user_ip,
+        'user_location' => $user_location['region'] . ", " . $user_location['city']
+      ));
+
+      if ( is_wp_error( $result ) ) {
+        // Parse errors into a string and append as parameter to redirect
+        $errors = join( ',', $result->get_error_codes() );
+        $redirect_url = add_query_arg( 'update-user-errors', $errors, $redirect_url );
+      } else {
+        // Success, redirect to update page.
+        $redirect_url = home_url( $this->get_update_user_url() );
+        $redirect_url = add_query_arg( 'updated', 'true', $redirect_url );
+      }
+
+      wp_redirect( $redirect_url );
+      exit;
+    }
+  }
+
   public function get_login_url() {
     $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
     if(TRUE === $en) {
@@ -1060,6 +1203,18 @@ class CustomUserFlow {
       return '/cambio-contrasena';
     }
   }
+
+  public function get_update_user_url () {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/editar-usuario-en';
+    }
+    else {
+      return '/editar-usuario';
+    }
+  }
+
+
 }
  
 // Initialize the plugin

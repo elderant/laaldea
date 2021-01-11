@@ -8,7 +8,6 @@
  *
  * @package WP_Bootstrap_Starter
  */
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -48,8 +47,6 @@
               <?php 
                 $user_id = get_current_user_id();
                 $user = wp_get_current_user();
-                // error_log(print_r($user,1));
-                // error_log(print_r($user_id,1));
                 $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
               ?>  
               <?php
@@ -77,14 +74,16 @@
                     <div class="user-avatar pb-2">
                       <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
                     </div>
-                    <div class="user-name">
-                      <?php echo $user -> data -> display_name; ?>
-                    </div>
-                    <div class="user-email pb-3">
-                      <?php echo $user -> data -> user_email; ?>
-                    </div>
+                    <?php if(is_user_logged_in()) :?>
+                      <div class="user-name">
+                        <?php echo $user -> data -> display_name; ?>
+                      </div>
+                      <div class="user-email pb-3">
+                        <?php echo $user -> data -> user_email; ?>
+                      </div>
+                    <?php endif;?>
                     <div class="user-edit-link-container font-titan">
-                      <!-- <a class="user-edit" href="<?php echo 'https://laaldea.co/account/'?>"><?php _e('Editar Usuario','laaldea')?></a>   -->
+                      <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
                     </div>
                     <div class="user-edit-link-container font-titan">
                       <a class="forgot-password" href="<?php echo wp_lostpassword_url();?>"><?php _e('Cambio Contraseña','laaldea')?></a>

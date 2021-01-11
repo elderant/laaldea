@@ -44,28 +44,66 @@
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
     <header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container-fluid">
-          <nav class="navbar secondary navbar-collapse navbar-expand-sm">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
+          <nav class="navbar primary navbar-expand-sm">
+            <?php 
+              $user_id = get_current_user_id();
+              $user = wp_get_current_user();
+              $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
+            ?>  
             <?php
-            $class ='';
-            if(!is_user_logged_in()) {
-              $class = ' disabled';
-            }
-            wp_nav_menu(array(
-            'theme_location'  => 'learning-menu',
-            'container'       => 'div',
-            'container_id'    => 'learning-nav',
-            'container_class' => 'collapse navbar-collapse justify-content-end' . $class,
-            'menu_id'         => false,
-            'menu_class'      => 'navbar-nav',
-            'depth'           => 3,
-            'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-            'walker'          => new wp_bootstrap_navwalker()
-            ));
+              wp_nav_menu(array(
+              'theme_location'  => 'learning-menu',
+              'container'       => 'div',
+              'container_id'    => 'learning-nav',
+              'container_class' => 'justify-content-end',
+              'menu_id'         => false,
+              'menu_class'      => 'navbar-nav',
+              'depth'           => 3,
+              'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+              'walker'          => new wp_bootstrap_navwalker()
+              ));
             ?>
+            <!-- <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#user-navbar">
+              <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
+            </button> -->
+          </nav>
+
+          <nav class="navbar user-navbar navbar-collapse flex-column flex-nowrap" id="user-navbar">
+            <div class="container-fluid user-navbar-container">
+              <div class="row menu-header">
+                <div class="col-12 text-center">
+                  <div class="user-avatar pb-2">
+                    <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
+                  </div>
+                  <div class="user-name">
+                    <?php echo $user -> data -> display_name; ?>
+                  </div>
+                  <div class="user-email pb-3">
+                    <?php echo $user -> data -> user_email; ?>
+                  </div>
+                  <div class="user-edit-link-container font-titan">
+                    <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
+                  </div>
+                  <div class="user-edit-link-container font-titan">
+                    <a class="forgot-password" href="<?php echo wp_lostpassword_url();?>"><?php _e('Cambio Contraseña','laaldea')?></a>
+                  </div>
+                </div>
+              </div>
+
+              <?php
+                wp_nav_menu(array(
+                'theme_location'  => 'learning-user',
+                'container'       => 'div',
+                'container_id'    => 'learning-user-nav',
+                'container_class' => 'user-menu-list row',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav col-12 text-center',
+                'depth'           => 3,
+                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                'walker'          => new wp_bootstrap_navwalker()
+                ));
+              ?>
+            </div>
           </nav>
         </div>
 	</header><!-- #masthead -->
@@ -97,4 +135,4 @@
 	<div id="content" class="site-content">
 		<div class="container-fluid">
 			<div class="row">
-                <?php endif; ?>
+        <?php endif; ?>

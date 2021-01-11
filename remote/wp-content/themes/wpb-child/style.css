@@ -680,7 +680,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 
 #page.learning header#masthead .navbar.user-navbar.show {
   /* height: calc(100vh - 162px); */
-  height: 336px;
+  height: 358px;
   border-width: 1px;
 }
 
@@ -1199,7 +1199,8 @@ body.page-politica-privacidad p {
   text-align: center;
 }
 
-.user-flow #register-form .radio-buttons {
+.user-flow #register-form .radio-buttons,
+.user-flow #user-update-form .radio-buttons {
   width: 100%;
   height: auto;/*calc(150px + 10px);*/
   display: flex;
@@ -1208,24 +1209,23 @@ body.page-politica-privacidad p {
   flex-wrap: wrap;
 }
 
-.user-flow #register-form .radio-buttons .avatar-container {
+.user-flow #register-form .radio-buttons .avatar-container,
+.user-flow #user-update-form .radio-buttons .avatar-container {
   position: relative;
   height: 135px;
   width: 135px;
   margin: 0.25rem 0.25rem;
 }
 
-.user-flow #register-form .radio-buttons input[type="radio"] {
+.user-flow #register-form .radio-buttons input[type="radio"],
+.user-flow #user-update-form .radio-buttons input[type="radio"] {
   position: absolute;
   height: 0;
   width: 0;
 }
 
-.user-flow #register-form .radio-buttons label img {
-  /* height: 150px; */
-}
-
-.user-flow #register-form .radio-buttons label {
+.user-flow #register-form .radio-buttons label,
+.user-flow #user-update-form .radio-buttons label {
   border-radius: 50%;
   padding: 0;
   margin: 0;
@@ -1233,13 +1233,15 @@ body.page-politica-privacidad p {
   transition: all 0.5s ease-in-out;
 }
 
-.user-flow #register-form .radio-buttons input[type="radio"]:checked ~ label {
+.user-flow #register-form .radio-buttons input[type="radio"]:checked ~ label,
+.user-flow #user-update-form .radio-buttons input[type="radio"]:checked ~ label {
   border-width: 4px;
   box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
 }
 
 .user-flow .login-info,
-.user-flow .error {
+.user-flow .error,
+.user-flow .notice {
   display: flex;
   max-width: 80%;
   margin: 0 auto;
@@ -1355,6 +1357,7 @@ form button[type="submit"].learning-button,
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  transition: color 0.5s ease-in-out;
 }
 
 form input[type="submit"].user-flow-button:hover,
@@ -1366,7 +1369,7 @@ form button[type="submit"].learning-button:hover,
   padding: 2rem 1.5rem 2.5rem;
   color: var(--gray);
   font-family: 'titan_one';
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: url(/wp-content/uploads/learning-button-background.png);
   background-repeat: no-repeat;
   background-size: contain;
