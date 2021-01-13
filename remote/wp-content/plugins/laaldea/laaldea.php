@@ -442,9 +442,19 @@ function laaldea_build_learning_tools () {
     'orderby' => 'modified',
     'post_status' => 'publish',
     'fields' => 'ids',
+
   );
   if(isset($_GET['id'])) {
     $query_args['post__not_in'] = array($_GET['id']);
+  }
+  if(isset($_GET['tagId'])) {
+    $query_args['tax_query'] = array(
+      array(
+        'taxonomy' => 'tool_tag',
+        'field'    => 'term_id',
+        'terms'    => $_GET['tagId'],
+      ),
+    );
   }
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
@@ -970,6 +980,15 @@ function laaldea_tools_load_more() {
       ),
     ),
   );
+  if(isset($_POST['tagId']) && $_POST['tagId'] != '') {
+    $query_args['tax_query'] = array(
+      array(
+        'taxonomy' => 'tool_tag',
+        'field'    => 'term_id',
+        'terms'    => $_POST['tagId'],
+      ),
+    );
+  }
 
   //filtered query
   if(!empty($filters)) {
@@ -1057,6 +1076,24 @@ function laaldea_tools_load_more() {
 
   echo json_encode($return_array);
   die();
+}
+
+add_filter('wp_generate_tag_cloud_data', 'laaldea_tools_custom_tag_url', 10, 1);
+function laaldea_tools_custom_tag_url ($tags_data) {
+  if(empty($tags_data) || count($tags_data) == 0) {
+    return $tags_data;
+  }
+
+  if(!term_exists( $tags_data[0]['id'], 'tool_tag' )) {
+    return $tags_data;
+  }
+
+  $tool_page_url = get_permalink(366);
+  foreach ($tags_data as $key => $tag_data) {
+    $tags_data[$key]['url'] = $tool_page_url . "?tagId=" . $tag_data['id']; 
+  }
+
+  return $tags_data;
 }
 
 /******************* LMS functions *******************/

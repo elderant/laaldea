@@ -11,6 +11,18 @@
     return false;
   }
 
+  var getUrlVars = function() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+  }
+
   var laadea_validate_promo_form_jquery = function() {
     let $form = $('.page-id-35 .covid-form-section .laaldea-form');
     let $inputs = $form.find('input:not([type="submit"]), select');
@@ -398,6 +410,7 @@
   var laaldea_handle_tools_load_more = function($button) {
     let offset = 0;
     let filter;
+    let tagId;
 
     if(window.aldea.tools.filters.length > 0) {
       offset = window.aldea.tools.container.find('.tool-container.show').length;
@@ -405,6 +418,11 @@
     }
     else {
       offset = $button.attr('data-offset');
+    }
+    
+    let urlVars = getUrlVars();
+    if(urlVars.indexOf('tagId') != -1) {
+      tagId = parseInt(urlVars['tagId']);
     }
 
     $.ajax({
@@ -414,6 +432,7 @@
         action : 'laaldea_tools_load_more',
         offset : offset,
         filter : filter,
+        tagId : tagId
       },
       success : function( response ) {
         let data = JSON.parse(response);

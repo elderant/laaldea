@@ -89,6 +89,12 @@
               </div>
             <?php endforeach; ?>
           </div>
+          <div class="tag-cloud-container">
+            <?php 
+              $args = array('taxonomy' => array( 'tool_tag' )); 
+              wp_tag_cloud( $args );
+            ?>
+          </div>
         </div>
       </div>
 

@@ -1821,6 +1821,11 @@ body.page-id-346 {
   padding-left: calc(1rem - 8px);
 }
 
+/* Tools : tag cloud */
+#tools .sidebar .tag-cloud-container {
+  padding: 1.5rem 0.5rem;
+}
+
 /* Tools : Type filter */
 #tools .tools-container {
   padding-left: 8.333333%;
