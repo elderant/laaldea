@@ -91,7 +91,7 @@ defined( 'ABSPATH' ) || exit;
       <?php do_action( 'bbp_theme_after_reply_content' ); ?>
 
     </div><!-- .bbp-reply-content -->
-    <div class="bbp-admin-links-container">
+    <div class="bbp-admin-links-container" data-reply-id="<?php bbp_reply_id(); ?>">
       <?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
 
       <?php bbp_reply_admin_links(); ?>
@@ -99,4 +99,8 @@ defined( 'ABSPATH' ) || exit;
       <?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>    
     </div>
   </div><!-- .reply -->
+
+  <?php if(bbp_is_topic(bbp_get_reply_id())) : ?>
+    <?php bbp_get_template_part( 'form', 'reply' );?>
+  <?php endif;?>
 </div><!-- .reply-container -->

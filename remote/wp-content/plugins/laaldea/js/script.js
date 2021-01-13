@@ -73,6 +73,26 @@
     });
   }
   
+  var laaldea_handle_show_add_topic_modal = function(event, currentTarget) {
+    let $modal = $(currentTarget).parent('.new-topic-button-container').siblings('.new-topic-form-container');
+    
+    $modal.toggleClass('out');
+    setTimeout(function(){
+      $modal.toggleClass('in');
+    },10);
+    $video.toggleClass('active');
+  }
+
+  var laaldea_handle_hide_add_topic_modal = function(event, currentTarget) {
+    let $modal = $(currentTarget).parents('.modal-root');
+    $modal.toggleClass('transition');
+    $modal.toggleClass('in');
+    setTimeout(function(){
+      $modal.toggleClass('transition');
+      $modal.toggleClass('out');
+    },500);
+  }
+
   var laaldea_handle_topic_load_more = function(event) {
     let $button = $(event.currentTarget);
     let $buttonContainer = $button.parents('.load-more-link-container');
@@ -120,6 +140,27 @@
         webStateWaiting(true);
         return true;
       },
+    });
+  }
+
+  var laaldea_handle_display_reply_box = function(event, currentTarget) {
+    let $form = $(currentTarget).parents('.reply-container').find('.bbp-reply-form');
+    let $cancelButton = $form.find('.bbp-submit-wrapper #bbp-cancel-reply-to-link');
+
+    if(!$cancelButton.hasClass('button')) {
+      $cancelButton.toggleClass('button').toggleClass('learning-button');
+    }
+
+    let currentHeight = $form.height();
+
+    $form.css('height', currentHeight + 'px');
+    
+    $form.animate({height: $form.get(0).scrollHeight}, 1000, function(){
+      $(this).height('auto');
+    });
+
+    $form.find('#bbp-cancel-reply-to-link').on('click', function(event) {
+      $form.css('height','');
     });
   }
 
@@ -480,7 +521,7 @@
     });
   }
 
-  var laaldeea_handle_tools_preview_click = function(event, currentTarget) {
+  var laaldea_handle_tools_preview_click = function(event, currentTarget) {
     // hide any active players
     $('body #page > div.modal-root .modal-dialog iframe.active').each(function(){
       $(this).toggleClass('active');
@@ -730,6 +771,27 @@
 
     if($('.bbpress').length > 0) {
       $('.bbp-breadcrumb .bbp-breadcrumb-home').attr('href','https://laaldea.co/learning-home/');
+
+      $('.topic-section .new-topic-button-container button').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldea_handle_show_add_topic_modal(event, this);
+        });
+      });
+      
+      $('.topic-section .new-topic-form-container .modal-overlay').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldea_handle_hide_add_topic_modal(event, this);
+        });
+      }); 
+
+      $('.replies-section .bbp-admin-links .bbp-reply-to-link, .replies-section .bbp-admin-links .bbp-topic-reply-link').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          laaldea_handle_display_reply_box(event, this);
+        });
+      });
     }
 
     if($('.bbpress.single-forum').length > 0) {
@@ -841,7 +903,7 @@
         $(this).on('click', function(event) {
           if($(this).attr('data-link')) {
             event.preventDefault();
-            laaldeea_handle_tools_preview_click(event, this);
+            laaldea_handle_tools_preview_click(event, this);
           }
         });
       });
@@ -850,7 +912,7 @@
           if($(this).attr('data-link')) {
             console.log('preventing default');
             event.preventDefault();
-            laaldeea_handle_tools_preview_click(event, this);
+            laaldea_handle_tools_preview_click(event, this);
           }
         });
       });

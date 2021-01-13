@@ -46,4 +46,18 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'bbp_template_after_single_forum' ); ?>
 
+  <div class="new-topic-button-container">
+    <button class="new-topic-button">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <div class="new-topic-form-container modal-root out">
+    <div class="modal-overlay"></div>
+    <div class="modal-helper"></div>
+    <div class="modal-dialog">
+      <?php bbp_get_template_part( 'form',       'topic'     );?>
+    </div>
+  </div>
+
 </div>

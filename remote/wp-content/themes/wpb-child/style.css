@@ -1294,7 +1294,7 @@ form input.learning-input[type="password"] {
   background: transparent;
   border-bottom: 4px dashed var(--cyan);
   line-height: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 form input.user-flow-input[type="text"]:active,
@@ -1346,6 +1346,7 @@ form input[type="submit"].user-flow-button,
 form button[type="submit"].user-flow-button,
 form input[type="submit"].learning-button,
 form button[type="submit"].learning-button,
+form a.button.learning-button,
 .user-flow #loginform input[type="submit"] {
   border: none;
   padding: 2rem 1.5rem 2.5rem;
