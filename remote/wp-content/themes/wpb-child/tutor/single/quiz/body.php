@@ -173,55 +173,53 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 
 										if ( $question_type === 'true_false' || $question_type === 'single_choice' ) {
 											?>
-                                            <label class="answer-view-<?php echo $answer->answer_view_format; ?>">
-                                                <div class="quiz-answer-input-body">
-													<?php
-													if ($answer->answer_view_format === 'image' || $answer->answer_view_format === 'text_image'){
-														?>
-                                                        <div class="quiz-answer-image-wrap">
-                                                            <img src="<?php echo wp_get_attachment_image_url($answer->image_id, 'full') ?>" />
-                                                        </div>
-														<?php
-													}
-													?>
-                                                    <div class="quiz-answer-input-bottom">
-                                                        <div class="quiz-answer-input-field">
-                                                            <input name="attempt[<?php echo $is_started_quiz->attempt_id; ?>][quiz_question][<?php echo $question->question_id; ?>]" type="radio" value="<?php echo $answer->answer_id; ?>" data-is-correct="<?php echo $answer->is_correct ?>" >
-                                                            <span>&nbsp;</span>
-                                                            <?php
-                                                                if ($answer->answer_view_format !== 'image'){ echo $answer_title;}
-                                                            ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </label>
+                          <label class="answer-view-<?php echo $answer->answer_view_format; ?>">
+                            <div class="quiz-answer-input-body">
+                                <div class="quiz-answer-input-bottom">
+                                  <div class="quiz-answer-input-field">
+                                    <input name="attempt[<?php echo $is_started_quiz->attempt_id; ?>][quiz_question][<?php echo $question->question_id; ?>]" type="radio" value="<?php echo $answer->answer_id; ?>" data-is-correct="<?php echo $answer->is_correct ?>" >
+                                    <span>&nbsp;</span>
+                                    <div class="answer-container">
+                                      <?php if ($answer->answer_view_format === 'image' || $answer->answer_view_format === 'text_image'): ?>
+                                        <div class="quiz-answer-image-wrap">
+                                          <img src="<?php echo wp_get_attachment_image_url($answer->image_id, 'full') ?>" />
+                                        </div>
+                                      <?php endif;?>
+                                      <span class="answer-text"><?php
+                                          if ($answer->answer_view_format !== 'image'){ echo $answer_title;}
+                                      ?></span>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </label>
 											<?php
 										}elseif ($question_type === 'multiple_choice'){
 											?>
-                                            <label class="answer-view-<?php echo $answer->answer_view_format; ?>">
-
-
-                                                <div class="quiz-answer-input-body">
-													<?php if ($answer->answer_view_format === 'image' || $answer->answer_view_format === 'text_image'){ ?>
-                                                        <div class="quiz-answer-image-wrap">
-                                                            <img src="<?php echo wp_get_attachment_image_url($answer->image_id, 'full') ?>" />
-                                                        </div>
-                                                    <?php } ?>
-
-                                                    <div class="quiz-answer-input-bottom">
-                                                        <div class="quiz-answer-input-field">
-                                                            <input name="attempt[<?php echo $is_started_quiz->attempt_id; ?>][quiz_question][<?php echo $question->question_id; ?>][]" type="checkbox" data-is-correct="<?php echo $answer->is_correct ?>" value="<?php echo $answer->answer_id; ?>">
-                                                            <span>&nbsp;</span>
-                                                            <?php if ($answer->answer_view_format !== 'image'){
-                                                                echo $answer_title;
-                                                            } ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </label>
+                          <label class="answer-view-<?php echo $answer->answer_view_format; ?>">
+                            <div class="quiz-answer-input-body">
+                                <div class="quiz-answer-input-bottom">
+                                    <div class="quiz-answer-input-field">
+                                        <input name="attempt[<?php echo $is_started_quiz->attempt_id; ?>][quiz_question][<?php echo $question->question_id; ?>][]" type="checkbox" data-is-correct="<?php echo $answer->is_correct ?>" value="<?php echo $answer->answer_id; ?>">
+                                        <span>&nbsp;</span>
+                                        <div class="answer-container">
+                                          <?php if ($answer->answer_view_format === 'image' || $answer->answer_view_format === 'text_image'){ ?>
+                                            <div class="quiz-answer-image-wrap">
+                                              <img src="<?php echo wp_get_attachment_image_url($answer->image_id, 'full') ?>" />
+                                            </div>
+                                          <?php } ?>
+                                          <span class="answer-text">
+                                            <?php if ($answer->answer_view_format !== 'image') {
+                                              echo $answer_title;
+                                            } ?>
+                                          </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </label>
 											<?php
-										}
-                                        elseif ($question_type === 'fill_in_the_blank'){
+										}elseif ($question_type === 'fill_in_the_blank'){
 											?>
                                             <p class="fill-in-the-blank-field">
 												<?php
@@ -239,8 +237,7 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 												?>
                                             </p>
 											<?php
-										}
-                                        elseif ($question_type === 'ordering'){
+										}elseif ($question_type === 'ordering'){
 											?>
                                             <div class="question-type-ordering-item">
                                                 <div class="answer-title">
