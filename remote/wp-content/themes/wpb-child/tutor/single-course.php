@@ -43,7 +43,8 @@ $title = empty($title_html) ? get_the_title() : $title_html;
             </div>  
           </div>
         </div>
-        <?php tutor_course_content(); ?>
+        <?php /*tutor_course_content();*/ ?>
+        <?php tutor_course_topics();?>
       </div>
     </div>
   </div>
@@ -58,7 +59,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
               
               <div class="tutor-single-course-title mb-5">
                 <?php do_action('tutor_course/single/title/before'); ?>
-                <div class="before-title font-titan pb-2"><?php _e('Curso: ','laaldea');?></div>
+                <div class="before-title font-titan"><?php _e('Curso: ','laaldea');?></div>
                 <h2 class="color-cyan"><?php echo $title; ?></h2>
                 <?php do_action('tutor_course/single/title/after'); ?>
               </div>
@@ -105,6 +106,26 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                 </div>
               </div>
               
+              <div class="tutor-single-course-body">
+                <?php
+                  $excerpt = tutor_get_the_excerpt();
+                    $disable_about = get_tutor_option('disable_course_about');
+                  if (! empty($excerpt) && ! $disable_about){
+                    ?>
+                        <div class="tutor-course-summery">
+                            <h4  class="tutor-segment-title"><?php esc_html_e('About Course', 'tutor') ?></h4>
+                      <?php echo $excerpt; ?>
+                        </div>
+                    <?php
+                  }
+                ?>
+                <?php tutor_course_content(); ?>
+                <?php tutor_course_requirements_html(); ?>
+                <?php tutor_course_tags_html(); ?>
+                <?php tutor_course_target_audience_html(); ?>
+                <?php tutor_course_material_includes_html(); ?>
+              </div>
+
               <?php laaldea_course_enroll_button(); ?>
             </div>
         </div>

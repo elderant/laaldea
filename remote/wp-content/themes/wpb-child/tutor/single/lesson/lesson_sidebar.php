@@ -236,12 +236,13 @@ $course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ),
     
     <?php if($completed_count > 0) : ?>
       <div class="tutor-single-lesson-segment tutor-course-completion-percent">
-        <label class="font-titan color-cyan">
+        <?php wpb_child_tutor_lesson_completing_progress_bar();?>
+        <!-- <label class="font-titan color-cyan">
           <?php _e('Avance','laaldea');?>
         </label>
         <div class="percent-container font-titan">
           <?php echo sprintf("%s%%", $completed_count )?>
-        </div> 
+        </div>  -->
       </div>
     <?php endif; ?>
   </div>

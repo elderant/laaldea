@@ -1183,6 +1183,15 @@ body.page-politica-privacidad p {
   background-image: url(/wp-content/uploads/user-flow-background.png);
   background-repeat: no-repeat;
   background-position: 50% 95%;
+  background-size: 60%;
+}
+
+.user-flow.page-login #content > .container-fluid > .row {
+  padding: 0rem 1rem 5rem;
+  background-image: url(/wp-content/uploads/user-flow-background.png);
+  background-repeat: no-repeat;
+  background-position: 50% 95%;
+  background-size: auto;
 }
 
 .user-flow .page {
@@ -1349,7 +1358,7 @@ form button[type="submit"].learning-button,
 form a.button.learning-button,
 .user-flow #loginform input[type="submit"] {
   border: none;
-  padding: 2rem 1.5rem 2.5rem;
+  padding: 1rem 1.5rem 1.5rem;
   outline: none;
   color: var(--cyan);
   font-family: 'titan_one';
@@ -1366,15 +1375,7 @@ form button[type="submit"].user-flow-button:hover,
 form input[type="submit"].learning-button:hover,
 form button[type="submit"].learning-button:hover,
 .user-flow #loginform input[type="submit"].user-flow-button:hover {
-  border: none;
-  padding: 2rem 1.5rem 2.5rem;
   color: var(--gray);
-  font-family: 'titan_one';
-  font-size: 1.5rem;
-  background: url(/wp-content/uploads/learning-button-background.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 
 .user-flow .logged-in.description,
@@ -1394,13 +1395,29 @@ form button[type="submit"].learning-button:hover,
   margin: 0 auto;
 }
 
+.user-flow #loginform > p {
+  width: 100%;
+  margin: 0 auto 2%;
+  padding: 0.25rem 7rem;
+}
+
+.user-flow #loginform input[type="submit"] {
+  width: auto;
+  margin: 0 auto;
+}
+
 .user-flow #loginform > p label,
 .user-flow #loginform > p input {
   display: block;
 }
 
+.user-flow #loginform > p input {
+  width: 100%;
+}
+
 .user-flow #loginform > p.login-remember input {
   display: inline-block;
+  width: auto;
 }
 
 .user-flow.page-login .page a {
@@ -1408,7 +1425,18 @@ form button[type="submit"].learning-button:hover,
   text-align: center;
 }
 
+/* register */
+.user-flow .form-row.signup-submit {
+  flex-direction: row;
+  justify-content: center;
+}
+
 /* change password page */
+.user-flow.page-id-331 #content > .container-fluid > .row {
+  padding: 5rem 1rem 5rem;
+  background-size: 50%;
+}
+
 #changepassform .description,
 #password-lost-form .description {
   padding: 1rem 4rem;

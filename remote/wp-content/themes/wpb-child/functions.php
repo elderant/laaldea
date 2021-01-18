@@ -444,6 +444,21 @@ if ( ! function_exists('wpb_child_tutor_in_lesson_course_mark_complete_html')) {
   }
 }
 
+// Add course completion percent on lesson.
+if ( ! function_exists('wpb_child_tutor_lesson_completing_progress_bar')) {
+  function wpb_child_tutor_lesson_completing_progress_bar( $echo = true ) {
+      ob_start();
+      tutor_load_template( 'single.lesson.completing-progress' );
+      $output = apply_filters( 'tutor_lesson/single/completing-progress-bar', ob_get_clean() );
+
+      if ( $echo ) {
+          echo $output;
+      }
+
+      return $output;
+  }
+}
+
 //Hide course complete button in lesson.
 add_filter('tutor_course/single/in_lesson_complete_form', 'wpb_child_tutor_lms_hide_course_complete_btn_in_lesson', 10, 2);
 function wpb_child_tutor_lms_hide_course_complete_btn_in_lesson($html, $course_id) {
