@@ -2896,8 +2896,8 @@ body.page-id-346 {
 }
 
 /* lesson single : lesson main container, quiz main container */
-.single-lesson .lesson-section,
-.tutor-single-entry-content .lesson-section {
+.single-lesson .tutor-single-lesson-wrap,
+.single-tutor_quiz .tutor-single-lesson-wrap {
   background: none;
 }
 
@@ -2993,6 +2993,11 @@ body.page-id-346 {
 .lesson-section .tutor-lesson-content-area div,
 .lesson-section .tutor-quiz-single-wrap div {
   z-index: 1;
+}
+
+.lesson-section .tutor-quiz-single-wrap .tutor-quiz-attempt-history,
+.lesson-section .tutor-quiz-single-wrap .start-quiz-wrap {
+  position: relative;
 }
 
 .lesson-section .tutor-lesson-content-area .tutor-next-previous-pagination-wrap,
@@ -3117,20 +3122,23 @@ div.tutor-quiz-header .tutor-quiz-meta li {
   color: var(--gray);
 }
 
-/* lesson single : quiz body */
+/* lesson single : quiz attempt table, dashboard quiz attempt table */
 #tutor-quiz-body .tutor-quiz-attempt-history-title {
   margin: 3rem 0 2rem;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table {
+#tutor-quiz-body .tutor-quiz-attempt-history table,
+.tutor-dashboard .tutor-dashboard-content table {
   border: none;
 }
-
-#tutor-quiz-body .tutor-quiz-attempt-history table thead tr {
+ 
+#tutor-quiz-body .tutor-quiz-attempt-history table thead tr,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table tr:first-child {
   background: none;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table th {
+#tutor-quiz-body .tutor-quiz-attempt-history table th,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table th {
   border: none !important;
   border-bottom: 2px dashed var(--cyan) !important;
   color: var(--cyan);
@@ -3143,27 +3151,40 @@ div.tutor-quiz-header .tutor-quiz-meta li {
   text-align: left;
 }
 
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table th:first-child,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td:first-child {
+  width: 20%;
+  text-align: left;
+}
+
 #tutor-quiz-body .tutor-quiz-attempt-history table td,
-#tutor-quiz-body .tutor-quiz-attempt-history table th {
+#tutor-quiz-body .tutor-quiz-attempt-history table th,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table th {
   width: 14%;
   text-align: center;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table td {
+#tutor-quiz-body .tutor-quiz-attempt-history table td,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td {
   border: none !important;
   border-bottom: 2px dashed var(--cyan) !important;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table .course a {
+#tutor-quiz-body .tutor-quiz-attempt-history table .course a,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table .course a {
   color: var(--cyan);
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table .course-meta span {
+
+#tutor-quiz-body .tutor-quiz-attempt-history table .course-meta span,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td .course-meta span:nth-child(2) {
   display: block;
   margin: 0;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span {
+#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td:nth-child(5) span {
   display: block;
   width: fit-content;
   height: auto;
@@ -3171,11 +3192,13 @@ div.tutor-quiz-header .tutor-quiz-meta li {
   padding: 0.25rem 0.5rem;
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span.result-fail {
+#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span.result-fail,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td:nth-child(5) span.result-fail {
   background-color: var(--red-light-tone);
 }
 
-#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span.result-pass {
+#tutor-quiz-body .tutor-quiz-attempt-history table td:nth-child(5) span.result-pass,
+.tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td:nth-child(5) span.result-pass {
   background-color: var(--green-light);
 }
 
@@ -3509,6 +3532,12 @@ div.tutor-quiz-header .tutor-quiz-meta li {
   width: 75%;
 }
 
+.tutor-dashboard .tutor-dashboard-menu-divider {
+  width: 90%;
+  margin: 10px auto;
+  background-color: var(--cyan);
+}
+
 /* tutor dashboard : dashboard */
 .tutor-dashboard .tutor-dashboard-content h3 {
   color: var(--cyan);
@@ -3517,4 +3546,88 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 .tutor-dashboard .tutor-dashboard-info-cards .tutor-dashboard-info-card p {
   background-color: var(--cyan);
   color: var(--white);
+}
+
+/* tutor dashboard : Courses */
+.tutor-dashboard .tutor-dashboard-inline-links {
+  margin-bottom: 2rem;
+}
+
+.tutor-dashboard .tutor-dashboard-inline-links ul {
+  border-bottom: none;
+}
+
+.tutor-dashboard .tutor-dashboard-inline-links ul li a {
+  color: var(--gray);
+  transition: color 0.5s ease-in-out;
+}
+
+.tutor-dashboard .tutor-dashboard-inline-links ul li a:hover, 
+.tutor-dashboard .tutor-dashboard-inline-links ul li.active a {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-dashboard-content-inner .tutor-mycourse-wrap {
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 1rem 5rem 2rem 1rem;
+  overflow: visible;
+}
+
+.tutor-dashboard .tutor-mycourse-wrap .course-background-image {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  left: -45px;
+}
+
+.tutor-dashboard .tutor-progress-bar .tutor-progress-filled {
+  background-color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-progress-bar .tutor-progress-filled:after {
+  border-color: var(--cyan);
+}
+
+/* tutor dashboard : quiz attempts single */
+.tutor-dashboard .tutor-quiz-attempt-review-wrap .attempt-answers-header a {
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.tutor-dashboard .tutor-quiz-attempt-review-wrap table tr:first-child {
+  border: none;
+  border-bottom: 2px dashed var(--cyan) !important;
+  background-color: transparent;
+}
+
+.tutor-dashboard .tutor-quiz-attempt-review-wrap table tr:first-child th {
+  color: var(--cyan);
+}
+
+.tutor-dashboard .tutor-quiz-attempt-review-wrap span.result-pass {
+  background: var(--green-light);
+} 
+
+.tutor-dashboard .tutor-quiz-attempt-review-wrap span.result-fail {
+  background: var(--red-light-tone);
+}
+
+.tutor-dashboard .quiz-attempt-answers-wrap .attempt-header-quiz {
+  color: var(--cyan);
+  font-family: 'titan_one';
+}
+
+.tutor-dashboard .quiz-correct-answer-text i {
+  background: var(--green-light);
+}
+
+.tutor-dashboard .quiz-incorrect-answer-text i {
+  background: var(--red-light-tone);
 }
