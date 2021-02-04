@@ -737,7 +737,7 @@
       let height;
       $('.news-container .new-section').each(function(){
         $(this).css('display', 'block');
-        height = $(this).outerHeight();
+        height = $(this).innerHeight();
         if(height > maxHeight) {
           maxHeight = height;
         }
@@ -753,7 +753,6 @@
           maxHeight = height;
         }
       });
-      console.log('height : ' + height);
       $('.forums-container').css('height', maxHeight + 'px');
 
       setInterval(function(){
@@ -879,7 +878,7 @@
       });
 
       // Filter control event
-      $('.sidebar .filters-container .filter-contol').each(function(){
+      $('.sidebar .filters-container .filter-control').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
           let $button = $(event.currentTarget);
@@ -952,7 +951,7 @@
       };
 
       // Filter control event
-      $('.courses-sidebar .filters-container .filter-contol').each(function(){
+      $('.courses-sidebar .filters-container .filter-control').each(function(){
         let $buttonContainer = $(this).parents('.filter-title');
         let $filterContainer = $(this).parents('.filters-container');
         let collapsedHeight = $buttonContainer.outerHeight();

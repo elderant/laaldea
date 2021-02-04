@@ -14,21 +14,21 @@
       <h2><?php _e('Contenidos','laaldea');?></h2>
     </div>
     <div class="row tools-row">
-      <div class="col-3 offset-1 sidebar">
+      <div class="col-10 offset-1 col-sm-3 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-3 offset-xl-1 sidebar">
         <div class="title-container d-flex align-items-center pb-5">
           <img src="/wp-content/uploads/tools-icon.png" alt="<?php _e('Herramientas icon', 'laaldea'); ?>">
           <h4><?php _e('Contenidos','laaldea');?></h4>
         </div>
         <div class="tools-sidebar-container" data-top="240">
           <div class="filters-container follow d-flex flex-column justify-content-between align-items-start pb-5">
-            <button class="follow-type-filter-button pl-5" data-filter="follow">
+            <button class="follow-type-filter-button" data-filter="follow">
               <img class="filter-image follow" src="/wp-content/uploads/tools-filter-follow.png" alt="<?php _e('Imagen filtrar por favoritos','laaldea')?>">
               <span class="text-container h6 font-titan"><?php _e('Mis Favoritos','laaldea');?></span>
             </button>
           </div>
           <div class="filters-container book d-flex flex-column justify-content-between align-items-start">
             <div class="filter-title py-4">
-              <button class="filter-contol d-flex align-items-center justify-content-between">
+              <button class="filter-control d-flex align-items-center justify-content-between">
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 font-titan color-gray"><?php _e('Por libro','laaldea');?></span>
                 </div>
@@ -40,7 +40,7 @@
             </div>
             <?php foreach($laaldea_args['book_terms'] as $book_term) : ?>
               <div class="term-container hidden pb-3 term-<?php echo $book_term -> term_id; ?>">
-                <button class="pl-5" data-termId="<?php echo $book_term -> term_id?>">
+                <button class="" data-termId="<?php echo $book_term -> term_id?>">
                   <img src="<?php echo get_field( "category_image", 'category_' . $book_term -> term_id );?>" alt="<?php _e('Term image','laaldea');?>">
                   <span class="h6 font-titan"><?php echo $book_term -> name?></span>
                 </button>
@@ -49,7 +49,7 @@
           </div>
           <div class="filters-container topic d-flex flex-column justify-content-between align-items-start">
             <div class="filter-title py-4 d-flex align-items-center">
-              <button class="filter-contol d-flex align-items-center justify-content-between">
+              <button class="filter-control d-flex align-items-center justify-content-between">
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 font-titan color-gray"><?php _e('Por tema','laaldea');?></span>
                 </div>
@@ -61,7 +61,7 @@
             </div>
             <?php foreach($laaldea_args['topic_terms'] as $topic_terms) : ?>
               <div class="term-container hidden pb-3 term-<?php echo $topic_terms -> term_id?>">
-                <button class="pl-5" data-termId="<?php echo $topic_terms -> term_id?>">
+                <button class="" data-termId="<?php echo $topic_terms -> term_id?>">
                   <img src="<?php echo get_field( "category_image", 'category_' . $topic_terms -> term_id );?>" alt="<?php _e('Term image','laaldea');?>">
                   <span class="h6 font-titan"><?php echo $topic_terms -> name?></span>
                 </button>
@@ -70,7 +70,7 @@
           </div>
           <div class="filters-container activities d-flex flex-column justify-content-between align-items-start">
             <div class="filter-title py-4 d-flex align-items-center">
-              <button class="filter-contol d-flex align-items-center justify-content-between">
+              <button class="filter-control d-flex align-items-center justify-content-between">
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 font-titan color-gray"><?php _e('Por actividad','laaldea');?></span>
                 </div>
@@ -82,7 +82,7 @@
             </div>
             <?php foreach($laaldea_args['action_terms'] as $action_terms) : ?>
               <div class="term-container hidden pb-3 term-<?php echo $action_terms -> term_id?>">
-                <button class="pl-5" data-termId="<?php echo $action_terms -> term_id?>">
+                <button class="" data-termId="<?php echo $action_terms -> term_id?>">
                   <img src="<?php echo get_field( "category_image", 'category_' . $action_terms -> term_id );?>" alt="<?php _e('Term image','laaldea');?>">
                   <span class="h6 font-titan"><?php echo $action_terms -> name?></span>
                 </button>
@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div class="col-7 main-container">
+      <div class="col-10 offset-1 col-sm-7 offset-sm-0 col-xl1-10 offset-xl1-1 col-xl-7 main-container">
         <div class="target-filter-container pb-4 d-flex align-items-center">
           <button class="docente-target-filter-button d-flex align-items-center" data-filter="docente">
             <img class="filter-image docente" src="/wp-content/uploads/tools-filter-video.png" alt="<?php _e('Imagen filtrar para docentes','laaldea')?>">

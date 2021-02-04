@@ -36,7 +36,10 @@ add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );
 function wpb_child_enqueue_mobile_styles() {
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
-	}
+  }
+  else {
+    wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
+  }  
 }
 
 // include custom jQuery
@@ -49,6 +52,11 @@ function wpb_child_enqueue_admin_styles() {
 	wp_enqueue_style( 'wpb-child-admin', get_stylesheet_directory_uri() . '/inc/admin/style.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpb_child_enqueue_admin_styles' );
+
+function wpb_child_enqueue_bootstrap_extended_styles() {
+  wp_enqueue_style('wpb-child-bootstrap-ext', get_stylesheet_directory_uri() . '/inc/assets/css/bootstrap.ext.css', array(), false );
+}
+add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_bootstrap_extended_styles', 99 );
 /******************** Shared ********************/
 //Page Slug Body Class
 function laaldea_add_slug_body_class( $classes ) {

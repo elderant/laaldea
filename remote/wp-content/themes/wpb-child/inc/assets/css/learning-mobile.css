@@ -1,0 +1,281 @@
+/********************************************************************************************
+ 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px (removes animation for mobile devices) (line 24)
+ 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px (line 55)
+ 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px (line ---)
+ 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px (line ---) 
+ 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px (line ---)
+ 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px (line ---)
+ 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px (line ---)
+ 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px (line ---)
+ 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px (line ---)
+ 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px (line ---)
+ 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px (line ---)
+ 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px (line ---)
+ 
+*********************************************************************************************/
+
+
+/*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 991px) {}
+
+/*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
+@media only screen and (max-width: 400px) {}
+
+/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
+@media screen and (min-width: 401px) and (max-width: 575px) {}
+
+/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
+@media screen and (min-width: 576px) and (max-width: 649px) {}
+
+/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
+@media screen and (min-width: 650px) and (max-width: 767px) {}
+
+/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {}
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2 {
+    font-size: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4 {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6 {
+    font-size: 1.05rem;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 8rem;
+  }
+
+  form input[type="submit"].user-flow-button {
+    padding: 1rem 4rem 1.5rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+
+  /* login page */
+  .user-flow.page-login #main > .page {
+    width: 80%;
+  }
+}
+
+/*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px --*/
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.75rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2 {
+    font-size: 2rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar {
+    font-size: 1.7rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4 {
+    font-size: 1.45rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.25rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6 {
+    font-size: 1.1rem;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 42px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 8rem;
+  }
+
+  form input[type="submit"].user-flow-button {
+    padding: 1rem 4rem 1.5rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+
+  /* login page */
+  .user-flow.page-login #main > .page {
+    width: 80%;
+  }
+}
+
+/*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
+@media screen and (min-width: 1366px) and (max-width: 1535px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.75rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2 {
+    font-size: 2rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar {
+    font-size: 1.75rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4 {
+    font-size: 1.5rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.25rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6 {
+    font-size: 1.1rem;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 45px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 8rem;
+  }
+
+  form input[type="submit"].user-flow-button {
+    padding: 1rem 4rem 1.5rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+
+  /* login page */
+  .user-flow.page-login #main > .page {
+    width: 80%;
+  }
+}
+
+/*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/
+@media screen and (min-width: 1536px) and (max-width: 1679px) {
+  /**** User flow General ****/
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 8rem;
+  }
+}
+
+/*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+  /**** User flow General ****/
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 8rem;
+  }
+}
+
+

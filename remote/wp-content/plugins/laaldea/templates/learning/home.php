@@ -18,17 +18,17 @@
           <div class="avatar-container">
             <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
           </div>
-          <div class="greet-container font-titan color-white">
-            <span><?php printf( esc_html__( '¡Bienvenida %s!','laaldea'), $user_name );?></span>
+          <div class="greet-container font-titan color-white h3">
+            <span><?php printf( esc_html__( '¡Hola %s!','laaldea'), $user_name );?></span>
           </div>
         </div>
-        <div class="general-greet">
+        <div class="general-greet h4">
           <p class="color-cyan"><?php _e('Este es tu espacio en La Aldea, aquí podrás crear, aprender, compartir, cantar y hacer parte de esta increíble comunidad.','laaldea');?></p>
         </div>
       </div>
     </div>
     <div class="row learning-home-row">
-      <div class="col-7 offset-1 left-column">
+      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column">
         <div class="area-container tools-area">
           <div class="row title-row">
             <div class="col-12">
@@ -36,7 +36,7 @@
                 <div class="icon-container tools">
                   <img class="area-icon" src="/wp-content/uploads/learning-home-tools-icon.png" alt="<?php _e('Icono herramientas','laaldea');?>">
                 </div>
-                <span class="text-container"><?php _e('Herramientas','laaldea');?></span>
+                <span class="text-container"><?php _e('Contenidos','laaldea');?></span>
               </h4>
             </div>
           </div>
@@ -54,7 +54,7 @@
                     <?php 
                       $recent_tools -> the_post();
                       $id = get_the_id();
-                      $type = get_field( "type" );
+                      $type = strtolower(get_field( "type" ));
                     ?>
                     <div class="tool-container">
                       <a href="/tools/?id=<?php echo $id;?>" class="tool-link">
@@ -64,11 +64,13 @@
                               <?php the_post_thumbnail( 'medium' ); ?>
                             <?php else :?>
                               <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
-                              <span class="default-text">
-                                <?php if($type == 'PDF') : ?>
+                              <span class="default-text h5 m-0">
+                                <?php if($type == 'pdf') : ?>
                                   <?php _e('PDF', 'laaldea')?>
-                                <?php elseif($type == 'Video') : ?>
+                                <?php elseif($type == 'video') : ?>
                                   <?php _e('Video', 'laaldea')?>
+                                <?php elseif($type == 'audio') : ?>
+                                  <?php _e('Audio', 'laaldea')?>
                                 <?php else : ?>
                                   <?php _e('Herramienta', 'laaldea')?>
                                 <?php endif; ?>
@@ -133,7 +135,9 @@
                             <?php echo __('Publicado: ','laaldea') . get_the_date();?>
                           </div>
                           <div class="post-excerpt color-cyan font-sassoon capitalized mb-2">
-                            <?php echo the_excerpt(); ?>
+                            <p>
+                              <?php echo wp_trim_words(get_the_excerpt(), 60); ?>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -193,7 +197,7 @@
                           </div>
                         </div>
                         <div class="info-container">
-                          <div class="topic-link-container h6">
+                          <div class="topic-link-container h5">
                             <span><?php _e('Ir al tema ','laaldea')?></span>
                             <a class="bbp-topic-permalink font-titan" href="<?php bbp_topic_permalink($topic_id); ?>"><?php bbp_topic_title($topic_id);?></a>
                           </div>
@@ -223,7 +227,7 @@
           </div>
         </div>
       </div>
-      <div class="col-3 right-column">
+      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column">
         <div class="area-container current-area">
           <div class="row title-row">
             <div class="col-10">
@@ -257,14 +261,14 @@
                       $i = ($i < 3)? $i + 1: 1;
                       
                       $class = 'course-container py-3 row-' . $i; 
-                      if ($i > 2) {
-                        $class .= ' hidden';
-                      } 
+                      // if ($i > 2) {
+                      //   $class .= ' hidden';
+                      // } 
                     ?>
 
                     <div class="<?php echo $class?>">
                       <div class="tutor-panel-course-segment tutor-course-completion-percent">
-                        <div class="percent-container font-titan">
+                        <div class="percent-container font-titan h4 m-0">
                           <?php echo sprintf("%s%%", $completed_percent )?>
                         </div>
                       </div>
@@ -296,16 +300,18 @@
         </div>
         <div class="area-container courses-area">
           <div class="row title-row">
-            <h4 class="font-titan color-cyan d-flex align-items-center">
-              <div class="icon-container courses">
-                <img class="area-icon courses" src="/wp-content/uploads/learning-home-courses-icon.png" alt="<?php _e('Icono courses','laaldea');?>">
-              </div>
-              <span class="text-container"><?php _e('Otros cursos','laaldea');?></span>
-            </h4>
+            <div class="col-12">
+              <h4 class="font-titan color-cyan d-flex align-items-center">
+                <div class="icon-container courses">
+                  <img class="area-icon courses" src="/wp-content/uploads/learning-home-courses-icon.png" alt="<?php _e('Icono courses','laaldea');?>">
+                </div>
+                <span class="text-container"><?php _e('Otros cursos','laaldea');?></span>
+              </h4>
+            </div>
           </div>
           <div class="row course-row">
             <div class="col-12">
-            <div class="recommended-container">
+              <div class="recommended-container">
                 <?php if( $recommended_courses -> have_posts() ) : ?>
                   <?php $i = 0;?>
                   <?php while ($recommended_courses -> have_posts()) : ?>

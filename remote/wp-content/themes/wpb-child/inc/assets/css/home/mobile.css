@@ -251,11 +251,6 @@
 	#aldea .text-container p {
     font-size: 1.2em;
 	}
-	
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
-	}
 
 	#aldea .image-container iframe {
 		width: 384px;
@@ -632,11 +627,6 @@
 		margin-bottom: 11em;
 	}
 
-	#click .text-container,
-	#click .video-container {
-		padding: 0 5px;
-	}
-
 	#click .middle-row .video-container {
 		margin-bottom: 2em;
 	}
@@ -929,11 +919,6 @@
 
 	#aldea .text-container p {
     font-size: 1.2em;
-	}
-	
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
 	}
 
 	#aldea .image-container iframe {
@@ -1309,11 +1294,6 @@
 		margin-bottom: 9em;
 	}
 
-	#click .text-container,
-	#click .video-container {
-		padding: 0 5px;
-	}
-
 	#click .middle-row .video-container {
 		margin-bottom: 2em;
 	}
@@ -1591,11 +1571,6 @@
 
 	#aldea .text-container p {
     font-size: 1.2em;
-	}
-	
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
 	}
 
 	#aldea .image-container iframe {
@@ -1965,11 +1940,6 @@
 		margin-bottom: 0;
 	}
 
-	#click .text-container,
-	#click .video-container {
-		padding: 0 5px;
-	}
-
 	#click .middle-row .video-container {
 		margin-bottom: 2em;
 	}
@@ -2228,11 +2198,6 @@
 
 	#aldea .text-container p {
     font-size: 1.2em;
-	}
-	
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
 	}
 
 	#aldea .image-container iframe {
@@ -2616,11 +2581,6 @@
 		margin-bottom: 0;
 	}
 
-	#click .text-container,
-	#click .video-container {
-		padding: 0 5px;
-	}
-
 	#click .middle-row .video-container {
 		margin-bottom: 2em;
 	}
@@ -2877,11 +2837,6 @@
 
 	#aldea .text-container p {
     font-size: 1.2em;
-	}
-	
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
 	}
 
 	#aldea .image-container iframe {
@@ -3259,11 +3214,6 @@
 		margin-bottom: 0;
 	}
 
-	#click .text-container,
-	#click .video-container {
-		padding: 0 5px;
-	}
-
 	#click .middle-row .video-container {
 		margin-bottom: 2em;
 	}
@@ -3487,11 +3437,6 @@
 
 	#aldea .text-container p {
     font-size: 1.2em;
-	}
-
-	#aldea .text-container,
-	#aldea .image-container {
-		padding: 0 15px;
 	}
 
 	#aldea .image-container iframe {
@@ -3840,11 +3785,6 @@
 	#click .row.button-container {
 		margin-top: 0em;
 		margin-bottom: 0;
-	}
-
-	#click .text-container,
-	#click .video-container {
-		padding: 0 15px;
 	}
 
 	#click .text-container img {
@@ -6163,7 +6103,7 @@
 	
 	.contact-data h3 {
 		padding: 5% 0;
-	}
+  }
 }
 
 
@@ -6463,7 +6403,7 @@
 	
 	.contact-data h3 {
 		padding: 5% 0;
-	}
+  }
 }
 
 

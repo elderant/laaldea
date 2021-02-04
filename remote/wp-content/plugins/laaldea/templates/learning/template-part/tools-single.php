@@ -36,7 +36,7 @@
           <?php echo $thumbnail; ?>
         <?php else :?>
           <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
-          <span class="default-text d-flex align-items-center justify-content-center">
+          <span class="default-text d-flex align-items-center justify-content-center h5">
             <?php if($type == 'pdf') : ?>
               <?php _e('PDF', 'laaldea')?>
             <?php elseif($type == 'video') : ?>

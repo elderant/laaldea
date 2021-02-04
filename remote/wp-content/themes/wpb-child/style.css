@@ -197,11 +197,6 @@ a:hover, a:focus  {
 	outline: none;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-	padding-left: 0;
-	padding-right: 0;
-}
-
 #wraper {
 	height: 100%;
 	width: 100%;
@@ -1109,7 +1104,8 @@ body.page-politica-privacidad p {
 /* Learning header titles */
 .user-flowh1, .user-flow .h1,
 .bbpress h1, .bbpress .h1,
-.learning h1, .learning .h1 {
+.learning h1, .learning .h1,
+.single-post #page.learning .post h1.entry-title {
 	font-size: 3rem;
 }
 
@@ -1133,7 +1129,11 @@ body.page-politica-privacidad p {
 
 .user-flow h5, .user-flow .h5,
 .bbpress h5, .bbpress .h5,
-.learning h5, .learning .h5 {
+.learning h5, .learning .h5, 
+.user-flow #loginform label,
+.user-flow #loginform input[type="submit"],
+.bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+.bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
 	font-size: 1.5rem;
 }
 
@@ -1154,7 +1154,12 @@ body.page-politica-privacidad p {
 .user-flow h4,
 .user-flow h5,
 .user-flow h6 {
-  color: var(--black);
+  color: var(--gray);
+}
+
+.user-flow ::selection {
+  color: var(--white);
+  background-color: var(--cyan);
 }
 
 .user-flow a {
@@ -1175,11 +1180,12 @@ body.page-politica-privacidad p {
 
 .user-flow .form-row {
   flex-direction: column;
-  padding: 1rem 12rem;
+  padding: 1rem 10rem;
 }
 
 .user-flow #content > .container-fluid > .row {
-  padding: 0rem 1rem 5rem;
+  margin-bottom: 5rem;
+  padding: 0rem 1rem;
   background-image: url(/wp-content/uploads/user-flow-background.png);
   background-repeat: no-repeat;
   background-position: 50% 95%;
@@ -1195,7 +1201,7 @@ body.page-politica-privacidad p {
 }
 
 .user-flow .page {
-  padding: 1rem 0 5rem 0;
+  padding: 4rem 0 5rem 0;
   background: url(/wp-content/uploads/learning-course-background.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -1204,7 +1210,6 @@ body.page-politica-privacidad p {
 .user-flow .page .entry-header h1 {
   border: none;
   color: var(--cyan);
-  font-size: 3rem;
   text-align: center;
 }
 
@@ -1267,7 +1272,6 @@ form label.learning-label {
   position: relative;
   font-family: 'titan_one';
   color: var(--cyan);
-  font-size: 1.5rem;
 }
 
 form .user-flow-label::before,
@@ -1362,7 +1366,6 @@ form a.button.learning-button,
   outline: none;
   color: var(--cyan);
   font-family: 'titan_one';
-  font-size: 1.5rem;
   background: url(/wp-content/uploads/learning-button-background.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -1431,15 +1434,20 @@ form button[type="submit"].learning-button:hover,
   justify-content: center;
 }
 
+.page-register.user-flow #content > .container-fluid > .row {
+  background-image: url(/wp-content/uploads/user-flow-background.png), url(/wp-content/uploads/user-flow-background.png), url(/wp-content/uploads/user-flow-background.png);
+  background-repeat: no-repeat,no-repeat,no-repeat;
+  background-position: 50% 10%, 50% 50%, 50% 90%;
+}
+
 /* change password page */
 .user-flow.page-id-331 #content > .container-fluid > .row {
-  padding: 5rem 1rem 5rem;
-  background-size: 50%;
+  padding: 3rem 1rem;
 }
 
 #changepassform .description,
 #password-lost-form .description {
-  padding: 1rem 4rem;
+  padding: 0rem 4rem 1rem;
 }
 
 #changepassform .resetpass-submit,
@@ -1466,6 +1474,11 @@ form button[type="submit"].learning-button:hover,
 .bbpress h5,
 .bbpress h6 {
   color: var(--gray);
+}
+
+.bbpress ::selection {
+  color: var(--white);
+  background-color: var(--cyan);
 }
 
 .bbpress .bbp-forum-freshness p,
@@ -1496,6 +1509,11 @@ form button[type="submit"].learning-button:hover,
 .learning h5,
 .learning h6 {
   color: var(--gray);
+}
+
+.learning ::selection {
+  color: var(--white);
+  background-color: var(--cyan);
 }
 
 .learning a {
@@ -1531,4 +1549,11 @@ form button[type="submit"].learning-button:hover,
 
 .error-404 .page-content img {
   width: 75%;
+}
+
+/* Other gutemberg */
+:root .editor-styles-wrapper .has-pale-cyan-blue-background-color, 
+:root .has-pale-cyan-blue-background-color {
+  background-color: var(--blue-light);
+  color: var(--white);
 }

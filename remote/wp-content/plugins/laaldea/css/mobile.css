@@ -1,0 +1,271 @@
+/********************************************************************************************
+ 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px (removes animation for mobile devices) (line 24)
+ 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px (line 55)
+ 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px (line ---)
+ 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px (line ---) 
+ 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px (line ---)
+ 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px (line ---)
+ 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px (line ---)
+ 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px (line ---)
+ 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px (line ---)
+ 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px (line ---)
+ 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px (line ---)
+ 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px (line ---)
+ 
+*********************************************************************************************/
+
+
+/*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 991px) {}
+
+/*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
+@media only screen and (max-width: 400px) {}
+
+/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
+@media screen and (min-width: 401px) and (max-width: 575px) {}
+
+/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
+@media screen and (min-width: 576px) and (max-width: 649px) {}
+
+/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
+@media screen and (min-width: 650px) and (max-width: 767px) {}
+
+/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {}
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
+  #learning-home .left-column {
+    border-right: none;
+  }
+  
+  #learning-home .area-container.forum-area {
+    border-bottom: 4px dashed var(--cyan);
+  }
+
+  #learning-home .title-row .icon-container img {
+    width: 50px;
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: 175px;
+  }
+
+  /* tools */
+  #tools .sidebar  {
+    border-right: none;
+  }
+
+  #tools .sidebar .tag-cloud-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #tools .target-filter-container,
+  #tools .target-filter-container.fixed {
+    z-index: 20;
+    position: static;
+    top: unset;
+    left: unset;
+    width: auto;
+    padding-top: 1.5rem;
+    border-top: 4px dashed var(--cyan);
+    border-bottom: 4px dashed var(--cyan);
+    background-color: white;
+    padding-left: 0;
+  }
+
+  #tools .tools-sidebar-container.fixed {
+    position: static;
+    width: auto;
+    top: unset;
+    overflow-y: auto;
+    max-height: unset;
+  }
+
+  #tools .target-filter-container button:first-child {
+    padding-left: 1rem;
+  }
+  
+  /* forum */
+  .bbpress {
+    background-position: 100% 40%;
+    background-size: 120px;
+  }
+
+  /* news */
+  #news .sidebar .new-container .post-excerpt p {
+    font-size: 0.8em;
+  }
+}
+
+/*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px --*/
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+  #learning-home .left-column {
+    border-right: none;
+  }
+  
+  #learning-home .area-container.forum-area {
+    border-bottom: 4px dashed var(--cyan);
+  }
+
+  #learning-home .title-row .icon-container img {
+    width: 50px;
+  }
+
+  #learning-home .current-container,
+  #learning-home .recommended-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 1rem;
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: 175px;
+  }
+
+  /* tools */
+  #tools .sidebar  {
+    border-right: none;
+  }
+
+  #tools .sidebar .tag-cloud-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #tools .target-filter-container,
+  #tools .target-filter-container.fixed {
+    z-index: 20;
+    position: static;
+    top: unset;
+    left: unset;
+    width: auto;
+    padding-top: 1.5rem;
+    border-top: 4px dashed var(--cyan);
+    border-bottom: 4px dashed var(--cyan);
+    background-color: white;
+    padding-left: 0;
+  }
+
+  #tools .tools-sidebar-container.fixed {
+    position: static;
+    width: auto;
+    top: unset;
+    overflow-y: auto;
+    max-height: unset;
+  }
+
+  #tools .target-filter-container button:first-child {
+    padding-left: 1rem;
+  }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 40%;
+    background-size: 120px;
+  }
+
+  /* news */
+  #news .sidebar .new-container .post-excerpt p {
+    font-size: 0.8em;
+  }
+}
+
+/*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
+@media screen and (min-width: 1366px) and (max-width: 1535px) {
+  #learning-home .title-row .icon-container img {
+    width: 50px;
+  }
+
+  #learning-home .carousel-column .arrow {
+    width: 40px;
+  }
+
+  #learning-home .tools-carousel {
+    max-width: 85%;
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    min-height: unset;
+  }
+
+  /* tools */
+  #tools .target-filter-container.fixed {
+    top: 118px;
+  }
+
+  #tools .sidebar .filters-container .term-container button,
+  #tools .sidebar .filters-container.follow button {
+    padding: 0;
+    padding-left: calc(1rem);
+  }
+
+  #tools .sidebar .tag-cloud-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 40%;
+    background-size: 120px;
+  }
+
+}
+
+/*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/
+@media screen and (min-width: 1536px) and (max-width: 1679px) {}
+
+/*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+  #learning-home .learning-home-greet-row .general-greet p {
+    font-size: 1em;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 100px;
+    line-height: 100px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #learning-home .learning-home-greet-row .general-greet p {
+    font-size: 1em;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 100px;
+    line-height: 100px;
+  }
+}
+
+

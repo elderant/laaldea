@@ -38,7 +38,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
             <?php endif; ?>
             <div class="col-6 meta-container modulos-container">
               <div class="tutor-single-loop-meta font-titan">
-                <img src="/wp-content/uploads/courses-modules-image.png" alt="<?php _e('Imagen indicador modulos','laaldea')?>"><span><?php echo $course_modules; ?></span>
+                <img src="/wp-content/uploads/courses-modules-image.png" alt="<?php _e('Imagen indicador modulos','laaldea')?>"><span><?php echo '$course_modules'; ?></span>
               </div>
             </div>  
           </div>

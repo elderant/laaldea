@@ -13,6 +13,7 @@ add_action( 'wp_enqueue_scripts', 'laaldea_scripts' );
 function laaldea_scripts () {
 	wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
 	wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
+  wp_enqueue_style ( 'cultura-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
 
 	wp_localize_script( 'laaldea-js', 'ajax_params', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 
@@ -374,10 +375,25 @@ function laaldea_build_learning_news () {
 
   $query_args  = array(
     'post_type' => 'post',
+    'posts_per_page' => 1,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+  );
+  if(isset($_GET['id'])) {
+    $query_args['post__not_in'] = array($_GET['id']);
+  }
+
+  $last_new = new WP_Query( $query_args );
+  $wp_query -> query_vars['laaldea_args']['last_new'] = $last_new;
+
+  $query_args  = array(
+    'post_type' => 'post',
     'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
     'fields' => 'ids',
+    'offset' => 1,
   );
   if(isset($_GET['id'])) {
     $query_args['post__not_in'] = array($_GET['id']);
@@ -387,7 +403,7 @@ function laaldea_build_learning_news () {
   $post_count = $recent_news -> found_posts;
   
   $wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
-  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
   $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
   $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
 
@@ -509,16 +525,6 @@ function laaldea_get_current_lesson_name( $course_id = 0 ) {
 }
 
 /******************* Forum functions *******************/
-function laaldea_before_forum_title() {
-  echo '<span class="font-titan before-forum-title">Foro: </span>';
-}
-add_action( 'bbp_theme_before_forum_title', 'laaldea_before_forum_title' );
-
-function laaldea_before_topic_title() {
-  echo '<span class="font-titan before-forum-title">Tema: </span>';
-}
-add_action( 'bbp_theme_before_topic_title', 'laaldea_before_topic_title' );
-
 function laaldea_add_last_replies($topic_id) { 
   global $wp_query;
   $posts_per_page = 3;

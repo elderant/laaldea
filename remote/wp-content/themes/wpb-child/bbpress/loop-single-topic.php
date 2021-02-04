@@ -47,7 +47,9 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'bbp_theme_before_topic_title' ); ?>
 
-		<a class="bbp-topic-permalink" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a>
+    <span class="font-titan before-forum-title h2 color-cyan"><?php _e('Tema: ','wpb_child')?></span>
+
+		<a class="bbp-topic-permalink h2 font-sassoon" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a>
 
 		<?php do_action( 'bbp_theme_after_topic_title' ); ?>
 
@@ -57,7 +59,7 @@ defined( 'ABSPATH' ) || exit;
 
 	</li>
 
-	<li class="bbp-topic-freshness">
+	<li class="bbp-topic-freshness h6 color-gray font-sassoon">
 
 		<?php do_action( 'bbp_theme_before_topic_freshness_link' ); ?>
 

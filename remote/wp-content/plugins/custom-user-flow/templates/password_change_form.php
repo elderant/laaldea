@@ -16,11 +16,11 @@
     <?php endif; ?>
 
     <div class="form-row">
-      <label for="pass1" class="user-flow-label"><?php _e( 'New password', 'user-flow' ) ?></label>
+      <label for="pass1" class="user-flow-label h5"><?php _e( 'New password', 'user-flow' ) ?></label>
       <input type="password" name="pass1" id="pass1" class="input user-flow-input" size="20" value="" autocomplete="off" />
     </div>
     <div class="form-row">
-      <label for="pass2" class="user-flow-label"><?php _e( 'Repeat new password', 'user-flow' ) ?></label>
+      <label for="pass2" class="user-flow-label h5"><?php _e( 'Repeat new password', 'user-flow' ) ?></label>
       <input type="password" name="pass2" id="pass2" class="input user-flow-input" size="20" value="" autocomplete="off" />
     </div>
       
@@ -31,7 +31,7 @@
         type="submit" 
         name="submit" 
         id="resetpass-button"
-        class="button user-flow-button" 
+        class="button user-flow-button h5" 
         value="<?php _e( 'Reset Password', 'user-flow' ); ?>" />
     </div>
   </form>

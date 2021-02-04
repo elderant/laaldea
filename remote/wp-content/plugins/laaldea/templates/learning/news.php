@@ -1,4 +1,5 @@
 <?php 
+  $last_new = $laaldea_args['last_new'];
   $recent_news = $laaldea_args['recent_news'];
   $offset = $laaldea_args['offset'];
   $load_more = $laaldea_args['load_more'];
@@ -71,9 +72,9 @@
             <?php laaldea_get_new_html($requested_new_id, '', true); ?>
           <?php endif;?>
           
-          <?php if( $recent_news -> have_posts() ) : ?>
+          <?php if( $last_new -> have_posts() ) : ?>
             <?php 
-              $recent_news -> the_post();
+              $last_new -> the_post();
               $post_id = get_the_ID();
               laaldea_get_new_html($post_id, '', true);
             ?>

@@ -14,20 +14,20 @@ $topic = laaldea_get_topic_from_lesson(get_post());
 $topic_name = get_the_title( $topic -> ID );
 ?>
 
-<div class="tutor-single-lesson-title mb-2">
+<div class="tutor-single-module-title mb-2">
+  <h5 class="color-cyan">
+    <span class="before-title font-titan color-gray"><?php _e('Módulo: ','laaldea');?></span>
+    <?php echo $topic_name; ?>
+  </h5>
+</div>
+
+<div class="tutor-single-lesson-title mb-4">
   <div class="tutor-top-bar-item tutor-topbar-content-title-wrap">
     <?php do_action('tutor_course/single/title/before'); ?>
     <?php
       the_title('<h2>', '</h2>'); ?>
     <?php do_action('tutor_course/single/title/after'); ?>
   </div>
-</div>
-
-<div class="tutor-single-module-title mb-5">
-  <h5 class="color-cyan">
-    <span class="before-title font-titan color-gray"><?php _e('Modulo: ','laaldea');?></span>
-    <?php echo $topic_name; ?>
-  </h5>
 </div>
 
 <div class="tutor-topbar-item tutor-topbar-mark-course-to-done">

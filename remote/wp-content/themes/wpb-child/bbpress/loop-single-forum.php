@@ -31,7 +31,9 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'bbp_theme_before_forum_title' ); ?>
 
-		<a class="bbp-forum-title" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
+    <span class="font-titan before-forum-title h2"><?php _e('Foro: ', 'wpb_child')?></span>
+
+		<a class="bbp-forum-title h2 font-sassoon" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
 
 		<?php do_action( 'bbp_theme_after_forum_title' ); ?>
 

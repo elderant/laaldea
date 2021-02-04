@@ -141,7 +141,7 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
                   $custom_html .= __('Arrastre los bloques de texto, haciendo click sostenido sobre las tres rayas y desplazando el mouse, al area punteada correspondiente a la mejor respuesta.','wpb_child');
                   break;
                 case 'image_answering' :
-                  $custom_html .= __('Escriba en cada area en blanco, el texto mas apropiado, a la imagen correspondiente. El texto debe estar en minúsculas.','wpb_child');
+                  $custom_html .= __('Escriba en cada area en blanco, el texto mas apropiado, a la imagen correspondiente. El texto debe estar en <strong>minúsculas</strong>.','wpb_child');
                   break;
                 case 'open_ended' :
                 case 'short_answer' :

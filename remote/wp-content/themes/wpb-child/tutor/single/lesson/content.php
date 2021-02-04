@@ -40,7 +40,18 @@ $topic_name = get_the_title( $topic -> ID );
 
 <?php do_action('tutor_lesson/single/before/content'); ?>
 
-<div class="tutor-single-lesson-title mb-2">
+<div class="tutor-single-module-title mb-2">
+  <!-- <div class="tutor-hide-sidebar-bar">
+    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar"><i class="tutor-icon-angle-left"></i></a>
+  </div> -->
+  
+  <h5 class="color-cyan">
+    <span class="before-title font-titan color-gray"><?php _e('Módulo: ','laaldea');?></span>
+    <?php echo $topic_name; ?>
+  </h5>
+</div>
+
+<div class="tutor-single-lesson-title mb-4">
   <div class="tutor-top-bar-item tutor-topbar-content-title-wrap">
     <?php do_action('tutor_course/single/title/before'); ?>
     <?php
@@ -55,16 +66,7 @@ $topic_name = get_the_title( $topic -> ID );
   </div> -->
 </div>
 
-<div class="tutor-single-module-title mb-5">
-  <!-- <div class="tutor-hide-sidebar-bar">
-    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar"><i class="tutor-icon-angle-left"></i></a>
-  </div> -->
-  
-  <h5 class="color-cyan">
-    <span class="before-title font-titan color-gray"><?php _e('Modulo: ','laaldea');?></span>
-    <?php echo $topic_name; ?>
-  </h5>
-</div>
+
 
 <div class="tutor-topbar-item tutor-topbar-mark-course-to-done">
   <?php wpb_child_tutor_in_lesson_course_mark_complete_html($course_id); ?>

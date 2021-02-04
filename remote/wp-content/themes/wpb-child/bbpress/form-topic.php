@@ -83,11 +83,14 @@ if ( ! bbp_is_single_forum() ) : ?>
 
 					<?php do_action( 'bbp_theme_before_topic_form_content' ); ?>
 
-          <label class="learning-label"><?php _e( 'Pregunta/comentario:', 'wpb_child' ); ?></label><br />
-					<?php bbp_the_content( array( 'context' => 'topic' ) ); ?>
+          <p class="topic-content-title">
+            <label class="learning-label"><?php _e( 'Pregunta/comentario:', 'wpb_child' ); ?></label><br />
+          </p>
 
-					<?php do_action( 'bbp_theme_after_topic_form_content' ); ?>
-
+          <?php bbp_the_content( array( 'context' => 'topic' ) ); ?>
+          
+          <?php do_action( 'bbp_theme_after_topic_form_content' ); ?>
+        
 					<?php if ( ! ( bbp_use_wp_editor() || current_user_can( 'unfiltered_html' ) ) ) : ?>
 
 						<p class="form-allowed-tags">
@@ -96,7 +99,7 @@ if ( ! bbp_is_single_forum() ) : ?>
 						</p>
 
 					<?php endif; ?>
-
+          
 					<?php if ( bbp_allow_topic_tags() && current_user_can( 'assign_topic_tags', bbp_get_topic_id() ) ) : ?>
 
 						<?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>

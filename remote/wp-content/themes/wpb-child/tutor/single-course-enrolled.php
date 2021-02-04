@@ -18,7 +18,7 @@ $completed_count = tutor_utils()->get_course_completed_percent();
 
 $course_duration = get_tutor_course_duration_context();
 $count = laaldea_tutor_get_topic_count();
-$course_modules = sprintf( _n( '%s Modulo', '%s Modulos', $count, 'laaldea' ), number_format_i18n( $count ) );
+$course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ), number_format_i18n( $count ) );
 
 $title_html = get_field( 'title_html' );
 $title = empty($title_html) ? get_the_title() : $title_html;

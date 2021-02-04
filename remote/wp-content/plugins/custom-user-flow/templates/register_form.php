@@ -108,31 +108,31 @@
 
   <form id="signupform" action="<?php echo wp_registration_url(); ?>" method="post">
     <div class="form-row">
-      <label for="email" class="user-flow-label"><?php _e( 'Email', 'user-flow' ); ?> <strong>*</strong></label>
+      <label for="email" class="user-flow-label h5"><?php _e( 'Email', 'user-flow' ); ?> <strong>*</strong></label>
       <input type="email" name="email" id="email" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label for="first_name" class="user-flow-label"><?php _e( 'First name', 'user-flow' ); ?></label>
+      <label for="first_name" class="user-flow-label h5"><?php _e( 'First name', 'user-flow' ); ?></label>
       <input type="text" name="first_name" id="first-name" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label for="last_name" class="user-flow-label"><?php _e( 'Last name', 'user-flow' ); ?></label>
+      <label for="last_name" class="user-flow-label h5"><?php _e( 'Last name', 'user-flow' ); ?></label>
       <input type="text" name="last_name" id="last-name" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label for="user_phone" class="user-flow-label"><?php _e( 'Phone', 'user-flow' ); ?></label>
+      <label for="user_phone" class="user-flow-label h5"><?php _e( 'Phone', 'user-flow' ); ?></label>
       <input type="text" name="user_phone" id="user-phone" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label for="user_area" class="user-flow-label"><?php _e( 'Teaching Area', 'user-flow' ); ?></label>
+      <label for="user_area" class="user-flow-label h5"><?php _e( 'Teaching Area', 'user-flow' ); ?></label>
       <input type="text" name="user_area" id="user-area" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label for="user_institution" class="user-flow-label"><?php _e( 'Teaching Institution', 'user-flow' ); ?></label>
+      <label for="user_institution" class="user-flow-label h5"><?php _e( 'Teaching Institution', 'user-flow' ); ?></label>
       <input type="text" name="user_institution" id="user-institution" class="user-flow-input">
     </div>
     <div class="form-row">
-      <label class="user-flow-label"><?php _e('Avatar', 'user-flow'); ?></label>
+      <label class="user-flow-label h5"><?php _e('Avatar', 'user-flow'); ?></label>
       <div class="radio-buttons">
         <?php foreach($user_avatars as $avatar) :?>
           <div class="<?php echo $avatar['container-class'];?>">
@@ -160,7 +160,7 @@
     <div class="form-row signup-submit">
       <input type="submit" 
         name="submit" 
-        class="register-button user-flow-button" 
+        class="register-button user-flow-button h5" 
         value="<?php _e( 'Register', 'user-flow' ); ?>"/>
     </div>
   </form>
