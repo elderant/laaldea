@@ -31,28 +31,6 @@
     });
   }
 
-  // var wpb_child_tutor_handle_sidebar_hide = function() {
-  //   if($('.single-lesson').length > 0) {
-  //     $('.tutor-lesson-sidebar-hide-bar').on('click', function(event){
-  //       let $container = $(this).parents('#tutor-single-entry-content');
-  //       // let $sidebar = $content.siblings('.tutor-lesson-sidebar');
-
-  //       $container.toggleClass('col-sm-7');
-  //       $container.toggleClass('col-sm-12');
-  //     }); 
-  //   }
-
-  //   if($('.single-tutor_quiz').length > 0) {
-  //     $('.tutor-lesson-sidebar-hide-bar').on('click', function(event){
-  //       let $container = $(this).parents('#tutor-single-entry-content');
-  //       // let $sidebar = $content.siblings('.tutor-lesson-sidebar');
-
-  //       $container.toggleClass('col-sm-7');
-  //       $container.toggleClass('col-sm-12');
-  //     }); 
-  //   }
-  // }
-
   var wpb_child_tutor_complete_lesson_and_next = function(event) {
     let $complete_form = $('.tutor-topbar-mark-to-done').find('form');
     let nounce = $complete_form.find('input[name="_wpnonce"]').attr('value');
@@ -227,7 +205,6 @@
       });
     }
     
-
     // Go to top
     if($('#footer-widget .go-to-top').length > 0) {
       let $goToTop = $('#footer-widget .go-to-top');

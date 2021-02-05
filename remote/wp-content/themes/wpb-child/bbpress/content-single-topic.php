@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php else : ?>
     <?php if ( bbp_has_replies() ) : ?>
-      <div class="bbp-topic-title color-cyan font-titan">
+      <div class="bbp-topic-title color-cyan font-titan h2">
         <span><?php _e('Tema:','wpb_child');?> <?php bbp_topic_title();?></span>
       </div>
     <?php endif; ?>
@@ -56,8 +56,9 @@ defined( 'ABSPATH' ) || exit;
 	<?php endif; ?>
 
   <?php 
-    $before = '<div class="bbp-topic-tags pt-4"><p>' . esc_html__( 'Tagged:', 'bbpress' ) . '&nbsp;';
-    bbp_topic_tag_list(0, array('before' => $before));
+    $before = '<div class="bbp-topic-tags pt-4"><h5>' . esc_html__( 'Tagged:', 'bbpress' ) . '&nbsp;';
+    $after = '</h5></div>';
+    bbp_topic_tag_list(0, array('before' => $before, 'after'=> $after));
   ?>
 
 	<?php bbp_get_template_part( 'alert', 'topic-lock' ); ?>

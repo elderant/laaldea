@@ -69,7 +69,9 @@ if ( bbp_is_reply_edit() ) : ?>
 
 					<?php do_action( 'bbp_theme_before_reply_form_content' ); ?>
 
-          <label class="learning-label"><?php _e( 'Respuesta:', 'wpb_child' ); ?></label><br />
+          <p class="reply-content-title">
+            <label class="learning-label"><?php _e( 'Respuesta:', 'wpb_child' ); ?></label><br />
+          </p>
 					<?php bbp_the_content( array( 'context' => 'reply' ) ); ?>
 
 					<?php do_action( 'bbp_theme_after_reply_form_content' ); ?>
@@ -174,7 +176,7 @@ if ( bbp_is_reply_edit() ) : ?>
 
 						<?php bbp_cancel_reply_to_link(); ?>
 
-						<button type="submit" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit learning-button"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
+						<button type="submit" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit learning-button h5"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
 
 						<?php do_action( 'bbp_theme_after_reply_form_submit_button' ); ?>
 

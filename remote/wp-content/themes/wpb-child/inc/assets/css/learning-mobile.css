@@ -50,14 +50,22 @@
 
   .user-flow h2, .user-flow .h2,
   .bbpress h2, .bbpress .h2,
-  .learning h2, .learning .h2 {
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
     font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
   }
 
   .user-flow h3, .user-flow .h3,
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
-  #page.learning header .navbar {
+  #page.learning header .navbar,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
     font-size: 1.65rem;
   }
 
@@ -73,14 +81,23 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.15rem;
   }
 
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
-  .learning h6, .learning .h6 {
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
     font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  #bbpress-forums {
+    font-size: 14px;
   }
   
   #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
@@ -124,14 +141,22 @@
 
   .user-flow h2, .user-flow .h2,
   .bbpress h2, .bbpress .h2,
-  .learning h2, .learning .h2 {
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
     font-size: 2rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 2rem;
   }
 
   .user-flow h3, .user-flow .h3,
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
-  #page.learning header .navbar {
+  #page.learning header .navbar,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
     font-size: 1.7rem;
   }
 
@@ -147,14 +172,23 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.25rem;
   }
 
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
-  .learning h6, .learning .h6 {
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
     font-size: 1.1rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  #bbpress-forums {
+    font-size: 14px;
   }
   
   #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
@@ -187,7 +221,7 @@
 }
 
 /*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
-@media screen and (min-width: 1366px) and (max-width: 1535px) {
+@media screen and (min-width: 1366px) and (max-width: 1535px) {  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -198,14 +232,22 @@
 
   .user-flow h2, .user-flow .h2,
   .bbpress h2, .bbpress .h2,
-  .learning h2, .learning .h2 {
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
     font-size: 2rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 2rem;
   }
 
   .user-flow h3, .user-flow .h3,
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
-  #page.learning header .navbar {
+  #page.learning header .navbar,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
     font-size: 1.75rem;
   }
 
@@ -221,14 +263,23 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.25rem;
   }
 
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
-  .learning h6, .learning .h6 {
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
     font-size: 1.1rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  #bbpress-forums {
+    font-size: 14px;
   }
   
   #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,

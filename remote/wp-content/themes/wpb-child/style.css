@@ -153,7 +153,7 @@ h6, .h6 {
 	-webkit-font-smoothing: antialiased;
 }
 
-p {
+p, .p {
 	font-family: 'sassoon', 'Helvetica', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -553,7 +553,6 @@ header#masthead .navbar.secondary ul > li > a:focus {
   background-color: var(--white);
 	font-family: titan_one;
 	font-weight: 400;
-  font-size: 2rem;
   backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: all 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -731,11 +730,12 @@ header#masthead .navbar.secondary ul > li > a:focus {
 /******************** Home ********************/
 
 /* Home - general */
-.home #content.site-content {
+.home #content.site-content,
+.learning-home #content.site-content {
 	padding: 0;
 }
 
-.home .site-content #primary {
+.site-content #primary {
 	padding: 0;
 }
 
@@ -743,7 +743,8 @@ header#masthead .navbar.secondary ul > li > a:focus {
 	display: none;
 }
 
-.home #primary .entry-content {
+.home #primary .entry-content,
+.learning-home #primary .entry-content {
 	margin: 0;
 }
 
@@ -1102,7 +1103,7 @@ body.page-politica-privacidad p {
 }
 
 /* Learning header titles */
-.user-flowh1, .user-flow .h1,
+.user-flow h1, .user-flow .h1,
 .bbpress h1, .bbpress .h1,
 .learning h1, .learning .h1,
 .single-post #page.learning .post h1.entry-title {
@@ -1111,13 +1112,19 @@ body.page-politica-privacidad p {
 
 .user-flow h2, .user-flow .h2,
 .bbpress h2, .bbpress .h2,
-.learning h2, .learning .h2 {
+.learning h2, .learning .h2,
+.bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
 	font-size: 2.5rem;
+  letter-spacing: unset;
 }
 
 .user-flow h3, .user-flow .h3,
 .bbpress h3, .bbpress .h3,
-.learning h3, .learning .h3 {
+.learning h3, .learning .h3,
+#page.learning header .navbar,
+.bbp-search #bbpress-forums div.bbp-forum-title h3, 
+.bbp-search #bbpress-forums div.bbp-reply-title h3, 
+.bbp-search #bbpress-forums div.bbp-topic-title h3 {
 	font-size: 2rem;
 }
 
@@ -1133,16 +1140,24 @@ body.page-politica-privacidad p {
 .user-flow #loginform label,
 .user-flow #loginform input[type="submit"],
 .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-.bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+.bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
+.bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
 	font-size: 1.5rem;
 }
 
 .user-flow h6, .user-flow .h6,
 .bbpress h6, .bbpress .h6,
-.learning h6, .learning .h6 {
+.learning h6, .learning .h6,
+.bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
 	font-size: 1.25rem;
 }
 
+html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+html .learning , body .learning, .learning p, .learning .p,
+#bbpress-forums {
+  font-size: 16px;
+}
 
 /**** User flow General ****/
 .user-flow,

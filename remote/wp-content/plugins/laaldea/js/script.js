@@ -160,7 +160,7 @@
     let $cancelButton = $form.find('.bbp-submit-wrapper #bbp-cancel-reply-to-link');
 
     if(!$cancelButton.hasClass('button')) {
-      $cancelButton.toggleClass('button').toggleClass('learning-button');
+      $cancelButton.toggleClass('button').toggleClass('learning-button').toggleClass('h5');
     }
 
     let currentHeight = $form.height();

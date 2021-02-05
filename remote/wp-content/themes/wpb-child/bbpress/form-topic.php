@@ -207,7 +207,7 @@ if ( ! bbp_is_single_forum() ) : ?>
 
 						<?php do_action( 'bbp_theme_before_topic_form_submit_button' ); ?>
 
-						<button type="submit" id="bbp_topic_submit" name="bbp_topic_submit" class="button submit learning-button"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
+						<button type="submit" id="bbp_topic_submit" name="bbp_topic_submit" class="button submit learning-button h5"><?php esc_html_e( 'Submit', 'bbpress' ); ?></button>
 
 						<?php do_action( 'bbp_theme_after_topic_form_submit_button' ); ?>
 

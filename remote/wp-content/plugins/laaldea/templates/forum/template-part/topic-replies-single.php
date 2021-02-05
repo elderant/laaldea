@@ -12,7 +12,7 @@
       <img src="<?php echo $reply_avatar;?>" alt="<?php _e('User avatar image','laaldea');?>">
     </div>
     <div class="author-text-container">
-      <div class="text-container text-center"><?php echo $reply_author; ?></div>
+      <div class="text-container text-center p"><?php echo $reply_author; ?></div>
     </div>
   </div>
   <div class="content-container">

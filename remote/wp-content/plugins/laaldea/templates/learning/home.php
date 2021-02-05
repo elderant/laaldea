@@ -58,7 +58,7 @@
                     ?>
                     <div class="tool-container">
                       <a href="/tools/?id=<?php echo $id;?>" class="tool-link">
-                        <div class="row">
+                        <div class="row justify-content-between align-items-center">
                           <div class="thumbnail-container col-5 d-flex align-items-center justify-content-center">
                             <?php if(has_post_thumbnail()) :?>
                               <?php the_post_thumbnail( 'medium' ); ?>
@@ -320,16 +320,26 @@
                       $title_html = get_field( 'title_html' );
                       $title = empty($title_html) ? get_the_title() : $title_html;
                       $html_title = empty($title_html) ? '' : ' html-title';
+                      $thumbnail_id = get_post_thumbnail_id( get_the_id() );
                       
                       $i = ($i < 3)? $i + 1: 1;
                       $class = 'course-container py-3 row-' . $i; 
                     ?>
 
                     <div class="<?php echo $class?>">
-                      <a class="course-button d-flex align-items-center justify-content-center" href="<?php echo get_the_permalink()?>">
-                        <div class="title-container<?php echo $html_title?>">
-                          <?php echo $title; ?>
-                        </div>
+                      <a class="course-button d-flex align-items-center justify-content-center flex-column" href="<?php echo get_the_permalink()?>">
+                        <?php if(empty($thumbnail_id)) :?>
+                          <div class="title-container<?php echo $html_title?>">
+                            <?php echo $title; ?>
+                          </div>
+                          <div class="current-lesson">
+                            <?php echo $current_lesson_name; ?>
+                          </div>
+                        <?php else :?>
+                          <div class="thumbnail-container<?php echo $html_title?>">
+                            <?php get_tutor_course_thumbnail(); ?>
+                          </div>
+                        <?php endif;?>
                       </a>
                     </div>
 

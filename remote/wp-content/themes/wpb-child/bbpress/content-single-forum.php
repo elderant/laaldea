@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'bbp_template_after_single_forum' ); ?>
 
-  <div class="new-topic-button-container">
+  <div class="new-topic-button-container h2">
     <button class="new-topic-button">
       <i class="fas fa-plus"></i>
     </button>

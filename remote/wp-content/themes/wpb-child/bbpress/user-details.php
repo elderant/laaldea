@@ -24,7 +24,7 @@ do_action( 'bbp_template_before_user_details' ); ?>
 	<?php do_action( 'bbp_template_before_user_details_menu_items' ); ?>
 
 	<div id="bbp-user-navigation">
-		<ul>
+		<ul class="h5">
 			<li class="<?php if ( bbp_is_single_user_profile() ) :?>current<?php endif; ?>">
 				<span class="vcard bbp-user-profile-link">
 					<a class="url fn n" href="<?php bbp_user_profile_url(); ?>" title="<?php printf( esc_attr__( "%s's Profile", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php esc_html_e( 'Profile', 'bbpress' ); ?></a>

@@ -106,6 +106,21 @@
     background-size: 120px;
   }
 
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
   /* news */
   #news .sidebar .new-container .post-excerpt p {
     font-size: 0.8em;
@@ -191,6 +206,21 @@
   .bbpress {
     background-position: 100% 40%;
     background-size: 120px;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
   }
 
   /* news */
