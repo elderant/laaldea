@@ -104,6 +104,17 @@
     });
   }
   
+  var wpb_child_format_state = function(state) {
+    if (!state.id) {
+      return state.text;
+    }
+
+    console.log(state);
+    //var baseUrl = "/user/pages/images/flags";
+    var $state = $('<div><img src="' + state.element.value + '" class="avatar-image" /></div>');
+    return $state;
+  };
+
   //************** Window Scroll ************************//
 	var goToTopDebouncer = function(event) {
 		if(window.debounce_timer) {
@@ -176,6 +187,13 @@
           $("html, body").animate({ scrollTop: $('#' + $id + '.featured').offset().top - 128}, 500);
         }
       } 
+    }
+
+    // custom login
+    if($('.user-flow.page-register').length > 0) {
+      $('#register-form .avatar-select').select2({
+        templateResult: wpb_child_format_state,
+      });
     }
 
     // Tutor

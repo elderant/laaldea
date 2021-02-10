@@ -71,7 +71,9 @@
 
   .user-flow h4, .user-flow .h4,
   .bbpress h4, .bbpress .h4,
-  .learning h4, .learning .h4 {
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
     font-size: 1.4rem;
   }
 
@@ -96,6 +98,8 @@
   html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
   html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
   html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
     font-size: 14px;
   }
@@ -162,7 +166,9 @@
 
   .user-flow h4, .user-flow .h4,
   .bbpress h4, .bbpress .h4,
-  .learning h4, .learning .h4 {
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
     font-size: 1.45rem;
   }
 
@@ -187,6 +193,8 @@
   html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
   html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
   html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
     font-size: 14px;
   }
@@ -253,7 +261,9 @@
 
   .user-flow h4, .user-flow .h4,
   .bbpress h4, .bbpress .h4,
-  .learning h4, .learning .h4 {
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
     font-size: 1.5rem;
   }
 
@@ -278,6 +288,8 @@
   html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
   html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
   html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
     font-size: 14px;
   }
@@ -316,7 +328,7 @@
   /**** User flow General ****/
   .user-flow .form-row {
     flex-direction: column;
-    padding: 1rem 8rem;
+    padding: 1rem 5rem;
   }
 }
 
@@ -325,7 +337,7 @@
   /**** User flow General ****/
   .user-flow .form-row {
     flex-direction: column;
-    padding: 1rem 8rem;
+    padding: 1rem 5rem;
   }
 }
 

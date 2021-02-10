@@ -27,7 +27,7 @@ $is_enrolled = tutor_utils()->is_enrolled($course_id);
   <div class="tutor-single-course-segment  tutor-course-topics-wrap">
     <div class="tutor-course-topics-header">
       <div class="tutor-course-topics-header-left">
-        <h6 class="tutor-segment-title color-cyan h6"><?php esc_html_e('Estructura del curso', 'laaldea'); ?></h6>
+        <h6 class="tutor-segment-title color-cyan px-0"><?php esc_html_e('Estructura del curso', 'laaldea'); ?></h6>
       </div>
     </div>
     <div class="tutor-course-topics-contents">
@@ -103,7 +103,7 @@ $is_enrolled = tutor_utils()->is_enrolled($course_id);
                   if ($is_enrolled || (get_post_meta($course_id, '_tutor_is_public_course', true)=='yes' && !tutor_utils()->is_course_purchasable($course_id))){
                     $lesson_title .= "<a href='".get_the_permalink()."'> ".get_the_title()." </a>";
 
-                    $lesson_title .= $play_time ? "<span class='tutor-lesson-duration'>".tutor_utils()->get_optimized_duration($play_time)."</span>" : '';
+                    //$lesson_title .= $play_time ? "<span class='tutor-lesson-duration'>".tutor_utils()->get_optimized_duration($play_time)."</span>" : '';
 
                     if ($countdown) {
                       if ($zoom_meeting->is_expired) {
@@ -117,7 +117,7 @@ $is_enrolled = tutor_utils()->is_enrolled($course_id);
                     echo $lesson_title;
                   }else{
                     $lesson_title .= get_the_title();
-                    $lesson_title .= $play_time ? "<span class='tutor-lesson-duration'>".tutor_utils()->get_optimized_duration($play_time)."</span>" : '';
+                    //$lesson_title .= $play_time ? "<span class='tutor-lesson-duration'>".tutor_utils()->get_optimized_duration($play_time)."</span>" : '';
                     echo apply_filters('tutor_course/contents/lesson/title', $lesson_title, get_the_ID());
                   }
 

@@ -50,13 +50,13 @@ $course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ),
     <div class="tutor-single-lesson-segment tutor-lesson-loop-meta">
       <div class="row">
         <?php if(!empty($course_duration)) : ?>
-          <div class="col-6 meta-container duration-container">
+          <div class="col-6 col-xl1-12 col-xl-6 meta-container duration-container p m-0">
             <div class="tutor-single-loop-meta font-titan">
               <img src="/wp-content/uploads/courses-duration-image.png" alt="<?php _e('Imagen indicador duración','laaldea')?>"><span><?php echo $course_duration;?></span>
             </div>
           </div>
         <?php endif; ?>
-        <div class="col-6 meta-container modulos-container">
+        <div class="col-6 col-xl1-12 col-xl-6 meta-container modulos-container p m-0">
           <div class="tutor-single-loop-meta font-titan">
             <img src="/wp-content/uploads/courses-modules-image.png" alt="<?php _e('Imagen indicador modulos','laaldea')?>"><span><?php echo $course_modules; ?></span>
           </div>
@@ -66,11 +66,11 @@ $course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ),
 
     <div class="tutor-single-lesson-segment tutor-sidebar-tabs-wrap tutor-lesson-list">
       <div class="tutor-tabs-btn-group list-header">
-        <a href="#tutor-lesson-sidebar-tab-content" class="h5 color-cyan <?php echo $enable_q_and_a_on_course ? "active" : ""; ?>">
+        <a href="#tutor-lesson-sidebar-tab-content" class="h4 color-cyan<?php echo $enable_q_and_a_on_course ? " active" : ""; ?>">
           <span><?php esc_html_e('Estructura del curso', 'laaldea'); ?></span>
         </a>
         <?php if($enable_q_and_a_on_course) : ?>
-          <a href="#tutor-lesson-sidebar-qa-tab-content" class="h5 color-cyan"> 
+          <a href="#tutor-lesson-sidebar-qa-tab-content" class="h4 color-cyan"> 
             <span><?php esc_html_e('FAQ', 'tutor'); ?></span>
           </a>
         <?php endif;?>

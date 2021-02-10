@@ -72,7 +72,7 @@
             <div class="container-fluid user-navbar-container">
               <div class="row menu-header">
                 <div class="col-12 text-center">
-                  <div class="user-avatar pb-2">
+                  <div class="user-avatar pb-3">
                     <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
                   </div>
                   <div class="user-name">

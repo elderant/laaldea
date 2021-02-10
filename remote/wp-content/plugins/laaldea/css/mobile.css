@@ -121,6 +121,45 @@
     width: 70%;
   }
 
+  /* courses archive */
+  .courses-section .tutor-loop-course-container,
+  .single-courses .course-sidebar .course-container,
+  .lesson-sidebar .lesson-container {
+    padding: 1rem 1.5rem 4.5rem;
+  }
+  
+  .courses-section .tutor-course-loop-title, 
+  .courses-section .tutor-course-header, 
+  .courses-section .tutor-course-loop-meta, 
+  .courses-section .tutor-single-course-segment, 
+  .courses-section .tutor-loop-course-button-container {
+    margin-bottom: 1rem;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container,
+  .single-courses .course-sidebar .meta-container,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container img,
+  .single-courses .course-sidebar .meta-container img,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container img {
+    height: 30px;
+    margin-right: 0.25rem;
+  }
+
+  /* Course single */
+  .single-courses .course-sidebar .tutor-course-loop-meta, 
+  .lesson-sidebar .tutor-lesson-loop-meta {
+    margin-bottom: 1rem;
+  }
+
+  .course-sidebar .tutor-course-topics-header .tutor-segment-title {
+    padding: 1rem 0;
+  }
+
   /* news */
   #news .sidebar .new-container .post-excerpt p {
     font-size: 0.8em;
@@ -202,6 +241,49 @@
     padding-left: 1rem;
   }
 
+  /* courses archive */
+  .courses-section .tutor-loop-course-container,
+  .single-courses .course-sidebar .course-container,
+  .lesson-sidebar .lesson-container {
+    padding: 1rem 1.5rem 4.5rem;
+  }
+  
+  .courses-section .tutor-course-loop-title, 
+  .courses-section .tutor-course-header, 
+  .courses-section .tutor-course-loop-meta, 
+  .courses-section .tutor-single-course-segment, 
+  .courses-section .tutor-loop-course-button-container {
+    margin-bottom: 1rem;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container,
+  .single-courses .course-sidebar .meta-container,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container img,
+  .single-courses .course-sidebar .meta-container img,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container img {
+    height: 30px;
+    margin-right: 0.25rem;
+  }
+
+  /* Course single */
+  .single-courses .course-sidebar .tutor-course-loop-meta, 
+  .lesson-sidebar .tutor-lesson-loop-meta {
+    margin-bottom: 1rem;
+  }
+
+  .course-sidebar .tutor-course-topics-header .tutor-segment-title {
+    padding: 1rem 0;
+  }
+
+  .course-sidebar .tutor-course-topics-contents .tutor-course-topic {
+    margin-bottom: 0.5rem
+  }
+
   /* forum */
   .bbpress {
     background-position: 100% 40%;
@@ -264,6 +346,26 @@
     padding-right: 1rem;
   }
 
+  /* courses archive */
+  .courses-section .tutor-loop-course-container,
+  .single-courses .course-sidebar .course-container,
+  .lesson-sidebar .lesson-container {
+    padding: 1rem 1.5rem 4.5rem;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container .tutor-single-loop-meta,
+  .single-courses .course-sidebar .meta-container .tutor-single-loop-meta,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container .tutor-single-loop-meta {
+    font-size: 0.8rem;
+  }
+  
+  .courses-section .tutor-course-loop-meta .meta-container img,
+  .single-courses .course-sidebar .meta-container img,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container img {
+    height: 30px;
+    margin-right: 0.25rem;
+  }
+
   /* forum */
   .bbpress {
     background-position: 100% 40%;
@@ -273,7 +375,26 @@
 }
 
 /*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/
-@media screen and (min-width: 1536px) and (max-width: 1679px) {}
+@media screen and (min-width: 1536px) and (max-width: 1679px) {
+  .courses-section .tutor-loop-course-container,
+  .single-courses .course-sidebar .course-container,
+  .lesson-sidebar .lesson-container {
+    padding: 1rem 1.5rem 4.5rem;
+  }
+
+  .courses-section .tutor-course-loop-meta .meta-container .tutor-single-loop-meta,
+  .single-courses .course-sidebar .meta-container .tutor-single-loop-meta,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container .tutor-single-loop-meta {
+    font-size: 0.8rem;
+  }
+  
+  .courses-section .tutor-course-loop-meta .meta-container img,
+  .single-courses .course-sidebar .meta-container img,
+  .lesson-sidebar .tutor-lesson-loop-meta .meta-container img {
+    height: 30px;
+    margin-right: 0.5rem;
+  }
+}
 
 /*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/
 @media screen and (min-width: 1680px) and (max-width: 1919px) {

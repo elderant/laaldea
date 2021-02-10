@@ -57,6 +57,15 @@ function wpb_child_enqueue_bootstrap_extended_styles() {
   wp_enqueue_style('wpb-child-bootstrap-ext', get_stylesheet_directory_uri() . '/inc/assets/css/bootstrap.ext.css', array(), false );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_bootstrap_extended_styles', 99 );
+
+// include select2 js/css
+function wpb_child_enqueue_select2_files() {
+  if(is_page(330)) {
+    wp_enqueue_script( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery') );
+    wp_enqueue_style( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_select2_files' );
 /******************** Shared ********************/
 //Page Slug Body Class
 function laaldea_add_slug_body_class( $classes ) {
@@ -176,6 +185,91 @@ function wpb_child_add_user_menu_html($item_output, $item, $depth, $args) {
     $item_output = $html;
   }
   return $item_output;
+}
+
+function wpb_child_wp_login_form( $args = array() ) {
+  global $wp_query;
+
+  $defaults = array(
+      'echo'           => true,
+      // Default 'redirect' value takes the user back to the request URI.
+      'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+      'form_id'        => 'loginform',
+      'label_username' => __( 'Username or Email Address' ),
+      'label_password' => __( 'Password' ),
+      'label_remember' => __( 'Remember Me' ),
+      'label_log_in'   => __( 'Log In' ),
+      'id_username'    => 'user_login',
+      'id_password'    => 'user_pass',
+      'id_remember'    => 'rememberme',
+      'id_submit'      => 'wp-submit',
+      'remember'       => true,
+      'value_username' => '',
+      // Set 'value_remember' to true to default the "Remember me" checkbox to checked.
+      'value_remember' => false,
+  );
+
+  /**
+   * Filters the default login form output arguments.
+   *
+   * @since 3.0.0
+   *
+   * @see wp_login_form()
+   *
+   * @param array $defaults An array of default login form arguments.
+   */
+  $args = wp_parse_args( $args, apply_filters( 'login_form_defaults', $defaults ) );
+
+  /**
+   * Filters content to display at the top of the login form.
+   *
+   * The filter evaluates just following the opening form tag element.
+   *
+   * @since 3.0.0
+   *
+   * @param string $content Content to display. Default empty.
+   * @param array  $args    Array of login form arguments.
+   */
+  $login_form_top = apply_filters( 'login_form_top', '', $args );
+
+  /**
+   * Filters content to display in the middle of the login form.
+   *
+   * The filter evaluates just following the location where the 'login-password'
+   * field is displayed.
+   *
+   * @since 3.0.0
+   *
+   * @param string $content Content to display. Default empty.
+   * @param array  $args    Array of login form arguments.
+   */
+  $login_form_middle = apply_filters( 'login_form_middle', '', $args );
+
+  /**
+   * Filters content to display at the bottom of the login form.
+   *
+   * The filter evaluates just preceding the closing form tag element.
+   *
+   * @since 3.0.0
+   *
+   * @param string $content Content to display. Default empty.
+   * @param array  $args    Array of login form arguments.
+   */
+  $login_form_bottom = apply_filters( 'login_form_bottom', '', $args );
+
+  $wp_query -> query_vars['wpb_args']['args'] = $args;
+  $wp_query -> query_vars['wpb_args']['login_form_top'] = $login_form_top;
+  $wp_query -> query_vars['wpb_args']['login_form_middle'] = $login_form_middle;
+  $wp_query -> query_vars['wpb_args']['login_form_bottom'] = $login_form_bottom;
+
+  ob_start();
+  get_template_part( 'template-parts/form', 'login' );
+  $html = ob_get_clean();
+  if ( $args['echo'] ) {
+      echo $html;
+  } else {
+      return $html;
+  }
 }
 /******************** Blog ********************/
 // define the the_content_more_link callback 

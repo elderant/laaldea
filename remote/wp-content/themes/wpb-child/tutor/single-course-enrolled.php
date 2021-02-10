@@ -34,13 +34,13 @@ $title = empty($title_html) ? get_the_title() : $title_html;
         <div class="tutor-single-course-segment tutor-course-loop-meta">
           <div class="row">
             <?php if(!empty($course_duration)) : ?>
-              <div class="col-6 meta-container duration-container">
+              <div class="col-6 col-xl1-12 col-xl-6 meta-container duration-container p m-0">
                 <div class="tutor-single-loop-meta font-titan">
                   <img src="/wp-content/uploads/courses-duration-image.png" alt="<?php _e('Imagen indicador duración','laaldea')?>"><span><?php echo $course_duration;?></span>
                 </div>
               </div>
             <?php endif; ?>
-            <div class="col-6 meta-container modulos-container">
+            <div class="col-6 col-xl1-12 col-xl-6 meta-container modulos-container p m-0">
               <div class="tutor-single-loop-meta font-titan">
                 <img src="/wp-content/uploads/courses-modules-image.png" alt="<?php _e('Imagen indicador modulos','laaldea')?>"><span><?php echo $course_modules; ?></span>
               </div>
@@ -76,7 +76,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
 
                 <div class="tutor-single-course-title mb-5">
                   <?php do_action('tutor_course/single/title/before'); ?>
-                  <div class="before-title font-titan"><?php _e('Curso: ','laaldea');?></div>
+                  <div class="before-title font-titan h2 m-0"><?php _e('Curso: ','laaldea');?></div>
                   <h2 class="color-cyan"><?php echo $title; ?></h2>
                   <?php do_action('tutor_course/single/title/after'); ?>
                 </div>
@@ -93,7 +93,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                       <?php if ( !$disable_course_author) : ?>
                         <div class="tutor-single-course-author-meta pb-4">
                           <div class="tutor-single-course-author-name">
-                            <span><?php _e('Profesor: ', 'tutor'); ?></span>
+                            <strong><?php _e('Profesor: ', 'tutor'); ?></strong>
                             <a href="<?php echo tutor_utils()->profile_url($authordata->ID); ?>"><?php echo get_the_author(); ?></a>
                           </div>
                         </div>

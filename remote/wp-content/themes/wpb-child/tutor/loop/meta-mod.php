@@ -11,8 +11,6 @@ $course_duration = get_tutor_course_duration_context();
 $course_modules = "MODULOS?";
 ?>
 
-
-
 <div class="tutor-course-loop-meta">
   <div class="row">
     <?php if(!empty($course_duration)) : ?>

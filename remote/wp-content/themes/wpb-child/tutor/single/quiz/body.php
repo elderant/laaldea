@@ -93,7 +93,7 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 
 						$next_question = isset($questions[$question_i]) ? $questions[$question_i] : false;
 						?>
-                        <div id="quiz-attempt-single-question-<?php echo $question->question_id; ?>" class="quiz-attempt-single-question quiz-attempt-single-question-<?php echo $question_i; ?>" style="display: <?php echo $style_display; ?> ;" <?php echo $next_question ? "data-next-question-id='#quiz-attempt-single-question-{$next_question->question_id}'" : '' ; ?> data-quiz-feedback-mode="<?php echo $feedback_mode; ?>" >
+              <div id="quiz-attempt-single-question-<?php echo $question->question_id; ?>" class="quiz-attempt-single-question quiz-attempt-single-question-<?php echo $question_i; ?>" style="display: <?php echo $style_display; ?> ;" <?php echo $next_question ? "data-next-question-id='#quiz-attempt-single-question-{$next_question->question_id}'" : '' ; ?> data-quiz-feedback-mode="<?php echo $feedback_mode; ?>" >
 
 							<?php echo "<input type='hidden' name='attempt[{$is_started_quiz->attempt_id}][quiz_question_ids][]' value='{$question->question_id}' />";
 
@@ -112,44 +112,50 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 							$show_question_mark = (bool) tutor_utils()->avalue_dot('show_question_mark', $question_settings);
 							$answer_required = (bool) tutils()->array_get('answer_required', $question_settings);
 
-							echo '<h6 class="question-text color-cyan">';
+              // Description over title
+              $question_description = stripslashes($question->question_description);
+							if ($question_description){
+                echo "<p class='question-description color-cyan'>{$question_description}</p>";
+              }
+
+							echo '<h6 class="question-text color-gray px-0">';
 							if ( ! $hide_question_number_overview){
 								echo $question_i. ". ";
 							}
 							echo stripslashes($question->question_title);
 							echo '</h6>';
 
-              $custom_html = '<p class="question-explanation px-5 pb-3">';
+              $custom_html = '<p class="question-explanation pl-4 pb-3 color-cyan">';
               switch ($question_type) {
                 case 'true_false' :
-                  $custom_html .= __('Pregunta tipo verdader o falso, escoja la opción correcta.','wpb_child');
+                  $custom_html .= __('Pregunta tipo verdadero o falso, escoja la opción correcta.','wpb_child');
                   break;
                 case 'single_choice' :
-                  $custom_html .= __('Pregunta tipo seleccion única, escoja la opción correcta.','wpb_child');
+                  $custom_html .= __('Pregunta tipo selección única, escoja la opción correcta.','wpb_child');
                   break;
                 case 'multiple_choice' :
-                  $custom_html .= __('Pregunta tipo seleccion multiple, escoja <strong>todas</strong> las opciones correctas.','wpb_child');
+                  $custom_html .= __('Pregunta tipo selección múltiple, escoja <strong class="uppercase">todas</strong> las opciones correctas.','wpb_child');
                   break;
                 case 'fill_in_the_blank' :
-                  $custom_html .= __('Llene los espacios en blanco del siguiente parrafo con el texto mas apropiado.','wpb_child');
+                  $custom_html .= __('Llene los espacios en blanco del siguiente párrafo con el texto más apropiado.','wpb_child');
                   break;
                 case 'ordering' :
                   $custom_html .= __('Ordene los contenedores mostrados a continuación, haciendo click sostenido sobre las tres rayas y desplazando el mouse a la posición deseada.','wpb_child');
                   break;
                 case 'matching' :
                 case 'image_matching' :
-                  $custom_html .= __('Arrastre los bloques de texto, haciendo click sostenido sobre las tres rayas y desplazando el mouse, al area punteada correspondiente a la mejor respuesta.','wpb_child');
+                  $custom_html .= __('Arrastre los bloques de texto, haciendo click sostenido sobre las tres rayas y desplazando el mouse, al área punteada correspondiente a la mejor respuesta.','wpb_child');
                   break;
                 case 'image_answering' :
-                  $custom_html .= __('Escriba en cada area en blanco, el texto mas apropiado, a la imagen correspondiente. El texto debe estar en <strong>minúsculas</strong>.','wpb_child');
+                  $custom_html .= __('Escriba en cada área en blanco, el texto más apropiado, a la imagen mostrada. correspondiente. El texto debe estar en <strong>minúsculas</strong>.','wpb_child');
                   break;
                 case 'open_ended' :
                 case 'short_answer' :
-                  $custom_html .= __('Escriba en el espacio a continuación la respuesta más apropiada, esta pregunta sera evaluada manualmente en el menor tiempo posible.','wpb_child');
+                  $custom_html .= __('Escriba en el espacio a continuación la respuesta más apropiada, esta pregunta será evaluada manualmente en el menor tiempo posible.','wpb_child');
                   break;
                 default :
-                  $custom_html .= __('Tipo de pregunta no reconocido, Haga su mejor intento :)','wpb_child');
-                    break;
+                  $custom_html .= __('Tipo de pregunta no reconocido. Buena suerte.','wpb_child');
+                  break;
               }
               $custom_html .= '</p>';
 
@@ -158,11 +164,7 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 							if ($show_question_mark){
 								echo '<p class="question-marks"> '.__('Marks : ', 'tutor').$question->question_mark.' </p>';
 							}
-
-							$question_description = stripslashes($question->question_description);
-							if ($question_description){
-							    echo "<p class='question-description pb-3'>{$question_description}</p>";
-                            }
+              // description moved
 							?>
 
                             <div class="tutor-quiz-answers-wrap question-type-<?php echo $question_type; ?> <?php echo $answer_required? 'quiz-answer-required':''; ?> ">

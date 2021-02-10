@@ -4,6 +4,6 @@
 
 <div class="tutor-loop-course-button-container">
   <div  class="tutor-loop-course-btn-wrap">
-    <a href="<?php echo get_the_permalink()?>"><?php echo $button_text; ?></a>
+    <a href="<?php echo get_the_permalink()?>" class="h3"><?php echo $button_text; ?></a>
   </div>
 </div>

@@ -5,7 +5,7 @@
       $lesson_url = tutor_utils()->get_course_first_lesson();
       $completed_lessons = tutor_utils()->get_completed_lesson_count_by_course();
       if ( $lesson_url ) : ?>
-        <a href="<?php echo $lesson_url; ?>" class="tutor-button tutor-success">
+        <a href="<?php echo $lesson_url; ?>" class="tutor-button tutor-success h3 m-0">
           <?php
             if($completed_lessons){
               _e( 'Continuar', 'wpb_child' );

@@ -44,7 +44,14 @@ Text Domain:	 wpb-child
 	--yellow: #e1d145;
 	--yellow-light: #CCCF30; /* related with blue light */
 
+  /* learning */
   --cyan: #0d8194;
+  --cyan-light: #10A5BC;
+  --cyan-dark: #0A6371;
+
+  --forest: #63A46C;
+  --cadet: #1C2541;
+  --vermillion: #E3170A;
 
 	--purple: #0c1a3d;
 
@@ -673,8 +680,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 #page.learning header#masthead .navbar.user-navbar.show {
-  /* height: calc(100vh - 162px); */
-  height: 358px;
+  height: 390px;
   border-width: 1px;
 }
 
@@ -704,7 +710,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header .navbar.user-navbar .user-navbar-container .menu-header {
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--gray);
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   font-size: 0.875rem;
   font-family: 'sassoon';
 }
@@ -717,13 +723,18 @@ header#masthead .navbar.secondary ul > li > a:focus {
   padding: 0 15px
 }
 
-#page.learning header#masthead .navbar.user-navbar ul > li > a {
+#page.learning header#masthead .navbar.user-navbar ul > li > a,
+#page.learning header#masthead .navbar.user-navbar .user-edit-link-container a {
+  display: block;
+  padding: 0.5rem;
   font-weight: inherit;
   color: var(--gray);
 }
 
 #page.learning header#masthead .navbar.user-navbar ul > li > a:hover,
-#page.learning header#masthead .navbar.user-navbar ul > li > a:focus {
+#page.learning header#masthead .navbar.user-navbar ul > li > a:focus,
+#page.learning header#masthead .navbar.user-navbar .user-edit-link-container a:hover,
+#page.learning header#masthead .navbar.user-navbar .user-edit-link-container a:focus {
   color: var(--cyan);
 }
 
@@ -1130,7 +1141,9 @@ body.page-politica-privacidad p {
 
 .user-flow h4, .user-flow .h4,
 .bbpress h4, .bbpress .h4,
-.learning h4, .learning .h4 {
+.learning h4, .learning .h4,
+.tutor-container .tutor-segment-title, 
+.tutor-container .tutor-single-course-segment .tutor-segment-title {
 	font-size: 1.75rem;
 }
 
@@ -1155,6 +1168,8 @@ body.page-politica-privacidad p {
 html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
 html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
 html .learning , body .learning, .learning p, .learning .p,
+.course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+.lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
 #bbpress-forums {
   font-size: 16px;
 }
@@ -1178,48 +1193,44 @@ html .learning , body .learning, .learning p, .learning .p,
 }
 
 .user-flow a {
-  color: var(--blue);
+  color: var(--cyan);
 }
 
 .user-flow .error p {
-  color: var(--red);
+  color: var(--vermillion);
 }
 
 .user-flow .notice p {
-  color: var(--green-light);
+  color: var(--forest);
 }
 
 .user-flow .error p a {
-  color: var(--red-dark-tone);
+  color: var(--vermillion);
 }
 
 .user-flow .form-row {
   flex-direction: column;
-  padding: 1rem 10rem;
+  padding: 1rem 5rem;
+}
+
+.user-flow #content {
+  padding-top: 0;
 }
 
 .user-flow #content > .container-fluid > .row {
   margin-bottom: 5rem;
-  padding: 0rem 1rem;
-  background-image: url(/wp-content/uploads/user-flow-background.png);
-  background-repeat: no-repeat;
-  background-position: 50% 95%;
-  background-size: 60%;
-}
-
-.user-flow.page-login #content > .container-fluid > .row {
-  padding: 0rem 1rem 5rem;
-  background-image: url(/wp-content/uploads/user-flow-background.png);
-  background-repeat: no-repeat;
-  background-position: 50% 95%;
-  background-size: auto;
+  padding: 5rem 1rem 5rem;
+  background-image: url(/wp-content/uploads/buho-con-lupa-300x296.png),
+    url(/wp-content/uploads/learning-course-background.png), 
+    url(/wp-content/uploads/2021/02/user-flow-background-single.png), 
+    url(/wp-content/uploads/2021/02/user-flow-background-single-inverted.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 50% 1%, 50% 50%, 50% -10%, 50% 110%;
+  background-size: 7%, 33.3333% calc(100% - 10rem), auto, auto
 }
 
 .user-flow .page {
-  padding: 4rem 0 5rem 0;
-  background: url(/wp-content/uploads/learning-course-background.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  padding: 4rem 0 3rem 0;
 }
 
 .user-flow .page .entry-header h1 {
@@ -1282,15 +1293,17 @@ html .learning , body .learning, .learning p, .learning .p,
 
 /**** User flow specific ****/
 form label.user-flow-label,
-.user-flow #loginform label,
 form label.learning-label {
   position: relative;
   font-family: 'titan_one';
   color: var(--cyan);
 }
 
-form .user-flow-label::before,
-.user-flow #loginform label::before  {
+form .user-flow-label span {
+  color: inherit;
+}
+
+/* form label.user-flow-label::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -1301,28 +1314,25 @@ form .user-flow-label::before,
   background-size: contain;
   background-repeat: no-repeat;
   transform: translate(0%, -50%);
-}
+} */
 
 form input.user-flow-input[type="text"],
 form input.user-flow-input[type="email"],
 form input.user-flow-input[type="tel"],
 form input.user-flow-input[type="password"],
-.user-flow #loginform input[type="text"],
-.user-flow #loginform input[type="email"],
-.user-flow #loginform input[type="tel"],
-.user-flow #loginform input[type="password"],
 form input.learning-input[type="text"],
 form input.learning-input[type="email"],
 form input.learning-input[type="tel"],
 form input.learning-input[type="password"] {
   border-radius: 0;
-  border: none;
   outline: none;
   box-shadow: none;
   background: transparent;
-  border-bottom: 4px dashed var(--cyan);
+  border: 2px solid var(--cyan);
+  padding: 3px;
   line-height: 1.5rem;
   font-size: 1rem;
+  text-align: center;
 }
 
 form input.user-flow-input[type="text"]:active,
@@ -1333,14 +1343,6 @@ form input.user-flow-input[type="tel"]:active,
 form input.user-flow-input[type="tel"]:focus,
 form input.user-flow-input[type="password"]:focus,
 form input.user-flow-input[type="password"]:active,
-.user-flow #loginform input[type="text"]:active,
-.user-flow #loginform input[type="text"]:focus,
-.user-flow #loginform input[type="email"]:active,
-.user-flow #loginform input[type="email"]:focus,
-.user-flow #loginform input[type="tel"]:active,
-.user-flow #loginform input[type="tel"]:focus,
-.user-flow #loginform input[type="password"]:focus,
-.user-flow #loginform input[type="password"]:active,
 form input.learning-input[type="text"]:active,
 form input.learning-input[type="text"]:focus,
 form input.learning-input[type="email"]:active,
@@ -1352,9 +1354,9 @@ form input.learning-input[type="password"]:active {
   border-color: var(--cyan);
 }
 
+.user-flow a.user-flow-link,
 form a.user-flow-link,
-form a.learning-link,
-.user-flow.page-login .page a {
+form a.learning-link {
   opacity: 0.5;
   color: var(--gray);
   transition: all 0.5s ease-in-out;
@@ -1363,9 +1365,7 @@ form a.learning-link,
 form a.user-flow-link:hover,
 form a.user-flow-link:focus,
 form a.learning-link:hover,
-form a.learning-link:focus,
-.user-flow.page-login .page a:hover,
-.user-flow.page-login .page a:focus {
+form a.learning-link:focus {
   opacity: 1;
   color: var(--cyan);
 }
@@ -1374,26 +1374,26 @@ form input[type="submit"].user-flow-button,
 form button[type="submit"].user-flow-button,
 form input[type="submit"].learning-button,
 form button[type="submit"].learning-button,
-form a.button.learning-button,
-.user-flow #loginform input[type="submit"] {
+form a.button.learning-button {
   border: none;
-  padding: 1rem 1.5rem 1.5rem;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
   outline: none;
-  color: var(--cyan);
+  color: var(--white);
+  background-color: var(--cyan);
   font-family: 'titan_one';
-  background: url(/wp-content/uploads/learning-button-background.png);
+  /* background: url(/wp-content/uploads/learning-button-background.png);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
-  transition: color 0.5s ease-in-out;
+  background-position: center; */
+  transition: background-color 0.5s ease-in-out;
 }
 
 form input[type="submit"].user-flow-button:hover,
 form button[type="submit"].user-flow-button:hover,
 form input[type="submit"].learning-button:hover,
-form button[type="submit"].learning-button:hover,
-.user-flow #loginform input[type="submit"].user-flow-button:hover {
-  color: var(--gray);
+form button[type="submit"].learning-button:hover {
+  background-color: var(--cyan-light);
 }
 
 .user-flow .logged-in.description,
@@ -1409,7 +1409,7 @@ form button[type="submit"].learning-button:hover,
 }
 
 .user-flow.page-login #main > .page {
-  width: 60%;
+  /* width: 60%; */
   margin: 0 auto;
 }
 
@@ -1449,15 +1449,69 @@ form button[type="submit"].learning-button:hover,
   justify-content: center;
 }
 
+.user-flow .page.post-330 {
+  padding: 4rem 0 5rem 0;
+} 
+
 .page-register.user-flow #content > .container-fluid > .row {
-  background-image: url(/wp-content/uploads/user-flow-background.png), url(/wp-content/uploads/user-flow-background.png), url(/wp-content/uploads/user-flow-background.png);
-  background-repeat: no-repeat,no-repeat,no-repeat;
-  background-position: 50% 10%, 50% 50%, 50% 90%;
+  background-position: 50% 1%, 50% 50%, 50% 0%, 50% 100%;
+}
+
+/* select2 */
+.avatar-row .select2-container {
+  margin: 0rem 0rem 2rem;
+}
+
+.avatar-row .select2-container--default .select2-selection--single {
+  height: 34px;
+  border: 2px solid var(--cyan);
+  border-radius: 0;
+  outline: none;
+}
+
+.avatar-row .select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-left: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.avatar-row .select2-container--default .select2-selection--single .select2-selection__rendered[title="Avatar"] {
+  color: gray
+}
+
+.avatar-row .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 30px;
+}
+
+/* select2 results */
+.page-register .select2-container--default .select2-results > .select2-results__options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-height: 300px;
+}
+
+.page-register .select2-container--default .select2-results__options .select2-results__option:first-child {
+  width: 100%;
+  text-align: center;
+}
+
+.page-register .select2-results__option--selectable img {
+  width: 80px;
+}
+
+.page-register .select2-container--default .select2-results__option--selected{
+  color: var(--gray-light);
+}
+
+.page-register .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: var(--cyan);
 }
 
 /* change password page */
 .user-flow.page-id-331 #content > .container-fluid > .row {
-  padding: 3rem 1rem;
+  /* padding: 3rem 1rem; */
 }
 
 #changepassform .description,
@@ -1468,13 +1522,6 @@ form button[type="submit"].learning-button:hover,
 #changepassform .resetpass-submit,
 #password-lost-form .lostpassword-submit {
   text-align: center;
-}
-
-#changepassform .resetpass-submit input[type="submit"],
-#password-lost-form .lostpassword-submit input[type="submit"] {
-  white-space: normal;
-  word-break: break-word;
-  max-width: 320px;
 }
 
 /**** Forum General ****/

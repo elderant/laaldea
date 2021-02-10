@@ -86,17 +86,6 @@
             <a href="<?php echo $related_tool?>" class="view-link-rel type-<?php echo strtolower($related_type);?>" target="_blank" data-postId="<?php echo $related_post_id;?>" data-type="<?php echo $related_type;?>" data-link="<?php echo $related_link;?>">
               <?php echo $related_title;?>
             </a>
-            <a class="text-center down-link-rel" href="<?php echo $related_link_download?>" download>
-              <?php if($related_type == 'pdf') : ?>
-                <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga pdf', 'laaldea')?>">
-              <?php elseif($related_type == 'video') : ?>
-                <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga video', 'laaldea')?>">
-              <?php elseif($related_type == 'audio') : ?>
-                <img src="/wp-content/uploads/tools-button-download-video.png" alt="<?php _e('Imagen descarga audio', 'laaldea')?>">
-              <?php else : ?>
-                <img src="/wp-content/uploads/tools-button-download-pdf.png" alt="<?php _e('Imagen descarga general', 'laaldea')?>">
-              <?php endif; ?>
-            </a>
           </div>
         <?php endfor; ?>
       <?php endif; ?>

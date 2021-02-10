@@ -134,7 +134,7 @@
                           <div class="post-date color-cyan font-sassoon mb-2">
                             <?php echo __('Publicado: ','laaldea') . get_the_date();?>
                           </div>
-                          <div class="post-excerpt color-cyan font-sassoon capitalized mb-2">
+                          <div class="post-excerpt color-cyan font-sassoon mb-2">
                             <p>
                               <?php echo wp_trim_words(get_the_excerpt(), 60); ?>
                             </p>
