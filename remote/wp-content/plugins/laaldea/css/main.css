@@ -7,15 +7,7 @@
   margin: 0;
 }
 
-#learning-home .left-column {
-  border-right: 4px dashed var(--cyan);
-  padding-right: 0rem;
-  margin-right: 1rem;
-}
-
 #learning-home .area-container {
-  margin: 0 1rem 0 0;
-  border-bottom: 4px dashed var(--cyan);
   padding: 1rem 0; 
 }
 
@@ -64,12 +56,28 @@
 }
 
 /* General */
-#learning-home .area-container.news-area {
-  padding-bottom: 0;
+#learning-home .area-container .title-row h4 {
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-#learning-home .area-container.news-area .news-row > div {
-  padding-bottom: 1rem;
+#learning-home .area-container .title-row h4::after {
+  content: '';
+  height: 2px;
+  width: 97%;
+  position: absolute;
+  background-color: var(--cyan);
+  bottom: 0;
+  right: 0;
+}
+
+#learning-home .area-container.current-area .title-row h4::after,
+#learning-home .area-container.courses-area .title-row h4::after {
+  content: none;
+}
+
+#learning-home .area-container.news-area {
+  padding-bottom: 0;
 }
 
 #learning-home .area-container.forum-area,
@@ -82,7 +90,7 @@
 }
 
 #learning-home .title-row .icon-container img {
-  width: 75px;
+  width: 40px;
 }
 
 #learning-home .tools-area .carousel-column {
@@ -93,7 +101,7 @@
 
 #learning-home .tools-carousel {
   display: inline-block;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0;
   order: 2;
 }
@@ -113,15 +121,61 @@
   width: 50px;
 }
 
+#learning-home .carousel-column .slick-dots {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#learning-home .carousel-column .slick-dots li {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.25rem;
+}
+
+#learning-home .carousel-column .slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+}
+
+#learning-home .carousel-column .slick-dots li::marker {
+  content: none;
+}
+
+#learning-home .carousel-column .slick-dots li button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  content: '•';
+  text-align: center;
+  opacity: .5;
+  color: var(--gray);
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+#learning-home .carousel-column .slick-dots li.slick-active button::after {
+  opacity: 1;
+  color: var(--cyan);
+}
+
 /* Learning home : Tools area */
-#learning-home .tool-container {
+#learning-home .tool-container,
+#learning-home .new-section,
+#learning-home .reply-section {
   padding: 1.5rem 1rem;
   outline: none;
 }
 
 #learning-home .tool-container .thumbnail-container {
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 #learning-home .tool-container .thumbnail-container .default-text {
@@ -133,11 +187,16 @@
   color: var(--white);
 }
 
-#learning-home .tool-container .thumbnail-container img {
+#learning-home .tool-container .thumbnail-container img,
+#learning-home .new-container .thumbnail-container img {
   background-color: white;
   border: 5px solid var(--white);
   box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
   border-radius: 5px;
+
+  height: 175px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #learning-home .tool-container .description-container h4 {
@@ -160,65 +219,43 @@
   padding: 2rem 0;
 }
 
-#learning-home .new-section {
-  min-width: 100%;
-  display: none;
+#learning-home .new-container .info-container .title-container a {
+  color: var(--gray);
 }
 
-#learning-home .new-section:first-child {
-  display: block;
-}
-
-#learning-home .new-container .image-container {width: 20%; text-align: center;}
-#learning-home .new-container .info-container {width: 80%; padding:0 1rem;}
-
-#learning-home .new-container .info-container .post-date {
-  text-transform: capitalize;
-}
-
-#learning-home .new-container .info-container .post-excerpt {
-  line-height: 1.5;
-}
+#learning-home .new-container .info-container .title-container a:hover {
+  color: var(--cyan);
+} 
 
 /* Learning home : forum area */
 #learning-home .forums-container {
   box-sizing: content-box;  
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 2rem 0;
-  min-height: 150px;
 }
-
-#learning-home .forums-container .reply-section {
-  min-width: 100%;
-  /* padding: 0 1rem; */
-  display: none;
-}
-
-#learning-home .forums-container .reply-section.active {display: block;}
 
 #learning-home .reply-container .topic-link-container .bbp-topic-permalink {
-  color: var(--cyan);  
-}
-
-#learning-home .reply-container .topic-link-container .bbp-topic-permalink:hover {
   color: var(--gray);
 }
 
-#learning-home .reply-container .bbp-reply-author {width: 20%;}
-#learning-home .reply-container .info-container {width: 80%;padding:0 1rem;}
+#learning-home .reply-container .topic-link-container .bbp-topic-permalink:hover {
+  color: var(--cyan);
+}
+
+/* #learning-home .reply-container .bbp-reply-author {width: 20%;}
+#learning-home .reply-container .info-container {width: 80%;padding:0 1rem;} */
 
 #learning-home .reply-container .bbp-reply-author .avatar-container {
   margin: 0 auto;
 }
 
-#learning-home .reply-container .bbp-reply-author img {width: 150px; height:auto;}
+#learning-home .reply-container .bbp-reply-author img {width: 175px; height:auto;}
 
 #learning-home .reply-container .bbp-reply-meta {
-  width: 100%;
-}
-
-#learning-home .reply-container .bbp-reply-meta .bbp-reply-post-date {
-  text-transform: capitalize;
+  /* width: 100%; */
 }
 
 /* Learning home : current course area */
@@ -228,14 +265,14 @@
 
 #learning-home .current-container .course-container .tutor-course-completion-percent {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 0%;
   transform: translate(0, -50%);
 }
 
 #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
-  width: 80px;
-  line-height: 80px;
+  width: 60px;
+  line-height: 60px;
   margin-bottom: 0.5rem;
   border-radius: 50%;
   background-color: var(--cyan);

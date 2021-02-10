@@ -44,6 +44,15 @@ Text Domain:	 wpb-child
 	--yellow: #e1d145;
 	--yellow-light: #CCCF30; /* related with blue light */
 
+  --purple: #0c1a3d;
+
+	--success: #c1d82f;
+	--success-faded: rgba(193, 216, 47, 0.4);
+	--info: #fff200;
+	--info-background: #CCC200;
+	--danger: #6E0B1F;
+	--danger-faded: rgba(110, 11, 31, 0.4);
+
   /* learning */
   --cyan: #0d8194;
   --cyan-light: #10A5BC;
@@ -53,19 +62,10 @@ Text Domain:	 wpb-child
   --cadet: #1C2541;
   --vermillion: #E3170A;
 
-	--purple: #0c1a3d;
-
 	--gray: #606060;
 	--gray-light: #ADADAD;
 	--gray-dark: #474747;
 	--navbar-overlay: rgba(255,255,255,0.4);	
-
-	--success: #c1d82f;
-	--success-faded: rgba(193, 216, 47, 0.4);
-	--info: #fff200;
-	--info-background: #CCC200;
-	--danger: #6E0B1F;
-	--danger-faded: rgba(110, 11, 31, 0.4);
 }
 
 html{

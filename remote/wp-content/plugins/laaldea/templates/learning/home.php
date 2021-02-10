@@ -28,11 +28,11 @@
       </div>
     </div>
     <div class="row learning-home-row">
-      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column">
+      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column px-4">
         <div class="area-container tools-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-center">
+              <h4 class="font-titan color-cyan d-flex align-items-end">
                 <div class="icon-container tools">
                   <img class="area-icon" src="/wp-content/uploads/learning-home-tools-icon.png" alt="<?php _e('Icono herramientas','laaldea');?>">
                 </div>
@@ -42,12 +42,6 @@
           </div>
           <div class="row tools-row">
             <div class="col-12 carousel-column">
-              <div class="slick-prev arrow">
-                <img src="/wp-content/uploads/learning-arrow-left.png" alt="<?php _e('Arrow left','laaldea')?>">
-              </div>
-              <div class="slick-next arrow">
-                <img src="/wp-content/uploads/learning-arrow-right.png" alt="<?php _e('Arrow right','laaldea')?>">
-              </div>
               <div class="tools-carousel">
                 <?php if( $recent_tools -> have_posts() ) : ?>
                   <?php while ($recent_tools -> have_posts()) : ?>
@@ -58,8 +52,8 @@
                     ?>
                     <div class="tool-container">
                       <a href="/tools/?id=<?php echo $id;?>" class="tool-link">
-                        <div class="row justify-content-between align-items-center">
-                          <div class="thumbnail-container col-5 d-flex align-items-center justify-content-center">
+                        <div class="row justify-content-between align-items-start">
+                          <div class="thumbnail-container col-4 d-flex align-items-center justify-content-start">
                             <?php if(has_post_thumbnail()) :?>
                               <?php the_post_thumbnail( 'medium' ); ?>
                             <?php else :?>
@@ -77,8 +71,9 @@
                               </span>
                             <?php endif;?>
                           </div>
-                          <div class="col-7 d-flex align-items-start description-container flex-column">
-                            <h6 class="font-titan color-cyan"><?php the_title();?></h6>
+                          <div class="description-container col-8 d-flex align-items-start flex-column">
+                            <h6 class="font-titan color-gray px-0 mb-1"><?php the_title();?></h6>
+                            <span class="uppercase color-cyan mb-3">placeholder</span>
                             <?php if(!empty(get_the_content())) : ?>
                               <?php $content = get_the_content();
                                 $content = apply_filters( 'the_content', $content );
@@ -104,7 +99,7 @@
         <div class="area-container news-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-center">
+              <h4 class="font-titan color-cyan d-flex align-items-end">
                 <div class="icon-container news">
                   <img class="area-icon news" src="/wp-content/uploads/learning-home-news-icon.png" alt="<?php _e('Icono noticias','laaldea');?>">
                 </div>
@@ -113,8 +108,8 @@
             </div>
           </div>
           <div class="row news-row">
-            <div class="col-12">
-              <div class="news-container">
+            <div class="col-12 carousel-column">
+              <div class="news-carousel">
                 <?php $i = 0;?>
                 <?php if( $recent_news -> have_posts() ) : ?>
                   <?php while ($recent_news -> have_posts()) : ?>
@@ -123,18 +118,18 @@
                       $class = $i == 1? ' active': '';
                     ?>
                     <div class="new-section <?php echo $class?>">
-                      <div class="new-container d-flex align-items-center">
-                        <div class="image-container">
-                          <?php the_post_thumbnail( 'thumbnail' );?>
+                      <div class="new-container row justify-content-between align-items-start">
+                        <div class="thumbnail-container col-4">
+                          <?php the_post_thumbnail( 'medium' );?>
                         </div>
-                        <div class="info-container">
-                          <div class="title-container h6 color-cyan font-titan">
+                        <div class="info-container col-8 d-flex align-items-start flex-column">
+                          <h6 class="title-container font-titan color-gray px-0 mb-1">
                             <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
-                          </div>
-                          <div class="post-date color-cyan font-sassoon mb-2">
+                          </h6>
+                          <div class="post-date color-cyan font-sassoon uppercase color-cyan mb-3">
                             <?php echo __('Publicado: ','laaldea') . get_the_date();?>
                           </div>
-                          <div class="post-excerpt color-cyan font-sassoon mb-2">
+                          <div class="post-excerpt color-cyan font-sassoon">
                             <p>
                               <?php echo wp_trim_words(get_the_excerpt(), 60); ?>
                             </p>
@@ -155,7 +150,7 @@
         <div class="area-container forum-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-center">
+              <h4 class="font-titan color-cyan d-flex align-items-end">
                 <div class="icon-container forum">
                   <img class="area-icon forum" src="/wp-content/uploads/learning-home-forums-icon.png" alt="<?php _e('Icono foro','laaldea');?>">
                 </div>
@@ -164,8 +159,8 @@
             </div>
           </div>
           <div class="row forum-row">
-            <div class="col-12">
-              <div class="forums-container d-flex">
+            <div class="col-12 carousel-column">
+              <div class="forum-carousel">
                 <?php bbpress()->reply_query = $recent_replies; ?>
                 <?php if( $recent_replies -> have_posts() ) : ?>
                   <?php while (bbp_replies()) : ?>
@@ -185,7 +180,7 @@
                     ?>
                     <div class="reply-section <?php echo $class;?>">
                       <div class="reply-container d-flex flex-wrap align-items-center">
-                        <div class="bbp-reply-author">
+                        <div class="bbp-reply-author col-4">
                           <div class="author-container d-flex align-items-center">
                             <div class="avatar-container">
                               <?php 
@@ -196,17 +191,19 @@
                             </div>
                           </div>
                         </div>
-                        <div class="info-container">
-                          <div class="topic-link-container h5">
-                            <span><?php _e('Ir al tema ','laaldea')?></span>
-                            <a class="bbp-topic-permalink font-titan" href="<?php bbp_topic_permalink($topic_id); ?>"><?php bbp_topic_title($topic_id);?></a>
-                          </div>
-                          <div class="bbp-reply-meta mb-2 color-cyan font-sassoon">
+                        <div class="info-container col-8 d-flex align-items-start flex-column">
+                          <h6 class="topic-link-container px-0">
+                            <a class="bbp-topic-permalink font-titan mb-1" href="<?php bbp_topic_permalink($topic_id); ?>">
+                              <span><?php _e('En el tema: ','laaldea')?></span>
+                              <span><?php bbp_topic_title($topic_id);?></span>
+                            </a>
+                          </h6>
+                          <div class="bbp-reply-meta color-cyan font-sassoon uppercase mb-1">
                             <span><?php _e('Escrito por: ','laaldea')?></span>
                             <span class="bbp-reply-post-date"><?php echo bbp_get_reply_author(); ?></span>
                             <span class="bbp-reply-location">desde <?php wpb_child_the_location_from_ip( bbp_get_author_ip( $args ) ); ?></span>
                           </div>
-                          <div class="bbp-reply-meta mb-2 color-cyan font-sassoon">
+                          <div class="bbp-reply-meta color-cyan font-sassoon uppercase mb-3">
                             <span><?php _e('Publicado: ','laaldea')?></span>
                             <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
                           </div>
@@ -227,11 +224,11 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column">
+      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column px-4">
         <div class="area-container current-area">
           <div class="row title-row">
             <div class="col-10">
-              <h4 class="font-titan color-cyan d-flex align-items-center">
+              <h4 class="font-titan color-cyan d-flex align-items-end">
                 <div class="icon-container current">
                   <img class="area-icon current" src="/wp-content/uploads/learning-home-pending-icon.png" alt="<?php _e('Icono en curso','laaldea');?>">
                 </div>
@@ -268,7 +265,7 @@
 
                     <div class="<?php echo $class?>">
                       <div class="tutor-panel-course-segment tutor-course-completion-percent">
-                        <div class="percent-container font-titan h4 m-0">
+                        <div class="percent-container font-titan h5 m-0">
                           <?php echo sprintf("%s%%", $completed_percent )?>
                         </div>
                       </div>
@@ -301,7 +298,7 @@
         <div class="area-container courses-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-center">
+              <h4 class="font-titan color-cyan d-flex align-items-end">
                 <div class="icon-container courses">
                   <img class="area-icon courses" src="/wp-content/uploads/learning-home-courses-icon.png" alt="<?php _e('Icono courses','laaldea');?>">
                 </div>
