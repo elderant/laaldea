@@ -463,7 +463,7 @@
         }
 
         // events for the new tools loaded
-        $('.main-container .tool-container.loaded .follow-column button').each(function (){
+        $('.main-container .tool-container.loaded .follow-section button').each(function (){
           $(this).on('click', function(event) {
             event.preventDefault();
             laaldea_handle_add_follow(event);
@@ -915,7 +915,7 @@
       });
 
       // Follow link event
-      $('.main-container .tool-container .follow-column button').each(function() {
+      $('.main-container .tool-container .follow-section button').each(function() {
         $(this).on('click', function(event) {
           event.preventDefault();
           laaldea_handle_add_follow(event);

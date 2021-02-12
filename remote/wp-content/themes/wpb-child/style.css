@@ -11,8 +11,15 @@ Text Domain:	 wpb-child
 
 @font-face {
   font-family: 'sassoon';
-  src: url('./inc/fonts/Sassoon-Primary.otf') format('truetype');
+  src: url('./inc/fonts/Sassoon.otf') format('truetype');
 	font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'sassoon';
+  src: url('./inc/fonts/SassoonBold.otf') format('truetype');
+	font-weight: 600;
+  font-style: normal;
 }
 @font-face {
   font-family: 'titan_one';
@@ -1252,14 +1259,13 @@ html .learning , body .learning, .learning p, .learning .p,
   color: var(--gray);
 }
 
-.user-flow h1,
-.user-flow h2,
-.user-flow h3,
-.user-flow h4,
-.user-flow h5,
-.user-flow h6 {
-  letter-spacing: 0.1rem;
+.user-flow h1, .user-flow h2, .user-flow h3, .user-flow h4, .user-flow h5, .user-flow h6 {
   text-transform: uppercase;
+}
+
+.user-flow h1, .user-flow h2, .user-flow h3, .user-flow h4, .user-flow h5, .user-flow h6,
+.user-flow .h1, .user-flow .h2, .user-flow .h3, .user-flow .h4, .user-flow .h5, .user-flow .h6 {
+  letter-spacing: 0.12rem;
 }
 
 .user-flow ::selection {
@@ -1431,6 +1437,8 @@ form a.learning-link {
   transition: all 0.5s ease-in-out;
 }
 
+.user-flow a.user-flow-link:hover,
+.user-flow a.user-flow-link:focus,
 form a.user-flow-link:hover,
 form a.user-flow-link:focus,
 form a.learning-link:hover,
@@ -1507,6 +1515,7 @@ form button[type="submit"].learning-button:hover {
 .user-flow.page-login .page a {
   display: block;
   text-align: center;
+  padding: 0.25rem 0;
 }
 
 /* register */
@@ -1596,14 +1605,13 @@ form button[type="submit"].learning-button:hover {
   color: var(--gray);
 }
 
-.bbpress h1,
-.bbpress h2,
-.bbpress h3,
-.bbpress h4,
-.bbpress h5,
-.bbpress h6 {
-  letter-spacing: 0.1rem;
+.bbpress h1, .bbpress h2, .bbpress h3, .bbpress h4, .bbpress h5, .bbpress h6 {
   text-transform: uppercase;
+}
+
+.bbpress h1, .bbpress h2, .bbpress h3, .bbpress h4, .bbpress h5, .bbpress h6,
+.bbpress .h1, .bbpress .h2, .bbpress .h3, .bbpress .h4, .bbpress .h5, .bbpress .h6 { 
+  letter-spacing: 0.12rem;
 }
 
 .bbpress ::selection {
@@ -1641,14 +1649,13 @@ form button[type="submit"].learning-button:hover {
   color: var(--gray);
 }
 
-.learning h1,
-.learning h2,
-.learning h3,
-.learning h4,
-.learning h5,
-.learning h6 {
-  letter-spacing: 0.1rem;
+.learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6 {
   text-transform: uppercase;
+}
+
+.learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6,
+.learning .h1, .learning .h2, .learning .h3, .learning .h4, .learning .h5, .learning .h6  {
+  letter-spacing: 0.12rem;
 }
 
 .learning ::selection {

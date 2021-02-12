@@ -14,14 +14,14 @@
       <h2><?php _e('Contenidos','laaldea');?></h2>
     </div>
     <div class="row tools-row">
-      <div class="col-10 offset-1 col-sm-3 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-3 offset-xl-1 sidebar">
-        <div class="title-container d-flex align-items-center">
-          <div class="icon-container">
-            <?php include ABSPATH . 'wp-content/uploads/learning-home-tools-icon.svg';?>
-          </div>
-          <h4><?php _e('Contenidos','laaldea');?></h4>
-        </div>
+      <div class="col-10 offset-1 col-sm-2 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-2 offset-xl-1 sidebar">
         <div class="tools-sidebar-container" data-top="240">
+          <div class="title-container d-flex align-items-center">
+            <div class="icon-container">
+              <?php include ABSPATH . 'wp-content/uploads/learning-home-tools-icon.svg';?>
+            </div>
+            <h4><?php _e('Contenidos','laaldea');?></h4>
+          </div>
           <div class="filters-container book d-flex flex-column justify-content-between align-items-start pb-3">
             <div class="filter-title pt-3 pb-1">
               <button class="filter-control d-flex align-items-center justify-content-start">
@@ -112,15 +112,14 @@
         </div>
       </div>
 
-      <div class="col-10 offset-1 col-sm-7 offset-sm-0 col-xl1-10 offset-xl1-1 col-xl-7 main-container">
-        <div class="target-filter-container pb-4 d-flex align-items-center">
-          <button class="docente-target-filter-button d-flex align-items-center" data-filter="docente">
-            <img class="filter-image docente" src="/wp-content/uploads/tools-filter-video.png" alt="<?php _e('Imagen filtrar para docentes','laaldea')?>">
-            <div class="text-container h6 font-titan"><?php _e('Para docentes','laaldea');?></div>
+      <div class="col-10 offset-1 col-sm-8 offset-sm-0 col-xl1-10 offset-xl1-1 col-xl-8 main-container">
+        <div class="target-filter-container d-flex align-items-center">
+          <div class="filter-label h5 uppercase font-sassoon color-cyan"><?php _e('Filtro: ', 'laaldea');?></div>
+          <button class="docente-target-filter-button d-flex align-items-center filter-button inverted" data-filter="docente">
+            <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Docentes','laaldea');?></div>
           </button>
-          <button class="estudiante-target-filter-button d-flex align-items-center" data-filter="estudiante">
-            <img class="filter-image estudiante" src="/wp-content/uploads/tools-filter-pdf.png" alt="<?php _e('Imagen filtrar para estudiantes','laaldea')?>">
-            <div class="text-container h6 font-titan"><?php _e('Para Estudiantes','laaldea');?></div>
+          <button class="estudiante-target-filter-button d-flex align-items-center filter-button" data-filter="estudiante">
+            <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Estudiantes','laaldea');?></div>
           </button>
         </div>
 
@@ -144,11 +143,11 @@
         <div class="load-more-container">
           <?php if($post_count > $offset) : ?>
             <button class="load-more-link" data-offset="<?php echo $offset;?>">
-              <div class="text-container h6">
+              <div class="text-container h6 uppercase">
                 <span><?php _e('Ver más','laaldea');?></span>
               </div>
               <div class="image-container">
-                <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
+                <!-- <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>"> -->
               </div>
             </button>
           <?php endif;?>
