@@ -24,7 +24,5 @@ get_header('user-flow');?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
-<?php if(!is_home()) : ?>
-<?php get_footer(); ?>
-<?php endif; ?>
+  <?php get_footer('learning'); ?>
 <?php

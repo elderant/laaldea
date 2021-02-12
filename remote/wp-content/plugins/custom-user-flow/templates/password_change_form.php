@@ -17,16 +17,18 @@
 
     <div class="form-row">
       <label for="pass1" class="user-flow-label h5 hidden"><?php _e( 'New password', 'user-flow' ) ?></label>
-      <input placeholder="<?php _e( 'New password', 'user-flow' ) ?>" type="password" name="pass1" id="pass1" class="input user-flow-input" size="20" value="" autocomplete="off" />
+      <input placeholder="<?php echo mb_strtoupper(__( 'New password', 'user-flow' ), "UTF-8"); ?>" type="password" name="pass1" id="pass1" class="input user-flow-input" size="20" value="" autocomplete="off" />
     </div>
     <div class="form-row">
       <label for="pass2" class="user-flow-label h5 hidden"><?php _e( 'Repeat new password', 'user-flow' ) ?></label>
-      <input placeholder="<?php _e( 'Repeat new password', 'user-flow' ) ?>" type="password" name="pass2" id="pass2" class="input user-flow-input" size="20" value="" autocomplete="off" />
+      <input placeholder="<?php echo mb_strtoupper(__( 'Repeat new password', 'user-flow' ), "UTF-8"); ?>" type="password" name="pass2" id="pass2" class="input user-flow-input" size="20" value="" autocomplete="off" />
+    </div>
+    
+    <div class="form-row description">
+      <p><?php echo wp_get_password_hint(); ?></p>
     </div>
       
-    <div class="description"><p><?php echo wp_get_password_hint(); ?></p></div>
-      
-    <div class="resetpass-submit">
+    <div class="form-row resetpass-submit-container text-center">
       <input 
         type="submit" 
         name="submit" 

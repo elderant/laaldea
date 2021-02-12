@@ -109,41 +109,41 @@
   <form id="signupform" action="<?php echo wp_registration_url(); ?>" method="post">
     <div class="form-row">
       <label for="email" class="user-flow-label h5 hidden"><?php _e( 'Email', 'user-flow' ); ?><strong>*</strong></label>
-      <input placeholder="<?php _e( 'Email', 'user-flow' ) . '*';?>" type="email" name="email" id="email" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Email', 'user-flow' ), "UTF-8") . '*';?>" type="email" name="email" id="email" class="user-flow-input">
     </div>
     <div class="form-row">
       <label for="first_name" class="user-flow-label h5 hidden"><?php _e( 'First name', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'First name', 'user-flow' );?>" type="text" name="first_name" id="first-name" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'First name', 'user-flow' ), "UTF-8");?>" type="text" name="first_name" id="first-name" class="user-flow-input">
     </div>
     <div class="form-row">
       <label for="last_name" class="user-flow-label h5 hidden"><?php _e( 'Last name', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'Last name', 'user-flow' );?>" type="text" name="last_name" id="last-name" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Last name', 'user-flow' ), "UTF-8");?>" type="text" name="last_name" id="last-name" class="user-flow-input">
     </div>
     <div class="form-row">
       <label for="user_phone" class="user-flow-label h5 hidden"><?php _e( 'Phone', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'Phone', 'user-flow' );?>" type="text" name="user_phone" id="user-phone" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Phone', 'user-flow' ), "UTF-8");?>" type="text" name="user_phone" id="user-phone" class="user-flow-input">
     </div>
     <div class="form-row">
       <label for="user_area" class="user-flow-label h5 hidden"><?php _e( 'Teaching Area', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'Teaching Area', 'user-flow' );?>" type="text" name="user_area" id="user-area" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Teaching Area', 'user-flow' ), "UTF-8");?>" type="text" name="user_area" id="user-area" class="user-flow-input">
     </div>
     <div class="form-row">
       <label for="user_institution" class="user-flow-label h5 hidden"><?php _e( 'Teaching Institution', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'Teaching Institution', 'user-flow' );?>" type="text" name="user_institution" id="user-institution" class="user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Teaching Institution', 'user-flow' ), "UTF-8");?>" type="text" name="user_institution" id="user-institution" class="user-flow-input">
     </div>
     <div class="form-row avatar-row">
       <label class="user-flow-label h5 hidden"><?php _e('Avatar', 'user-flow'); ?></label>
       <select class="avatar-select" name="user_avatar">
-        <option value="" disabled selected><?php _e('Avatar', 'user-flow');?></option>
+        <option value="" disabled selected><?php echo mb_strtoupper(__('Avatar', 'user-flow'), "UTF-8");?></option>
         <?php foreach($user_avatars as $avatar) :?>
           <option 
             value="<?php echo $avatar['input-value'];?>">
             <?php echo $avatar['label-alt'];?>
           </option>
         <?php endforeach;?>
-      </div>
+      </select>
     </div>
-    <div class="form-row">
+    <div class="form-row disclaimer-row text-center">
       <?php _e( 'Note: Your password will be generated automatically and sent to your email address.', 'user-flow' ); ?>
     </div>
     <?php if ( isset($attributes['recaptcha_site_key']) && $attributes['recaptcha_site_key'] ) : ?>
@@ -155,7 +155,7 @@
       <input type="submit" 
         name="submit" 
         class="register-button user-flow-button h5" 
-        value="<?php _e( 'Register', 'user-flow' ); ?>"/>
+        value="<?php echo mb_strtoupper(__( 'Register', 'user-flow' ), "UTF-8"); ?>"/>
     </div>
   </form>
 

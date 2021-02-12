@@ -131,10 +131,14 @@ function wpb_child_add_user_menu_html($item_output, $item, $depth, $args) {
     
     $user_id = get_current_user_id();
     $user = wp_get_current_user();
+    $user_data = get_userdata( $user_id );
+    $user_name = $user_data->data->display_name;
     $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
+    $greet_string = sprintf( wp_kses( __( '<span class="%s">¡Hola, </span><span>%s!</span>', 'wpb_child' ), array( 'span' => array('class' => array())) ), 'color-cyan', $user_name );
     
     $html = '<button class="menu-button collapsed" type="button" data-toggle="collapse" data-target="#user-navbar">' .
         '<img src="' . $avatar_url . '" alt="' . __('User avatar','wpb_child') . '">' .
+        '<span class="user-greet">' . $greet_string . '</span>' .
       '</button>';
     
     $item_output = $html;

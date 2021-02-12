@@ -113,7 +113,7 @@
   /**** User flow General ****/
   .user-flow .form-row {
     flex-direction: column;
-    padding: 1rem 8rem;
+    padding: 1rem 3rem;
   }
 
   form input[type="submit"].user-flow-button {
@@ -208,7 +208,7 @@
   /**** User flow General ****/
   .user-flow .form-row {
     flex-direction: column;
-    padding: 1rem 8rem;
+    padding: 1rem 3rem;
   }
 
   form input[type="submit"].user-flow-button {
@@ -303,7 +303,7 @@
   /**** User flow General ****/
   .user-flow .form-row {
     flex-direction: column;
-    padding: 1rem 8rem;
+    padding: 1rem 3rem;
   }
 
   form input[type="submit"].user-flow-button {
@@ -327,8 +327,7 @@
 @media screen and (min-width: 1536px) and (max-width: 1679px) {
   /**** User flow General ****/
   .user-flow .form-row {
-    flex-direction: column;
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -336,8 +335,7 @@
 @media screen and (min-width: 1680px) and (max-width: 1919px) {
   /**** User flow General ****/
   .user-flow .form-row {
-    flex-direction: column;
-    padding: 1rem 5rem;
+    padding: 1rem 2rem;
   }
 }
 

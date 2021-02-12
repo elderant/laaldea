@@ -23,10 +23,10 @@
   <form id="lostpasswordform" action="<?php echo 'https://laaldea.co/wp-login.php?action=lostpassword' ?>" method="post">
     <div class="form-row">
       <label for="user_login" class="user-flow-label h5 hidden"><?php _e( 'Email', 'user-flow' ); ?></label>
-      <input placeholder="<?php _e( 'Email', 'user-flow' );?>" type="text" name="user_login" id="user_login" class="input user-flow-input">
+      <input placeholder="<?php echo mb_strtoupper(__( 'Email', 'user-flow' ), "UTF-8");?>" type="text" name="user_login" id="user_login" class="input user-flow-input">
     </div>
 
-    <div class="lostpassword-submit">
+    <div class="form-row lostpassword-submit-container text-center">
       <input 
         type="submit" 
         name="submit" 

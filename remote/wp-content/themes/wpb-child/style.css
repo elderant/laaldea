@@ -577,18 +577,40 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header#masthead .navbar ul#menu-learning {
   width: inherit;
   justify-content: space-around;
+  align-items: flex-end;
 }
 
 #page.learning header#masthead .navbar ul#menu-learning li {
   position: relative;
 }
 
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link,
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link {
+  width: 20%;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link {
+  padding-left: 3rem;
+  text-align: left;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link {
+  padding-right: 3rem;
+  text-align: right;
+}
+
 #page.learning header#masthead .navbar ul#menu-learning > li > a {
-	color: var(--gray);
+	display: inline-block;
+  color: var(--gray);
 	font-weight: inherit;
 	font-family: inherit;
-	font-size: inherit;
 	padding: 0 1.3rem;
+  font-size: 0.6em;
+}
+
+#page.learning header#masthead .navbar ul#menu-learning > li.home-link > a,
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link > a {
+  font-size: inherit;
 }
 
 #page.learning header#masthead .navbar #learning-nav.disabled #menu-learning > li > a  {
@@ -634,11 +656,26 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 #page.learning header#masthead .navbar ul#menu-learning > li.home-link a:hover,
-#page.learning header#masthead .navbar ul#menu-learning > li.home-link a:focus {
+#page.learning header#masthead .navbar ul#menu-learning > li.user-link a:focus {
   background-color: var(--gray);
 }
 
-#page.learning header#masthead .navbar ul#menu-learning > li::after {
+#page.learning header#masthead li.user-link button {
+  position: relative;
+}
+
+#page.learning header#masthead li.user-link .user-greet {
+  position: absolute;
+  font-family: 'sassoon';
+  font-size: 0.5em;
+  right: 0;
+  bottom: 0;
+  transform: translate(0, 110%);
+  width: 250px;
+  text-align: right;
+}
+
+/* #page.learning header#masthead .navbar ul#menu-learning > li::after {
   content: '';
   position: absolute;
   bottom: 5%;
@@ -662,7 +699,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header#masthead .navbar ul#menu-learning > li.user-link::after,
 #page.learning header#masthead .navbar ul#menu-learning > li.image-link::after {
   content: unset;
-}
+} */
 
 #page.learning header#masthead .navbar ul#menu-learning > li.image-link a {
   display: inline-block;
@@ -738,12 +775,41 @@ header#masthead .navbar.secondary ul > li > a:focus {
   color: var(--cyan);
 }
 
+/* Learning footer */
+body:not(.theme-preset-active) footer.learning#colophon {
+  color: var(--white);
+  background-color: var(--gray-dark);
+}
+
+body:not(.theme-preset-active) footer.learning#colophon span,
+body:not(.theme-preset-active) footer.learning#colophon div {
+  color: inherit;
+}
+
+body:not(.theme-preset-active) footer.learning#colophon span {
+  display: inline-block;
+  margin: 0 2rem;
+}
+
+body:not(.theme-preset-active) footer.learning#colophon a {
+  display: inline-block;
+  margin: 0 2rem;
+}
+
 /******************** Home ********************/
 
 /* Home - general */
 .home #content.site-content,
 .learning-home #content.site-content {
 	padding: 0;
+}
+
+.learning-home #content.site-content {
+  padding-bottom: 3rem;
+}
+
+.learning #content.site-content {
+  min-height: calc(100vh - 112px - 82px);
 }
 
 .site-content #primary {
@@ -1126,7 +1192,6 @@ body.page-politica-privacidad p {
 .learning h2, .learning .h2,
 .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
 	font-size: 2.5rem;
-  letter-spacing: unset;
 }
 
 .user-flow h3, .user-flow .h3,
@@ -1187,6 +1252,16 @@ html .learning , body .learning, .learning p, .learning .p,
   color: var(--gray);
 }
 
+.user-flow h1,
+.user-flow h2,
+.user-flow h3,
+.user-flow h4,
+.user-flow h5,
+.user-flow h6 {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
 .user-flow ::selection {
   color: var(--white);
   background-color: var(--cyan);
@@ -1208,9 +1283,17 @@ html .learning , body .learning, .learning p, .learning .p,
   color: var(--vermillion);
 }
 
+.user-flow .page > .entry-header h1 {
+  opacity: 0;
+}
+
+.user-flow .entry-content form {
+  margin: 0 4rem;
+}
+
 .user-flow .form-row {
   flex-direction: column;
-  padding: 1rem 5rem;
+  padding: 1rem 2rem;
 }
 
 .user-flow #content {
@@ -1218,15 +1301,14 @@ html .learning , body .learning, .learning p, .learning .p,
 }
 
 .user-flow #content > .container-fluid > .row {
-  margin-bottom: 5rem;
-  padding: 5rem 1rem 5rem;
-  background-image: url(/wp-content/uploads/buho-con-lupa-300x296.png),
+  padding: 10rem 1rem 8rem;
+  background-image: url(/wp-content/uploads/user-flow-owl.png), 
     url(/wp-content/uploads/learning-course-background.png), 
-    url(/wp-content/uploads/2021/02/user-flow-background-single.png), 
-    url(/wp-content/uploads/2021/02/user-flow-background-single-inverted.png);
+    url(/wp-content/uploads/user-flow-background-single.png), 
+    url(/wp-content/uploads/user-flow-background-single-inverted.png);
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: 50% 1%, 50% 50%, 50% -10%, 50% 110%;
-  background-size: 7%, 33.3333% calc(100% - 10rem), auto, auto
+  background-position: 50% 14%, 50% calc(50% + 2rem), 45% 4%, 49% 87%;
+  background-size: 11%, 27.5% calc(100% - 21rem), auto, auto;
 }
 
 .user-flow .page {
@@ -1303,19 +1385,6 @@ form .user-flow-label span {
   color: inherit;
 }
 
-/* form label.user-flow-label::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -4rem;
-  height: 30px;
-  width: 4rem;
-  background-image: url(/wp-content/uploads/user-flow-leaf.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  transform: translate(0%, -50%);
-} */
-
 form input.user-flow-input[type="text"],
 form input.user-flow-input[type="email"],
 form input.user-flow-input[type="tel"],
@@ -1375,17 +1444,15 @@ form button[type="submit"].user-flow-button,
 form input[type="submit"].learning-button,
 form button[type="submit"].learning-button,
 form a.button.learning-button {
+  margin: 0 auto;
   border: none;
   border-radius: 10px;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   outline: none;
   color: var(--white);
   background-color: var(--cyan);
   font-family: 'titan_one';
-  /* background: url(/wp-content/uploads/learning-button-background.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center; */
+  text-transform: uppercase;
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -1409,7 +1476,6 @@ form button[type="submit"].learning-button:hover {
 }
 
 .user-flow.page-login #main > .page {
-  /* width: 60%; */
   margin: 0 auto;
 }
 
@@ -1454,14 +1520,10 @@ form button[type="submit"].learning-button:hover {
 } 
 
 .page-register.user-flow #content > .container-fluid > .row {
-  background-position: 50% 1%, 50% 50%, 50% 0%, 50% 100%;
+  background-position: 50% 10.5%, 50% calc(50% + 2rem), 45% 4%, 49% 90%;
 }
 
 /* select2 */
-.avatar-row .select2-container {
-  margin: 0rem 0rem 2rem;
-}
-
 .avatar-row .select2-container--default .select2-selection--single {
   height: 34px;
   border: 2px solid var(--cyan);
@@ -1516,12 +1578,8 @@ form button[type="submit"].learning-button:hover {
 
 #changepassform .description,
 #password-lost-form .description {
-  padding: 0rem 4rem 1rem;
-}
-
-#changepassform .resetpass-submit,
-#password-lost-form .lostpassword-submit {
-  text-align: center;
+  margin: 0 4rem;
+  padding: 0rem 2rem 1rem;
 }
 
 /**** Forum General ****/
@@ -1536,6 +1594,16 @@ form button[type="submit"].learning-button:hover {
 .bbpress h5,
 .bbpress h6 {
   color: var(--gray);
+}
+
+.bbpress h1,
+.bbpress h2,
+.bbpress h3,
+.bbpress h4,
+.bbpress h5,
+.bbpress h6 {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 .bbpress ::selection {
@@ -1571,6 +1639,16 @@ form button[type="submit"].learning-button:hover {
 .learning h5,
 .learning h6 {
   color: var(--gray);
+}
+
+.learning h1,
+.learning h2,
+.learning h3,
+.learning h4,
+.learning h5,
+.learning h6 {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 .learning ::selection {

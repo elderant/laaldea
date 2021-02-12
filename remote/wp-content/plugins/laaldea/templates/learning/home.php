@@ -11,30 +11,22 @@
 
 <section id="learning-home" class="d-flex align-items-center justify-content-center">
   <div class="container-fluid">
-    <div class="row learning-home-greet-row mb-5">
+    <div class="row learning-home-greet-row mb-5 mt-5">
       <img src="/wp-content/uploads/learning-home-greet-image.png" alt="<?php _e('Imagen del fondo del saludo.','laaldea');?>">
       <div class="greet-texts-container">
-        <div class="user-greet">
-          <div class="avatar-container">
-            <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
-          </div>
-          <div class="greet-container font-titan color-white h3">
-            <span><?php printf( esc_html__( '¡Hola %s!','laaldea'), $user_name );?></span>
-          </div>
-        </div>
-        <div class="general-greet h4">
+        <div class="general-greet h6">
           <p class="color-cyan"><?php _e('Este es tu espacio en La Aldea, aquí podrás crear, aprender, compartir, cantar y hacer parte de esta increíble comunidad.','laaldea');?></p>
         </div>
       </div>
     </div>
     <div class="row learning-home-row">
-      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column px-4">
+      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column px-5">
         <div class="area-container tools-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-end">
+              <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container tools">
-                  <img class="area-icon" src="/wp-content/uploads/learning-home-tools-icon.png" alt="<?php _e('Icono herramientas','laaldea');?>">
+                  <?php include ABSPATH . 'wp-content/uploads/learning-home-tools-icon.svg';?>
                 </div>
                 <span class="text-container"><?php _e('Contenidos','laaldea');?></span>
               </h4>
@@ -72,8 +64,9 @@
                             <?php endif;?>
                           </div>
                           <div class="description-container col-8 d-flex align-items-start flex-column">
-                            <h6 class="font-titan color-gray px-0 mb-1"><?php the_title();?></h6>
-                            <span class="uppercase color-cyan mb-3">placeholder</span>
+                            <div class="entry-header mb-3">
+                              <h6 class="font-titan color-gray px-0 mb-1"><?php the_title();?></h6>
+                            </div>
                             <?php if(!empty(get_the_content())) : ?>
                               <?php $content = get_the_content();
                                 $content = apply_filters( 'the_content', $content );
@@ -99,9 +92,9 @@
         <div class="area-container news-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-end">
+              <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container news">
-                  <img class="area-icon news" src="/wp-content/uploads/learning-home-news-icon.png" alt="<?php _e('Icono noticias','laaldea');?>">
+                  <?php include ABSPATH . 'wp-content/uploads/learning-home-news-icon.svg';?>
                 </div>
                 <span class="text-container"><?php _e('Últimas noticias','laaldea');?></span>
               </h4>
@@ -123,11 +116,13 @@
                           <?php the_post_thumbnail( 'medium' );?>
                         </div>
                         <div class="info-container col-8 d-flex align-items-start flex-column">
-                          <h6 class="title-container font-titan color-gray px-0 mb-1">
-                            <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
-                          </h6>
-                          <div class="post-date color-cyan font-sassoon uppercase color-cyan mb-3">
-                            <?php echo __('Publicado: ','laaldea') . get_the_date();?>
+                          <div class="entry-header mb-3">
+                            <h6 class="title-container font-titan color-gray px-0 mb-1">
+                              <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
+                            </h6>
+                            <div class="post-date color-cyan font-sassoon uppercase color-cyan">
+                              <?php echo __('Publicado: ','laaldea') . get_the_date();?>
+                            </div>
                           </div>
                           <div class="post-excerpt color-cyan font-sassoon">
                             <p>
@@ -150,9 +145,9 @@
         <div class="area-container forum-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-end">
+              <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container forum">
-                  <img class="area-icon forum" src="/wp-content/uploads/learning-home-forums-icon.png" alt="<?php _e('Icono foro','laaldea');?>">
+                  <?php include ABSPATH . 'wp-content/uploads/learning-home-forums-icon.svg';?>
                 </div>
                 <span class="text-container"><?php _e('Foro','laaldea');?></span>
               </h4>
@@ -192,20 +187,22 @@
                           </div>
                         </div>
                         <div class="info-container col-8 d-flex align-items-start flex-column">
-                          <h6 class="topic-link-container px-0">
-                            <a class="bbp-topic-permalink font-titan mb-1" href="<?php bbp_topic_permalink($topic_id); ?>">
-                              <span><?php _e('En el tema: ','laaldea')?></span>
-                              <span><?php bbp_topic_title($topic_id);?></span>
-                            </a>
-                          </h6>
-                          <div class="bbp-reply-meta color-cyan font-sassoon uppercase mb-1">
-                            <span><?php _e('Escrito por: ','laaldea')?></span>
-                            <span class="bbp-reply-post-date"><?php echo bbp_get_reply_author(); ?></span>
-                            <span class="bbp-reply-location">desde <?php wpb_child_the_location_from_ip( bbp_get_author_ip( $args ) ); ?></span>
-                          </div>
-                          <div class="bbp-reply-meta color-cyan font-sassoon uppercase mb-3">
-                            <span><?php _e('Publicado: ','laaldea')?></span>
-                            <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+                          <div class="entry-header mb-3">
+                            <h6 class="topic-link-container px-0">
+                              <a class="bbp-topic-permalink font-titan mb-1" href="<?php bbp_topic_permalink($topic_id); ?>">
+                                <span><?php _e('En el tema: ','laaldea')?></span>
+                                <span><?php bbp_topic_title($topic_id);?></span>
+                              </a>
+                            </h6>
+                            <div class="bbp-reply-meta color-cyan font-sassoon uppercase mb-1">
+                              <span><?php _e('Escrito por: ','laaldea')?></span>
+                              <span class="bbp-reply-post-date"><?php echo bbp_get_reply_author(); ?></span>
+                              <span class="bbp-reply-location">desde <?php wpb_child_the_location_from_ip( bbp_get_author_ip( $args ) ); ?></span>
+                            </div>
+                            <div class="bbp-reply-meta color-cyan font-sassoon uppercase">
+                              <span><?php _e('Publicado: ','laaldea')?></span>
+                              <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+                            </div>
                           </div>
                           <div class="bbp-reply-content mb-2">
                             <?php bbp_reply_content(); ?>
@@ -224,13 +221,13 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column px-4">
+      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column px-5">
         <div class="area-container current-area">
           <div class="row title-row">
             <div class="col-10">
-              <h4 class="font-titan color-cyan d-flex align-items-end">
+              <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container current">
-                  <img class="area-icon current" src="/wp-content/uploads/learning-home-pending-icon.png" alt="<?php _e('Icono en curso','laaldea');?>">
+                  <?php include ABSPATH . 'wp-content/uploads/learning-home-pending-icon.svg';?>
                 </div>
                 <span class="text-container"><?php _e('En curso','laaldea');?></span>
               </h4>
@@ -265,7 +262,7 @@
 
                     <div class="<?php echo $class?>">
                       <div class="tutor-panel-course-segment tutor-course-completion-percent">
-                        <div class="percent-container font-titan h5 m-0">
+                        <div class="percent-container font-titan h5 m-0 p-0">
                           <?php echo sprintf("%s%%", $completed_percent )?>
                         </div>
                       </div>
@@ -298,9 +295,9 @@
         <div class="area-container courses-area">
           <div class="row title-row">
             <div class="col-12">
-              <h4 class="font-titan color-cyan d-flex align-items-end">
+              <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container courses">
-                  <img class="area-icon courses" src="/wp-content/uploads/learning-home-courses-icon.png" alt="<?php _e('Icono courses','laaldea');?>">
+                  <?php include ABSPATH . 'wp-content/uploads/learning-home-courses-icon.svg';?>
                 </div>
                 <span class="text-container"><?php _e('Otros cursos','laaldea');?></span>
               </h4>

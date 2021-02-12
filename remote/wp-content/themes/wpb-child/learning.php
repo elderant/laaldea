@@ -23,7 +23,5 @@ get_header('learning');?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
-<?php if(!is_home()) : ?>
-<?php get_footer(); ?>
-<?php endif; ?>
+<?php get_footer('learning'); ?>
 <?php

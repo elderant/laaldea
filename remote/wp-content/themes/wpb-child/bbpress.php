@@ -42,5 +42,5 @@ get_header('learning');?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
-<?php get_footer(); ?>
+<?php get_footer('learning'); ?>
 <?php

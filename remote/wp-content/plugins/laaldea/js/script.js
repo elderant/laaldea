@@ -381,10 +381,10 @@
 
   var laaldea_handle_filter_control = function($button) {
     let $filterContainer = $button.parents('.filters-container')
-    let $hiddenFilters = $filterContainer.find('.term-container.hidden');
-
+    
     if($button.hasClass('active')) {
-      let currentHeight = $filterContainer.height();
+      let $hiddenFilters = $filterContainer.find('.term-container.hidden');
+      let currentHeight = $filterContainer.outerHeight();
       $filterContainer.css('height', currentHeight + 'px');
       $filterContainer.attr('data-initial-height', currentHeight);
   
@@ -399,6 +399,11 @@
     else {
       let targetHeight = $filterContainer.attr('data-initial-height');;
       $filterContainer.animate({height: targetHeight}, 1000);
+
+      let $filters = $filterContainer.find('.term-container:not(.hidden)');
+      $filters.each(function() {
+        $(this).toggleClass('hidden');
+      });
     }
 
     let $FilterIcons = $filterContainer.find('.filter-icon .icon');
