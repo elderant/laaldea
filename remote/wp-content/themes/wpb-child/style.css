@@ -1524,6 +1524,10 @@ button.button.learning-button:hover {
 }
 
 /* select2 */
+.avatar-row .select2-container {
+  width: 100% !important;
+}
+
 .avatar-row .select2-container--default .select2-selection--single {
   height: 34px;
   border: 2px solid var(--cyan);
@@ -1538,15 +1542,20 @@ button.button.learning-button:hover {
 }
 
 .avatar-row .select2-container--default .select2-selection--single .select2-selection__rendered[title="Avatar"] {
-  color: gray
+  color: gray;
 }
 
 .avatar-row .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 30px;
 }
 
+.avatar-row .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: var(--cyan) transparent transparent transparent;
+}
+
 /* select2 results */
-.page-register .select2-container--default .select2-results > .select2-results__options {
+.page-register .select2-container--default .select2-results > .select2-results__options,
+.page-update-user .select2-container--default .select2-results > .select2-results__options {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1554,21 +1563,25 @@ button.button.learning-button:hover {
   max-height: 300px;
 }
 
-.page-register .select2-container--default .select2-results__options .select2-results__option:first-child {
+.page-register .select2-container--default .select2-results__options .select2-results__option:first-child,
+.page-update-user .select2-container--default .select2-results__options .select2-results__option:first-child {
   width: 100%;
   text-align: center;
 }
 
-.page-register .select2-results__option--selectable img {
+.page-register .select2-results__option--selectable img,
+.page-update-user .select2-results__option--selectable img {
   width: 80px;
 }
 
-.page-register .select2-container--default .select2-results__option--selected{
+.page-register .select2-container--default .select2-results__option--selected,
+.page-update-user .select2-container--default .select2-results__option--selected {
   color: var(--gray-light);
   border-radius: 50%;
 }
 
-.page-register .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+.page-register .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable,
+.page-update-user .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
   background-color: var(--cyan-light);
   border-radius: 50%;
 }

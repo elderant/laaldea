@@ -103,7 +103,7 @@ $course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ),
                   </div>
                 <?php endif; ?>
       
-                <div class="tutor-lessons-under-topic" style="display: none">
+                <div class="tutor-lessons-under-topic line-height-12" style="display: none">
                   <?php
                     do_action('tutor/lesson_list/before/topic', $topic_id);
         

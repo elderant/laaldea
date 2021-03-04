@@ -86,7 +86,7 @@
                       <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
                     </div>
                     <div class="user-edit-link-container font-titan">
-                      <a class="forgot-password" href="<?php echo wp_lostpassword_url();?>"><?php _e('Cambio Contraseña','laaldea')?></a>
+                      <a class="forgot-password" href="<?php echo esc_url( get_permalink(879) ); ?>"><?php _e('Cambio Contraseña','laaldea')?></a>
                     </div>
                   </div>
                 </div>

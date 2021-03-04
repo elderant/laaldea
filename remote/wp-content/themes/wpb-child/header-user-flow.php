@@ -68,71 +68,73 @@
             </button> -->
           </nav>
 
-          <nav class="navbar user-navbar navbar-collapse flex-column flex-nowrap" id="user-navbar">
-            <div class="container-fluid user-navbar-container">
-              <div class="row menu-header">
-                <div class="col-12 text-center">
-                  <div class="user-avatar pb-3">
-                    <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
-                  </div>
-                  <div class="user-name">
-                    <?php echo $user -> data -> display_name; ?>
-                  </div>
-                  <div class="user-email pb-3">
-                    <?php echo $user -> data -> user_email; ?>
-                  </div>
-                  <div class="user-edit-link-container font-titan">
-                    <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
-                  </div>
-                  <div class="user-edit-link-container font-titan">
-                    <a class="forgot-password" href="<?php echo wp_lostpassword_url();?>"><?php _e('Cambio Contraseña','laaldea')?></a>
+          <?php if($user_id != 0) : ?>
+            <nav class="navbar user-navbar navbar-collapse flex-column flex-nowrap" id="user-navbar">
+              <div class="container-fluid user-navbar-container">
+                <div class="row menu-header">
+                  <div class="col-12 text-center">
+                    <div class="user-avatar pb-3">
+                      <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
+                    </div>
+                    <div class="user-name">
+                      <?php echo $user -> data -> display_name; ?>
+                    </div>
+                    <div class="user-email pb-3">
+                      <?php echo $user -> data -> user_email; ?>
+                    </div>
+                    <div class="user-edit-link-container font-titan">
+                      <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
+                    </div>
+                    <div class="user-edit-link-container font-titan">
+                      <a class="forgot-password" href="<?php echo esc_url( get_permalink(879) ); ?>"><?php _e('Cambio Contraseña','laaldea')?></a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <?php
-                wp_nav_menu(array(
-                'theme_location'  => 'learning-user',
-                'container'       => 'div',
-                'container_id'    => 'learning-user-nav',
-                'container_class' => 'user-menu-list row',
-                'menu_id'         => false,
-                'menu_class'      => 'navbar-nav col-12 text-center',
-                'depth'           => 3,
-                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new wp_bootstrap_navwalker()
-                ));
-              ?>
-            </div>
-          </nav>
+                <?php
+                  wp_nav_menu(array(
+                  'theme_location'  => 'learning-user',
+                  'container'       => 'div',
+                  'container_id'    => 'learning-user-nav',
+                  'container_class' => 'user-menu-list row',
+                  'menu_id'         => false,
+                  'menu_class'      => 'navbar-nav col-12 text-center',
+                  'depth'           => 3,
+                  'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                  'walker'          => new wp_bootstrap_navwalker()
+                  ));
+                ?>
+              </div>
+            </nav>
+          <?php endif;?>
         </div>
-	</header><!-- #masthead -->
-    <?php if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>
+      </header><!-- #masthead -->
+      <?php if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>
         <div id="page-sub-header" <?php if(has_header_image()) { ?>style="background-image: url('<?php header_image(); ?>');" <?php } ?>>
-            <div class="container">
-                <h1>
-                    <?php
-                    if(get_theme_mod( 'header_banner_title_setting' )){
-                        echo get_theme_mod( 'header_banner_title_setting' );
-                    }else{
-                        echo 'WordPress + Bootstrap';
-                    }
-                    ?>
-                </h1>
-                <p>
-                    <?php
-                    if(get_theme_mod( 'header_banner_tagline_setting' )){
-                        echo get_theme_mod( 'header_banner_tagline_setting' );
-                }else{
-                        echo esc_html__('To customize the contents of this header banner and other elements of your site, go to Dashboard > Appearance > Customize','wp-bootstrap-starter');
-                    }
-                    ?>
-                </p>
-                <a href="#content" class="page-scroller"><i class="fa fa-fw fa-angle-down"></i></a>
-            </div>
+          <div class="container">
+            <h1>
+              <?php
+              if(get_theme_mod( 'header_banner_title_setting' )){
+                  echo get_theme_mod( 'header_banner_title_setting' );
+              }else{
+                  echo 'WordPress + Bootstrap';
+              }
+              ?>
+            </h1>
+            <p>
+              <?php
+              if(get_theme_mod( 'header_banner_tagline_setting' )){
+                echo get_theme_mod( 'header_banner_tagline_setting' );
+              } else{
+                echo esc_html__('To customize the contents of this header banner and other elements of your site, go to Dashboard > Appearance > Customize','wp-bootstrap-starter');
+              } 
+              ?>
+            </p>
+            <a href="#content" class="page-scroller"><i class="fa fa-fw fa-angle-down"></i></a>
+          </div>
         </div>
-    <?php endif; ?>
-	<div id="content" class="site-content">
-		<div class="container-fluid">
-			<div class="row">
-        <?php endif; ?>
+      <?php endif; ?>
+      <div id="content" class="site-content">
+        <div class="container-fluid">
+          <div class="row">
+            <?php endif; ?>

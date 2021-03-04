@@ -33,4 +33,4 @@ $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
   </div>
 <?php do_action('tutor_lesson/single/after/wrap');
 
-laaldea_get_tutor_header(false, 'learning');
+laaldea_get_tutor_footer(false, 'learning');

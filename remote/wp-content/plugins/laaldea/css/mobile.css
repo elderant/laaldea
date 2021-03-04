@@ -399,7 +399,7 @@
 /*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/
 @media screen and (min-width: 1680px) and (max-width: 1919px) {
   #learning-home .learning-home-greet-row .general-greet p {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
@@ -410,7 +410,7 @@
 
 @media screen and (min-width: 1920px) {
   #learning-home .learning-home-greet-row .general-greet p {
-    font-size: 1.1em;
+    font-size: 1.15em;
   }
 
   #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {

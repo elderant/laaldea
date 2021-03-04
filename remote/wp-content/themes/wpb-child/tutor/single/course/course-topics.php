@@ -78,7 +78,7 @@ $is_enrolled = tutor_utils()->is_enrolled($course_id);
               }
               ?>
 
-              <div class="tutor-course-lesson">
+              <div class="tutor-course-lesson line-height-12">
                 <p>
                   <?php
                   $lesson_title = '';

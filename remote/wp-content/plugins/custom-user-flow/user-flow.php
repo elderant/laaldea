@@ -32,6 +32,9 @@ class CustomUserFlow {
     // Custom update user
     add_shortcode( 'cuf-account-update', array( $this, 'build_update_user_form' ) );
 
+    // CUstom logged user change password
+    add_shortcode( 'cuf-user-password-change', array( $this, 'build_user_password_change_form' ) );
+
     // Redirect to custom Login page
     add_action( 'login_form_login', array( $this, 'redirect_to_custom_login' ) );
     
@@ -91,6 +94,10 @@ class CustomUserFlow {
     // Handle user update post
     add_action( 'admin_post_nopriv_cuf_update_user', array( $this, 'do_update_user' ) );
     add_action( 'admin_post_cuf_update_user', array( $this, 'do_update_user' ) );
+
+    // Handle lgged in user change password
+    add_action( 'admin_post_nopriv_cuf_user_password_change', array( $this, 'do_user_password_change' ) );
+    add_action( 'admin_post_cuf_user_password_change', array( $this, 'do_user_password_change' ) );
   }
   
   /**
@@ -357,7 +364,10 @@ class CustomUserFlow {
       
       case 'password_reset_mismatch':
           return __( "The two passwords you entered don't match.", 'user-flow' );
-          
+        
+      case 'current_password_mismatch' :
+          return __( "The current password entered is not correct", 'user-flow' );
+
       case 'password_reset_empty':
           return __( "Sorry, we don't accept empty passwords.", 'user-flow' );
 
@@ -483,10 +493,10 @@ class CustomUserFlow {
 
   public function do_edit_user() {
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] ) {
-      $redirect_url = home_url( $this->get_edit_profile_url() );
       if(current_user_can( 'manage_options' )) {
         return;
       }
+      $redirect_url = home_url( $this->get_update_user_url() );
 
       $email = $_POST['email'];
       $first_name = sanitize_text_field( $_POST['first_name'] );
@@ -1150,6 +1160,85 @@ class CustomUserFlow {
     }
   }
 
+  /**
+   * A shortcode for rendering the form used to reset a user's password.
+   *
+   * @param  array   $attributes  Shortcode attributes.
+   * @param  string  $content     The text content for shortcode. Not used.
+   *
+   * @return string  The shortcode output
+   */
+  public function build_user_password_change_form( $attributes, $content = null ) {
+    // Parse shortcode attributes
+    $default_attributes = array( 'show_title' => false );
+    $attributes = shortcode_atts( $default_attributes, $attributes );
+
+    if ( !is_user_logged_in() ) {
+      return __( 'You are not signed in.', 'user-flow' );
+    } else {
+      // Error messages
+      $errors = array();
+      if ( isset( $_REQUEST['error'] ) ) {
+        $error_codes = explode( ',', $_REQUEST['error'] );
+
+        foreach ( $error_codes as $code ) {
+          $errors []= $this->get_error_message( $code );
+        }
+      }
+      $attributes['errors'] = $errors;
+
+      // Check if the user was updated
+      $attributes['updated'] = isset( $_REQUEST['updated'] );
+
+      return $this->get_template_html( 'user_password_change_form', $attributes );
+    }
+  }
+
+  /**
+   * Resets the user's password if the password reset form was submitted.
+   */
+  public function do_user_password_change() {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && strcasecmp($_POST['action'], 'cuf_user_password_change') == 0 ) {
+
+      if ( isset( $_POST['pass1'] ) && isset( $_POST['passc'] ) ) {
+        $current_user = wp_get_current_user();
+        $user_name = $current_user -> data -> user_login;
+        $valid_login = wp_authenticate_username_password(null, $user_name, $_POST['passc']);
+        if(is_wp_error( $valid_login )) {
+          $redirect_url = home_url( $this->get_update_user_password_url() );          
+          $redirect_url = add_query_arg( 'error', 'current_password_mismatch', $redirect_url );
+          wp_redirect( $redirect_url );
+          exit;
+        }
+
+        if ( $_POST['pass1'] != $_POST['pass2'] ) {
+          // Passwords don't match
+          $redirect_url = home_url( $this->get_update_user_password_url() );
+          $redirect_url = add_query_arg( 'error', 'password_reset_mismatch', $redirect_url );
+          wp_redirect( $redirect_url );
+          exit;
+        }
+
+        if ( empty( $_POST['pass1'] ) ) {
+          // Password is empty
+          $redirect_url = home_url( $this->get_update_user_password_url() );
+          $redirect_url = add_query_arg( 'error', 'password_reset_empty', $redirect_url );
+          wp_redirect( $redirect_url );
+          exit;
+        }
+
+        // Parameter checks OK, reset password
+        reset_password( $current_user, $_POST['pass1'] );
+        
+        wp_redirect( home_url( 'login?password=changed' ) );
+        exit;
+      } else {
+        echo "Invalid request.";
+        exit;
+      }
+    }
+  }
+
   public function get_login_url() {
     $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
     if(TRUE === $en) {
@@ -1214,6 +1303,15 @@ class CustomUserFlow {
     }
   }
 
+  public function get_update_user_password_url () {
+    $en = substr_compare($_SERVER['REQUEST_URI'], '/en/', 0, strlen('/en/')) === 0;
+    if(TRUE === $en) {
+      return '/password-change-user';
+    }
+    else {
+      return '/cambio-contrasena-usuario';
+    }
+  }
 
 }
  

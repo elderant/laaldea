@@ -73,4 +73,4 @@ $topic_name = get_the_title( $topic -> ID );
   </div><!-- .wrap -->
 
 <?php
-laaldea_get_tutor_header(false, 'learning');
+laaldea_get_tutor_footer(false, 'learning');

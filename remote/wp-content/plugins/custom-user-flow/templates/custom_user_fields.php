@@ -28,10 +28,10 @@
     case '/wp-content/uploads/user-avatar-peter.png':
       $current_avatar = 7;
       break;
-    case '/wp-content/uploads/user-avatar-ant.png':
+    case '/wp-content/uploads/user-avatar-crab.png':
       $current_avatar = 8;
       break;
-    case '/wp-content/uploads/user-avatar-bee.png':
+    case '/wp-content/uploads/user-avatar-mouse.png':
       $current_avatar = 9;
       break;
     case '/wp-content/uploads/user-avatar-moorhen.png':
@@ -53,6 +53,7 @@
       'avatar_index' => 1,
       'label-img' => '/wp-content/uploads/user-avatar-arnold.png',
       'label-alt' => __('Imagen avatar Arnulfo','user-flow'),
+      'avatar_checked' => $current_avatar == 1?true:false,
     ),
     'lucy' => array (
       'container-class' => 'avatar-container lucy',
@@ -61,6 +62,7 @@
       'avatar_index' => 2,
       'label-img' => '/wp-content/uploads/user-avatar-lucy.png',
       'label-alt' => __('Imagen avatar Lorena','user-flow'),
+      'avatar_checked' => $current_avatar == 2?true:false,
     ),
     'enrique' => array (
       'container-class' => 'avatar-container harry',
@@ -69,6 +71,7 @@
       'avatar_index' => 3,
       'label-img' => '/wp-content/uploads/user-avatar-harry.png',
       'label-alt' => __('Imagen avatar Enrique','user-flow'),
+      'avatar_checked' => $current_avatar == 3?true:false,
     ),
     'efren' => array (
       'container-class' => 'avatar-container ernest',
@@ -77,6 +80,7 @@
       'avatar_index' => 4,
       'label-img' => '/wp-content/uploads/user-avatar-ernest.png',
       'label-alt' => __('Imagen avatar Efrén','user-flow'),
+      'avatar_checked' => $current_avatar == 4?true:false,
     ),
     'macaw' => array (
       'container-class' => 'avatar-container macaw',
@@ -85,6 +89,7 @@
       'avatar_index' => 5,
       'label-img' => '/wp-content/uploads/user-avatar-macaw.png',
       'label-alt' => __('Imagen avatar guacamaya','user-flow'),
+      'avatar_checked' => $current_avatar == 5?true:false,
     ),
     'carmen' => array (
       'container-class' => 'avatar-container carol',
@@ -93,6 +98,7 @@
       'avatar_index' => 6,
       'label-img' => '/wp-content/uploads/user-avatar-carol.png',
       'label-alt' => __('Imagen avatar Carmen','user-flow'),
+      'avatar_checked' => $current_avatar == 6?true:false,
     ),
     'paco' => array (
       'container-class' => 'avatar-container peter',
@@ -101,6 +107,7 @@
       'avatar_index' => 7,
       'label-img' => '/wp-content/uploads/user-avatar-peter.png',
       'label-alt' => __('Imagen avatar Paco','user-flow'),
+      'avatar_checked' => $current_avatar == 7?true:false,
     ),
     'crab' => array (
       'container-class' => 'avatar-container crab',
@@ -109,6 +116,7 @@
       'avatar_index' => 8,
       'label-img' => '/wp-content/uploads/user-avatar-crab.png',
       'label-alt' => __('Imagen avatar cangrejo','user-flow'),
+      'avatar_checked' => $current_avatar == 8?true:false,
     ),
     'mouse' => array (
       'container-class' => 'avatar-container mouse',
@@ -117,6 +125,7 @@
       'avatar_index' => 9,
       'label-img' => '/wp-content/uploads/user-avatar-mouse.png',
       'label-alt' => __('Imagen avatar raton','user-flow'),
+      'avatar_checked' => $current_avatar == 9?true:false,
     ),
     'gallineta' => array (
       'container-class' => 'avatar-container moorhen',
@@ -125,6 +134,7 @@
       'avatar_index' => 10,
       'label-img' => '/wp-content/uploads/user-avatar-moorhen.png',
       'label-alt' => __('Imagen avatar gallineta','user-flow'),
+      'avatar_checked' => $current_avatar == 10?true:false,
     ),
     'owl' => array (
       'container-class' => 'avatar-container owl',
@@ -133,6 +143,7 @@
       'avatar_index' => 11,
       'label-img' => '/wp-content/uploads/user-avatar-owl.png',
       'label-alt' => __('Imagen avatar búho','user-flow'),
+      'avatar_checked' => $current_avatar == 11?true:false,
     ),
   );
 ?>
