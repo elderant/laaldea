@@ -14,7 +14,7 @@
     <div class="row learning-home-greet-row mb-5 mt-5">
       <img src="/wp-content/uploads/learning-home-greet-image.png" alt="<?php _e('Imagen del fondo del saludo.','laaldea');?>">
       <div class="greet-texts-container">
-        <div class="general-greet h6">
+        <div class="general-greet h6 line-height-12">
           <p class="color-cyan"><?php _e('Este es tu espacio en La Aldea, aquí podrás crear, aprender, compartir, cantar y hacer parte de esta increíble comunidad.','laaldea');?></p>
         </div>
       </div>

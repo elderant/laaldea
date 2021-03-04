@@ -47,9 +47,9 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'bbp_theme_before_topic_title' ); ?>
 
-    <span class="font-titan before-forum-title h2 color-cyan"><?php _e('Tema: ','wpb_child')?></span>
+    <span class="font-titan before-topic-title h2 color-cyan"><?php _e('Tema: ','wpb_child')?></span>
 
-		<a class="bbp-topic-permalink h2 font-sassoon" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a>
+		<a class="bbp-topic-permalink h3 font-sassoon" href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a>
 
 		<?php do_action( 'bbp_theme_after_topic_title' ); ?>
 

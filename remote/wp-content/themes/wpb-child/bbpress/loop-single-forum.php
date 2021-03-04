@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 
     <span class="font-titan before-forum-title h2"><?php _e('Foro: ', 'wpb_child')?></span>
 
-		<a class="bbp-forum-title h2 font-sassoon" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
+		<a class="bbp-forum-title h3 font-sassoon" href="<?php bbp_forum_permalink(); ?>"><?php bbp_forum_title(); ?></a>
 
 		<?php do_action( 'bbp_theme_after_forum_title' ); ?>
 

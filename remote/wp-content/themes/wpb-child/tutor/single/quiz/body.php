@@ -392,38 +392,38 @@ $attempt_remaining = $attempts_allowed - $attempted_count;
 							if ($question_layout_view !== 'question_below_each_other'){
 								if ($next_question){
 									?>
-                                    <div class="quiz-answer-footer-bar">
-                                        <div class="quiz-footer-button">
-                                            <button type="button" value="quiz_answer_submit" class="tutor-button
-                                        tutor-success tutor-quiz-answer-next-btn"><?php _e( 'Answer &amp; Next Question', 'tutor' ); ?></button>
-                                        </div>
-                                    </div>
+                      <div class="quiz-answer-footer-bar">
+                          <div class="quiz-footer-button">
+                              <button type="button" value="quiz_answer_submit" class="button learning-button tutor-button tutor-success tutor-quiz-answer-next-btn">
+                                <?php _e( 'Answer &amp; Next Question', 'tutor' ); ?></button>
+                          </div>
+                      </div>
 									<?php
-								}else{
+								} else{
 									?>
-                                    <div class="quiz-answer-footer-bar">
-                                        <div class="quiz-footer-button">
-                                            <button type="submit" name="quiz_answer_submit_btn" value="quiz_answer_submit" class="tutor-button tutor-success"><?php
-												_e( 'Submit Quiz', 'tutor' ); ?></button>
-                                        </div>
-                                    </div>
+                      <div class="quiz-answer-footer-bar">
+                          <div class="quiz-footer-button">
+                              <button type="submit" name="quiz_answer_submit_btn" value="quiz_answer_submit" class="button learning-button tutor-button tutor-success">
+                                <?php _e( 'Submit Quiz', 'tutor' ); ?></button>
+                          </div>
+                      </div>
 									<?php
 								}
 							}
 							?>
-                        </div>
+                    </div>
 
 						<?php
 					}
 
 					if ($question_layout_view === 'question_below_each_other'){
 						?>
-                        <div class="quiz-answer-footer-bar">
-                            <div class="quiz-footer-button">
-                                <button type="submit" name="quiz_answer_submit_btn" value="quiz_answer_submit" class="tutor-button
-                                tutor-success"><?php _e( 'Submit Quiz', 'tutor' ); ?></button>
-                            </div>
+                    <div class="quiz-answer-footer-bar">
+                        <div class="quiz-footer-button">
+                            <button type="submit" name="quiz_answer_submit_btn" value="quiz_answer_submit" class="button learning-button tutor-button tutor-success">
+                              <?php _e( 'Submit Quiz', 'tutor' ); ?></button>
                         </div>
+                    </div>
 					<?php } ?>
 
                 </form>

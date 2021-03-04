@@ -6,7 +6,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-arnold.png',
       'avatar_index' => 1,
       'label-img' => '/wp-content/uploads/user-avatar-arnold.png',
-      'label-alt' => __('Imagen Avatar Arnulfo','user-flow'),
+      'label-alt' => __('Imagen avatar Arnulfo','user-flow'),
     ),
     'lucy' => array (
       'container-class' => 'avatar-container lucy',
@@ -14,7 +14,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-lucy.png',
       'avatar_index' => 2,
       'label-img' => '/wp-content/uploads/user-avatar-lucy.png',
-      'label-alt' => __('Imagen Avatar Lorena','user-flow'),
+      'label-alt' => __('Imagen avatar Lorena','user-flow'),
     ),
     'enrique' => array (
       'container-class' => 'avatar-container harry',
@@ -22,7 +22,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-harry.png',
       'avatar_index' => 3,
       'label-img' => '/wp-content/uploads/user-avatar-harry.png',
-      'label-alt' => __('Imagen Avatar Enrique','user-flow'),
+      'label-alt' => __('Imagen avatar Enrique','user-flow'),
     ),
     'efren' => array (
       'container-class' => 'avatar-container ernest',
@@ -30,7 +30,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-ernest.png',
       'avatar_index' => 4,
       'label-img' => '/wp-content/uploads/user-avatar-ernest.png',
-      'label-alt' => __('Imagen Avatar Efrén','user-flow'),
+      'label-alt' => __('Imagen avatar Efrén','user-flow'),
     ),
     'macaw' => array (
       'container-class' => 'avatar-container macaw',
@@ -38,7 +38,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-macaw.png',
       'avatar_index' => 5,
       'label-img' => '/wp-content/uploads/user-avatar-macaw.png',
-      'label-alt' => __('Imagen Avatar guacamaya','user-flow'),
+      'label-alt' => __('Imagen avatar guacamaya','user-flow'),
     ),
     'carmen' => array (
       'container-class' => 'avatar-container carol',
@@ -46,7 +46,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-carol.png',
       'avatar_index' => 6,
       'label-img' => '/wp-content/uploads/user-avatar-carol.png',
-      'label-alt' => __('Imagen Avatar Carmen','user-flow'),
+      'label-alt' => __('Imagen avatar Carmen','user-flow'),
     ),
     'paco' => array (
       'container-class' => 'avatar-container peter',
@@ -54,23 +54,23 @@
       'input-value' => '/wp-content/uploads/user-avatar-peter.png',
       'avatar_index' => 7,
       'label-img' => '/wp-content/uploads/user-avatar-peter.png',
-      'label-alt' => __('Imagen Avatar Paco','user-flow'),
+      'label-alt' => __('Imagen avatar Paco','user-flow'),
     ),
-    'ant' => array (
-      'container-class' => 'avatar-container ant',
-      'input-id' => 'avatar-ant',
-      'input-value' => '/wp-content/uploads/user-avatar-ant.png',
+    'crab' => array (
+      'container-class' => 'avatar-container crab',
+      'input-id' => 'avatar-crab',
+      'input-value' => '/wp-content/uploads/user-avatar-crab.png',
       'avatar_index' => 8,
-      'label-img' => '/wp-content/uploads/user-avatar-ant.png',
-      'label-alt' => __('Imagen Avatar hormiga','user-flow'),
+      'label-img' => '/wp-content/uploads/user-avatar-crab.png',
+      'label-alt' => __('Imagen avatar cangrejo','user-flow'),
     ),
-    'bee' => array (
-      'container-class' => 'avatar-container bee',
-      'input-id' => 'avatar-bee',
-      'input-value' => '/wp-content/uploads/user-avatar-bee.png',
+    'mouse' => array (
+      'container-class' => 'avatar-container mouse',
+      'input-id' => 'avatar-mouse',
+      'input-value' => '/wp-content/uploads/user-avatar-mouse.png',
       'avatar_index' => 9,
-      'label-img' => '/wp-content/uploads/user-avatar-bee.png',
-      'label-alt' => __('Imagen Avatar Abeja','user-flow'),
+      'label-img' => '/wp-content/uploads/user-avatar-mouse.png',
+      'label-alt' => __('Imagen avatar raton','user-flow'),
     ),
     'gallineta' => array (
       'container-class' => 'avatar-container moorhen',
@@ -78,7 +78,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-moorhen.png',
       'avatar_index' => 10,
       'label-img' => '/wp-content/uploads/user-avatar-moorhen.png',
-      'label-alt' => __('Imagen Avatar gallineta','user-flow'),
+      'label-alt' => __('Imagen avatar gallineta','user-flow'),
     ),
     'owl' => array (
       'container-class' => 'avatar-container owl',
@@ -86,7 +86,7 @@
       'input-value' => '/wp-content/uploads/user-avatar-owl.png',
       'avatar_index' => 11,
       'label-img' => '/wp-content/uploads/user-avatar-owl.png',
-      'label-alt' => __('Imagen Avatar búho','user-flow'),
+      'label-alt' => __('Imagen avatar búho','user-flow'),
     ),
   );
 

@@ -637,6 +637,40 @@ function laaldea_add_freshness_text(){
 }
 add_action('bbp_theme_before_topic_freshness_link', 'laaldea_add_freshness_text');
 
+
+add_filter( 'bbp_get_the_content', 'laaldea_add_placeholder_and_modify_class', 10, 3 );
+function laaldea_add_placeholder_and_modify_class($output, $args, $post_content) {
+  if($args['context'] == 'topic') {
+    $placeholder = __( 'Pregunta/comentario', 'wpb_child' );
+
+    $dom = new DOMDocument;
+    $dom -> loadHTML($output);
+    $textarea = $dom->getElementsByTagName('textarea') -> item(0);
+    $textarea -> setAttribute( 'placeholder' , $placeholder );
+    
+    $class_string = $textarea -> getAttribute( 'class' );
+    $textarea -> setAttribute( 'class' , $class_string . ' learning-input' );
+
+    return $dom->saveHTML();
+  }
+
+  if($args['context'] == 'reply') {
+    $placeholder = __( 'Respuesta:', 'wpb_child' );
+
+    $dom = new DOMDocument;
+    $dom -> loadHTML($output);
+    $textarea = $dom->getElementsByTagName('textarea') -> item(0);
+    $textarea -> setAttribute( 'placeholder' , $placeholder );
+    
+    $class_string = $textarea -> getAttribute( 'class' );
+    $textarea -> setAttribute( 'class' , $class_string . ' learning-input' );
+
+    return $dom->saveHTML();
+  }
+
+  return $output;
+}
+
 /******************* News functions *******************/
 // Add next new
 add_action( 'wp_ajax_nopriv_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
@@ -1234,6 +1268,18 @@ function laaldea_course_benefits_html($echo = true) {
   return $html;
 }
 
+function laaldea_course_benefits_single_html($echo = true) {
+  ob_start();
+  $template_url = laaldea_load_template('course-benefits-html.php', 'tutor/single/course');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ($echo){
+      echo $html;
+  }
+  return $html;
+}
+
 function laaldea_tutor_get_topic_count($course_id = 0) {
   global $wpdb;
 
@@ -1259,7 +1305,7 @@ function laaldea_tutor_get_topic_count($course_id = 0) {
   return $counts -> publish;
 }
 
-function laaldea_get_tutor_header($fullScreen = false, $header_slug){
+function laaldea_get_tutor_header($fullScreen = false, $header_slug = null){
   $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
 
   if ($enable_spotlight_mode || $fullScreen){
@@ -1278,7 +1324,21 @@ function laaldea_get_tutor_header($fullScreen = false, $header_slug){
   }else{
     get_header($header_slug);
   }
+}
 
+function laaldea_get_tutor_footer($fullScreen = false, $footer_slug = null){
+  $enable_spotlight_mode = tutor_utils()->get_option('enable_spotlight_mode');
+  if ($enable_spotlight_mode || $fullScreen){
+    ?>
+          </div>
+    <?php wp_footer(); ?>
+
+          </body>
+          </html>
+    <?php
+  }else{
+    get_footer($footer_slug);
+  }
 }
 
 function laaldea_get_tutor_course_thumbnail($size = 'post-thumbnail', $url = false, $post_id = 0) {

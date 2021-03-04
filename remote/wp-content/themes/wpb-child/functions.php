@@ -60,7 +60,8 @@ add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_bootstrap_extended_styles',
 
 // include select2 js/css
 function wpb_child_enqueue_select2_files() {
-  if(is_page(330)) {
+  $classes = get_body_class();
+  if( in_array("page-register", $classes, true) || in_array('page-update-user', $classes, true) ) {
     wp_enqueue_script( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery') );
     wp_enqueue_style( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' );
   }

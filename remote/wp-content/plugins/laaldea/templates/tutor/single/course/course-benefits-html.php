@@ -25,12 +25,11 @@ if ( empty($course_benefits)){
 if (is_array($course_benefits) && count($course_benefits)){
 	?>
 
-	<div class="tutor-loop-course-segment tutor-course-benefits-wrap">
+	<div class="tutor-single-course-segment tutor-course-content-wrap">
 
 		<div class="course-benefits-title">
-			<h6 class="tutor-segment-title color-cyan"><?php _e('Habilidades que adquirirás', 'tutor'); ?></h6>
-		</div>
-
+			<h4 class="tutor-segment-title"><?php _e('Habilidades que adquirirás', 'wpb-child'); ?></h4>
+    </div>
 		<div class="tutor-course-benefits-content">
 			<ul class="tutor-course-benefits-items tutor-custom-list-style">
 				<?php

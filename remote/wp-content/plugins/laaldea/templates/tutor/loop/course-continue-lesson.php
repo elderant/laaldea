@@ -4,7 +4,7 @@
   if ($wp_query->query['post_type'] !== 'lesson') :
     $lesson_url = tutor_utils()->get_course_first_lesson();
     if ($lesson_url) : ?>
-      <a href="<?php echo $lesson_url; ?>" class="tutor-button tutor-success h3 m-0">
+      <a href="<?php echo $lesson_url; ?>" class="button learning-button tutor-button tutor-success h3 m-0">
         <?php _e('Continuar', 'wpb_child'); ?>
       </a>
     <?php endif;

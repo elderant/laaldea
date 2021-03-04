@@ -18,16 +18,12 @@
   <div class="post-date h6 color-cyan font-sassoon text-center capitalized pl-2 mb-2">
     <span><?php echo get_the_date(); ?></span>
   </div>
-  <div class="post-excerpt h6 color-cyan font-sassoon text-justify capitalized pl-2 mb-3">
+  <div class="post-excerpt h6 color-cyan font-sassoon text-justify pl-2 mb-3">
     <span><?php echo the_excerpt(); ?></span>
   </div>
   <div class="post-excerpt h6 color-cyan font-sassoon text-justify capitalized pl-2 mb-3">
-    <button class="load-new-button" data-postId="<?php echo $post_id;?>">
-      <div class="open-container">
-        <div class="text-container">
-          <?php _e('Leer más', 'laaldea'); ?>
-        </div>
-      </div>
+    <button class="button learning-button load-new-button" data-postId="<?php echo $post_id;?>">
+      <?php _e('Leer más', 'laaldea'); ?>
     </button>
   </div>
 </div>

@@ -82,34 +82,8 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                 </div>
                 
                 <div class="tutor-single-course-body mb-5">
-                  <img class="tutor-single-course-background-image" src="/wp-content/uploads/tools-single-background.png" alt="<?php _e('Tool item background','laaldea')?>">
                   <div class="row">
-                    <div class="col-5">
-                      <?php
-                        $disable_course_author = get_tutor_option('disable_course_author');
-                        $disable_course_level = get_tutor_option('disable_course_level');
-                        $disable_course_share = get_tutor_option('disable_course_share');
-                      ?>
-                      <?php if ( !$disable_course_author) : ?>
-                        <div class="tutor-single-course-author-meta pb-4">
-                          <div class="tutor-single-course-author-name">
-                            <strong><?php _e('Profesor: ', 'tutor'); ?></strong>
-                            <a href="<?php echo tutor_utils()->profile_url($authordata->ID); ?>"><?php echo get_the_author(); ?></a>
-                          </div>
-                        </div>
-                      <?php endif; ?>
-      
-                      <?php if ( !$disable_course_level) : ?>
-                        <div class="tutor-course-level pb-4">
-                          <strong><?php _e('Course level:', 'tutor'); ?></strong>
-                          <?php echo get_tutor_course_level(); ?>
-                        </div>
-                      <?php endif; ?>
-      
-                      <?php laaldea_course_benefits_html(); ?>
-                    </div>
-    
-                    <div class="col-7 intro-video-column">
+                    <div class="col-10 offset-1 intro-video-column">
                       <div class="tutor-price-box-thumbnail">
                         <?php
                         if(tutor_utils()->has_video_in_single()){
@@ -137,6 +111,35 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                     }
                   ?>
                   <?php tutor_course_content(); ?>
+                 
+                  <?php
+                    $disable_course_author = get_tutor_option('disable_course_author');
+                    $disable_course_level = get_tutor_option('disable_course_level');
+                    $disable_course_share = get_tutor_option('disable_course_share');
+                  ?>
+                  <?php if ( !$disable_course_author) : ?>
+                    <div class="tutor-single-course-author-meta pb-4">
+                      <div class="tutor-single-course-author-name">
+                        <strong><?php _e('Profesor: ', 'tutor'); ?></strong>
+                        <a href="<?php echo tutor_utils()->profile_url($authordata->ID); ?>"><?php echo get_the_author(); ?></a>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+  
+                  <?php if ( !$disable_course_level) : ?>
+                    <div class="tutor-single-course-segment tutor-course-content-wrap">
+                      <div class="course-level-title tutor-course-level">
+                        <h4 class="tutor-segment-title"><?php _e('Nivel del curso', 'tutor'); ?></h4>
+                        <!-- Course level: -->
+                        <div class="tutor-course-level-content">
+                          <?php echo get_tutor_course_level(); ?>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+  
+                  <?php laaldea_course_benefits_single_html(); ?>
+
                   <?php tutor_course_requirements_html(); ?>
                   <?php tutor_course_tags_html(); ?>
                   <?php tutor_course_target_audience_html(); ?>
@@ -157,4 +160,4 @@ $title = empty($title_html) ? get_the_title() : $title_html;
 <?php do_action('tutor_course/single/enrolled/after/wrap'); ?>
 
 <?php
-get_footer();
+get_footer('learning');

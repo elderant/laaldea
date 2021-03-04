@@ -52,7 +52,6 @@
   margin: 0;
   font-size: 0.95em;
   text-align: center;
-  line-height: 1.4;
 }
 
 /* General */
@@ -383,9 +382,7 @@
 }
 
 .bbpress .widget_display_topics .bbp-topics-widget li {
-  margin: 0 1rem 0 0;
-  border-bottom: 4px dashed var(--cyan);
-  padding: 1rem 0; 
+  padding: 1rem 0;
 }
 
 .bbpress .widget_display_topics .bbp-topics-widget li:last-child {
@@ -393,8 +390,8 @@
 }
 
 .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
-  font-family: 'titan_one', sans-serif;
   color: var(--cyan);
+  text-transform: uppercase;
 }
 
 .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title:hover {
@@ -451,7 +448,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 3px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
   padding: 1px 2px;
   outline: none;
   color: var(--gray);
@@ -461,14 +458,14 @@
 .bbpress #bbpress-forums #bbp-search-form #bbp_search_submit {
   margin: 0;
   vertical-align: bottom;
-  color: var(--gray);
+  color: var(--cyan);
   font-family: 'titan_one';
   line-height: 1.2;
 }
 
 .bbpress #bbpress-forums #bbp-search-form #bbp_search_submit:hover,
 .bbpress #bbpress-forums #bbp-search-form #bbp_search_submit:focus {
-  color: var(--cyan);
+  color: var(--gray);
 }
 
 .bbpress .forum-section #subscription-toggle a {
@@ -565,8 +562,6 @@
 }
 
 .bbpress .bbp-topic-form .forum {
-  margin-bottom: 2rem;
-  padding: 0 0 0 2rem;
   color: var(--gray);
   font-family: 'sassoon';
 }
@@ -588,6 +583,7 @@
   margin: 2rem auto;
 }
 
+.bbpress .bbp-topic-form .forum,
 .bbpress .bbp-topic-form .topic-tile,
 .bbpress .bbp-topic-form .bbp-the-content-wrapper,
 .bbpress .bbp-topic-form .topic-tags,
@@ -595,7 +591,17 @@
 .bbpress #bbpress-forums fieldset.bbp-form p,
 .bbpress #bbpress-forums div.bbp-the-content-wrapper {
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bbpress #bbpress-forums .bbp-topic-form .learning-label.hidden,
+.bbpress #bbpress-forums .bbp-reply-form .learning-label.hidden {
+  display: none;
+}
+
+.bbpress .bbp-topic-form .learning-input,
+.bbpress .bbp-reply-form .learning-input {
+  text-align: left;
 }
 
 .bbpress #bbpress-forums fieldset.bbp-form p.topic-content-title {
@@ -607,7 +613,6 @@
 }
 
 .bbpress #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
-  border-bottom: 4px dashed var(--cyan);
   padding: 5px;
   font-size: inherit;
 }
@@ -753,7 +758,7 @@
   left: 50%;
   width: 20%;
   transform: translate(-50%, 0);
-  border-bottom: 4px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
 }
 
 .bbpress .topic-section #bbpress-forums .bbp-topics .topic.type-topic:last-child:after {
@@ -942,7 +947,6 @@
   order: 1;
   margin: 0 0.5rem;
   outline: none;
-  padding: 2rem 2.4rem 2.5rem;
   line-height: 1.2;
 }
 
@@ -950,7 +954,6 @@
   order: 2;
   margin: 0 0.5rem;
   outline: none;
-  padding: 2.3rem 1.5rem 2.8rem;
   transition: color 0.5s ease-in-out;
 }
 
@@ -1113,8 +1116,8 @@
 .bbpress .replies-section #bbpress-forums .bbp-replies .bbp-reply-header,
 #bbpress-forums.bbpress-wrapper div.bbp-reply-header {
   border: none;
-  margin: 0 0 1rem;
-  padding: 0 0 0.5rem;
+  margin: 0;
+  padding: 0;
   background-color: transparent;
 }
 
@@ -1157,7 +1160,7 @@
 }
 
 .bbpress .bbp-replies .reply-container {
-  margin: 0.5rem 0 1rem;
+  /* margin: 0.5rem 0 1rem; */
 }
 
 .bbpress .bbp-replies .reply-container .type-topic,
@@ -1342,7 +1345,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 3px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
   outline: none;
   font-family: 'sassoon';
   margin: 0;
@@ -1405,7 +1408,7 @@
   left: 50%;
   width: 20%;
   transform: translate(-50%, 0);
-  border-bottom: 4px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
 }
 
 .bbpress .general-section #bbpress-forums .bbp-topics .topic.type-topic:last-child:after,
@@ -1470,12 +1473,17 @@
   background-color: transparent;
 }
 
-.bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+.bbpress .user #bbpress-forums #bbp-user-wrapper h2,
+.bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title,
+.bbpress .user #bbpress-forums #bbp-user-wrapper h3.heading {
   border: none;
+  color: var(--cyan);
+  text-align: left;
+  padding-bottom: 1rem;
 }
 
 .bbpress .user #bbpress-forums #bbp-single-user-details {
-  border-right: 3px dashed var(--cyan);
+  border-right: 2px solid var(--cyan);
   margin-right: 1rem;
 
   position: relative;
@@ -1494,9 +1502,10 @@
 }
 
 .bbpress .user #bbpress-forums #bbp-single-user-details #bbp-user-navigation li a {
-  font-family: 'titan_one';
+  font-family: 'sassoon';
+  text-transform: uppercase;
   line-height: 1.2;
-  padding: 1rem 0 ;
+  padding: 1rem 0;
 }
 
 .bbpress .user #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a {
@@ -1508,6 +1517,7 @@
 
 .bbpress .user #bbpress-forums li.bbp-body ul.topic {
   border: none;
+  overflow: visible;
 }
 
 .bbpress .user #bbpress-forums .bbp-user-section {
@@ -1629,16 +1639,6 @@ body.page-id-346 {
   margin-bottom: 2rem;
 }
 
-#news .new-container .post-actions .open-container {
-  position: relative;
-  width: 200px;
-  height: 104px;
-  background: url('/wp-content/uploads/learning-button-background.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 #news .new-container .post-actions .open-container .text-container {
   position: absolute;
   left: 15px;
@@ -1684,7 +1684,7 @@ body.page-id-346 {
 
 /* sidebar */
 #news .news-row .sidebar {
-  border-right: 4px dashed var(--cyan);
+  border-right: 2px solid var(--cyan);
 }
 
 #news .news-row .sidebar .news-container {
@@ -1693,7 +1693,7 @@ body.page-id-346 {
 
 #news .news-row .new-container {
   width: 100%;
-  border-bottom: 4px dashed var(--cyan);
+  /* border-bottom: 2px solid var(--cyan); */
 }
 
 #news .news-row .new-container:last-child {
@@ -1721,32 +1721,6 @@ body.page-id-346 {
   line-height: 1.5;
 }
 
-#news .sidebar .new-container .post-actions .load-new-button {
-  border: none;
-  background: none;
-  outline: none;
-}
-
-#news .sidebar .new-container .post-actions .load-new-button .text-container {
-  color: var(--cyan);
-  transition: color 0.5s ease-in-out;
-}
-
-#news .sidebar .new-container .post-actions .load-new-button:hover .text-container {
-  color: var(--gray);
-}
-
-#news .sidebar .new-container .post-actions .open-container {
-  width: 144px;
-  height: 75px;
-}
-
-#news .sidebar .new-container .post-actions .open-container .text-container {
-  left: 10px;
-  width: 126px;
-  height: 60px;
-}
-
 #news .sidebar .actions {
   width: 100%;
 }
@@ -1770,7 +1744,8 @@ body.page-id-346 {
 }
 
 #tools .sidebar .title-container,
-#tools .sidebar .follow-type-filter-button {
+#tools .sidebar .follow-type-filter-button,
+#tools .sidebar .tag-cloud-container button {
   position: relative;
 }
 
@@ -1794,7 +1769,8 @@ body.page-id-346 {
   overflow: hidden;
 }
 
-#tools .sidebar .filters-container.follow {
+#tools .sidebar .filters-container.follow,
+#tools .sidebar .filters-container.tags {
   overflow: visible;
 }
 
@@ -1877,11 +1853,6 @@ body.page-id-346 {
   padding-left: 1rem;
 }
 
-/* Tools : tag cloud */
-#tools .sidebar .tag-cloud-container {
-  
-}
-
 /* Tools : Type filter */
 #tools .tools-container {
   padding-left: 8.333333%;
@@ -1920,6 +1891,10 @@ body.page-id-346 {
   display: none;
 }
 
+#tools .target-filter-container .filter-label {
+  margin: 0;
+}
+
 #tools .target-filter-container button.filter-button {
   padding: 0.25rem 1rem;
   border: 1px solid var(--cyan);
@@ -1934,40 +1909,21 @@ body.page-id-346 {
 }
 
 #tools .target-filter-container button.filter-button:hover,
-#tools .target-filter-container button.filter-button:focus {
+#tools .target-filter-container button.filter-button.active {
   color: var(--white);
   background-color: var(--cyan);
 }
 
 #tools .target-filter-container button.filter-button.inverted:hover,
-#tools .target-filter-container button.filter-button.inverted:focus {
+#tools .target-filter-container button.filter-button.inverted.active {
   color: var(--cyan);
   background-color: transparent;
 }
-
-/* #tools .target-filter-container button .filter-image {
-  filter: grayscale(0.7);
-  transition: filter 0.5s ease-in-out;
-}
-
-#tools .target-filter-container button.active .filter-image,
-#tools .target-filter-container button:hover .filter-image {
-  filter: grayscale(0);
-} */
 
 #tools .target-filter-container button .text-container {
   color: inherit;
   transition: color 0.5s ease-in-out;
 }
-
-/* #tools .target-filter-container img.filter-image {
-  height: 40px;
-  margin-bottom: 1rem;
-} */
-
-/* #tools .target-filter-container img.arrow-image {
-  height: 40px;
-} */
 
 /* Tools : Tool container */
 #tools .tools-container {
@@ -2066,6 +2022,7 @@ body.page-id-346 {
   display: inline-block;
   text-align: left;
   color: var(--gray);
+  font-style: italic;
 }
 
 #tools .tool-container .related-tool-container .view-link-rel:hover,
@@ -2266,51 +2223,46 @@ body.page-id-346 {
 /**************************************************/
 /* Courses : filter column */
 .courses-sidebar {
-  border-right: 4px dashed var(--cyan);
-}
-
-.courses-sidebar .filters-container {
-  overflow: hidden;
-  border-bottom: 4px dashed var(--cyan);
+  border-right: 2px solid var(--cyan);
 }
 
 .courses-sidebar .filters-container:first-child {
   padding-top: 0;
 }
 
-.courses-sidebar .filters-container .filter-title img {
-  height: 35px;
-}
-
 .courses-sidebar .filters-container:last-child {
   border-bottom: none;
 }
 
-.courses-sidebar .filters-container .filter-title {
-  width: 100%;
+.courses-sidebar .title-container h4 {
+  color: var(--cyan);
+  margin: 0;
+  font-family: 'titan_one';
 }
 
-.courses-sidebar .filters-container .filter-contol {
-  width: inherit;
+.courses-sidebar .filters-container.status-filter button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .courses-sidebar .filters-container.status-filter button img {
+  height: 24px;
+  padding-right: 0.5rem;
   filter: grayscale(0.7);
   transition: filter 0.5s ease-in-out;
 }
 
-.courses-sidebar .filters-container.status-filter button img {
-  height: 50px;
-}
-
 .courses-sidebar .filters-container.status-filter button .text-container {
-  color: var(--gray);
+  color: var(--cyan);
   transition: color 0.5s ease-in-out;
 }
 
 .courses-sidebar .filters-container.status-filter button.active span,
 .courses-sidebar .filters-container.status-filter button:hover span {
-  color: var(--cyan);
+  color: var(--gray);
 }
 
 .courses-sidebar .filters-container.status-filter button.active img,
@@ -2318,8 +2270,9 @@ body.page-id-346 {
   filter: grayscale(0);
 }
 
-.courses-sidebar .filters-container.status-filter button span {
-  padding-left: 2rem;
+.courses-sidebar .filters-container.status-filter button .h5 {
+  padding: 0;
+  font-family: 'sassoon';
 }
 
 /* filter column : other courses */
@@ -2442,25 +2395,9 @@ body.page-id-346 {
   text-align: center;
 }
 
-#page .courses-section .tutor-loop-course-button-container a, 
-#page .courses-section .tutor-loop-course-button-container button {
-  display: inline-block;
-  width: fit-content;
-  border: none;
-  padding: 2rem 3rem 3rem;
-  background-color: transparent;
-  color: var(--gray);
-  font-family: 'titan_one';
-  background-image: url(/wp-content/uploads/learning-button-background.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  filter: none;
-  transition: color 0.5s ease-in-out;
-}
-
 #page .courses-section .tutor-loop-course-button-container a:hover,
 #page .courses-section .tutor-loop-course-button-container button:hover {
-  color: var(--cyan);
+  background-color: var(--cyan-light);
 }
 
 /* courses archive : benefits */
@@ -2694,20 +2631,16 @@ body.page-id-346 {
   align-items: center;
 }
 
-.single-courses .course-section .tutor-single-course-background-image {
+/* .single-courses .course-section .tutor-single-course-background-image {
   position: absolute;
   top: 0;
   z-index: -1;
   height: 107.5%;
   width: 100%;
   left: -40px;
-}
+} */
 
 /* course single : benefits */
-.single-courses .course-section .course-benefits-title h4 {
-  font-size: inherit;
-}
-
 .single-courses .course-section .tutor-course-benefits-items {
   display: flex;
   justify-content: flex-start;
@@ -2735,8 +2668,8 @@ body.page-id-346 {
 }
 
 .single-courses .course-section .tutor-course-benefits-items li span {
-  max-width: 50px;
-  font-size: 0.65em;
+  max-width: 75px;
+  font-size: 0.8em;
   text-align: center;
   line-height: 1.5;
 }
@@ -2757,7 +2690,23 @@ body.page-id-346 {
 /* course single : body */
 .tutor-container .tutor-single-course-segment .tutor-segment-title {
   font-family: 'titan_one';
-  color: var(--gray);
+  color: var(--cyan);
+}
+
+.tutor-container .tutor-single-course-segment .tutor-course-tags a {
+  background-color: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  transition: background-color 0.5s ease-in-out, color  0.5s ease-in-out;
+}
+
+.tutor-container .tutor-single-course-segment .tutor-course-tags a:hover {
+  color: var(--white);
+  background-color: var(--cyan);
+}
+
+.tutor-container .tutor-custom-list-style li:before {
+  color: var(--cyan);
 }
 
 /* course single : actions */
@@ -2780,31 +2729,6 @@ body.page-id-346 {
   border: none;
   text-align: center;
   padding: 0 1rem;
-}
-
-.single-courses #page .course-section .tutor-course-single-button a, 
-.single-courses #page .course-section .tutor-course-single-button button,
-.single-courses #page .course-section .tutor-course-compelte-form-wrap button {
-  display: inline-block;
-  width: fit-content;
-  border: none;
-  padding: 2rem 3rem 3rem;
-  background-color: transparent;
-  color: var(--gray);
-  font-family: 'titan_one';
-  font-weight: 400;
-  line-height: 0.8;
-  background-image: url(/wp-content/uploads/learning-button-background.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  filter: none;
-  transition: color 0.5s ease-in-out;
-}
-
-.single-courses #page .course-section .tutor-course-single-button a:hover,
-.single-courses #page .course-section .tutor-course-single-button > div:hover button,
-.single-courses #page .course-section .tutor-course-compelte-form-wrap button:hover {
-  color: var(--cyan);
 }
 
 /* course single : login */
@@ -2909,7 +2833,7 @@ body.page-id-346 {
 
 .lesson-sidebar .tutor-lesson-list .tutor-topics-summery {
   border: none;
-  border-bottom: 2px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
 }
 
 .lesson-sidebar .tutor-lesson-list .tutor-single-lesson-items.active {
@@ -3070,40 +2994,8 @@ body.page-id-346 {
 
 #page .tutor-single-lesson-wrap .tutor-quiz-single-wrap input[type="submit"],
 #page .tutor-single-lesson-wrap .tutor-quiz-single-wrap button {
-  border: none;
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
-  outline: none;
-  color: var(--white);
-  background-color: var(--cyan);
-  font-family: 'titan_one';
-  transition: background-color 0.5s ease-in-out;
-  filter: none;
-  font-weight: normal;
-}
-
-#page .tutor-single-lesson-wrap .tutor-quiz-single-wrap input[type="submit"]:hover,
-#page .tutor-single-lesson-wrap .tutor-quiz-single-wrap button:hover {
-  background-color: var(--cyan-light);
-}
-
-#page .tutor-single-lesson-wrap .tutor-course-compelte-form-wrap button {
-  border: none;
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
-  outline: none;
-  color: var(--white);
-  background-color: var(--cyan);
-  font-family: 'titan_one';
-  transition: background-color 0.5s ease-in-out;
-  filter: none;
-  white-space: normal;
-  word-break: break-word;
-  font-weight: normal;
-}
-
-#page .tutor-single-lesson-wrap .tutor-course-compelte-form-wrap button:hover {
-  background-color: var(--cyan-light);
+  font-size: 1rem;
+  letter-spacing: 0.12rem;
 }
 
 .tutor-single-lesson-wrap .tutor-lesson-content-area .tutor-lesson-compelte-form-wrap {
@@ -3185,10 +3077,13 @@ body.page-id-346 {
 .tutor-single-lesson-wrap .tutor-next-previous-pagination-wrap.bottom .tutor-next-link {
   border-radius: 10px;
   margin: 0 0.5rem;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   outline: none;
   font-family: 'titan_one';
-  line-height: 1.5;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  line-height: 1.2;
+  letter-spacing: 0.12rem;
 }
 
 .tutor-single-lesson-wrap .tutor-next-previous-pagination-wrap.bottom .tutor-next-link {
@@ -3210,8 +3105,8 @@ body.page-id-346 {
 /* lesson single : quiz meta */
 div.tutor-quiz-header .tutor-quiz-meta {
   border: none;
-  border-top: 2px dashed var(--cyan);
-  border-bottom: 2px dashed var(--cyan);
+  border-top: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--cyan);
 }
 
 div.tutor-quiz-header .tutor-quiz-meta li strong {
@@ -3240,7 +3135,7 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 #tutor-quiz-body .tutor-quiz-attempt-history table th,
 .tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table th {
   border: none !important;
-  border-bottom: 2px dashed var(--cyan) !important;
+  border-bottom: 2px solid var(--cyan) !important;
   color: var(--cyan);
   font-weight: bold;
 }
@@ -3268,7 +3163,7 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 #tutor-quiz-body .tutor-quiz-attempt-history table td,
 .tutor-dashboard .tutor-dashboard-content .tutor-quiz-attempt-history table td {
   border: none !important;
-  border-bottom: 2px dashed var(--cyan) !important;
+  border-bottom: 2px solid var(--cyan) !important;
 }
 
 #tutor-quiz-body .tutor-quiz-attempt-history table .course a,
@@ -3585,11 +3480,11 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 
 /* tutor dashboard */
 .tutor-dashboard .tutor-dashboard-header {
-  border-bottom: 4px dashed var(--cyan);
+  border-bottom: 2px solid var(--cyan);
 }
 
 .tutor-dashboard .tutor-dashboard-permalinks {
-  border-right: 4px dashed var(--cyan);
+  border-right: 2px solid var(--cyan);
 }
 
 /* tutor dashboard : sidebar */
@@ -3705,7 +3600,7 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 
 .tutor-dashboard .tutor-quiz-attempt-review-wrap table tr:first-child {
   border: none;
-  border-bottom: 2px dashed var(--cyan) !important;
+  border-bottom: 2px solid var(--cyan) !important;
   background-color: transparent;
 }
 

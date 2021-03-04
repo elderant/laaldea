@@ -191,4 +191,4 @@ $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
 <?php do_action('tutor_dashboard/after/wrap'); ?>
 
 <?php
-get_footer();
+get_footer('learning');

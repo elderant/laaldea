@@ -41,7 +41,7 @@ if ( ! bbp_is_single_forum() ) : ?>
           <?php esc_html_e( 'Create New Topic', 'bbpress' );?>
         </div>
         <div class="h6 forum">
-          <?php echo '<span class="before-forum-name">' . __('Foro: ','wp_child') . '</span><span class="forum-name">' . bbp_get_forum_title() . '</span>';?>
+          <?php echo '<span class="before-forum-name uppercase">' . __('Foro: ','wp_child') . '</span><span class="forum-name uppercase">' . bbp_get_forum_title() . '</span>';?>
         </div>
 					
 				<?php do_action( 'bbp_theme_before_topic_form_notices' ); ?>
@@ -75,15 +75,18 @@ if ( ! bbp_is_single_forum() ) : ?>
 					<?php do_action( 'bbp_theme_before_topic_form_title' ); ?>
 
 					<p class="topic-tile">
-						<label class="learning-label" for="bbp_topic_title"><?php printf( esc_html__( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
-						<input class="learning-input" type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" size="40" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
+						<label class="learning-label hidden" for="bbp_topic_title"><?php printf( esc_html__( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label>
+						<input class="learning-input" type="text" id="bbp_topic_title" 
+              placeholder="<?php printf( esc_html__( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?>" 
+              value="<?php bbp_form_topic_title(); ?>" size="40" name="bbp_topic_title" 
+              maxlength="<?php bbp_title_max_length(); ?>" />
 					</p>
 
 					<?php do_action( 'bbp_theme_after_topic_form_title' ); ?>
 
 					<?php do_action( 'bbp_theme_before_topic_form_content' ); ?>
 
-          <p class="topic-content-title">
+          <p class="topic-content-title hidden">
             <label class="learning-label"><?php _e( 'Pregunta/comentario:', 'wpb_child' ); ?></label><br />
           </p>
 
@@ -105,8 +108,11 @@ if ( ! bbp_is_single_forum() ) : ?>
 						<?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>
 
 						<p class="topic-tags">
-							<label class="learning-label" for="bbp_topic_tags"><?php esc_html_e( 'Topic Tags:', 'bbpress' ); ?></label><br />
-							<input class="learning-input" type="text" value="<?php bbp_form_topic_tags(); ?>" placeholder="<?php _e('Etiqueta1,Etiqueta2...', 'laaldea');?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							<label class="learning-label hidden" for="bbp_topic_tags"><?php esc_html_e( 'Topic Tags:', 'bbpress' ); ?></label>
+							<input class="learning-input" type="text" 
+              value="<?php bbp_form_topic_tags(); ?>" 
+              placeholder="<?php _e('Etiqueta1,Etiqueta2...', 'laaldea');?>" size="40" 
+              name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_topic_form_tags' ); ?>

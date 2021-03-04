@@ -135,4 +135,4 @@ $title = empty($title_html) ? get_the_title() : $title_html;
 <?php do_action('tutor_course/single/after/wrap'); ?>
 
 <?php
-get_footer();
+get_footer('learning');

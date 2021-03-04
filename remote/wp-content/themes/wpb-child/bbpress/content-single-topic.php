@@ -34,8 +34,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php else : ?>
     <?php if ( bbp_has_replies() ) : ?>
-      <div class="bbp-topic-title color-cyan font-titan h2">
-        <span><?php _e('Tema:','wpb_child');?> <?php bbp_topic_title();?></span>
+      <div class="bbp-topic-title">
+        <span class="font-titan before-topic-title h2 color-cyan"><?php _e('Tema: ','wpb_child')?></span>
+        <span class="h3 font-sassoon color-cyan"><?php bbp_topic_title();?></span>
       </div>
     <?php endif; ?>
 

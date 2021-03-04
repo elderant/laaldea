@@ -294,7 +294,9 @@ a:hover, a:focus  {
 	font-family: 'sassoon', 'Helvetica', sans-serif;
 }
 
-
+.line-height-12 {
+  line-height: 1.2;
+}
 
 /******************** Shared ********************/
 
@@ -1225,7 +1227,6 @@ body.page-politica-privacidad p {
 .user-flow #loginform label,
 .user-flow #loginform input[type="submit"],
 .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-.bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
 .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
 	font-size: 1.5rem;
 }
@@ -1233,7 +1234,8 @@ body.page-politica-privacidad p {
 .user-flow h6, .user-flow .h6,
 .bbpress h6, .bbpress .h6,
 .learning h6, .learning .h6,
-.bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
+.bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+.bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
 	font-size: 1.25rem;
 }
 
@@ -1265,7 +1267,8 @@ html .learning , body .learning, .learning p, .learning .p,
 
 .user-flow h1, .user-flow h2, .user-flow h3, .user-flow h4, .user-flow h5, .user-flow h6,
 .user-flow .h1, .user-flow .h2, .user-flow .h3, .user-flow .h4, .user-flow .h5, .user-flow .h6 {
-  letter-spacing: 0.12rem;
+  line-height: 1.5;
+  letter-spacing: 0.08rem;
 }
 
 .user-flow ::selection {
@@ -1327,10 +1330,10 @@ html .learning , body .learning, .learning p, .learning .p,
   text-align: center;
 }
 
-.user-flow #register-form .radio-buttons,
+/* .user-flow #register-form .radio-buttons,
 .user-flow #user-update-form .radio-buttons {
   width: 100%;
-  height: auto;/*calc(150px + 10px);*/
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1365,7 +1368,7 @@ html .learning , body .learning, .learning p, .learning .p,
 .user-flow #user-update-form .radio-buttons input[type="radio"]:checked ~ label {
   border-width: 4px;
   box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
-}
+} */
 
 .user-flow .login-info,
 .user-flow .error,
@@ -1398,7 +1401,8 @@ form input.user-flow-input[type="password"],
 form input.learning-input[type="text"],
 form input.learning-input[type="email"],
 form input.learning-input[type="tel"],
-form input.learning-input[type="password"] {
+form input.learning-input[type="password"],
+form textarea.learning-input {
   border-radius: 0;
   outline: none;
   box-shadow: none;
@@ -1425,7 +1429,9 @@ form input.learning-input[type="email"]:focus,
 form input.learning-input[type="tel"]:active,
 form input.learning-input[type="tel"]:focus,
 form input.learning-input[type="password"]:focus,
-form input.learning-input[type="password"]:active {
+form input.learning-input[type="password"]:active,
+form textarea.learning-input:focus,
+form textarea.learning-input:active {
   border-color: var(--cyan);
 }
 
@@ -1447,11 +1453,14 @@ form a.learning-link:focus {
   color: var(--cyan);
 }
 
+/* CSS in laaldea/main.css line 3065 should match*/
 form input[type="submit"].user-flow-button,
 form button[type="submit"].user-flow-button,
 form input[type="submit"].learning-button,
 form button[type="submit"].learning-button,
-form a.button.learning-button {
+form a.button.learning-button,
+a.button.learning-button,
+button.button.learning-button {
   margin: 0 auto;
   border: none;
   border-radius: 10px;
@@ -1459,16 +1468,24 @@ form a.button.learning-button {
   outline: none;
   color: var(--white);
   background-color: var(--cyan);
+  line-height: 1.2;
   font-family: 'titan_one';
   text-transform: uppercase;
+  font-weight: normal;
   transition: background-color 0.5s ease-in-out;
+  filter: none;
 }
 
 form input[type="submit"].user-flow-button:hover,
 form button[type="submit"].user-flow-button:hover,
 form input[type="submit"].learning-button:hover,
-form button[type="submit"].learning-button:hover {
+form button[type="submit"].learning-button:hover,
+form a.button.learning-button:hover,
+a.button.learning-button:hover,
+button.button.learning-button:hover {
+  color: var(--white);
   background-color: var(--cyan-light);
+  filter: none;
 }
 
 .user-flow .logged-in.description,
@@ -1478,38 +1495,12 @@ form button[type="submit"].learning-button:hover {
 }
 
 /* login page */
-.user-flow #loginform {
-  display: flex;
-  flex-direction: column;
+.user-flow #loginform .login-password input {
+  letter-spacing: 0.1rem;
 }
 
-.user-flow.page-login #main > .page {
-  margin: 0 auto;
-}
-
-.user-flow #loginform > p {
-  width: 100%;
-  margin: 0 auto 2%;
-  padding: 0.25rem 7rem;
-}
-
-.user-flow #loginform input[type="submit"] {
-  width: auto;
-  margin: 0 auto;
-}
-
-.user-flow #loginform > p label,
-.user-flow #loginform > p input {
-  display: block;
-}
-
-.user-flow #loginform > p input {
-  width: 100%;
-}
-
-.user-flow #loginform > p.login-remember input {
-  display: inline-block;
-  width: auto;
+.user-flow #loginform .login-password input::placeholder {
+  letter-spacing: 0;
 }
 
 .user-flow.page-login .page a {
@@ -1574,10 +1565,12 @@ form button[type="submit"].learning-button:hover {
 
 .page-register .select2-container--default .select2-results__option--selected{
   color: var(--gray-light);
+  border-radius: 50%;
 }
 
 .page-register .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-  background-color: var(--cyan);
+  background-color: var(--cyan-light);
+  border-radius: 50%;
 }
 
 /* change password page */
@@ -1611,7 +1604,8 @@ form button[type="submit"].learning-button:hover {
 
 .bbpress h1, .bbpress h2, .bbpress h3, .bbpress h4, .bbpress h5, .bbpress h6,
 .bbpress .h1, .bbpress .h2, .bbpress .h3, .bbpress .h4, .bbpress .h5, .bbpress .h6 { 
-  letter-spacing: 0.12rem;
+  line-height: 1.5;
+  letter-spacing: 0.08rem;
 }
 
 .bbpress ::selection {
@@ -1625,13 +1619,15 @@ form button[type="submit"].learning-button:hover {
 }
 
 .bbpress .sidebar .widget {
-  border-right: 4px dashed var(--cyan);
+  border-right: 2px solid var(--cyan);
+  padding-right: 1rem;
 }
 
 .bbpress .sidebar h4,
 .bbpress .sidebar .h4 {
   font-family: 'titan_one';
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  color: var(--cyan);
 }
 
 /**** Learning General ****/
@@ -1649,13 +1645,18 @@ form button[type="submit"].learning-button:hover {
   color: var(--gray);
 }
 
-.learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6 {
+.learning h1, .learning h2, .learning h3, .learning h4, .learning h5 {
   text-transform: uppercase;
+}
+
+.learning h6 {
+  text-transform: none;
 }
 
 .learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6,
 .learning .h1, .learning .h2, .learning .h3, .learning .h4, .learning .h5, .learning .h6  {
-  letter-spacing: 0.12rem;
+  line-height: 1.5;
+  letter-spacing: 0.08rem;
 }
 
 .learning ::selection {

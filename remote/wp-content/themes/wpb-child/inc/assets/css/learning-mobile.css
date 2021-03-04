@@ -83,7 +83,6 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
   .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.15rem;
   }
@@ -91,7 +90,8 @@
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
   .learning h6, .learning .h6,
-  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
     font-size: 1.05rem;
   }
 
@@ -178,7 +178,6 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
   .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.25rem;
   }
@@ -186,7 +185,8 @@
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
   .learning h6, .learning .h6,
-  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
     font-size: 1.1rem;
   }
 
@@ -273,7 +273,6 @@
   .user-flow #loginform label,
   .user-flow #loginform input[type="submit"],
   .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
-  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title,
   .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
     font-size: 1.25rem;
   }
@@ -281,7 +280,8 @@
   .user-flow h6, .user-flow .h6,
   .bbpress h6, .bbpress .h6,
   .learning h6, .learning .h6,
-  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p {
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
     font-size: 1.1rem;
   }
 

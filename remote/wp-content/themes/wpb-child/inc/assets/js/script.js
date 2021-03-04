@@ -195,6 +195,11 @@
         templateResult: wpb_child_format_state,
       });
     }
+    if($('.user-flow.page-update-user').length > 0) {
+      $('#user-update-form .avatar-select').select2({
+        templateResult: wpb_child_format_state,
+      });
+    }
 
     // Tutor
     if($('.single-lesson').length > 0 || $('.single-tutor_quiz').length > 0) {

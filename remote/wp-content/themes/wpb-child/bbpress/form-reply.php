@@ -69,7 +69,7 @@ if ( bbp_is_reply_edit() ) : ?>
 
 					<?php do_action( 'bbp_theme_before_reply_form_content' ); ?>
 
-          <p class="reply-content-title">
+          <p class="reply-content-title hidden">
             <label class="learning-label"><?php _e( 'Respuesta:', 'wpb_child' ); ?></label><br />
           </p>
 					<?php bbp_the_content( array( 'context' => 'reply' ) ); ?>
@@ -90,8 +90,11 @@ if ( bbp_is_reply_edit() ) : ?>
 						<?php do_action( 'bbp_theme_before_reply_form_tags' ); ?>
 
 						<p class="topic-tags">
-							<label class="learning-label" for="bbp_topic_tags"><?php esc_html_e( 'Tags:', 'bbpress' ); ?></label><br />
-							<input class="learning-input" type="text" value="<?php bbp_form_topic_tags(); ?>" placeholder="<?php _e('Etiqueta1,Etiqueta2...', 'laaldea');?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							<label class="learning-label hidden" for="bbp_topic_tags"><?php esc_html_e( 'Tags:', 'bbpress' ); ?></label><br />
+							<input class="learning-input" type="text" 
+                value="<?php bbp_form_topic_tags(); ?>" 
+                placeholder="<?php _e('Etiqueta1,Etiqueta2...', 'laaldea');?>" size="40" 
+                name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_reply_form_tags' ); ?>
