@@ -5,7 +5,7 @@
 
 get_header('user-flow');?>
 
-	<section id="primary" class="content-area col-sm-4 offset-sm-4">
+	<section id="primary" class="content-area col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
 		<main id="main" class="site-main" role="main">
 
 			<?php

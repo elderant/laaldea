@@ -684,32 +684,6 @@ header#masthead .navbar.secondary ul > li > a:focus {
   text-align: right;
 }
 
-/* #page.learning header#masthead .navbar ul#menu-learning > li::after {
-  content: '';
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  width: 0;
-  height: 4px;
-  border-radius: 5px;
-  background-color: var(--cyan);
-  transform: translate(-50%, 0);
-  transition: width 0.5s ease-in-out;
-}
-
-#page.learning header#masthead .navbar ul#menu-learning > li:focus::after,
-#page.learning header#masthead .navbar ul#menu-learning > li:hover::after,
-#page.learning header#masthead .navbar ul#menu-learning > li.active::after {
-  width: 75%;
-}
-
-.user-flow #page.learning header#masthead .navbar ul#menu-learning > li::after,
-#page.learning header#masthead .navbar ul#menu-learning > li.home-link::after,
-#page.learning header#masthead .navbar ul#menu-learning > li.user-link::after,
-#page.learning header#masthead .navbar ul#menu-learning > li.image-link::after {
-  content: unset;
-} */
-
 #page.learning header#masthead .navbar ul#menu-learning > li.image-link a {
   display: inline-block;
   padding: 0;
@@ -783,6 +757,104 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header#masthead .navbar.user-navbar .user-edit-link-container a:focus {
   color: var(--cyan);
 }
+
+/* learning header mobile menu */
+#page.learning header#masthead .mobile.navbar-toggler {
+  z-index: 1050;
+  position: absolute;
+  left: 4rem;
+  padding: 0
+}
+
+/* remove after the toggler is replaced. */
+#page.learning header#masthead .mobile.navbar-toggler .navbar-toggler-icon {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+#page.learning header#masthead .navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+
+#page.learning header#masthead .navbar-brand a {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 0 1rem;
+  color: var(--white);
+  background-color: var(--cyan);
+  font-weight: inherit;
+  line-height: 1.5;
+  font-size: 2em;
+}
+
+#page.learning header#masthead .navbar-brand a::after {
+  content: '®';
+  font-family: 'sassoon';
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+#page.learning header#masthead .user-link-container {
+  z-index: 1050;
+  position: absolute;
+  right: 4rem;
+}
+
+#page.learning header#masthead .user-link-container img {
+  height: calc(2rem * 2 * 1.25);
+}
+
+/* mobile menu navbar */
+#page.learning header#masthead .navbar.mobile-navbar {
+	z-index: 1020;
+	position: fixed;
+	top: 0;
+	left: 0;
+  height: 0 !important;
+  width: 0;
+  border: none;
+  padding: 8% 15% 11% 6.3%;
+  color: var(--gray);
+  background-color: transparent;
+  background-image: url(/wp-content/uploads/learning-course-background.png);
+  background-repeat: no-repeat;
+  background-size: 80% 90%;
+  background-position: left;
+	font-family: titan_one;
+	font-weight: 400;
+  backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: width 0.4s 0.4s, top 0.5s;
+	transition: width 0.4s 0.4s, top 0.5s;
+}
+
+#page.learning header#masthead .navbar.mobile-navbar.collapse {
+  height: 0 !important;
+  width: 0;
+}
+
+#page.learning header#masthead .navbar.mobile-navbar.collapsing {
+  height: 100vh !important;
+  width: 5vw;
+  padding: 8% 15% 11% 6.3%;
+  top: 100%;
+}
+
+#page.learning header#masthead .navbar.mobile-navbar.show {
+  height: 100vh !important;
+  width: 100vw;
+}
+
+#page.learning header#masthead #learning-mobile {
+  padding-top: calc(2rem * 2 );
+}
+
+#page.learning header#masthead nav.navbar.mobile-navbar a {
+  font-size: inherit;
+  color: var(--gray);
+}
+
 
 /* Learning footer */
 body:not(.theme-preset-active) footer.learning#colophon {
@@ -1207,6 +1279,7 @@ body.page-politica-privacidad p {
 .bbpress h3, .bbpress .h3,
 .learning h3, .learning .h3,
 #page.learning header .navbar,
+#page.learning header#masthead .navbar-brand,
 .bbp-search #bbpress-forums div.bbp-forum-title h3, 
 .bbp-search #bbpress-forums div.bbp-reply-title h3, 
 .bbp-search #bbpress-forums div.bbp-topic-title h3 {
@@ -1294,6 +1367,7 @@ html .learning , body .learning, .learning p, .learning .p,
 
 .user-flow .page > .entry-header h1 {
   opacity: 0;
+  max-height: 54px;
 }
 
 .user-flow .entry-content form {
@@ -1307,6 +1381,10 @@ html .learning , body .learning, .learning p, .learning .p,
 
 .user-flow #content {
   padding-top: 0;
+}
+
+.user-flow .site-content #primary {
+  padding: 0 8.333333%;
 }
 
 .user-flow #content > .container-fluid > .row {
@@ -1375,7 +1453,8 @@ html .learning , body .learning, .learning p, .learning .p,
 .user-flow .notice {
   display: flex;
   max-width: 80%;
-  margin: 0 auto;
+  margin: 0 4rem;
+  padding: 0 3rem;
 }
 
 .user-flow .error a {
@@ -1412,6 +1491,10 @@ form textarea.learning-input {
   line-height: 1.5rem;
   font-size: 1rem;
   text-align: center;
+}
+
+form.form-row.avatar-row {
+  font-size: 1rem;
 }
 
 form input.user-flow-input[type="text"]:active,
@@ -1539,6 +1622,7 @@ button.button.learning-button:hover {
   padding-left: 20px;
   line-height: 30px;
   text-align: center;
+  font-size: inherit;
 }
 
 .avatar-row .select2-container--default .select2-selection--single .select2-selection__rendered[title="Avatar"] {

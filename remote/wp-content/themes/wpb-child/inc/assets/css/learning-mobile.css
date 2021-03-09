@@ -16,30 +16,36 @@
 
 
 /*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
 
-@media screen and (max-width: 991px) {}
+
+}
+
+@media screen and (max-width: 991px) {
+  #page.learning header#masthead {
+    height: auto;
+  }
+
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+}
 
 /*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
-@media only screen and (max-width: 400px) {}
+@media only screen and (max-width: 400px) {
+  #page.learning header#masthead .mobile.navbar-toggler {
+    left: 1rem;
+  }
+  
+  #page.learning header#masthead .user-link-container {
+    right: 1rem;
+  }
+  
+  #page.learning header#masthead .navbar-brand a {
+    font-size: 1em;
+  }
 
-/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
-@media screen and (min-width: 401px) and (max-width: 575px) {}
-
-/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
-@media screen and (min-width: 576px) and (max-width: 649px) {}
-
-/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
-@media screen and (min-width: 650px) and (max-width: 767px) {}
-
-/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
-@media screen and (min-width: 768px) and (max-width: 991px) {}
-
-/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
-@media screen and (min-width: 992px) and (max-width: 1199px) {}
-
-/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
-@media screen and (min-width: 1200px) and (max-width: 1279px) {
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -63,6 +69,7 @@
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
   #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
   .bbp-search #bbpress-forums div.bbp-forum-title h3, 
   .bbp-search #bbpress-forums div.bbp-reply-title h3, 
   .bbp-search #bbpress-forums div.bbp-topic-title h3 {
@@ -111,13 +118,23 @@
   }
 
   /**** User flow General ****/
-  .user-flow .form-row {
-    flex-direction: column;
-    padding: 1rem 3rem;
+  .user-flow .entry-content form {
+    margin: 0;
   }
 
-  form input[type="submit"].user-flow-button {
-    padding: 1rem 4rem 1.5rem;
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 4rem 0rem 6rem;
+    background-position: 49% 10%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
+    background-size: 26%, 90% calc(100% - 15rem), auto 61vw, auto 45vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
   }
 
   .user-flow #register-form .radio-buttons .avatar-container, 
@@ -126,10 +143,603 @@
     width: 75px;
     margin: 0.5rem 0.5rem;
   }
+}
 
-  /* login page */
-  .user-flow.page-login #main > .page {
-    width: 80%;
+/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
+@media screen and (min-width: 401px) and (max-width: 575px) {
+  #page.learning header#masthead .mobile.navbar-toggler {
+    left: 2rem;
+  }
+  
+  #page.learning header#masthead .user-link-container {
+    right: 2rem;
+  }
+
+  #page.learning header#masthead .navbar-brand a {
+    font-size: 1.5em;
+  }
+
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .entry-content form {
+    margin: 0;
+  }
+
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 4rem 0rem 6rem;
+    background-position: 49% 9%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
+    background-size: 24%, 90% calc(100% - 15rem), auto 61vw, auto 45vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+}
+
+/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
+@media screen and (min-width: 576px) and (max-width: 649px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 4rem 1rem 6rem;
+    background-position: 50% 11%, 50% calc(50% + 1rem), -52% 4%, -9% 89%;
+    background-size: 16%, 56% calc(100% - 15rem), auto 36vw, auto 30vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+}
+
+/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
+@media screen and (min-width: 650px) and (max-width: 767px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 4rem 1rem 6rem;
+    background-position: 50% 11%, 50% calc(50% + 2rem), -52% 4%, -9% 93%;
+    background-size: 15%, 56% calc(100% - 15rem), auto 36vw, auto 30vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+}
+
+/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 12rem 1rem 8rem;
+    background-position: 50% 17%, 50% calc(50% + 4rem), 34% 10%, 48% 94%;
+    background-size: 15%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+}
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 12rem 1rem 8rem;
+    background-position: 50% 17%, 50% calc(50% + 4rem), 34% 10%, 48% 94%;
+    background-size: 15%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 1.8rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
+  }
+}
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
+  /* Learning header titles */
+  .user-flowh1, .user-flow .h1,
+  .bbpress h1, .bbpress .h1,
+  .learning h1, .learning .h1,
+  .single-post #page.learning .post h1.entry-title {
+    font-size: 2.5rem;
+  }
+
+  .user-flow h2, .user-flow .h2,
+  .bbpress h2, .bbpress .h2,
+  .learning h2, .learning .h2,
+  .bbpress .user #bbpress-forums #bbp-user-wrapper h2.entry-title {
+    font-size: 1.9rem;
+  }
+
+  .bbpress .topic-section .new-topic-button-container button i {
+    width: 1.9rem;
+  }
+
+  .user-flow h3, .user-flow .h3,
+  .bbpress h3, .bbpress .h3,
+  .learning h3, .learning .h3,
+  #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
+  .bbp-search #bbpress-forums div.bbp-forum-title h3, 
+  .bbp-search #bbpress-forums div.bbp-reply-title h3, 
+  .bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .user-flow h4, .user-flow .h4,
+  .bbpress h4, .bbpress .h4,
+  .learning h4, .learning .h4,
+  .tutor-container .tutor-segment-title, 
+  .tutor-container .tutor-single-course-segment .tutor-segment-title {
+    font-size: 1.4rem;
+  }
+
+  .user-flow h5, .user-flow .h5,
+  .bbpress h5, .bbpress .h5,
+  .learning h5, .learning .h5, 
+  .user-flow #loginform label,
+  .user-flow #loginform input[type="submit"],
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content,
+  .bbp-search .general-section #bbpress-forums .forums .bbp-forum-content {
+    font-size: 1.15rem;
+  }
+
+  .user-flow h6, .user-flow .h6,
+  .bbpress h6, .bbpress .h6,
+  .learning h6, .learning .h6,
+  .bbpress .general-section #bbpress-forums .bbp-breadcrumb p,
+  .bbpress .widget_display_topics .bbp-topics-widget li .bbp-forum-title {
+    font-size: 1.05rem;
+  }
+
+  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
+  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
+  html .learning , body .learning, .learning p, .learning .p,
+  .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
+  .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
+  #bbpress-forums {
+    font-size: 14px;
+  }
+  
+  #page.learning header#masthead .navbar ul#menu-learning > li.user-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.crea-link img,
+  #page.learning header#masthead .navbar ul#menu-learning > li.click-link img {
+    height: 40px;
+  }
+
+  /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 12rem 1rem 8rem;
+    background-position: 50% 17%, 50% calc(50% + 4rem), 34% 7%, 48% 94%;
+    background-size: 13%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 2.2rem;
+  }
+
+  .user-flow #register-form .radio-buttons .avatar-container, 
+  .user-flow #user-update-form .radio-buttons .avatar-container {
+    height: 75px;
+    width: 75px;
+    margin: 0.5rem 0.5rem;
   }
 }
 
@@ -158,6 +768,7 @@
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
   #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
   .bbp-search #bbpress-forums div.bbp-forum-title h3, 
   .bbp-search #bbpress-forums div.bbp-reply-title h3, 
   .bbp-search #bbpress-forums div.bbp-topic-title h3 {
@@ -206,13 +817,19 @@
   }
 
   /**** User flow General ****/
-  .user-flow .form-row {
-    flex-direction: column;
-    padding: 1rem 3rem;
+  .user-flow .site-content #primary {
+    padding: 0;
   }
 
-  form input[type="submit"].user-flow-button {
-    padding: 1rem 4rem 1.5rem;
+  .user-flow #content > .container-fluid > .row {
+    padding: 12rem 1rem 8rem;
+    background-position: 50% 17%, 50% calc(50% + 4rem), 34% 5%, 48% 94%;
+    background-size: 13%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
+  }
+
+  .user-flow .form-row {
+    flex-direction: column;
+    padding: 1rem 2.5rem;
   }
 
   .user-flow #register-form .radio-buttons .avatar-container, 
@@ -220,11 +837,6 @@
     height: 75px;
     width: 75px;
     margin: 0.5rem 0.5rem;
-  }
-
-  /* login page */
-  .user-flow.page-login #main > .page {
-    width: 80%;
   }
 }
 
@@ -253,6 +865,7 @@
   .bbpress h3, .bbpress .h3,
   .learning h3, .learning .h3,
   #page.learning header .navbar,
+  #page.learning header#masthead .navbar-brand,
   .bbp-search #bbpress-forums div.bbp-forum-title h3, 
   .bbp-search #bbpress-forums div.bbp-reply-title h3, 
   .bbp-search #bbpress-forums div.bbp-topic-title h3 {
@@ -301,13 +914,19 @@
   }
 
   /**** User flow General ****/
+  .user-flow .site-content #primary {
+    padding: 0;
+  }
+
+  .user-flow #content > .container-fluid > .row {
+    padding: 12rem 1rem 8rem;
+    background-position: 50% 16%, 50% calc(50% + 4rem), 34% 5%, 48% 94%;
+    background-size: 11%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
+  }
+
   .user-flow .form-row {
     flex-direction: column;
     padding: 1rem 3rem;
-  }
-
-  form input[type="submit"].user-flow-button {
-    padding: 1rem 4rem 1.5rem;
   }
 
   .user-flow #register-form .radio-buttons .avatar-container, 
@@ -316,15 +935,11 @@
     width: 75px;
     margin: 0.5rem 0.5rem;
   }
-
-  /* login page */
-  .user-flow.page-login #main > .page {
-    width: 80%;
-  }
 }
 
 /*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/
 @media screen and (min-width: 1536px) and (max-width: 1679px) {
+  
   /**** User flow General ****/
   .user-flow .form-row {
     padding: 1rem 2rem;
