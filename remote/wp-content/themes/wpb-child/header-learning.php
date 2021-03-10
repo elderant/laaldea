@@ -42,46 +42,71 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
     <header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
-        <div class="container-fluid">
-            <nav class="navbar primary navbar-expand-sm">
-              <?php 
-                $user_id = get_current_user_id();
-                $user = wp_get_current_user();
-                $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
-              ?>  
-              <?php
-                wp_nav_menu(array(
-                'theme_location'  => 'learning-menu',
-                'container'       => 'div',
-                'container_id'    => 'learning-nav',
-                'container_class' => 'justify-content-end',
-                'menu_id'         => false,
-                'menu_class'      => 'navbar-nav',
-                'depth'           => 3,
-                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-                'walker'          => new wp_bootstrap_navwalker()
-                ));
-              ?>
-              <!-- <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#user-navbar">
-                <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
-              </button> -->
-            </nav>
+        <div class="container-fluid d-flex d-lg-block justify-content-center align-items-center py-3 py-sm-5 py-lg-0">
+          <?php 
+            $user_id = get_current_user_id();
+            $user = wp_get_current_user();
+            $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
+          ?>
+          <nav class="navbar primary navbar-expand-sm d-none d-lg-flex">  
+            <?php
+              wp_nav_menu(array(
+              'theme_location'  => 'learning-menu',
+              'container'       => 'div',
+              'container_id'    => 'learning-nav',
+              'container_class' => 'justify-content-end',
+              'menu_id'         => false,
+              'menu_class'      => 'navbar-nav',
+              'depth'           => 3,
+              'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+              'walker'          => new wp_bootstrap_navwalker()
+              ));
+            ?>
+          </nav>
 
-            <nav class="navbar user-navbar navbar-collapse flex-column flex-nowrap" id="user-navbar">
+          <button class="mobile navbar-toggler collapsed d-block d-lg-none" type="button" data-toggle="collapse" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-brand d-block d-lg-none">
+            <a href="<?php echo get_home_url();?>" class="home-link font-titan">La Aldea</a>
+          </div>
+          <div class="user-link-container d-block d-lg-none">
+            <?php if($user_id != 0) : ?>
+              <button class="menu-button collapsed" type="button" data-toggle="collapse" data-target="#user-navbar">
+                <img src="<?php echo $avatar_url?>" alt="<?php _e('User avatar','wpb_child');?>">
+              </button>
+            <?php endif;?>
+          </div>
+
+          <nav class="navbar mobile-navbar align-items-start navbar-collapse collapse" id="learning-mobile-container" aria-expanded="false" aria-label="Toggle navigation">
+            <?php
+              wp_nav_menu(array(
+              'theme_location'  => 'learning-mobile',
+              'container'       => 'div',
+              'container_id'    => 'learning-mobile',
+              'container_class' => 'justify-content-end',
+              'menu_id'         => false,
+              'menu_class'      => 'navbar-nav',
+              'depth'           => 3,
+              'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+              'walker'          => new wp_bootstrap_navwalker()
+              ));
+            ?>
+          </nav>
+          <?php if($user_id != 0) : ?>
+            <nav class="navbar user-navbar flex-column flex-nowrap" id="user-navbar">
               <div class="container-fluid user-navbar-container">
                 <div class="row menu-header">
                   <div class="col-12 text-center">
                     <div class="user-avatar pb-3">
                       <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar','wpb_child');?>">
                     </div>
-                    <?php if(is_user_logged_in()) :?>
-                      <div class="user-name">
-                        <?php echo $user -> data -> display_name; ?>
-                      </div>
-                      <div class="user-email pb-3">
-                        <?php echo $user -> data -> user_email; ?>
-                      </div>
-                    <?php endif;?>
+                    <div class="user-name">
+                      <?php echo $user -> data -> display_name; ?>
+                    </div>
+                    <div class="user-email pb-3">
+                      <?php echo $user -> data -> user_email; ?>
+                    </div>
                     <div class="user-edit-link-container font-titan">
                       <a class="user-edit" href="<?php echo 'https://laaldea.co/editar-usuario/'?>"><?php _e('Editar Usuario','laaldea')?></a>
                     </div>
@@ -106,7 +131,7 @@
                 ?>
               </div>
             </nav>
-
+          <?php endif;?>
         </div>
 	</header><!-- #masthead -->
     <?php if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>

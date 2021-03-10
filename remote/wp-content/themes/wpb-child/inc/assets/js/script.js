@@ -149,6 +149,22 @@
         let $toggler = $(event.currentTarget);
         $toggler.parent(".navbar").toggleClass('show');
       });
+
+      //#learning-mobile-container
+    }
+
+    if($('.learning header#masthead').length > 0) {
+      $('header#masthead .mobile.navbar-toggler').on('click', function(event){
+        $(this).toggleClass('collapsed');
+        let toogleClass = $(this).attr('data-toggle');
+        let $navbar = $(this).siblings('.navbar.mobile-navbar');
+        $navbar.toggleClass(toogleClass);
+        $navbar.toggleClass('collapsing');
+        setTimeout(function(){
+          $navbar.toggleClass('collapsing');
+          $navbar.toggleClass('show');
+        },100);
+      })
     }
 
     if($('#covid').length > 0) {

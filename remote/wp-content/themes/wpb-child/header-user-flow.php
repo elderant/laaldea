@@ -48,7 +48,6 @@
             $user_id = get_current_user_id();
             $user = wp_get_current_user();
             $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
-            error_log(' avatar on header template : '. print_r($avatar_url,1));
           ?>
           <nav class="navbar primary navbar-expand d-none d-lg-flex">  
             <?php

@@ -46,7 +46,7 @@
             <div class="filter-title d-flex align-items-center">
               <button class="filter-control d-flex align-items-center justify-content-start">
                 <div class="filter-text d-flex align-items-center">
-                  <span class="h5 m-0 uppercase color-cyan"><?php _e('Por tema','laaldea');?></span>
+                  <span class="h5 m-0 uppercase color-cyan"><?php _e('Por tipo','laaldea');?></span>
                 </div>
                 <div class="filter-icon h5 m-0 px-3 color-cyan">
                   <span class="icon">+</span>

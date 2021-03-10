@@ -758,59 +758,6 @@
         dots: true,
         arrows: false,
       });
-
-      // let maxHeight = 0;
-      // let height;
-      // $('.news-container .new-section').each(function(){
-      //   $(this).css('display', 'block');
-      //   height = $(this).innerHeight();
-      //   if(height > maxHeight) {
-      //     maxHeight = height;
-      //   }
-      // });
-      // $('.news-container').css('height', maxHeight + 'px');
-      
-      // maxHeight = 0;
-      // height = 0;
-      // $('.forums-container .reply-section').each(function(){
-      //   $(this).css('display', 'block');
-      //   height = $(this).outerHeight();
-      //   if(height > maxHeight) {
-      //     maxHeight = height;
-      //   }
-      // });
-      // $('.forums-container').css('height', maxHeight + 'px');
-
-      // setInterval(function(){
-      //   $sibling = $('.news-container .new-section.active + .new-section');
-      //   $active = $('.news-container .new-section.active');
-
-      //   $replySibling = $('.forums-container .reply-section.active + .reply-section');
-      //   $replyActive = $('.forums-container .reply-section.active');
-
-      //   if($sibling.length == 0) {
-      //     $sibling = $('.news-container .new-section:first-child');
-      //   }
-
-      //   if($replySibling.length == 0) {
-      //     $replySibling = $('.forums-container .reply-section:first-child');
-      //   }
-
-      //   $active.fadeOut(500, function(){
-      //     $(this).toggleClass('active');
-      //   });
-      //   $sibling.fadeIn(500, function(){
-      //     $(this).toggleClass('active');
-      //   });
-
-      //   $replyActive.fadeOut(500, function(){
-      //     $(this).toggleClass('active');
-      //   });
-      //   $replySibling.fadeIn(500, function(){
-      //     $(this).toggleClass('active');
-      //   });
-      // },4000);
-      
     }
 
     if($('.bbpress').length > 0) {

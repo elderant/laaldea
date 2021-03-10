@@ -325,9 +325,9 @@ function laaldea_build_learning_home () {
   // Current courses query
   $user_id = tutor_utils()->get_user_id();
   $course_ids = tutor_utils()->get_enrolled_courses_ids_by_user($user_id);
+  $course_post_type = tutor() -> course_post_type;
 
   if (count($course_ids)){
-    $course_post_type = tutor() -> course_post_type;
     $course_args = array(
       'post_type'     => $course_post_type,
       'post_status'   => 'publish',
@@ -339,24 +339,28 @@ function laaldea_build_learning_home () {
     $wp_query -> query_vars['laaldea_args']['current_courses'] = $current_courses;
 
     if($current_courses == null) {
-      error_log('$current_courses == null');
-      error_log('user_id : ' . print_r($user_id));
-      error_log('$course_post_type : ' . print_r($course_post_type));
-      error_log('$course_ids : ' . print_r($course_ids));
-      error_log('$posts_per_page : ' . print_r($posts_per_page));
-      error_log('$current_courses : ' . print_r($user_id));
+      // error_log('$current_courses == null');
+      // error_log('user_id : ' . print_r($user_id));
+      // error_log('$course_post_type : ' . print_r($course_post_type));
+      // error_log('$course_ids : ' . print_r($course_ids));
+      // error_log('$posts_per_page : ' . print_r($posts_per_page));
+      // error_log('$current_courses : ' . print_r($user_id));
     }
-
-    $course_args = array(
-      'post_type'       => $course_post_type,
-      'post_status'     => 'publish',
-      'post__not_in'    => $course_ids,
-      'posts_per_page'  => $posts_per_page/2,
-    );
-
-    $recommended_courses = new WP_Query($course_args);
-    $wp_query -> query_vars['laaldea_args']['recommended_courses'] = $recommended_courses;
   }
+  else {
+    $course_ids = array();
+    $wp_query -> query_vars['laaldea_args']['current_courses'] = new WP_Query();
+  }
+
+  $course_args = array(
+    'post_type'       => $course_post_type,
+    'post_status'     => 'publish',
+    'post__not_in'    => $course_ids,
+    'posts_per_page'  => $posts_per_page,
+  );
+
+  $recommended_courses = new WP_Query($course_args);
+  $wp_query -> query_vars['laaldea_args']['recommended_courses'] = $recommended_courses;
 
   $user = get_userdata( get_current_user_id() );
   $avatar_url = get_user_meta( get_current_user_id(), 'user_avatar', true);

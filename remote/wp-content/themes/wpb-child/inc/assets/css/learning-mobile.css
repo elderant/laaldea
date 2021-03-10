@@ -46,6 +46,10 @@
     font-size: 1em;
   }
 
+  #page.learning header#masthead .user-link-container img {
+    height: 40px;
+  }
+
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -102,9 +106,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -159,6 +163,10 @@
     font-size: 1.5em;
   }
 
+  #page.learning header#masthead .user-link-container img {
+    height: 60px;
+  }
+
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -215,9 +223,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -316,9 +324,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -413,9 +421,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -510,9 +518,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -607,9 +615,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -704,9 +712,9 @@
     font-size: 1.05rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -801,9 +809,9 @@
     font-size: 1.1rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {
@@ -898,9 +906,9 @@
     font-size: 1.1rem;
   }
 
-  html .user-flow, body.user-flow, .user-flow p, .user-flow .p, 
-  html .bbpress , body.bbpress, .bbpress p, .bbpress .p,
-  html .learning , body .learning, .learning p, .learning .p,
+  html, body.user-flow, .user-flow p, .user-flow .p, 
+  body.bbpress, .bbpress p, .bbpress .p,
+  body .learning, .learning p, .learning .p,
   .course-sidebar .tutor-course-topics-contents .tutor-course-title h4,
   .lesson-sidebar .tutor-topics-in-single-lesson .tutor-topics-title h3,
   #bbpress-forums {

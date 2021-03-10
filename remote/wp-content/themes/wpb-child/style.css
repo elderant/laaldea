@@ -700,7 +700,7 @@ header#masthead .navbar.secondary ul > li > a:focus {
 }
 
 #page.learning header#masthead .navbar.user-navbar.show {
-  height: 390px;
+  height: auto;
   border-width: 1px;
 }
 
@@ -853,6 +853,12 @@ header#masthead .navbar.secondary ul > li > a:focus {
 #page.learning header#masthead nav.navbar.mobile-navbar a {
   font-size: inherit;
   color: var(--gray);
+}
+
+#page.learning header#masthead nav.navbar.mobile-navbar a:focus,
+#page.learning header#masthead nav.navbar.mobile-navbar li.active a {
+  font-weight: 400;
+  color: var(--cyan);
 }
 
 
@@ -1408,46 +1414,6 @@ html .learning , body .learning, .learning p, .learning .p,
   text-align: center;
 }
 
-/* .user-flow #register-form .radio-buttons,
-.user-flow #user-update-form .radio-buttons {
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.user-flow #register-form .radio-buttons .avatar-container,
-.user-flow #user-update-form .radio-buttons .avatar-container {
-  position: relative;
-  height: 135px;
-  width: 135px;
-  margin: 0.25rem 0.25rem;
-}
-
-.user-flow #register-form .radio-buttons input[type="radio"],
-.user-flow #user-update-form .radio-buttons input[type="radio"] {
-  position: absolute;
-  height: 0;
-  width: 0;
-}
-
-.user-flow #register-form .radio-buttons label,
-.user-flow #user-update-form .radio-buttons label {
-  border-radius: 50%;
-  padding: 0;
-  margin: 0;
-  border: 0px solid var(--white);
-  transition: all 0.5s ease-in-out;
-}
-
-.user-flow #register-form .radio-buttons input[type="radio"]:checked ~ label,
-.user-flow #user-update-form .radio-buttons input[type="radio"]:checked ~ label {
-  border-width: 4px;
-  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
-} */
-
 .user-flow .login-info,
 .user-flow .error,
 .user-flow .notice {
@@ -1742,12 +1708,12 @@ button.button.learning-button:hover {
   color: var(--gray);
 }
 
-.learning h1, .learning h2, .learning h3, .learning h4, .learning h5 {
+.learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6 {
   text-transform: uppercase;
 }
 
 .learning h6 {
-  text-transform: none;
+  /* text-transform: none; */
 }
 
 .learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6,

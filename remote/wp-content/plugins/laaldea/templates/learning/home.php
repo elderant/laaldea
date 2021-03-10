@@ -11,7 +11,7 @@
 
 <section id="learning-home" class="d-flex align-items-center justify-content-center">
   <div class="container-fluid">
-    <div class="row learning-home-greet-row mb-5 mt-5">
+    <div class="row learning-home-greet-row mb-5 mt-0 mt-lg-5">
       <img src="/wp-content/uploads/learning-home-greet-image.png" alt="<?php _e('Imagen del fondo del saludo.','laaldea');?>">
       <div class="greet-texts-container">
         <div class="general-greet h6">
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="row learning-home-row">
-      <div class="col-12 col-sm-7 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-7 offset-xl-1 left-column px-5">
+      <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-0 col-xl1-8 offset-xl1-0 col-xl-7 offset-xl-1 left-column">
         <div class="area-container tools-area">
           <div class="row title-row">
             <div class="col-12">
@@ -44,8 +44,8 @@
                     ?>
                     <div class="tool-container">
                       <a href="/tools/?id=<?php echo $id;?>" class="tool-link">
-                        <div class="row justify-content-between align-items-start">
-                          <div class="thumbnail-container col-4 d-flex align-items-center justify-content-start">
+                        <div class="row justify-content-between align-items-center">
+                          <div class="thumbnail-container col-12 col-sm-4">
                             <?php if(has_post_thumbnail()) :?>
                               <?php the_post_thumbnail( 'medium' ); ?>
                             <?php else :?>
@@ -63,7 +63,7 @@
                               </span>
                             <?php endif;?>
                           </div>
-                          <div class="description-container col-8 d-flex align-items-start flex-column">
+                          <div class="description-container col-12 mt-3 col-sm-8 mt-sm-0 d-flex align-items-start flex-column">
                             <div class="entry-header mb-3">
                               <h6 class="font-titan color-gray px-0 mb-1"><?php the_title();?></h6>
                             </div>
@@ -111,11 +111,11 @@
                       $class = $i == 1? ' active': '';
                     ?>
                     <div class="new-section <?php echo $class?>">
-                      <div class="new-container row justify-content-between align-items-start">
-                        <div class="thumbnail-container col-4">
+                      <div class="new-container row justify-content-between align-items-center">
+                        <div class="thumbnail-container col-12 col-sm-4">
                           <?php the_post_thumbnail( 'medium' );?>
                         </div>
-                        <div class="info-container col-8 d-flex align-items-start flex-column">
+                        <div class="info-container col-12 mt-3 col-sm-8 mt-sm-0 d-flex align-items-start flex-column">
                           <div class="entry-header mb-3">
                             <h6 class="title-container font-titan color-gray px-0 mb-1">
                               <a href="/noticias/?id=<?php echo get_the_id();?>"><?php the_title();?></a>
@@ -175,8 +175,8 @@
                     ?>
                     <div class="reply-section <?php echo $class;?>">
                       <div class="reply-container d-flex flex-wrap align-items-center">
-                        <div class="bbp-reply-author col-4">
-                          <div class="author-container d-flex align-items-center">
+                        <div class="bbp-reply-author col-12 col-sm-4">
+                          <div class="author-container d-flex">
                             <div class="avatar-container">
                               <?php 
                                 $reply_author_id = bbp_get_reply_author_id();
@@ -186,7 +186,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="info-container col-8 d-flex align-items-start flex-column">
+                        <div class="info-container col-12 mt-3 col-sm-8 mt-sm-0 d-flex align-items-start flex-column">
                           <div class="entry-header mb-3">
                             <h6 class="topic-link-container px-0">
                               <a class="bbp-topic-permalink font-titan mb-1" href="<?php bbp_topic_permalink($topic_id); ?>">
@@ -221,10 +221,10 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-3 col-xl1-10 offset-xl1-1 col-xl-3 right-column px-5">
+      <div class="col-12 col-md-10 offset-md-1 col-lg-4 offset-lg-0 col-xl1-4 offset-xl1-0 col-xl-3 right-column">
         <div class="area-container current-area">
           <div class="row title-row">
-            <div class="col-10">
+            <div class="col-12">
               <h4 class="font-titan uppercase color-cyan d-flex align-items-end">
                 <div class="icon-container current">
                   <?php include ABSPATH . 'wp-content/uploads/learning-home-pending-icon.svg';?>
@@ -232,13 +232,10 @@
                 <span class="text-container"><?php _e('En curso','laaldea');?></span>
               </h4>
             </div>
-            <div class="col-2 hidden">
-              Awards Placeholder
-            </div>
           </div>
           <div class="row current-row">
             <div class="col-12">
-              <div class="current-container">
+              <div class="current-container d-flex d-lg-block align-items-center justify-content-around flex-wrap">
                 <?php if( $current_courses -> have_posts() ) : ?>
                   <?php $i = 0;?>
                   <?php while ($current_courses -> have_posts()) : ?>
@@ -305,7 +302,7 @@
           </div>
           <div class="row course-row">
             <div class="col-12">
-              <div class="recommended-container">
+              <div class="recommended-container d-flex d-lg-block align-items-center justify-content-around flex-wrap">
                 <?php if( $recommended_courses -> have_posts() ) : ?>
                   <?php $i = 0;?>
                   <?php while ($recommended_courses -> have_posts()) : ?>

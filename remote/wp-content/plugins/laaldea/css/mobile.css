@@ -21,35 +21,343 @@
 @media screen and (max-width: 991px) {}
 
 /*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
-@media only screen and (max-width: 400px) {}
+@media only screen and (max-width: 400px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+
+  #learning-home .left-column,
+  #learning-home .right-column {
+    padding: 0 1rem 0 calc(1rem + 37px);
+  }
+  
+  #learning-home .title-row .icon-container img {
+    width: 45px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .area-container.current-area .title-row h4, 
+  #learning-home .area-container.courses-area .title-row h4 {
+    border-bottom: 1px solid var(--cyan);
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 0.5rem;
+    width: 75%;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 60px;
+    line-height: 60px;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent {
+    transform: translate(-60%, -50%);
+  }
+
+  #learning-home .recommended-container .course-container {
+    padding: 0;
+  }
+}
 
 /*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
-@media screen and (min-width: 401px) and (max-width: 575px) {}
+@media screen and (min-width: 401px) and (max-width: 575px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+
+  #learning-home .left-column,
+  #learning-home .right-column {
+    padding: 0 1rem 0 calc(1rem + 37px);
+  }
+  
+  #learning-home .title-row .icon-container img {
+    width: 45px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .area-container.current-area .title-row h4, 
+  #learning-home .area-container.courses-area .title-row h4 {
+    border-bottom: 1px solid var(--cyan);
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 0.5rem;
+    width: 75%;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 60px;
+    line-height: 60px;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent {
+    transform: translate(-60%, -50%);
+  }
+
+  #learning-home .recommended-container .course-container {
+    padding: 0;
+  }
+}
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
-@media screen and (min-width: 576px) and (max-width: 649px) {}
+@media screen and (min-width: 576px) and (max-width: 649px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+
+  #learning-home .left-column,
+  #learning-home .right-column {
+    padding: 0 1rem 0 calc(1rem + 37px);
+  }
+  
+  #learning-home .title-row .icon-container img {
+    width: 45px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 100px;
+    width: auto;
+  }
+
+  #learning-home .area-container.current-area .title-row h4, 
+  #learning-home .area-container.courses-area .title-row h4 {
+    border-bottom: 1px solid var(--cyan);
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 0.5rem;
+    width: 40%;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 60px;
+    line-height: 60px;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent {
+    transform: translate(-60%, -50%);
+  }
+
+  #learning-home .recommended-container .course-container {
+    padding: 0;
+  }
+}
 
 /*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
-@media screen and (min-width: 650px) and (max-width: 767px) {}
-
-/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
-@media screen and (min-width: 768px) and (max-width: 991px) {}
-
-/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
-@media screen and (min-width: 992px) and (max-width: 1199px) {}
-
-/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
-@media screen and (min-width: 1200px) and (max-width: 1279px) {
+@media screen and (min-width: 650px) and (max-width: 767px) {
+  /* home */
   #learning-home .left-column {
     border-right: none;
   }
   
-  #learning-home .area-container.forum-area {
-    border-bottom: 4px dashed var(--cyan);
+  #learning-home .left-column,
+  #learning-home .right-column {
+    padding: 0 1rem 0 calc(1rem + 37px);
   }
 
   #learning-home .title-row .icon-container img {
+    width: 45px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 125px;
+    width: auto;
+  }
+
+  #learning-home .area-container.current-area .title-row h4, 
+  #learning-home .area-container.courses-area .title-row h4 {
+    border-bottom: 1px solid var(--cyan);
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 0.5rem;
+    width: 40%;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 60px;
+    line-height: 60px;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent {
+    transform: translate(-60%, -50%);
+  }
+
+  #learning-home .recommended-container .course-container {
+    padding: 0;
+  }
+}
+
+/*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+  
+  #learning-home .title-row .icon-container img {
     width: 50px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 100px;
+    width: auto;
+  }
+
+  #learning-home .area-container.current-area .title-row h4, 
+  #learning-home .area-container.courses-area .title-row h4 {
+    border-bottom: 1px solid var(--cyan);
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container,
+  #learning-home .recommended-container .course-container {
+    margin: 0 0.5rem;
+    width: 25%;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: auto;
+    width: 100%;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
+    width: 60px;
+    line-height: 60px;
+  }
+
+  #learning-home .current-container .course-container .tutor-course-completion-percent {
+    transform: translate(-60%, -50%);
+  }
+
+  #learning-home .recommended-container .course-container {
+    padding: 0;
+  }
+}
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+  #learning-home .left-column {padding: 0 3rem 0 5rem;}
+  #learning-home .right-column {padding: 0 5rem 0 3rem;}
+  
+  #learning-home .title-row .icon-container img {
+    width: 50px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 100px;
+    width: auto;
   }
 
   #learning-home .current-container .course-container .course-button,
@@ -61,7 +369,40 @@
 
   #learning-home .current-container .course-container .course-button img,
   #learning-home .recommended-container .course-button img {
-    height: 175px;
+    height: 125px;
+  }
+}
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
+  /* home */
+  #learning-home .left-column {
+    border-right: none;
+  }
+  #learning-home .left-column {padding: 0 3rem 0 5rem;}
+  #learning-home .right-column {padding: 0 5rem 0 3rem;}
+  
+  #learning-home .title-row .icon-container img {
+    width: 50px;
+  }
+
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 125px;
+    width: auto;
+  }
+
+  #learning-home .current-container .course-container .course-button,
+  #learning-home .recommended-container .course-button {
+    display: inline-block !important;
+    width: auto;
+    min-height: unset;
+  }
+
+  #learning-home .current-container .course-container .course-button img,
+  #learning-home .recommended-container .course-button img {
+    height: 150px;
   }
 
   /* tools */
@@ -171,26 +512,18 @@
   #learning-home .left-column {
     border-right: none;
   }
+  #learning-home .left-column {padding: 0 3rem 0 5rem;}
+  #learning-home .right-column {padding: 0 5rem 0 3rem;}
   
-  #learning-home .area-container.forum-area {
-    border-bottom: 4px dashed var(--cyan);
-  }
-
   #learning-home .title-row .icon-container img {
     width: 50px;
   }
 
-  #learning-home .current-container,
-  #learning-home .recommended-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  #learning-home .current-container .course-container,
-  #learning-home .recommended-container .course-container {
-    margin: 0 1rem;
+  #learning-home .tool-container .thumbnail-container img,
+  #learning-home .new-container .thumbnail-container img,
+  #learning-home .reply-container .bbp-reply-author img {
+    height: 150px;
+    width: auto;
   }
 
   #learning-home .current-container .course-container .course-button,
@@ -202,7 +535,7 @@
 
   #learning-home .current-container .course-container .course-button img,
   #learning-home .recommended-container .course-button img {
-    height: 175px;
+    height: 150px;
   }
 
   /* tools */
@@ -321,10 +654,6 @@
     width: 40px;
   }
 
-  #learning-home .tools-carousel {
-    max-width: 85%;
-  }
-
   #learning-home .current-container .course-container .course-button,
   #learning-home .recommended-container .course-button {
     min-height: unset;
@@ -402,6 +731,10 @@
     font-size: 1em;
   }
 
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto 0 4rem;
+  }
+
   #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {
     width: 80px;
     line-height: 80px;
@@ -411,6 +744,10 @@
 @media screen and (min-width: 1920px) {
   #learning-home .learning-home-greet-row .general-greet p {
     font-size: 1.15em;
+  }
+
+  #learning-home .current-container .course-container .course-button {
+    margin: 0 auto 0 4rem;
   }
 
   #learning-home .current-container .course-container .tutor-course-completion-percent .percent-container {

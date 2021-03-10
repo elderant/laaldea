@@ -41,7 +41,7 @@
     </div>
     <div class="col-7 content-column">
       <div class="entry-header mb-3">
-        <h6 class="font-titan color-cyan"><?php echo $title;?></h6>
+        <h6 class="font-titan"><?php echo $title;?></h6>
       </div>
       <div class="d-flex align-items-center description-container">
         <?php if(!empty($content)) :
