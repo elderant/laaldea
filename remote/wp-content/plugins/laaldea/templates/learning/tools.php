@@ -14,7 +14,7 @@
       <h2><?php _e('Contenidos','laaldea');?></h2>
     </div>
     <div class="row tools-row">
-      <div class="col-10 offset-1 col-sm-2 offset-sm-1 col-xl1-10 offset-xl1-1 col-xl-2 offset-xl-1 sidebar">
+      <div class="col-12 offset-0 order-2 col-lg-3 offset-lg-0 order-lg-1 col-xl1-3 offset-xl1-0 col-xl-2 offset-xl-1 sidebar">
         <div class="tools-sidebar-container" data-top="240">
           <div class="title-container d-flex align-items-center mb-3">
             <div class="icon-container">
@@ -28,7 +28,7 @@
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 m-0 uppercase color-cyan"><?php _e('Por libro','laaldea');?></span>
                 </div>
-                <div class="filter-icon h5 m-0 px-3 color-cyan">
+                <div class="filter-icon h5 m-0 color-cyan">
                   <span class="icon">+</span>
                   <span class="icon hidden">-</span>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 m-0 uppercase color-cyan"><?php _e('Por tipo','laaldea');?></span>
                 </div>
-                <div class="filter-icon h5 m-0 px-3 color-cyan">
+                <div class="filter-icon h5 m-0 color-cyan">
                   <span class="icon">+</span>
                   <span class="icon hidden">-</span>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="filter-text d-flex align-items-center">
                   <span class="h5 m-0 uppercase color-cyan"><?php _e('Por actividad','laaldea');?></span>
                 </div>
-                <div class="filter-icon h5 m-0 px-3 color-cyan">
+                <div class="filter-icon h5 m-0 color-cyan">
                   <span class="icon">+</span>
                   <span class="icon hidden">-</span>
                 </div>
@@ -111,8 +111,8 @@
         </div>
       </div>
 
-      <div class="col-10 offset-1 col-sm-8 offset-sm-0 col-xl1-10 offset-xl1-1 col-xl-8 main-container">
-        <div class="target-filter-container d-flex align-items-center">
+      <div class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-2 col-xl1-9 offset-xl1-0 col-xl-8 main-container">
+        <div class="target-filter-container d-flex align-items-center flex-column flex-sm-row">
           <div class="filter-label h5 uppercase font-sassoon color-cyan"><?php _e('Filtro: ', 'laaldea');?></div>
           <button class="docente-target-filter-button d-flex align-items-center filter-button" data-filter="docente">
             <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Docentes','laaldea');?></div>

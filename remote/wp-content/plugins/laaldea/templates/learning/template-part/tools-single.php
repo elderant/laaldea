@@ -17,7 +17,7 @@
 <div class="<?php echo $container_class; ?>">
   <img class="tool-background-image" src="/wp-content/uploads/tools-single-background.png" alt="<?php _e('Tool item background','laaldea')?>">
   <div class="row top-row py-3 px-4">
-    <div class="col-4 thumbnail-column">
+    <div class="col-11 col-md-4 thumbnail-column">
       <div class="thumbnail-container d-flex align-items-center justify-content-center">
         <a href="<?php echo $tool?>" class="view-link type-<?php echo $type;?>" target="_blank" data-postId="<?php echo $post_id;?>" data-type="<?php echo $type;?>" data-link="<?php echo $link;?>">
           <?php if($has_thumbnail) :?>
@@ -39,7 +39,7 @@
         </a>
       </div>
     </div>
-    <div class="col-7 content-column">
+    <div class="col-11 col-md-7 content-column">
       <div class="entry-header mb-3">
         <h6 class="font-titan"><?php echo $title;?></h6>
       </div>
@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="row middle-row pb-3 px-4">
-    <div class="col-4 related-column">
+    <div class="col-11 order-2 col-md-4 order-md-1 related-column">
       <?php if(!empty($related)) : ?>
         <div class="related-title-container">
           <span class="color-cyan font-sassoon uppercase p-0"><?php _e('Contenidos relacionados','laaldea');?></h6>
@@ -84,34 +84,34 @@
         <?php endfor; ?>
       <?php endif; ?>
     </div>
-    <div class="col-7 links-column d-flex justify-content-around align-items-center">
-      <div class="download-link-section">
-        <a class="d-flex align-items-center" href="<?php echo $link_download?>" download>
+    <div class="col-11 order-1 col-md-7 order-md-2 links-column d-flex justify-content-around align-items-center flex-column flex-sm-row">
+      <div class="download-link-section link-section">
+        <a class="d-flex align-items-center justify-content-center" href="<?php echo $link_download?>" download>
           <div class="icon-container">
             <?php include ABSPATH . 'wp-content/uploads/tools-button-download.svg';?>
           </div>
-          <div class="link-text download-text uppercase">
+          <div class="link-text download-text uppercase line-height-12">
             <?php _e('Descarga aquí','laaldea');?>
           </div>
         </a>
       </div>
-      <div class="resource-section">
-        <button class="link-container d-flex align-items-center" data-url="<?php echo $tool;?>">
+      <div class="resource-section link-section">
+        <button class="link-container d-flex align-items-center justify-content-center" data-url="<?php echo $tool;?>">
           <div class="icon-container">
             <?php include ABSPATH . 'wp-content/uploads/tools-button-copy.svg';?>
           </div>
-          <div class="link-text copy-text uppercase">
+          <div class="link-text copy-text uppercase line-height-12">
             <?php _e('Copiar vínculo','laaldea');?>
           </div>
           <span class="tooltiptext"><?php _e('Texto Copiado','laaldea');?></span>
         </button>
       </div>
-      <div class="follow-section">
-        <button class="d-flex align-items-center" data-postId="<?php echo $post_id;?>" data-add="<?php echo $follow_status; ?>"<?php echo $follow_status==-1?' disabled':'';?>>
+      <div class="follow-section link-section">
+        <button class="d-flex align-items-center justify-content-center" data-postId="<?php echo $post_id;?>" data-add="<?php echo $follow_status; ?>"<?php echo $follow_status==-1?' disabled':'';?>>
           <div class="icon-container">
             <?php include ABSPATH . 'wp-content/uploads/tools-filter-follow.svg';?>
           </div>
-          <div class="link-text follow-text uppercase">
+          <div class="link-text follow-text uppercase line-height-12">
             <?php _e('Agregar a favoritos','laaldea');?>
           </div>
         </button>

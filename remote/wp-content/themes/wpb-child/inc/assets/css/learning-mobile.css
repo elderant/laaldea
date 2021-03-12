@@ -132,7 +132,7 @@
 
   .user-flow #content > .container-fluid > .row {
     padding: 4rem 0rem 6rem;
-    background-position: 49% 10%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
+    background-position: 50% 16%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
     background-size: 26%, 90% calc(100% - 15rem), auto 61vw, auto 45vw;
   }
 
@@ -249,7 +249,7 @@
 
   .user-flow #content > .container-fluid > .row {
     padding: 4rem 0rem 6rem;
-    background-position: 49% 9%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
+    background-position: 50% 11%, 18% calc(50% + 2rem), 75% 2%, 33% 93%;
     background-size: 24%, 90% calc(100% - 15rem), auto 61vw, auto 45vw;
   }
 
@@ -539,8 +539,8 @@
   }
 
   .user-flow #content > .container-fluid > .row {
-    padding: 12rem 1rem 8rem;
-    background-position: 50% 17%, 50% calc(50% + 4rem), 34% 10%, 48% 94%;
+    padding: 9rem 1rem 8rem;
+    background-position: 50% 19%, 50% calc(50% + 4rem), 34% 10%, 48% 94%;
     background-size: 15%, 41% calc(100% - 21rem), auto 33vw, auto 25.5vw;
   }
 

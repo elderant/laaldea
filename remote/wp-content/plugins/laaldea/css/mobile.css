@@ -16,9 +16,57 @@
 
 
 /*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  #tools .tool-container .top-row .thumbnail-column,
+  #tools .tool-container .middle-row .links-column {
+    padding-bottom: 1rem;
+  }
+}
 
-@media screen and (max-width: 991px) {}
+@media screen and (max-width: 991px) {
+  .page-template-learning #content.site-content {
+    padding: 1rem;
+  }
+
+  .page-template-learning #primary .entry-content {
+    margin: 0;
+  }
+
+  /* tools */
+  #tools .sidebar  {
+    margin: 2rem 0;
+    border-top: 1px solid var(--cyan);
+    border-right: none;
+    padding-top: 2rem;
+  }
+
+  #tools .target-filter-container,
+  #tools .target-filter-container.fixed {
+    z-index: initial;
+    position: static;
+    top: unset;
+    left: unset;
+    width: auto;
+    padding: 0 0 0 8.333333%;
+    background-color: transparent;
+  }
+
+  #tools .tools-sidebar-container.fixed {
+    position: static;
+    width: auto;
+    top: unset;
+    overflow-y: auto;
+    max-height: unset;
+  }
+
+  #tools .target-filter-container button:first-child {
+    padding-left: 1rem;
+  }
+
+  #tools .tools-container {
+    padding-top: calc(2rem);
+  }
+}
 
 /*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
 @media only screen and (max-width: 400px) {
@@ -82,6 +130,36 @@
 
   #learning-home .recommended-container .course-container {
     padding: 0;
+  }
+
+  /* tools */
+  #tools .target-filter-container .filter-label,
+  #tools .target-filter-container button.filter-button {
+    margin-bottom: 1rem;
+  }
+
+  #tools .tool-container .tool-background-image {
+    left: -19px;
+  }
+
+  #tools .tool-container .links-column .link-section {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+
+  #tools .tool-container .links-column .link-section a,
+  #tools .tool-container .links-column .link-section button {
+    margin: 0 auto;
+  }
+
+  #tools .tool-container .links-column .link-section:last-child {
+    padding-bottom: 0;
+  }
+
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
 }
 
@@ -148,6 +226,36 @@
   #learning-home .recommended-container .course-container {
     padding: 0;
   }
+
+  /* tools */
+  #tools .target-filter-container .filter-label,
+  #tools .target-filter-container button.filter-button {
+    margin-bottom: 1rem;
+  }
+
+  #tools .tool-container .tool-background-image {
+    left: -19px;
+  }
+
+  #tools .tool-container .links-column .link-section {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+
+  #tools .tool-container .links-column .link-section a,
+  #tools .tool-container .links-column .link-section button {
+    margin: 0 auto;
+  }
+
+  #tools .tool-container .links-column .link-section:last-child {
+    padding-bottom: 0;
+  }
+
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
+  }
 }
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
@@ -212,6 +320,16 @@
 
   #learning-home .recommended-container .course-container {
     padding: 0;
+  }
+
+  /* tools */
+  #tools .tool-container .tool-background-image {
+    left: -25px;
+  }
+
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
 }
 
@@ -278,6 +396,11 @@
   #learning-home .recommended-container .course-container {
     padding: 0;
   }
+
+  /* tools */
+  #tools .tool-container .tool-background-image {
+    left: -30px;
+  }
 }
 
 /*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
@@ -338,6 +461,12 @@
   #learning-home .recommended-container .course-container {
     padding: 0;
   }
+
+  /* tools */
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
+  }
 }
 
 /*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
@@ -370,6 +499,37 @@
   #learning-home .current-container .course-container .course-button img,
   #learning-home .recommended-container .course-button img {
     height: 125px;
+  }
+
+  /* tools */
+  #tools .tools-sidebar-container {
+    padding-left: 60px;
+  }
+
+  #tools .target-filter-container.fixed {
+    top: 103px;
+  }
+
+  #tools .tools-sidebar-container.fixed {
+    top: calc(103px + 1rem);
+    left: calc(15px);
+    width: calc(25vw - 30px);
+    max-height: calc(100vh - 103px - 78px - 2rem - 3.75rem);
+    padding-left: 60px;
+  }
+
+  #tools .sidebar .filters-container .filter-control .h5.filter-icon {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  #tools .sidebar .filters-container .term-container button span {
+    padding: 0;
+  }
+
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
 }
 
@@ -406,39 +566,25 @@
   }
 
   /* tools */
-  #tools .sidebar  {
-    border-right: none;
+  #tools .tools-sidebar-container {
+    padding-left: 60px;
   }
 
-  #tools .sidebar .tag-cloud-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  #tools .target-filter-container,
   #tools .target-filter-container.fixed {
-    z-index: 20;
-    position: static;
-    top: unset;
-    left: unset;
-    width: auto;
-    padding-top: 1.5rem;
-    border-top: 4px dashed var(--cyan);
-    border-bottom: 4px dashed var(--cyan);
-    background-color: white;
-    padding-left: 0;
+    top: 103px;
   }
 
   #tools .tools-sidebar-container.fixed {
-    position: static;
-    width: auto;
-    top: unset;
-    overflow-y: auto;
-    max-height: unset;
+    top: calc(103px + 1rem);
+    left: calc(15px);
+    width: calc(25vw - 30px);
+    max-height: calc(100vh - 103px - 78px - 2rem - 3.75rem);
+    padding-left: 60px;
   }
 
-  #tools .target-filter-container button:first-child {
-    padding-left: 1rem;
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
   
   /* forum */
@@ -539,39 +685,25 @@
   }
 
   /* tools */
-  #tools .sidebar  {
-    border-right: none;
+  #tools .tools-sidebar-container {
+    padding-left: 60px;
   }
 
-  #tools .sidebar .tag-cloud-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  #tools .target-filter-container,
   #tools .target-filter-container.fixed {
-    z-index: 20;
-    position: static;
-    top: unset;
-    left: unset;
-    width: auto;
-    padding-top: 1.5rem;
-    border-top: 4px dashed var(--cyan);
-    border-bottom: 4px dashed var(--cyan);
-    background-color: white;
-    padding-left: 0;
+    top: 105px;
   }
 
   #tools .tools-sidebar-container.fixed {
-    position: static;
-    width: auto;
-    top: unset;
-    overflow-y: auto;
-    max-height: unset;
+    top: calc(105px + 1rem);
+    left: calc(15px);
+    width: calc(25vw - 30px);
+    max-height: calc(100vh - 105px - 78px - 2rem - 3.75rem);
+    padding-left: 60px;
   }
 
-  #tools .target-filter-container button:first-child {
-    padding-left: 1rem;
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
 
   /* courses archive */
@@ -661,18 +793,17 @@
 
   /* tools */
   #tools .target-filter-container.fixed {
-    top: 118px;
+    top: 108px;
   }
 
-  #tools .sidebar .filters-container .term-container button,
-  #tools .sidebar .filters-container.follow button {
-    padding: 0;
-    padding-left: calc(1rem);
+  #tools .tools-sidebar-container.fixed {
+    top: calc(108px + 1rem);
+    max-height: calc(100vh - 108px - 78px - 2rem - 3.75rem);
   }
 
-  #tools .sidebar .tag-cloud-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.85em;
   }
 
   /* courses archive */
@@ -722,6 +853,21 @@
   .lesson-sidebar .tutor-lesson-loop-meta .meta-container img {
     height: 30px;
     margin-right: 0.5rem;
+  }
+
+  /* tools */
+  #tools .sidebar .filters-container .filter-control .h5.filter-icon {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  #tools .sidebar .filters-container .term-container button span {
+    padding: 0;
+  }
+
+  #tools .tool-container .links-column .icon-container, 
+  #tools .tool-container .links-column .link-text {
+    font-size: 0.75em;
   }
 }
 
