@@ -33,11 +33,8 @@
     <?php if(!empty($adjacent_post)) : ?>
       <?php $adjacent_post_id = $adjacent_post -> ID;?>
       <button class="load-more-link" data-postId="<?php echo $adjacent_post_id?>">
-        <div class="text-container h6">
-          <span><?php echo get_the_title($adjacent_post_id); ?></span>
-        </div>
-        <div class="image-container">
-          <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
+        <div class="text-container h6 uppercase">
+          <span><?php _e('Ver más','laaldea');?></span>
         </div>
       </button>
     <?php endif;?>

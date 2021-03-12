@@ -24,11 +24,13 @@
 }
 
 @media screen and (max-width: 991px) {
-  .page-template-learning #content.site-content {
+  .page-template-learning #content.site-content,
+  .bbpress #content.site-content {
     padding: 1rem;
   }
 
-  .page-template-learning #primary .entry-content {
+  .page-template-learning #primary .entry-content,
+  .bbpress #primary .entry-content {
     margin: 0;
   }
 
@@ -161,6 +163,72 @@
   #tools .tool-container .links-column .link-text {
     font-size: 0.85em;
   }
+
+  /* forum */
+  .bbpress {
+    background: none;
+  }
+
+  #bbpress-forums div.bbp-search-form {
+    float: none;
+    padding-bottom: 1rem;
+  }
+
+  .bbpress #bbpress-forums #bbp-search-form {
+    padding: 0;
+  }
+
+  .bbpress #bbpress-forums #bbp-search-form div {
+    display: flex;
+  }
+
+  .bbpress #bbpress-forums #bbp-search-form input[name="bbp_search"] {
+    order: 2;
+  }
+
+  .bbpress .forum-section #bbpress-forums .bbp-forums .bbp-forum-info .bbp-forum-content {
+    padding: 1rem 0 0 2rem;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 125px auto;
+    background-position: 40px 100px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 125px;
+  }
+
+  #news .news-row .sidebar {
+    border: none;
+  }
+
+  #news .news-row .sidebar .new-container {
+    width: 100%;
+  }
+  
+  .blocks-gallery-grid .blocks-gallery-image, 
+  .blocks-gallery-grid .blocks-gallery-item, 
+  .wp-block-gallery .blocks-gallery-image, 
+  .wp-block-gallery .blocks-gallery-item {
+    width: 100%;
+  }
 }
 
 /*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
@@ -256,6 +324,51 @@
   #tools .tool-container .links-column .link-text {
     font-size: 0.85em;
   }
+
+  /* forum */
+  .bbpress {
+    background: none;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 125px auto;
+    background-position: 40px 100px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 125px;
+  }
+
+  #news .news-row .sidebar {
+    border: none;
+  }
+
+  #news .news-row .sidebar .new-container {
+    width: 100%;
+  }
+
+  .blocks-gallery-grid .blocks-gallery-image, 
+  .blocks-gallery-grid .blocks-gallery-item, 
+  .wp-block-gallery .blocks-gallery-image, 
+  .wp-block-gallery .blocks-gallery-item {
+    width: 100%;
+  }
 }
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
@@ -331,6 +444,45 @@
   #tools .tool-container .links-column .link-text {
     font-size: 0.85em;
   }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 230px;
+    background-size: 75px;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 120px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 125px;
+  }
+
+  #news .news-row .sidebar {
+    border: none;
+  }
+
+  #news .news-row .sidebar .new-container {
+    width: 100%;
+  }
 }
 
 /*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
@@ -401,6 +553,45 @@
   #tools .tool-container .tool-background-image {
     left: -30px;
   }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 230px;
+    background-size: 75px;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 200px auto;
+    background-position: 40px 140px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 150px;
+  }
+
+  #news .news-row .sidebar {
+    border: none;
+  }
+
+  #news .news-row .sidebar .new-container {
+    width: 50%;
+  }
 }
 
 /*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
@@ -467,6 +658,45 @@
   #tools .tool-container .links-column .link-text {
     font-size: 0.85em;
   }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 230px;
+    background-size: 100px;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 105px;
+  }
+
+  #news .news-row .sidebar {
+    border: none;
+  }
+
+  #news .news-row .sidebar .new-container {
+    width: 50%;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 200px;
+  }
 }
 
 /*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
@@ -531,6 +761,37 @@
   #tools .tool-container .links-column .link-text {
     font-size: 0.85em;
   }
+
+  /* forum */
+  .bbpress {
+    background-position: 100% 230px;
+    background-size: 100px;
+  }
+
+  .bbpress .replies-section #bbpress-forums .bbp-replies ul li {
+    margin-left: 2rem;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .author-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-author {
+    width: 25%;
+  }
+
+  #bbpress-forums .topic-replies .reply-container .content-container, 
+  .bbpress #bbpress-forums .bbp-replies .reply-container .bbp-reply-content, 
+  #bbpress-forums.bbpress-wrapper .type-reply.reply .bbp-reply-content {
+    width: 70%;
+  }
+
+  /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 105px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 200px;
+  }
 }
 
 /*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
@@ -589,7 +850,7 @@
   
   /* forum */
   .bbpress {
-    background-position: 100% 40%;
+    background-position: 100% 230px;
     background-size: 120px;
   }
 
@@ -648,6 +909,15 @@
   }
 
   /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 105px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 250px;
+  }
+
   #news .sidebar .new-container .post-excerpt p {
     font-size: 0.8em;
   }
@@ -751,7 +1021,7 @@
 
   /* forum */
   .bbpress {
-    background-position: 100% 40%;
+    background-position: 100% 230px;
     background-size: 120px;
   }
 
@@ -771,6 +1041,15 @@
   }
 
   /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 105px;
+  }
+
+  #news .main-container .new-container > .image-container img {
+    max-height: 250px;
+  }
+
   #news .sidebar .new-container .post-excerpt p {
     font-size: 0.8em;
   }
@@ -828,10 +1107,15 @@
 
   /* forum */
   .bbpress {
-    background-position: 100% 40%;
+    background-position: 100% 125px;
     background-size: 120px;
   }
 
+  /* news */
+  body.page-id-346 {
+    background-size: 150px auto;
+    background-position: 40px 105px;
+  }
 }
 
 /*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/

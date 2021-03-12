@@ -354,11 +354,14 @@
 /***********************************************/
 /******************** Forum ********************/
 /***********************************************/
-
 .bbpress {
   background: url(https://laaldea.co/wp-content/uploads/forum-image.png);
   background-repeat: no-repeat;
-  background-position: 100% 30%;
+  background-position: 100% 150px;
+}
+
+.bbpress .site-content #primary {
+  padding: 0 15px;
 }
 
 /* Forum : sidebar */
@@ -1593,31 +1596,19 @@ body.page-id-346 {
 
 #news .new-container > .image-container {
   text-align: center;
-  padding: 4rem 0;
+  padding: 6rem 0;
 }
 
 /* depends on image size*/
 #news .main-container .new-container > .image-container {
-  /* background-image: url(/wp-content/uploads/news-background-leafLeft.png), url(/wp-content/uploads/news-background-leafRight.png);
-  background-repeat: no-repeat, no-repeat;
-  background-size: 150px auto, 150px auto;
-  background-position: calc(50% - 333px/2 - 150px + 20px) calc(100% - 4rem + 40px), calc(50% + 333px/2 + 150px - 20px) calc(0% + 181px/5); */
-
   background-image: url('/wp-content/uploads/news-background-leaf.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center center;
 }
 
-#news .new-container > .image-container img {
-  background-color: white;
-  border: 5px solid var(--white);
-  box-shadow: 0px 8px 15px 0px rgb(0,0,0,0.4);
-  border-radius: 5px;
-}
-
 #news .main-container .new-container > .image-container img {
-  max-height: 400px;
+  max-height: 300px;
 }
 
 #news .new-container .post-content p {
@@ -1695,10 +1686,11 @@ body.page-id-346 {
 }
 
 #news .sidebar .new-container .image-container img {
-  max-width: 220px;
+  max-width: 100%;
 }
 
 #news .sidebar .new-container > .image-container {
+  max-width: 100%;
   text-align: center;
 }
 

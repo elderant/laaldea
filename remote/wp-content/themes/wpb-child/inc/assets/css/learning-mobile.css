@@ -30,6 +30,11 @@
     padding: 0;
   }
 
+  /* forum */
+  .bbpress .sidebar .widget {
+    border: none;
+    padding: initial;
+  }
 }
 
 /*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
@@ -48,6 +53,11 @@
 
   #page.learning header#masthead .user-link-container img {
     height: 40px;
+  }
+
+  /* Learning footer */
+  body:not(.theme-preset-active) footer.learning#colophon a {
+    margin: 0 0.5rem;
   }
 
   /* Learning header titles */
@@ -167,6 +177,10 @@
     height: 60px;
   }
 
+  .learning #content.site-content {
+    min-height: calc(100vh - 78px - 79px);
+  }
+
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -268,6 +282,10 @@
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
 @media screen and (min-width: 576px) and (max-width: 649px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 152px - 78px);
+  }
+
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -365,6 +383,10 @@
 
 /*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
 @media screen and (min-width: 650px) and (max-width: 767px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 152px - 78px);
+  }
+
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -462,6 +484,10 @@
 
 /*-- 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px --*/
 @media screen and (min-width: 768px) and (max-width: 991px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 152px - 78px);
+  }
+  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -559,6 +585,10 @@
 
 /*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
 @media screen and (min-width: 992px) and (max-width: 1199px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 98px - 78px);
+  }
+  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -656,6 +686,10 @@
 
 /*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
 @media screen and (min-width: 1200px) and (max-width: 1279px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 98px - 78px);
+  }
+  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -753,6 +787,10 @@
 
 /*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px --*/
 @media screen and (min-width: 1280px) and (max-width: 1365px) {
+  .learning #content.site-content {
+    min-height: calc(100vh - 98px - 78px);
+  }
+  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,
@@ -850,6 +888,10 @@
 
 /*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
 @media screen and (min-width: 1366px) and (max-width: 1535px) {  
+  .learning #content.site-content {
+    min-height: calc(100vh - 98px - 78px);
+  }
+  
   /* Learning header titles */
   .user-flowh1, .user-flow .h1,
   .bbpress h1, .bbpress .h1,

@@ -13,8 +13,8 @@
     </div>
     <div class="row news-row">
 
-      <div class="col-3 offset-1 sidebar">
-        <div class="news-container d-flex flex-column justify-content-between align-items-start">
+      <div class="col-12 col-sm-10 offset-sm-1 order-2 col-lg-3 offset-lg-1 order-lg-1 col-xl1-4 offset-xl1-0 col-xl-3 offset-xl-1 sidebar">
+        <div class="news-container d-flex flex-row flex-lg-column justify-content-between align-items-start flex-wrap">
           <?php if( $recent_news -> have_posts() ) : ?>
             <?php while ($recent_news -> have_posts()) : ?>
               <?php $recent_news -> the_post(); 
@@ -50,11 +50,8 @@
         <div class="actions d-flex align-items-center justify-content-center font-titan">
           <?php if(true === $load_more) : ?>
             <button class="load-more-link" data-offset="<?php echo $offset;?>">
-              <div class="text-container h6">
+              <div class="text-container h6 uppercase">
                 <span><?php _e('Ver más','laaldea');?></span>
-              </div>
-              <div class="image-container">
-                <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
               </div>
             </button>
           <?php endif;?>
@@ -62,7 +59,7 @@
 
       </div>
 
-      <div class="col-7 main-container">
+      <div class="col-12 col-sm-10 offset-sm-1 order-1 col-lg-7 offset-lg-0 order-lg-2 col-xl1-8 col-xl-7 main-container">
         <div class="news-container">
           <?php if(!empty($requested_new_id)) : ?>
             <?php laaldea_get_new_html($requested_new_id, '', true); ?>
