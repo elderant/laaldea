@@ -32,10 +32,10 @@ if ($course_filter && count($supported_filters)) {
 <?php
 } else {
   ?>
-    <div id="sidebar-main" class="courses-sidebar offset-1 col-2">
+    <div id="sidebar-main" class="col-12 offset-0 order-2 col-lg-3 offset-lg-0 order-lg-1 col-xl1-3 offset-xl1-0 col-xl-2 offset-xl-1 courses-sidebar">
       <?php dynamic_sidebar( 'courses-sidebar' ); ?>
     </div>
-    <section id="primary" class="content-area col-sm-8 px-5 courses-section">
+    <section id="primary" class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-2 col-xl1-9 offset-xl1-0 col-xl-8 content-area courses-section">
       <div class="<?php tutor_container_classes(); ?>">
         <?php tutor_load_template('archive-course-init'); ?>
       </div>

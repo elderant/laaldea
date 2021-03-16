@@ -1712,10 +1712,6 @@ button.button.learning-button:hover {
   text-transform: uppercase;
 }
 
-.learning h6 {
-  /* text-transform: none; */
-}
-
 .learning h1, .learning h2, .learning h3, .learning h4, .learning h5, .learning h6,
 .learning .h1, .learning .h2, .learning .h3, .learning .h4, .learning .h5, .learning .h6  {
   line-height: 1.5;

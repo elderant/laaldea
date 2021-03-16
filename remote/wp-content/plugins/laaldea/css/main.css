@@ -404,6 +404,10 @@
   margin: 0;
 }
 
+.learning #bbpress-forums h6 {
+  text-transform: none;
+}
+
 .bbpress .forum-section #bbpress-forums,
 .bbpress .topic-section #bbpress-forums,
 .bbpress .replies-section #bbpress-forums {
@@ -2382,6 +2386,10 @@ body.page-id-346 {
   text-align: center;
 }
 
+.courses-section .tutor-loop-course-button-container .tutor-loop-course-btn-wrap {
+  display: inline-block;
+}
+
 #page .courses-section .tutor-loop-course-button-container a:hover,
 #page .courses-section .tutor-loop-course-button-container button:hover {
   background-color: var(--cyan-light);
@@ -2589,12 +2597,8 @@ body.page-id-346 {
 }
 
 .single-courses .course-section h2 {
-  display: flex;
+  /* display: flex; */
   margin: 0;
-}
-
-.single-courses .course-section h2 > div {
-  padding-right: 1rem;
 }
 
 .single-courses #page .course-section h2 div,
@@ -2614,7 +2618,7 @@ body.page-id-346 {
 }
 
 .single-courses .course-section .tutor-single-course-body .row {
-  padding: 3rem 6rem 3rem 2rem;
+  padding: 2rem 1rem;
   align-items: center;
 }
 

@@ -24,7 +24,7 @@ $title_html = get_field( 'title_html' );
 $title = empty($title_html) ? get_the_title() : $title_html;
 ?>
 
-<div id="sidebar-main" class="course-sidebar offset-1 col-3">
+<div id="sidebar-main" class="col-12 offset-0 order-2 col-sm-10 offset-sm-1 col-lg-4 offset-lg-0 order-lg-1 col-xl1-4 offset-xl1-0 col-xl-3 offset-xl-1 course-sidebar">
   <div class="tutor-container">
     <div class="tutor-row">
       <div class="tutor-col-12 course-container">
@@ -68,7 +68,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
   </div>
 </div>
 
-<div <?php tutor_post_class('tutor-full-width-course-top tutor-course-top-info tutor-page-wrap col-sm-7 px-5 course-section'); ?>>
+<div <?php tutor_post_class('col-12 offset-0 order-1 col-sm-10 offset-sm-1 col-lg-8 offset-lg-0 order-lg-2 col-xl1-8 offset-xl1-0 col-xl-7 tutor-full-width-course-top tutor-course-top-info tutor-page-wrap course-section'); ?>>
     <div class="tutor-container">
         <div class="tutor-row">
             <div class="tutor-col-12 tutor-col-md-100">
@@ -83,7 +83,7 @@ $title = empty($title_html) ? get_the_title() : $title_html;
                 
                 <div class="tutor-single-course-body mb-5">
                   <div class="row">
-                    <div class="col-10 offset-1 intro-video-column">
+                    <div class="col-12 intro-video-column">
                       <div class="tutor-price-box-thumbnail">
                         <?php
                         if(tutor_utils()->has_video_in_single()){

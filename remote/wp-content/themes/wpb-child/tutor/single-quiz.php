@@ -24,14 +24,14 @@ $topic = laaldea_get_topic_from_lesson(get_post());
 $topic_name = get_the_title( $topic -> ID );
 ?>
 
-<div id="sidebar-main" class="lesson-sidebar quiz-sidebar offset-1 col-3">
+<div id="sidebar-main" class="col-12 offset-0 order-2 col-sm-10 offset-sm-1 col-lg-4 offset-lg-0 order-lg-1 col-xl1-4 offset-xl1-0 col-xl-3 offset-xl-1 lesson-sidebar quiz-sidebar">
   <div class="tutor-lesson-sidebar">
     <?php tutor_lessons_sidebar(); ?>
   </div>
 </div>
 
   <?php do_action('tutor_quiz/single/before/wrap'); ?>
-  <div class="tutor-single-lesson-wrap col-sm-7 px-5 lesson-section quiz-section <?php echo $enable_spotlight_mode ? "tutor-spotlight-mode" : ""; ?>">
+  <div class="col-12 offset-0 order-1 col-sm-10 offset-sm-1 col-lg-8 offset-lg-0 order-lg-2 col-xl1-8 offset-xl1-0 col-xl-7 tutor-single-lesson-wrap lesson-section quiz-section <?php echo $enable_spotlight_mode ? "tutor-spotlight-mode" : ""; ?>">
     <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content">
       <input type="hidden" name="tutor_quiz_id" id="tutor_quiz_id" value="<?php the_ID(); ?>">
       

@@ -18,7 +18,7 @@
       $avatar_url = get_user_meta( $reply_author_id, 'user_avatar', true);
     ?>
 
-    <div class="reply-container bbp-list-reply d-flex align-items-center justify-content-between">
+    <div class="reply-container bbp-list-reply d-flex flex-column align-items-center justify-content-between flex-lg-row">
       <div class="author-container text-center">
         <div class="avatar-container">
           <img src="<?php echo $avatar_url;?>" alt="<?php _e('User avatar image','laaldea');?>">
@@ -37,11 +37,8 @@
   <?php if($total_replies > $offset) : ?>
     <div class="load-more-link-container">
       <button class="load-more-link" data-offset="<?php echo $offset?>" data-total="<?php echo $total_replies?>" data-topicId="<?php echo $topic_id?>">
-        <div class="text-container h6">
+        <div class="text-container h6 uppercase">
           <span><?php _e('Ver más','laaldea');?></span>
-        </div>
-        <div class="image-container">
-          <img src="/wp-content/uploads/learning-arrow-down.png" alt="<?php _e('Arrow down image','laaldea'); ?>">
         </div>
       </button>
     </div>

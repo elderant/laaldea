@@ -15,13 +15,13 @@ $course_modules = sprintf( _n( '%s Módulo', '%s Módulos', $count, 'laaldea' ),
 <div class="tutor-course-loop-meta">
   <div class="row">
     <?php if(!empty($course_duration)) : ?>
-      <div class="col-6 col-xl1-12 col-xl-6 meta-container duration-container p m-0">
+      <div class="col-6 col-xl1-6 col-xl-6 meta-container duration-container p m-0">
         <div class="tutor-single-loop-meta font-titan">
           <img src="/wp-content/uploads/courses-duration-image.png" alt="<?php _e('Imagen indicador duración','laaldea')?>"><span><?php echo $course_duration;?></span>
         </div>
       </div>
     <?php endif; ?>
-    <div class="col-6 col-xl1-12 col-xl-6 meta-container modulos-container p m-0">
+    <div class="col-6 col-xl1-6 col-xl-6 meta-container modulos-container p m-0">
       <div class="tutor-single-loop-meta font-titan">
         <img src="/wp-content/uploads/courses-modules-image.png" alt="<?php _e('Imagen indicador modulos','laaldea')?>"><span><?php echo $course_modules; ?></span>
       </div>
