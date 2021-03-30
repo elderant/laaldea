@@ -1428,6 +1428,10 @@ html .learning , body .learning, .learning p, .learning .p,
 }
 
 /**** User flow specific ****/
+form .half-width {
+  width: 50%;
+}
+
 form label.user-flow-label,
 form label.learning-label {
   position: relative;
@@ -1645,6 +1649,16 @@ button.button.learning-button:hover {
 #password-lost-form .description {
   margin: 0 4rem;
   padding: 0rem 2rem 1rem;
+}
+
+.user-flow.change-password .entry-header {
+  position: relative;
+  z-index: 0;
+}
+
+.user-flow.change-password .entry-content {
+  position: relative;
+  z-index: 1;
 }
 
 /**** Forum General ****/

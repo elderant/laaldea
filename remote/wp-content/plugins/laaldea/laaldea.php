@@ -476,6 +476,10 @@ function laaldea_build_learning_tools () {
       ),
     );
   }
+  if(isset($_GET['query'])) {
+    $query_args['s'] = $_GET['query'];
+  }
+
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
   
@@ -967,8 +971,10 @@ function laaldea_get_tool_html( $post_id = 0, $additional_class = '', $echo = tr
   $container_class = $additional_class . 'tool-container flex-wrap align-items-end show post-id-';
   $container_class .= $post_id;
   $container_class .= ' type-' . $type;
-  foreach($targets as $target) {
-    $container_class .= ' target-' . $target;
+  if(!is_null($targets) && !empty($targets) ) {
+    foreach($targets as $target) {
+      $container_class .= ' target-' . $target;
+    }
   }
   $container_class .= ' ' . $categories_class;
   $container_class .= $add>0 ?' type-follow ':'';
@@ -1009,6 +1015,9 @@ function laaldea_tools_load_more() {
   $posts_per_page = 6;
   $limit = $posts_per_page + $offset;
   
+  // error_log('offset ' . print_r($offset,1));
+  // error_log('filters ' . print_r($filters,1));
+
   // base query
   $query_args  = array(
     'post_type' => 'tool',
@@ -1017,6 +1026,7 @@ function laaldea_tools_load_more() {
     'post_status' => 'publish',
     'offset' => $offset,
     'category__in' => array(),
+    'post__in' => array(),
     'meta_query'	=> array(
       array(
         'key'		=> 'tool_target',
@@ -1033,20 +1043,35 @@ function laaldea_tools_load_more() {
       ),
     );
   }
+  if(isset($_POST['query']) && $_POST['query'] != '') {
+    $query_args['s'] = $_POST['query'];
+  }
 
   //filtered query
   if(!empty($filters)) {
     foreach($filters as $filter) {
-      if(FALSE !== stripos($filter, 'type-') ) {
+      // handle followed
+      if(FALSE !== stripos($filter, 'type-follow') ) {
+        $user = wp_get_current_user();
+        $follow = get_user_meta( $user->ID, 'followed-tools', true );
+        $post_ids = explode( ' ', $follow);
+        $query_args['post__in'] = $post_ids;
+      }
+      // handle type (not used)
+      if(FALSE !== stripos($filter, 'type-') && FALSE === stripos($filter, 'type-follow')) {
         $identifier = 'type-';
         $type = substr( $filter, strlen($identifier) );
-        $query_args['meta_value'] = $type;
+        $query_args['meta_query']['0']['key'] = 'tool_type';
+        $query_args['meta_query']['0']['value'] = $type;
       }
+      // handle target audience students/faculty
       if(FALSE !== stripos($filter, 'target-') ) {
         $identifier = 'target-';
         $target = substr( $filter, strlen($identifier) );
+        $query_args['meta_query']['0']['key'] = 'tool_target';
         $query_args['meta_query']['0']['value'] = $target;
       }
+      // handle categories
       else if(FALSE !== stripos($filter, 'term-') ) {
         $identifier = 'term-';
         $term_id = substr( $filter, strlen($identifier) );
@@ -1055,9 +1080,11 @@ function laaldea_tools_load_more() {
     }
   }
 
+  error_log('query_args ' . print_r($query_args,1));
   // Executing and using query.
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
+  error_log('$post_count ' . print_r($post_count,1));
 
   ob_start();
   if( $recent_tools -> have_posts() ) {
@@ -1085,8 +1112,10 @@ function laaldea_tools_load_more() {
       $container_class = 'loaded tool-container flex-wrap align-items-end show post-id-';
       $container_class .= $post_id;
       $container_class .= ' type-' . $type;
-      foreach($targets as $target) {
-        $container_class .= ' target-' . $target;
+      if(!is_null($targets) && !empty($targets) ) {
+        foreach($targets as $target) {
+          $container_class .= ' target-' . $target;
+        }
       }
       $container_class .= ' ' . $categories_class;
       $container_class .= $add>0 ?' type-follow ':'';
@@ -1138,6 +1167,32 @@ function laaldea_tools_custom_tag_url ($tags_data) {
   }
 
   return $tags_data;
+}
+
+// Define tool search handlers
+add_action( 'admin_post_nopriv_laaldea_tools_seach', 'laaldea_laaldea_tools_seach_handler' );
+add_action( 'admin_post_laaldea_tools_seach', 'laaldea_laaldea_tools_seach_handler' );
+function laaldea_laaldea_tools_seach_handler() {
+  if ( isset( $_POST['action'] ) && strcasecmp($_POST['action'], 'laaldea_tools_seach') == 0 ) {
+    $query = $_POST['tool_search'];
+    $laaldea_activation_error = array();
+
+    // validate values.
+		if(empty($query)) {
+			$laaldea_activation_error['tool_search'] = __('Este campo es requerido.', 'laaldea');
+			$error = true;
+		}
+
+    if(!empty($error) && $error) {
+			set_transient( 'laaldea_activation_error', $laaldea_activation_error, MINUTE_IN_SECONDS );
+			wp_redirect('/tools/');
+			return;
+		}
+
+    unset($laaldea_activation_error['tool_search']);
+    $query = sanitize_text_field($query);
+    wp_redirect('/tools/?query=' . $query);
+  }
 }
 
 /******************* LMS functions *******************/

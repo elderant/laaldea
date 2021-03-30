@@ -321,12 +321,11 @@
     // updating filter array
     if(window.aldea.tools.container.hasClass(filterValue) ) {
       let index = window.aldea.tools.filters.indexOf(filterValue);
-
       window.aldea.tools.filters.splice(index, 1);
+      window.aldea.tools.loadMoreButton.removeClass('end-list');
     }
     else {
       window.aldea.tools.filters.push(filterValue);
-      window.aldea.tools.loadMoreButton.removeClass('end-list');
     }
     // adding new filter
     window.aldea.tools.container.toggleClass(filterValue);
@@ -416,6 +415,7 @@
     let offset = 0;
     let filter;
     let tagId;
+    let query;
 
     if(window.aldea.tools.filters.length > 0) {
       offset = window.aldea.tools.container.find('.tool-container.show').length;
@@ -429,6 +429,9 @@
     if(urlVars.indexOf('tagId') != -1) {
       tagId = parseInt(urlVars['tagId']);
     }
+    if(urlVars.indexOf('query') != -1) {
+      query = urlVars['query'];
+    }
 
     $.ajax({
       url : ajax_params.ajax_url,
@@ -437,7 +440,8 @@
         action : 'laaldea_tools_load_more',
         offset : offset,
         filter : filter,
-        tagId : tagId
+        tagId : tagId,
+        query : query
       },
       success : function( response ) {
         let data = JSON.parse(response);
@@ -843,9 +847,15 @@
       $('.main-container .target-filter-container button').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
+          let $currentTarget = $('.main-container .target-filter-container button.active');
+          if($currentTarget.length > 0) {
+            $currentTarget.toggleClass('active');
+            laaldea_handle_filter_tools('target-' + $currentTarget.attr('data-filter'), 'category');
+          }
+
           let $button = $(event.currentTarget);
           $button.toggleClass('active');
-  
+
           laaldea_handle_filter_tools('target-' + $button.attr('data-filter'), 'category');
         });
       });

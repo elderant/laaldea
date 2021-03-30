@@ -46,7 +46,7 @@
             <div class="filter-title d-flex align-items-center">
               <button class="filter-control d-flex align-items-center justify-content-start">
                 <div class="filter-text d-flex align-items-center">
-                  <span class="h5 m-0 uppercase color-cyan"><?php _e('Por tipo','laaldea');?></span>
+                  <span class="h5 m-0 uppercase color-cyan"><?php _e('Por recurso','laaldea');?></span>
                 </div>
                 <div class="filter-icon h5 m-0 color-cyan">
                   <span class="icon">+</span>
@@ -58,26 +58,6 @@
               <div class="term-container hidden pb-1 term-<?php echo $topic_terms -> term_id?>">
                 <button class="" data-termId="<?php echo $topic_terms -> term_id?>">
                   <span class="h6 font-titan"><?php echo $topic_terms -> name?></span>
-                </button>
-              </div>
-            <?php endforeach; ?>
-          </div>
-          <div class="filters-container activities d-flex flex-column justify-content-between align-items-start py-3">
-            <div class="filter-title d-flex align-items-center">
-              <button class="filter-control d-flex align-items-center justify-content-start">
-                <div class="filter-text d-flex align-items-center">
-                  <span class="h5 m-0 uppercase color-cyan"><?php _e('Por actividad','laaldea');?></span>
-                </div>
-                <div class="filter-icon h5 m-0 color-cyan">
-                  <span class="icon">+</span>
-                  <span class="icon hidden">-</span>
-                </div>
-              </button>
-            </div>
-            <?php foreach($laaldea_args['action_terms'] as $action_terms) : ?>
-              <div class="term-container hidden pb-1 term-<?php echo $action_terms -> term_id?>">
-                <button class="" data-termId="<?php echo $action_terms -> term_id?>">
-                  <span class="h6 font-titan"><?php echo $action_terms -> name?></span>
                 </button>
               </div>
             <?php endforeach; ?>
@@ -112,14 +92,34 @@
       </div>
 
       <div class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-2 col-xl1-9 offset-xl1-0 col-xl-8 main-container">
-        <div class="target-filter-container d-flex align-items-center flex-column flex-sm-row">
-          <div class="filter-label h5 uppercase font-sassoon color-cyan"><?php _e('Filtro: ', 'laaldea');?></div>
-          <button class="docente-target-filter-button d-flex align-items-center filter-button" data-filter="docente">
-            <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Docentes','laaldea');?></div>
-          </button>
-          <button class="estudiante-target-filter-button d-flex align-items-center filter-button" data-filter="estudiante">
-            <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Estudiantes','laaldea');?></div>
-          </button>
+        <div class="target-filter-container d-flex align-items-center justify-content-between flex-column flex-md-row">
+          <div class="target-filters-section d-flex align-items-center flex-column flex-sm-row">
+            <div class="filter-label h5 uppercase font-sassoon color-cyan"><?php _e('Filtro: ', 'laaldea');?></div>
+            <button class="docente-target-filter-button d-flex align-items-center filter-button" data-filter="docente">
+              <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Docentes','laaldea');?></div>
+            </button>
+            <button class="estudiante-target-filter-button d-flex align-items-center filter-button" data-filter="estudiante">
+              <div class="text-container h6 m-0 font-sassoon uppercase"><?php _e('Estudiantes','laaldea');?></div>
+            </button>
+          </div>
+          <div class="search-section">
+            <?php $error = get_transient( 'laaldea_activation_error' ); ?>
+            <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="learning-form d-flex justify-content-end">
+              <div class="search-container input-container">
+                <?php $class=""; ?>
+                <?php if ( isset($error['tool_search'] ) ) : ?>
+                  <?php $class=" error"; ?>
+                <?php endif;?>
+                <input type="text" name="tool_search" value="" id="tool-search" class="<?php echo $class?>"/>
+              </div>
+              <div class="form-actions input-container">
+                <input type="submit" value="<?php _e('Buscar', 'laaldea'); ?>" class="button h5" />
+              </div>
+              <div style="display: none;">
+                <input type="hidden" name="action" value="laaldea_tools_seach">
+              </div>
+            </form>
+          </div>
         </div>
 
         <div class="tools-container" data-limit="<?php echo $limit;?>">

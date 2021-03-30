@@ -84,7 +84,7 @@
         <?php endfor; ?>
       <?php endif; ?>
     </div>
-    <div class="col-11 order-1 col-md-7 order-md-2 links-column d-flex justify-content-around align-items-center flex-column flex-sm-row">
+    <div class="col-11 order-1 col-md-7 order-md-2 links-column d-flex justify-content-around align-items-start flex-column flex-sm-row">
       <div class="download-link-section link-section">
         <a class="d-flex align-items-center justify-content-center" href="<?php echo $link_download?>" download>
           <div class="icon-container">
