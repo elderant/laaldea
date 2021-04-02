@@ -575,6 +575,10 @@
   list-style: none;
 }
 
+.bbpress .bbp-template-notice > ul li {
+  font-size: inherit;
+}
+
 .bbpress .user .bbp-template-notice {
   width: 50%;
   margin: 2rem auto;
@@ -1013,7 +1017,8 @@
 }
 
 /* replies : content : header */
-.bbpress .replies-section .bbp-breadcrumb {
+.bbpress .replies-section .bbp-breadcrumb,
+.bbpress .reply-edit-section .bbp-breadcrumb {
   margin-bottom: 2rem;
   float: none;
 }
@@ -1083,6 +1088,28 @@
   margin: 0 0 1rem;
   padding: 0 0 0.5rem;
   background-color: transparent;
+}
+
+/* Replies : edit */
+.reply-edit-section  #bbpress-forums .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.reply-edit-section #bbpress-forums .bbp-form .bbp-form {
+  padding: 10px 0;
+}
+
+.reply-edit-section #bbpress-forums #bbp_log_reply_edit {
+  line-height: 1.2;
+}
+
+.reply-edit-section #bbpress-forums #bbp_reply_submit {
+  margin: 0;
+}
+
+.bbpress .reply-edit-section .entry-footer .edit-link {
+  display: none;
 }
 
 /* remove bbpress defaults*/
@@ -1522,6 +1549,29 @@
   flex-direction: column;
 }
 
+.bbpress #bbp-your-profile-mod .form-row.half-width input,
+.bbpress #bbp-your-profile-mod .form-row.half-width select,
+.bbpress #bbp-your-profile-mod .form-row.half-width textarea {
+  width: 80%;
+}
+
+.bbpress #bbp-your-profile-mod .form-row.half-width input[type="submit"] {
+  width: auto;
+}
+
+.bbpress #bbp-your-profile-mod #display_name,
+.bbpress #bbp-your-profile-mod #locale {
+  padding: 2px 5px;
+}
+
+.bbpress #bbp-your-profile-mod #description {
+  padding: 5px;
+}
+
+.bbpress #bbp-your-profile-mod #bbp_user_edit_submit {
+  margin: 0;
+}
+
 /* Search */
 .bbp-search .general #bbpress-forums .forums {
   border: none;
@@ -1613,6 +1663,7 @@ body.page-id-346 {
 
 #news .main-container .new-container > .image-container img {
   max-height: 300px;
+  width: auto;
 }
 
 #news .new-container .post-content p {
@@ -1665,6 +1716,11 @@ body.page-id-346 {
 #news .new-container .post-actions .load-more-link:hover .text-container,
 #news .sidebar .actions .load-more-link:hover .text-container {
   color: var(--gray);
+}
+
+#news .new-container .post-actions {
+  clear: both;
+  padding-top: 2rem;
 }
 
 /* sidebar */
@@ -1918,15 +1974,18 @@ body.page-id-346 {
 }
 
 /* Tools : Search form */
-#tools .target-filter-container .search-section {
+#tools .target-filter-container .search-section,
+#news .main-container .search-section {
   width: 30%;
 }
 
-#tools .search-section form .search-container {
+#tools .search-section form .search-container,
+#news .search-section form .search-container {
   flex-grow: 2;
 }
 
-#tools .search-section form #tool-search {
+#tools .search-section form #tool-search,
+#news .search-section form #tool-search {
   width: 100%;
   height: 100%;
   border-left: none;
@@ -1938,11 +1997,13 @@ body.page-id-346 {
   font-family: 'sassoon';
 }
 
-#tools .search-section form #tool-search.error {
+#tools .search-section form #tool-search.error,
+#news .search-section form #tool-search.error {
   border-color: var(--red);
 }
 
-#tools .search-section form input.button {
+#tools .search-section form input.button,
+#news .search-section form input.button {
   margin: 0;
   vertical-align: bottom;
   color: var(--cyan);
@@ -3656,4 +3717,36 @@ div.tutor-quiz-header .tutor-quiz-meta li {
 
 .tutor-dashboard .quiz-incorrect-answer-text i {
   background: var(--red-light-tone);
+}
+
+/* tutor dashboard : Certificates */
+.tutor-dashboard-left-menu .tutor-dashboard-menu-certificates a::before {
+  content: "\e949";
+}
+
+.tutor-dashboard .tutor-mycourse-wrap .certificate-download-btn {
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  color: var(--white);
+  background-color: var(--cyan);
+  line-height: 1.2;
+  font-family: 'titan_one';
+  text-transform: uppercase;
+  font-weight: normal;
+  transition: background-color 0.5s ease-in-out;
+  filter: none;
+  font-size: inherit;
+}
+
+.tutor-dashboard .tutor-mycourse-wrap .certificate-download-btn .tutor-icon-mortarboard {
+  font-size: 1em;
+}
+
+.tutor-dashboard .tutor-mycourse-wrap .certificate-download-btn:hover,
+.tutor-dashboard .tutor-mycourse-wrap .certificate-download-btn:focus {
+  border: none;
+  background-color: var(--cyan-light);
 }

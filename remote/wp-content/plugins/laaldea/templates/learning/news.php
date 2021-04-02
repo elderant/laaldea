@@ -4,6 +4,7 @@
   $offset = $laaldea_args['offset'];
   $load_more = $laaldea_args['load_more'];
   $requested_new_id = $laaldea_args['requested_new_id'];
+  $in_same_term = $laaldea_args['in_same_term'];
 ?>
 
 <section id="news" class="d-flex align-items-center justify-content-center" data-menu="news">
@@ -60,21 +61,44 @@
       </div>
 
       <div class="col-12 col-sm-10 offset-sm-1 order-1 col-lg-7 offset-lg-0 order-lg-2 col-xl1-8 col-xl-7 main-container">
-        <div class="news-container">
-          <?php if(!empty($requested_new_id)) : ?>
-            <?php laaldea_get_new_html($requested_new_id, '', true); ?>
-          <?php endif;?>
-          
-          <?php if( $last_new -> have_posts() ) : ?>
-            <?php 
-              $last_new -> the_post();
-              $post_id = get_the_ID();
-              laaldea_get_new_html($post_id, '', true);
-            ?>
-          <?php endif; ?>
+        <div class="new-header-container d-flex justify-content-end">
+          <div class="search-section">
+            <?php $error = get_transient( 'laaldea_activation_error' ); ?>
+            <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="learning-form d-flex justify-content-end">
+              <div class="search-container input-container">
+                <?php $class=""; ?>
+                <?php if ( isset($error['news_search'] ) ) : ?>
+                  <?php $class=" error"; ?>
+                <?php endif;?>
+                <input type="text" name="news_search" value="" id="tool-search" class="<?php echo $class?>"/>
+              </div>
+              <div class="form-actions input-container">
+                <input type="submit" value="<?php _e('Buscar', 'laaldea'); ?>" class="button h5" />
+              </div>
+              <div style="display: none;">
+                <input type="hidden" name="action" value="laaldea_news_seach">
+              </div>
+            </form>
+          </div>
         </div>
-          
-      </div> <!-- col end -->
+        <div class="news-container">
+            <?php if(!empty($requested_new_id)) : ?>
+              <?php laaldea_get_new_html($requested_new_id, $in_same_term); ?>
+            <?php endif;?>
+            
+            <?php if( $last_new -> have_posts() ) : ?>
+              <?php while ($last_new -> have_posts()) : ?>
+                <?php 
+                  $last_new -> the_post();
+                  $post_id = get_the_ID();
+                  laaldea_get_new_html($post_id, $in_same_term);
+                ?>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+          </div>
+            
+        </div> <!-- col end -->
     </div> <!-- news-row END -->
   </div>
 </section>

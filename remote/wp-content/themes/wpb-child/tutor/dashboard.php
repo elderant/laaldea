@@ -147,7 +147,7 @@ $avatar_url = get_user_meta( $user_id, 'user_avatar', true);
                                     echo "<li class='tutor-dashboard-menu-divider-header'>{$menu_title}</li>";
                                 }
                             } else {
-                                error_log('$dashboard_key ' . print_r($dashboard_key,1));
+                                //error_log('$dashboard_key ' . print_r($dashboard_key,1));
                                 switch ($dashboard_key) {
                                   case 'wishlist' :
                                     break;

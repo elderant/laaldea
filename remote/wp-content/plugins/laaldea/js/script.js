@@ -181,12 +181,18 @@
 
     let postId = $button.attr('data-postId');
 
+    let urlVars = getUrlVars();
+    if(urlVars.indexOf('tagId') != -1) {
+      tagId = parseInt(urlVars['tagId']);
+    }
+
     $.ajax({
       url : ajax_params.ajax_url,
       type : 'post',
       data : {
         action : 'laaldea_load_next_new_main',
         postId : postId,
+        tagId : tagId,
       },
       success : function( response ) {
         let data = JSON.parse(response);

@@ -67,6 +67,17 @@ function wpb_child_enqueue_select2_files() {
   }
 }
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_select2_files' );
+
+function wpb_child_enqueue_certificate_files() {
+  if (is_page(433) || !empty($_GET['cert_hash'])) {
+    $base = tutor_pro()->url . 'addons/tutor-certificate/assets/js/';
+
+    wp_enqueue_script('html-to-image-converter', $base . 'html2canvas.min.js');
+    wp_enqueue_script('html-to-image-js-pdf', $base . 'js-pdf.js');
+    wp_enqueue_script('html-to-image', $base . 'html-to-image.js');
+  }
+}
+add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_certificate_files' );
 /******************** Shared ********************/
 //Page Slug Body Class
 function laaldea_add_slug_body_class( $classes ) {
@@ -276,6 +287,12 @@ function wpb_child_wp_login_form( $args = array() ) {
       return $html;
   }
 }
+
+function wpb_child_gutenberg_css(){
+  add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+	add_editor_style( '/inc/assets/css/style-editor.css' ); // tries to include style-editor.css directly from your theme folder
+}
+add_action( 'after_setup_theme', 'wpb_child_gutenberg_css' );
 /******************** Blog ********************/
 // define the the_content_more_link callback 
 function filter_the_content_more_link( $link, $link_text ) { 

@@ -376,7 +376,9 @@ add_shortcode( 'laaldea_learing_home', 'laaldea_build_learning_home' );
 function laaldea_build_learning_news () {
   global $wp_query;
   $posts_per_page = 6;
+  $query_posts_per_page = 3;
 
+  // main query
   $query_args  = array(
     'post_type' => 'post',
     'posts_per_page' => 1,
@@ -387,25 +389,44 @@ function laaldea_build_learning_news () {
   if(isset($_GET['id'])) {
     $query_args['post__not_in'] = array($_GET['id']);
   }
+  if(isset($_GET['tagId'])) {
+    $query_args['tax_query'] = array(
+      array(
+        'taxonomy' => 'post_tag',
+        'field'    => 'term_id',
+        'terms'    => $_GET['tagId'],
+      ),
+    );
+  }
+  if(isset($_GET['query'])) {
+    $query_args['s'] = $_GET['query'];
+    $query_args['posts_per_page'] = $query_posts_per_page;
+  }
 
   $last_new = new WP_Query( $query_args );
   $wp_query -> query_vars['laaldea_args']['last_new'] = $last_new;
+  $wp_query -> query_vars['laaldea_args']['in_same_term'] = !empty($_GET['tagId'])? true: false;
 
+  error_log(print_r($last_new,1));
+
+  // Sidebar query
   $query_args  = array(
     'post_type' => 'post',
     'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
     'fields' => 'ids',
-    'offset' => 1,
+    'post__not_in' => $last_new->get_posts(),
   );
   if(isset($_GET['id'])) {
-    $query_args['post__not_in'] = array($_GET['id']);
+    $not_in = $last_new->get_posts();
+    array_push($not_in, $_GET['id']);
+    $query_args['post__not_in'] = $not_in;
   }
 
   $recent_news = new WP_Query( $query_args );
   $post_count = $recent_news -> found_posts;
-  
+
   $wp_query -> query_vars['laaldea_args']['recent_news'] = $recent_news;
   $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
   $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
@@ -679,41 +700,89 @@ function laaldea_add_placeholder_and_modify_class($output, $args, $post_content)
   return $output;
 }
 
+function laaldea_bbp_edit_user_display_name() {
+  $bbp            = bbpress();
+	$public_display = array();
+	$public_display['display_username'] = $bbp->displayed_user->user_login;
+
+	if ( ! empty( $bbp->displayed_user->nickname ) ) {
+		$public_display['display_nickname']  = $bbp->displayed_user->nickname;
+	}
+
+	if ( ! empty( $bbp->displayed_user->first_name ) ) {
+		$public_display['display_firstname'] = $bbp->displayed_user->first_name;
+	}
+
+	if ( ! empty( $bbp->displayed_user->last_name ) ) {
+		$public_display['display_lastname']  = $bbp->displayed_user->last_name;
+	}
+
+	if ( ! empty( $bbp->displayed_user->first_name ) && ! empty( $bbp->displayed_user->last_name ) ) {
+		$public_display['display_firstlast'] = $bbp->displayed_user->first_name . ' ' . $bbp->displayed_user->last_name;
+		$public_display['display_lastfirst'] = $bbp->displayed_user->last_name  . ' ' . $bbp->displayed_user->first_name;
+	}
+
+	// Only add this if it isn't duplicated elsewhere
+	if ( ! in_array( $bbp->displayed_user->display_name, $public_display, true ) ) {
+		$public_display = array( 'display_displayname' => $bbp->displayed_user->display_name ) + $public_display;
+	}
+
+	$public_display = array_map( 'trim', $public_display );
+	$public_display = array_unique( $public_display );?>
+
+	<select name="display_name" id="display_name" class="learning-input">
+
+	<?php foreach ( $public_display as $id => $item ) : ?>
+
+		<option id="<?php echo $id; ?>" value="<?php echo esc_attr( $item ); ?>"<?php selected( $bbp->displayed_user->display_name, $item ); ?>><?php echo $item; ?></option>
+
+	<?php endforeach; ?>
+
+	</select>
+  <?php
+}
+
+function laaldea_mod_bbp_get_user_languages_dropdown($retval, $r, $args) {
+  $doc = new DOMDocument();
+  $doc -> loadHTML($retval);
+  $select = $doc -> getElementById('locale');
+  $select -> setAttribute('class', 'learning-input');
+
+  return $doc->saveHTML();
+}
+
+add_filter( 'bbp_get_user_languages_dropdown', 'laaldea_mod_bbp_get_user_languages_dropdown', 10, 3 );
+
 /******************* News functions *******************/
-// Add next new
-add_action( 'wp_ajax_nopriv_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
-add_action( 'wp_ajax_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
+// Define tool search handlers
+add_action( 'admin_post_nopriv_laaldea_news_seach', 'laaldea_laaldea_news_seach_handler' );
+add_action( 'admin_post_laaldea_news_seach', 'laaldea_laaldea_news_seach_handler' );
+function laaldea_laaldea_news_seach_handler() {
+  if ( isset( $_POST['action'] ) && strcasecmp($_POST['action'], 'laaldea_news_seach') == 0 ) {
+    $query = $_POST['news_search'];
+    $laaldea_activation_error = array();
 
-function laaldea_load_next_new_main() {
-  $post_id = $_POST['postId'];
+    // validate values.
+		if(empty($query)) {
+			$laaldea_activation_error['news_search'] = __('Este campo es requerido.', 'laaldea');
+			$error = true;
+		}
 
-  global $wp_query;
+    if(!empty($error) && $error) {
+			set_transient( 'laaldea_activation_error', $laaldea_activation_error, MINUTE_IN_SECONDS );
+			wp_redirect('/noticias/');
+			return;
+		}
 
-  $query_args = array(
-    'p' => $post_id,
-  );
-  
-  $next_new = new WP_Query( $query_args );
-	
-  $wp_query -> query_vars['laaldea_args']['next_new'] = $next_new;
-
-  ob_start();
-  $template_url = laaldea_load_template('news-single-main.php', 'learning/template-part');
-  load_template($template_url, false);
-  $html = ob_get_clean();
-  
-  $return_array = array(
-    'html' => $html,
-  );
-
-  echo json_encode($return_array);
-  die();
+    unset($laaldea_activation_error['news_search']);
+    $query = sanitize_text_field($query);
+    wp_redirect('/noticias/?query=' . $query);
+  }
 }
 
 // Add more news sidebar
 add_action( 'wp_ajax_nopriv_laaldea_load_next_new_sidebar', 'laaldea_load_next_new_sidebar' );
 add_action( 'wp_ajax_laaldea_load_next_new_sidebar', 'laaldea_load_next_new_sidebar' );
-
 function laaldea_load_next_new_sidebar() {
   $offset = $_POST['offset'];
 
@@ -766,10 +835,46 @@ function laaldea_load_next_new_sidebar() {
   die();
 }
 
+// Add next new
+add_action( 'wp_ajax_nopriv_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
+add_action( 'wp_ajax_laaldea_load_next_new_main', 'laaldea_load_next_new_main' );
+function laaldea_load_next_new_main() {
+  $post_id = $_POST['postId'];
+  $tag_id = $_POST['tagId'];
+
+  // global $wp_query;
+
+  // $query_args = array(
+  //   'p' => $post_id,
+  // );
+  
+  // $next_new = new WP_Query( $query_args );
+	
+  // $wp_query -> query_vars['laaldea_args']['next_new'] = $next_new;
+
+  // ob_start();
+  // $template_url = laaldea_load_template('news-single-main.php', 'learning/template-part');
+  // load_template($template_url, false);
+  // $html = ob_get_clean();
+
+  $in_same_term = !empty($tag_id)? true: false;
+     
+  ob_start();
+  laaldea_get_new_html($post_id, $in_same_term);
+  $html = ob_get_clean();
+  
+  $return_array = array(
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
+}
+
 // Add new to end of main container handler
 // add_action( 'wp_ajax_nopriv_laaldea_get_main_new_html', 'laaldea_get_main_new_html' );
 // add_action( 'wp_ajax_laaldea_get_main_new_html', 'laaldea_get_main_new_html' );
-
+/* TO delete*/
 function laaldea_get_main_new_html() {
   $post_id = $_POST['postId'];
 
@@ -805,7 +910,7 @@ function laaldea_get_main_new_html() {
   die();
 }
 
-function laaldea_get_new_html( $post_id = 0, $additional_class = '', $echo = true ) {
+function laaldea_get_new_html( $post_id = 0, $in_same_term = false, $echo = true ) {
   global $wp_query;
   global $post;
 
@@ -825,7 +930,7 @@ function laaldea_get_new_html( $post_id = 0, $additional_class = '', $echo = tru
     return '';
   }
   
-  $tag_list = get_the_tag_list( __('En ', 'laaldea'), ', ', '', $post_id);
+  $tag_list = laaldea_get_the_tag_list( __('En ', 'laaldea'), ', ', '', $post_id);
   $place = !empty(get_field( "place", $post_id )) ? __('Lugar: ','laaldea') . get_field( "place", $post_id ):'';
   $content = get_the_content(null, false, $post_id);
   $content = apply_filters( 'the_content', $content );
@@ -836,7 +941,7 @@ function laaldea_get_new_html( $post_id = 0, $additional_class = '', $echo = tru
   setup_postdata($post_id);
   $post = $post_id;
   
-  $adjacent_post = get_adjacent_post();
+  $adjacent_post = get_adjacent_post($in_same_term, '', true, 'post_tag');
 
   $post = $post_temp ;
   wp_reset_postdata();
@@ -860,6 +965,45 @@ function laaldea_get_new_html( $post_id = 0, $additional_class = '', $echo = tru
     echo $html;
   }
   return $html;
+}
+
+function laaldea_wp_calculate_image_srcset( $sources, $size_array, $image_src, $image_meta, $attachment_id ) {  
+  $sources['768']['value']  = 400;
+
+  return $sources;
+}
+add_filter( 'wp_calculate_image_srcset', 'laaldea_wp_calculate_image_srcset', 10, 5 );
+
+/* Change default wp tag list functions */
+function laaldea_get_the_tag_list( $before = '', $sep = '', $after = '', $post_id = 0 ) {
+  $tag_list = laaldea_get_the_term_list( $post_id, 'post_tag', $before, $sep, $after );
+  return apply_filters( 'the_tags', $tag_list, $before, $sep, $after, $post_id );
+}
+
+function laaldea_get_the_term_list( $post_id, $taxonomy, $before = '', $sep = '', $after = '' ) {
+  $terms = get_the_terms( $post_id, $taxonomy );
+
+  if ( is_wp_error( $terms ) ) {
+      return $terms;
+  }
+
+  if ( empty( $terms ) ) {
+      return false;
+  }
+
+  $links = array();
+
+  foreach ( $terms as $term ) {
+      $link = '/noticias/?tagId=' . $term->term_id;
+      if ( is_wp_error( $link ) ) {
+          return $link;
+      }
+      $links[] = '<a href="' . esc_url( $link ) . '" rel="tag">' . $term->name . '</a>';
+  }
+
+  $term_links = apply_filters( "term_links-{$taxonomy}", $links );  // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+
+  return $before . implode( $sep, $term_links ) . $after;
 }
 
 /******************* Tools functions *******************/
@@ -1080,11 +1224,11 @@ function laaldea_tools_load_more() {
     }
   }
 
-  error_log('query_args ' . print_r($query_args,1));
+  //error_log('query_args ' . print_r($query_args,1));
   // Executing and using query.
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
-  error_log('$post_count ' . print_r($post_count,1));
+  //error_log('$post_count ' . print_r($post_count,1));
 
   ob_start();
   if( $recent_tools -> have_posts() ) {
@@ -1489,3 +1633,31 @@ function laaldea_get_topic_from_lesson($lesson) {
   $posts = get_posts($args);
   return $posts[0];
 }
+
+function laaldea_certificate_download_btn($course_id = false) {
+  if ( ! $course_id ){
+    $course_id = get_the_ID();
+    if ( ! $course_id ){
+      return false;
+    }
+  }
+
+  $is_completed = tutor_utils()->is_completed_course($course_id);
+  if (!$is_completed) {
+    return;
+  }
+
+  ob_start();
+  include TUTOR_CERT()->path . 'views/lesson-menu-after.php';
+  $content = ob_get_clean();
+
+  echo $content;
+}
+
+function laaldea_tutor_dashboard_pages($nav_items) {
+  //update_option('required_rewrite_flush', true);
+  $nav_items['certificates'] = __('Certificados', 'laaldea');
+  return $nav_items;
+}
+add_filter('tutor_dashboard/nav_items', 'laaldea_tutor_dashboard_pages');
+

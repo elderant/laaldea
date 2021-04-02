@@ -94,10 +94,10 @@ body {
 	box-sizing: border-box;
 }
 
-img {
+/* img {
 	height: auto;
 	width: auto;
-}
+} */
 
 h1, h2, h3, h5, h6, .h1, .h2, .h3, .h5, .h6 {
 	font-family: titan_one;
@@ -1451,7 +1451,8 @@ form input.learning-input[type="text"],
 form input.learning-input[type="email"],
 form input.learning-input[type="tel"],
 form input.learning-input[type="password"],
-form textarea.learning-input {
+form textarea.learning-input,
+form select.learning-input {
   border-radius: 0;
   outline: none;
   box-shadow: none;
@@ -1460,6 +1461,18 @@ form textarea.learning-input {
   padding: 3px;
   line-height: 1.5rem;
   font-size: 1rem;
+}
+
+.user-flow form input.user-flow-input[type="text"],
+.user-flow form input.user-flow-input[type="email"],
+.user-flow form input.user-flow-input[type="tel"],
+.user-flow form input.user-flow-input[type="password"],
+.user-flow form input.learning-input[type="text"],
+.user-flow form input.learning-input[type="email"],
+.user-flow form input.learning-input[type="tel"],
+.user-flow form input.learning-input[type="password"],
+.user-flow form textarea.learning-input,
+.user-flow form select.learning-input {
   text-align: center;
 }
 
@@ -1484,7 +1497,9 @@ form input.learning-input[type="tel"]:focus,
 form input.learning-input[type="password"]:focus,
 form input.learning-input[type="password"]:active,
 form textarea.learning-input:focus,
-form textarea.learning-input:active {
+form textarea.learning-input:active,
+form select.learning-input:active,
+form select.learning-input:focus {
   border-color: var(--cyan);
 }
 

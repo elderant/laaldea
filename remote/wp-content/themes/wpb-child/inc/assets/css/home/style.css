@@ -855,6 +855,7 @@ h3.subtitle {
 	height: 620px; 
 	overflow: hidden;
 	margin-top: 2em;
+  visibility: hidden;
 }
   
 #contiene #sequence > .seq-canvas {
@@ -1272,6 +1273,7 @@ html[lang^="en"] #personajes .view.no-descriptor.buhos p.description {
 	padding: 122px 0;
 	font-size: 16px;
 	color: var(--blue-light);
+  visibility: hidden;
 }
 
 #click-team .team-carousel .team.emmanuel {
