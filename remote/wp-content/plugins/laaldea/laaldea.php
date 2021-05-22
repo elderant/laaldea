@@ -11,15 +11,15 @@ add_action( 'wp_enqueue_scripts', 'laaldea_scripts' );
 
  
 function laaldea_scripts () {
-	wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
-	wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
+  wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
+  wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
   wp_enqueue_style ( 'cultura-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
 
-	wp_localize_script( 'laaldea-js', 'ajax_params', array('ajax_url' => admin_url( 'admin-ajax.php' )));
+  wp_localize_script( 'laaldea-js', 'ajax_params', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 
-	if(is_page(35)) {
-		wp_enqueue_script('jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js', array('jquery'), '1.10.0',	true);
-	}
+  if(is_page(35)) {
+    wp_enqueue_script('jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js', array('jquery'), '1.10.0',	true);
+  }
 }
 
 /************************************************************/
@@ -75,6 +75,9 @@ function laaldea_file_build_path(...$segments) {
 /************************************************************/
 
 function laaldea_build_home_html ($lang) {
+  $template_url = laaldea_load_template('radio.php', 'home');
+	load_template($template_url, true);
+
 	$template_url = laaldea_load_template('intro.php', 'home');
 	load_template($template_url, true);
 
@@ -164,6 +167,180 @@ function laaldea_build_home_html_es () {
 	laaldea_build_home_html('es');
 }
 add_shortcode( 'laaldea_home_es', 'laaldea_build_home_html_es' );
+
+function laaldea_build_home_new_html ($lang) {
+  $template_url = laaldea_load_template('intro.php', 'new/home');
+	load_template($template_url, true);
+
+	$template_url = laaldea_load_template('story.php', 'new/home');
+	load_template($template_url, true);
+  
+  $template_url = laaldea_load_template('radio.php', 'new/home');
+	load_template($template_url, true);
+  
+  $template_url = laaldea_load_template('community.php', 'new/home');
+	load_template($template_url, true);
+
+  $template_url = laaldea_load_template('shop.php', 'new/home');
+	load_template($template_url, true);
+
+  $template_url = laaldea_load_template('aldea.php', 'new/home');
+	load_template($template_url, true);
+
+  $template_url = laaldea_load_template('team.php', 'new/home');
+	load_template($template_url, true);
+}
+
+function laaldea_build_home_new_html_en () {
+	laaldea_build_home_new_html('en');
+}
+add_shortcode( 'laaldea_home_new_en', 'laaldea_build_home_new_html_en' );
+
+function laaldea_build_home_new_html_es () {
+	laaldea_build_home_new_html('es');
+}
+add_shortcode( 'laaldea_home_new_es', 'laaldea_build_home_new_html_es' );
+
+/*****************************************************************/
+/********************** New Site functions ***********************/
+/*****************************************************************/
+
+/* stories, characters */
+function laaldea_build_stories_html () {
+  $template_url = laaldea_load_template('stories-main.php', 'new/stories');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_stories', 'laaldea_build_stories_html' );
+
+/* Radio */
+function laaldea_build_radio_html () {
+  global $wp_query;
+  $posts_per_page = 6;
+  $query_posts_per_page = 3;
+
+  // featured query
+  $query_args  = array(
+    'post_type' => 'radio-track',
+    'posts_per_page' => 1,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+    'meta_query'	=> array(
+      array(
+        'key'		=> 'featured',
+        'value'		=> true,
+        'compare'	=> 'LIKE',
+      ),
+    ),
+  );
+
+  $featured = new WP_Query( $query_args );
+  $wp_query -> query_vars['laaldea_args']['featured'] = $featured;
+
+  $featured_value = get_field('featured', 1175, true);
+  error_log('featured value for post 1175 : ' . print_r($featured_value,1));
+  error_log('featured post count : ' . print_r($featured -> found_posts,1));
+
+  // main query
+  $query_args  = array(
+    'post_type' => 'radio-track',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+    'post__not_in' => $featured->get_posts(),
+  );
+
+  $recent_tracks = new WP_Query( $query_args );
+  $post_count = $recent_tracks -> found_posts;
+
+  $wp_query -> query_vars['laaldea_args']['recent_tracks'] = $recent_tracks;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
+  $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
+  $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
+  
+  $template_url = laaldea_load_template('radio-main.php', 'new/radio');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_radio', 'laaldea_build_radio_html' );
+
+function laaldea_get_radio_featured_track_html( $post_id = 0, $in_same_term = false, $echo = true ) {
+  global $wp_query;
+  global $post;
+
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  // Check if $tool is a "post" post type
+  if(get_post_type( $post_id ) !== 'radio-track') {
+    return '';
+  }
+
+  $src = get_field('soundcloud_src', $post_id, true);
+  $title = get_the_title( $post_id );
+  
+  $wp_query -> query_vars['laaldea_args']['title'] = $title;
+  $wp_query -> query_vars['laaldea_args']['src'] = $src;
+  
+  ob_start();
+  $template_url = laaldea_load_template('track-featured-single.php', 'new/radio/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
+}
+
+function laaldea_get_radio_track_html( $post_id = 0, $in_same_term = false, $echo = true ) {
+  global $wp_query;
+  global $post;
+
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  // Check if $tool is a "post" post type
+  if(get_post_type( $post_id ) !== 'radio-track') {
+    return '';
+  }
+
+  $src = get_field('soundcloud_src', $post_id, true);  
+  $wp_query -> query_vars['laaldea_args']['src'] = $src;
+  
+  ob_start();
+  $template_url = laaldea_load_template('track-single.php', 'new/radio/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
+}
+
+/* la aledea Info */
+function laaldea_build_aldea_html () {
+  $template_url = laaldea_load_template('aldea-main.php', 'new/aldea');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_aldea', 'laaldea_build_aldea_html' );
 
 /************************************************************/
 /******************* Promo form functions *******************/

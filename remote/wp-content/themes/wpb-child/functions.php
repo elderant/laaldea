@@ -1,7 +1,7 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles' );
 function wpb_child_enqueue_styles() {
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/js/script.js', array(), '', true );
 
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
@@ -29,15 +29,34 @@ function wpb_child_enqueue_styles() {
   if(is_page(312)) {
     wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
     wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
-  }
+  }  
 } 
+
+add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles_main', 95 );
+function wpb_child_enqueue_styles_main() {
+  $page_id = get_the_ID();
+  $new_home_ids = array(1103, 1154, 1163, 1186);
+  $is_home_new = in_array($page_id,$new_home_ids);
+
+  if(!$is_home_new) {
+    wp_enqueue_style('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/css/main.css', array(), false );
+  }
+  else {
+    wp_enqueue_style('wpb-child-main-new', get_stylesheet_directory_uri() . '/inc/assets/css/main-new.css', array(), false );
+
+    wp_enqueue_script('wpb-child-skrollr', get_stylesheet_directory_uri() . '/inc/assets/js/vendor/skrollr.min.js', array('jquery'), false, true );
+    wp_enqueue_script('wpb-child-rellax', 'https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js', array('jquery'), false, true );
+    wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
+    wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
+  }
+}
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );
 function wpb_child_enqueue_mobile_styles() {
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
   }
-  else {
+  else if(!is_page(1103)) {
     wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
   }  
 }
@@ -95,9 +114,11 @@ function wpb_child_admin_redirect() {
   $page_id = get_the_ID();
   $home_ids = array(2,259,304,308, 58);
   $user_ids = array(332, 544, 328, 547, 550, 553, 330, 331);
+  $new_home_ids = array(1103, 1154, 1163, 1186);
 
   $is_home = in_array($page_id,$home_ids);
   $is_user_flow = in_array($page_id,$user_ids);
+  $is_home_new = in_array($page_id,$new_home_ids);
 
   if(is_user_logged_in()) {
     return;
@@ -106,6 +127,9 @@ function wpb_child_admin_redirect() {
     return;
   }
   if($is_user_flow) {
+    return;
+  }
+  if($is_home_new) {
     return;
   }
   if(is_404()) {
@@ -117,6 +141,8 @@ function wpb_child_admin_redirect() {
 add_action('get_header', 'wpb_child_admin_redirect');
 
 function laaldea_register_secondary_menu() {
+  register_nav_menu('primary-new', __( 'Primary menu new', 'wpb-child' ));
+
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'wpb-child' ));
   register_nav_menu('learning-menu', __( 'E-Learning menu', 'wpb-child' ));
 

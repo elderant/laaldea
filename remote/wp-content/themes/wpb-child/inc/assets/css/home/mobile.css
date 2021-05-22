@@ -1234,7 +1234,7 @@
 
 	#click-team .team-carousel .mask {
 		top: 84px;
-		left: 112px;
+		left: 99px;
 		width: 150px;
 		height: 205px;
 	}
@@ -6565,6 +6565,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+
+  #radio .col-12 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #radio .col-12::-webkit-scrollbar {
+    display: none;
+  }
 
 	.cd-timeline-content h2 {
 		font-size: 2.2em;

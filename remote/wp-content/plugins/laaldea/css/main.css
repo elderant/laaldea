@@ -1,4 +1,636 @@
-/* Learning */
+/**********************************************/
+/******************** Main ********************/
+/**********************************************/
+/* Home new */
+.home-section .slider-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 40vh;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.home-section .slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.home-section .background-container {
+  z-index: -1;
+  height: inherit;
+  overflow: hidden;
+}
+
+.home-section .background-container .background-part {
+  position: absolute;
+  max-width: none;
+}
+
+.home-section .background-container .background-part.background-main {
+  position: relative;
+}
+
+.home-section .content-container {
+  width: 16%;
+  margin: 4rem;
+}
+
+.home-section .content-container.text-right {
+  margin: 4rem 4rem 4rem auto;
+}
+
+.home-section .background-main {
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.home-section .content-container .title, 
+.home-section .content-container .p {
+  color: inherit;
+  text-align: inherit;
+}
+
+.home-section .content-container .button-container {
+  display: inline-block;
+  background-color: var(--green);
+  border-radius: 5px;
+  margin: 1rem auto 0 0;
+  transition: background-color 0.5s linear;
+}
+
+.home-section .content-container .button-container:hover {
+  background-color: var(--green-dark);
+}
+
+.home-section .content-container .button-container.text-right {
+  padding: 0.2rem 0.5rem 0.2rem 2rem;
+}
+
+.home-section .content-container .button-container.text-left {
+  padding: 0.2rem 2rem 0.2rem 0.5rem;
+}
+
+.home-section .content-container .home-button {
+  font-family: 'titan_one';
+  /* font-size: 16px; */
+  color: white;
+}
+
+
+/* specific */
+/* specific : Intro */
+.home-section#home-intro .slider-container {
+  /* height: 80vh; */
+}
+
+.home-section#home-intro .background-container {
+  max-width: calc(60vh * 7.8);
+}
+
+.home-section#home-intro .background-main {
+  top: calc((40vh - 60vh)/2);
+  left: -15px;
+  height: 60vh;
+  width: auto;
+}
+
+.home-section#home-intro .background-plant {
+  bottom: -27px;
+  left: -20px;
+  height: 18vh;
+}
+
+.home-section#home-intro .background-character {
+  bottom: 47px;
+  left: 14.2%;
+  height: 34vh;
+}
+
+/* specific : story */
+.home-section#home-story .slider-container {
+  /* height: calc(100vw / 2.9); */
+}
+
+.home-section#home-story .background-container {
+  max-width: 100vw;
+}
+
+.home-section#home-story .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: 50vh;
+  width: 102vw;
+}
+
+.home-section#home-story .background-character {
+  bottom: -40px;
+  left: 37.3%;
+  height: calc(54vw / 2.9);
+}
+
+/* specific : radio */
+.home-section#home-radio .content-container {
+  width: 25%;
+}
+
+.home-section#home-radio .slider-container {
+  /* height: 80vh; */
+}
+
+.home-section#home-radio .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: 50vh;
+  width: 102vw;
+}
+
+.home-section#home-radio .background-character {
+  top: 50%;
+  left: 39%;
+  height: 27vh;
+  transform: translate(0, -60%);
+}
+
+.home-section#home-radio .background-plant-1 {
+  bottom: -14px;
+  left: 90vw;
+  height: 12vh;
+}
+
+.home-section#home-radio .background-plant-2 {
+  bottom: -30px;
+  left: 9vw;
+  height: 23vh;
+}
+
+/* specific : community */
+.home-section#home-community .slider-container {
+  /* height: calc(100vw / 2.9); */
+}
+
+.home-section#home-community .background-container {
+  max-width: 100vw;
+}
+
+.home-section#home-community .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: 50vh;
+  width: 102vw;
+}
+
+.home-section#home-community .background-character {
+  bottom: -41px;
+  left: 38.5%;
+  height: calc(45vw / 2.9);
+}
+
+.home-section#home-community .background-plant {
+  bottom: -50px;
+  left: 76vw;
+  height: calc(24vw / 2.9);
+}
+
+/* specific : shop */
+.home-section#home-shop .slider-container {
+  /* height: 67vh; */
+}
+
+.home-section#home-shop .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: 50vh;
+  width: 102vw;
+}
+
+.home-section#home-shop .background-character {
+  bottom: -14px;
+  left: 40%;
+  height: 30vh;
+}
+
+.home-section#home-shop .background-plant {
+  bottom: -67px;
+  left: 9vw;
+  height: calc(34vw / 2.9);
+}
+
+/* specific : aldea */
+.home-section#home-aldea .content-container {
+  width: 25%;
+  margin-top: 8rem;
+}
+
+.home-section#home-aldea .slider-container {
+  /* height: 67vh; */
+}
+
+.home-section#home-aldea .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: 50vh;
+  width: 102vw;
+}
+
+.home-section#home-aldea .background-character {
+  bottom: -40px;
+  left: 39.5%;
+  height: 33vh;
+}
+
+.home-section#home-aldea .background-plant {
+  bottom: -30px;
+  left: 7.5%;
+  height: 15vh;
+}
+
+/* specific : team */
+.home-section#home-team .slider-container {
+  height: 100%;
+}
+.home-section#home-team .background-main {
+  top: calc((40vh - 50vh)/2);
+  left: -15px;
+  height: calc(100% + 50vh);
+  width: 102vw;
+}
+
+.home-section#home-team .background-plant {
+  bottom: -30px;
+  left: 3.5%;
+  height: 19vh;
+}
+
+.home-section#home-team .content-container {
+  width: 100%;
+}
+
+.home-section#home-team .content-container .title-container {
+  margin-right: 15rem;
+  margin-left: 0rem;
+  width: 18%;
+}
+
+.home-section#home-team .team-container .member-container {
+  width: 35%;
+}
+
+.home-section#home-team .team-container .member-avatar {
+  width: 175px;
+}
+
+.home-section#home-team .team-container .member-description {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  font-size: 1em;
+}
+
+/* Carousel */
+.home-section#home-team .carousel-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.home-section#home-team .carousel-container .arrow {
+	cursor: pointer;
+	color: var(--green);
+	transition: color	1s;
+}
+
+.home-section#home-team .carousel-container .arrow:hover {
+	cursor: pointer;
+	color: var(--green-dark);
+}
+
+.home-section#home-team .carousel-container .arrow i {
+	font-size: 50px;
+}
+
+.home-section#home-team .carousel-container .slick-next {
+	order: 3;
+}
+
+.home-section#home-team .team-carousel,
+.home-section#home-team .team-carousel .slick-list {
+	display: inline-block;
+	max-width: 1300px;
+	overflow: hidden;
+	margin: 0;
+}
+
+.home-section#home-team .team-carousel .team {
+	position: relative;
+	margin: 0 3em;
+	padding: 122px 0;
+	font-size: 16px;
+	color: var(--green);
+}
+
+.home-section#home-team .team-carousel .team.emmanuel {
+	padding-top: 0;
+}
+
+.home-section#home-team .team-carousel .team.nicolas   {
+	padding: 72px 0;
+}
+
+.home-section#home-team .team-carousel .team.gabriel,
+.home-section#home-team .team-carousel .team.lina,
+.home-section#home-team .team-carousel .team.laura {
+	padding-bottom: 0;
+}
+
+.home-section#home-team .team-carousel .team.diana {
+	padding-top: 6px;
+}
+
+.home-section#home-team .team-carousel .team.maria {
+	padding-top: 87px;
+}
+
+.home-section#home-team .team-carousel .mask {
+	position: absolute;
+	top: 121px;
+	left: 144px;
+	width: 217px;
+	height: 298px;
+}
+
+.home-section#home-team .team-carousel .team.katia .mask {left: 127px;}
+.home-section#home-team .team-carousel .team.nicolas .mask {left: 153px;}
+.home-section#home-team .team-carousel .team.lina .mask {left: 160px;}
+.home-section#home-team .team-carousel .team.fredy .mask {left: 157px;}
+.home-section#home-team .team-carousel .team.diana .mask {left: 135px;}
+.home-section#home-team .team-carousel .team.gabriel .mask {left: 135px;top: 123px;}
+.home-section#home-team .team-carousel .team.laura .mask {top: 123px;left: 118px;}
+.home-section#home-team .team-carousel .team.maria .mask {top: 123px;left: 118px;}
+
+.home-section#home-team .team-carousel .team h5 {
+	position: relative;
+  width: 81%;
+  margin: 0 auto;
+	padding: 0.9em 0;
+	color: inherit;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.home-section#home-team .team-carousel .team span.job-title {
+	position: absolute;
+	bottom: 0;
+	width: 81%;
+  height: calc(0.9em*1.2*3 + 1em);
+	padding: 0.75em 0;
+	color: inherit;
+	text-align: center;
+  font-size: 0.9em;
+  line-height: 1.2;
+  transform: translate(12%,0);
+} 
+
+.home-section#home-team .team-carousel .team.katia span.job-title,
+.home-section#home-team .team-carousel .team.nicolas span.job-title,
+.home-section#home-team .team-carousel .team.lina span.job-title,
+.home-section#home-team .team-carousel .team.fredy span.job-title,
+.home-section#home-team .team-carousel .team.diana span.job-title,
+.home-section#home-team .team-carousel .team.gabriel span.job-title,
+.home-section#home-team .team-carousel .team.laura span.job-title,
+.home-section#home-team .team-carousel .team.maria span.job-title {
+	padding: 0.75em 0;
+}
+
+/* Stories and characters */
+#stories .content-container {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#stories .story-header-image {
+  position: absolute;
+}
+
+#stories .plant.plant1,#stories .plant.plant2 {z-index: 2;top: 0;}
+#stories .plant.plant1 {left: 0;}
+#stories .plant.plant2 {right: 0;}
+
+#stories .plant.plant3,#stories .plant.plant4 {bottom: 0;}
+#stories .plant.plant3 {z-index: 20;left: 0;}
+#stories .plant.plant4 {z-index: 1;right: 0;}
+
+/* consider wrapping image in figure, set image with as intrinsic and width of image as percent of self*/
+#stories .opossum{z-index:18;bottom: 0;left: 1.2%;}
+#stories .owl{z-index:19;bottom: 0;left: 9.8%;}
+#stories .ant{z-index: 17;bottom: 5%;left: 21%;}
+#stories .lucy{z-index:16;bottom: 0;left: 21%;}
+#stories .ernest{z-index: 15;bottom: 0;left: 33.5%;}
+#stories .arnold{z-index: 14;bottom: 0;left: 45%;}
+#stories .bee{z-index: 13;bottom: 31%;left: 51%;}
+#stories .lia{z-index: 8;bottom: 0;left: 52%;}
+#stories .harry{z-index: 12;bottom: 0;left: 58.7%;}
+#stories .moorhens{z-index: 9;bottom: 0;left: 62.5%;}
+#stories .carol{z-index: 10;bottom: 0;left: 68.5%;}
+#stories .peter{z-index: 11;bottom: 0;left: 81.1%;}
+#stories .macaw{z-index: 7;bottom: 39%;left: 80.1%;}
+#stories .mouse{z-index: 6;bottom: 0;left: 91.7%;}
+
+/* Radio */
+
+/* Radio : header */
+#radio .header-row .main-background {
+  width: 100%;
+  height: auto;
+}
+
+#radio .header-row .content-container {
+  position: absolute;
+  top: 12%;
+  left: 37%;
+  width: calc(100vw - 37% - 4rem);
+}
+
+#radio .header-row h1.title {
+  font-size: 7rem;
+}
+
+#radio .header-row .allies-icons-container {
+  width: 90%;
+  margin-top: 2rem;
+}
+
+#radio .header-row .ally-icon {
+  height: calc(2.2vw * 2.4);
+}
+
+#radio .header-row .vertical-inner-container .ally-icon.lego {height: calc(0.6vw * 2.4);}
+#radio .header-row .vertical-inner-container .ally-icon.aldea {height: calc(1.25vw * 2.4);}
+
+#radio .header-row .subtitle {
+  margin-top: 6rem;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* Radio : body */
+#radio .main-row .section-title {
+  letter-spacing: 2px;
+}
+
+#radio .main-row .carousel-container .arrow {
+  font-size: 4rem;
+  color: var(--green);
+  opacity: 1;
+  cursor: pointer;
+  transition: color 0.5s linear, opacity 0.25s linear;
+}
+#radio .main-row .carousel-container .arrow:hover {color: var(--green-dark);}
+#radio .main-row .carousel-container .arrow.slick-disabled {opacity: 0;}
+
+#radio .main-row .carousel-container .arrow.slick-prev {order: 1;}
+#radio .main-row .carousel-container .coming-carousel {order: 2;width: 80%;}
+#radio .main-row .carousel-container .arrow.slick-next {order: 3;}
+
+
+/* la aldea : header */
+#aldea .header-row .main-background {
+  width: 100%;
+  height: auto;
+}
+
+#aldea .header-row .content-container {
+  position: absolute;
+  bottom: 0;
+  left: 8.333333%;
+  width: 50%;
+}
+
+#aldea .header-row h1.title {
+  font-size: 6.5rem;
+  padding-bottom: 3.25rem;
+}
+
+/* laaldea: intro */
+#aldea .icons-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* real icon width/height : 110px*/
+#aldea .icon-container {
+  margin: 2rem 4.25rem;
+  position: relative;
+}
+
+#aldea .icon-container svg {
+  width: 122px;
+}
+
+#aldea .icon-container .name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+
+#aldea .icon-container.libros {color:#5295C2}
+#aldea .icon-container.radio {color:#729359}
+#aldea .icon-container.digital {color:#A989BA}
+#aldea .icon-container.canciones {color:#AB8743}
+#aldea .icon-container.videos {color:#DC4B15}
+#aldea .icon-container.tv {color:#83AFDB}
+
+/* laaldea : awards */
+#aldea .section-title {
+  position: relative;
+}
+
+#aldea .section-title svg {
+  position: absolute;
+  top: 50%;
+  left: -1%;
+  height: 80px;
+  transform: translate(-100%, -50%);
+}
+
+#aldea .section-title .title-text {
+  font-size: 1.25em;
+}
+
+/* laaldea : numbers */
+#aldea .numeros-row .section-content {
+  position: relative;
+}
+
+#aldea .numeros-row .content-container {
+  position: absolute;
+}
+
+#aldea .numeros-row .content-container.students {top:19%;left:11%;}
+#aldea .numeros-row .content-container.listeners {top:45%;left:28.4%;}
+#aldea .numeros-row .content-container.teachers {top:14%;left:56%;}
+#aldea .numeros-row .content-container.institutions {top:36%;left:76.8%;}
+
+#aldea .numeros-row .content-container .text-number {font-size: 1.6em;}
+#aldea .numeros-row .content-container .text-about {font-size: 1.1em;}
+
+/* laaldea : allies */
+#aldea .allies-row .ally-icon.unicef svg {height: 150px;width: auto;}
+#aldea .allies-row .ally-icon.top {margin-bottom: 3rem;}
+#aldea .allies-row img.top.ally-icon {height: 150px;}
+#aldea .allies-row img.lego {height: 20px;}
+#aldea .allies-row img.corpoeducacion {height: 30px;}
+
+/* laaldea : que pasa */
+#aldea .happening-row .content-container {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 42%;
+}
+
+#aldea .happening-row .content-container p {
+  font-size: 0.6em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+/* laaldea : media */
+#aldea .media-row .publication-container {
+  width: 20%;
+}
+
+#aldea .media-row .publication-container .text-container {
+  width: 75%;
+  margin: 0;
+}
+
+/* laaldea : click */
+#aldea .click-row {
+  margin-bottom: 6rem;
+}
+
+/* laaldea : footer */
+#aldea .footer-row .copy-column p,
+#aldea .footer-row .socials-column,
+#aldea .footer-row .contact-column {
+  font-size: 0.6em;
+}
+
+#aldea .footer-row .copy-column .copy-text {
+  width: 50%;
+  margin: 0;
+}
+
+/**********************************************/
+/****************** Learning ******************/
+/**********************************************/
+
 /**********************************************/
 /******************** Home ********************/
 /**********************************************/

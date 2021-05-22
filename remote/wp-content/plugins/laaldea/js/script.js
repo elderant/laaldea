@@ -731,6 +731,46 @@
   }
 
   $(document).ready(function () {
+    if($('body.home-new').length > 0) {
+      var rellax = new Rellax('.rellax', {
+        center: true
+      });
+
+      var skrollrInstance = skrollr.init();
+
+      $('.team-carousel').slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        prevArrow: '.home-section#home-team .slick-prev',
+        nextArrow: '.home-section#home-team .slick-next',
+        variableWidth: true,
+        responsive: [
+          {
+            breakpoint: 700,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: false,
+              variableWidth: true,
+            }
+          },
+        ],
+      });
+    }
+    if($('body.radio').length > 0) {
+      $('.coming-carousel').slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '#radio .slick-prev',
+        nextArrow: '#radio .slick-next',
+        variableWidth: false,
+      });
+    }
+
     if($('.page-id-35').length > 0) {
       laadea_validate_promo_form_jquery();
     }
