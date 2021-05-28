@@ -20,6 +20,11 @@ function laaldea_scripts () {
   if(is_page(35)) {
     wp_enqueue_script('jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js', array('jquery'), '1.10.0',	true);
   }
+
+  if( is_page(1154) ) {
+    wp_enqueue_script( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery') );
+    wp_enqueue_style( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' );
+  }
 }
 
 /************************************************************/
@@ -207,10 +212,227 @@ add_shortcode( 'laaldea_home_new_es', 'laaldea_build_home_new_html_es' );
 
 /* stories, characters */
 function laaldea_build_stories_html () {
+  global $wp_query;
+
+  // filter queries
+  $book_args = array (
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+    'parent'   => 19,
+  );
+
+  $book_terms = get_terms( $book_args );
+  $wp_query -> query_vars['laaldea_args']['book_terms'] = $book_terms;
+
+  $topic_args = array (
+    'taxonomy' => 'category',
+    'hide_empty' => false,
+    'parent'   => 25,
+  );
+
+  $topic_terms = get_terms( $topic_args );
+  $wp_query -> query_vars['laaldea_args']['topic_terms'] = $topic_terms;
+
+  // Default content query
+  $posts_per_page = 3;
+  $limit = $posts_per_page;
+  $tools_tempate = 'audio'; //libro video audio
+
+  $query_args  = array(
+    'post_type' => 'tool_aldea',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+    'meta_query'	=> array(
+      array(
+        'key'		=> 'aldea_tool_type',
+        'value'		=> $tools_tempate, 
+        'compare'	=> '=',
+      ),
+    ),
+  );
+  // if(isset($_GET['id'])) {
+  //   $query_args['post__not_in'] = array($_GET['id']);
+  // }
+  // if(isset($_GET['tagId'])) {
+  //   $query_args['tax_query'] = array(
+  //     array(
+  //       'taxonomy' => 'tool_tag',
+  //       'field'    => 'term_id',
+  //       'terms'    => $_GET['tagId'],
+  //     ),
+  //   );
+  // }
+  // if(isset($_GET['query'])) {
+  //   $query_args['s'] = $_GET['query'];
+  // }
+
+  $recent_tools = new WP_Query( $query_args );
+  $post_count = $recent_tools -> found_posts;
+
+  $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
+  $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
+  $wp_query -> query_vars['laaldea_args']['limit'] = $limit;
+  $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = null;
+  $wp_query -> query_vars['laaldea_args']['tools_tempate'] = $tools_tempate;
+  
+  switch ($tools_tempate){
+    case 'libro' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_tempate;
+      break;
+    case 'video' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_tempate;
+
+      break;
+    case 'audio' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = 'video ' . $tools_tempate;
+
+      break;
+    default :
+    $wp_query -> query_vars['laaldea_args']['tools_class'] = 'libro';
+      break;
+  }
+  
+
+  if(strcasecmp($tools_tempate, 'libro') !== 0) {
+    $featured_args = array (
+      'taxonomy' => 'category',
+      'hide_empty' => false,
+      'meta_query'	=> array(
+        array(
+          'key'		=> 'category_featured',
+          'value'		=> 'featured', 
+          'compare'	=> 'LIKE',
+        ),
+      ),
+    );
+  
+    
+    $featured_terms = get_terms( $featured_args );
+    $wp_query -> query_vars['laaldea_args']['featured_terms'] = $featured_terms;
+  }
+
+  // Requested tool
+  // if(isset($_GET['id'])) {
+  //   $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = $_GET['id'];
+  // }
+
   $template_url = laaldea_load_template('stories-main.php', 'new/stories');
   load_template($template_url, true);
 }
 add_shortcode( 'laaldea_stories', 'laaldea_build_stories_html' );
+
+function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '', $echo = true ) {
+  global $wp_query;
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  if(get_post_type( $post_id ) !== 'tool_aldea') {
+    return '';
+  }
+  // Check if $tool is a tool post type
+  $tool_url = get_field( "aldea_tool", $post_id );
+  $type = strtolower(get_field( "aldea_tool_type", $post_id ));
+  $tool_name = get_the_title( $post_id );
+  $categories_class = laaldea_get_tools_category_class($post_id);
+  $tool_playback_url = get_field( "aldea_tool_url", $post_id );
+
+  $container_class = $additional_class . 'tool-container flex-wrap align-items-end show post-id-';
+  $container_class .= $post_id;
+  $container_class .= ' type-' . $type;
+  $container_class .= ' ' . $categories_class;
+
+  $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
+  $wp_query -> query_vars['laaldea_args']['title'] = get_the_title( $post_id );
+  $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail( $post_id );
+  $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'medium' );
+  $wp_query -> query_vars['laaldea_args']['type'] = $type;
+  $wp_query -> query_vars['laaldea_args']['content'] = get_the_content(null, false, $post_id);
+  $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
+  $wp_query -> query_vars['laaldea_args']['tool'] = $tool_url;
+  
+
+  $template_name = '';
+  switch ($type){
+    case 'libro' :
+      $template_name = 'tool-single-book.php';
+      break;
+    case 'video' :
+      $template_name = 'tool-single-video.php';
+      $tool_playback_url = get_field( "aldea_tool_url", $post_id );
+      $wp_query -> query_vars['laaldea_args']['tool_playback_url'] = $tool_playback_url;
+
+      break;
+    case 'audio' :
+      $template_name = 'tool-single-audio.php';
+      $tool_playback_url = get_field( "aldea_tool_url", $post_id );
+      $wp_query -> query_vars['laaldea_args']['tool_playback_url'] = $tool_playback_url;
+
+      break;
+    default :
+      $template_name = 'tool-single-general.php';
+      break;
+  }
+
+  ob_start();
+  $template_url = laaldea_load_template($template_name, 'new/stories/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
+}
+
+function laaldea_get_tool_query_for_category( $term_id = -1, $type) {
+  global $wp_query;
+
+  error_log('laaldea_get_tool_query_for_category: $term_id : ' . print_r($term_id,1) . ' $type : ' . print_r($type,1));
+
+  if($term_id == -1) {
+    error_log('invalid term');
+    return null;
+  }
+
+  if(array_search($type, array('libro', 'video', 'audio')) === false) {
+    error_log('invalid type : ' . array_search($type, array('libro', 'video', 'audio')));
+    return null;
+  }
+
+  $query_args  = array(
+    'post_type' => 'tool_aldea',
+    'posts_per_page' => -1,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'cat' => $term_id,
+    'fields' => 'ids',
+    'meta_query'	=> array(
+      array(
+        'key'		=> 'aldea_tool_type',
+        'value'		=> $type, 
+        'compare'	=> '=',
+      ),
+    ),
+  );
+
+  $tools = new WP_Query( $query_args );
+  
+  if($tools -> found_posts <= 0) {
+    return null;
+  }
+  return $tools;
+}
 
 /* Radio */
 function laaldea_build_radio_html () {
@@ -641,14 +863,14 @@ function laaldea_build_learning_tools () {
   $topic_terms = get_terms( $topic_args );
   $wp_query -> query_vars['laaldea_args']['topic_terms'] = $topic_terms;
 
-  $action_args = array (
-    'taxonomy' => 'category',
-    'hide_empty' => false,
-    'parent'   => 35,
-  );
+  // $action_args = array (
+  //   'taxonomy' => 'category',
+  //   'hide_empty' => false,
+  //   'parent'   => 35,
+  // );
 
-  $action_terms = get_terms( $action_args );
-  $wp_query -> query_vars['laaldea_args']['action_terms'] = $action_terms;
+  // $action_terms = get_terms( $action_args );
+  // $wp_query -> query_vars['laaldea_args']['action_terms'] = $action_terms;
 
   // main container query
   $posts_per_page = 3;

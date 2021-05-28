@@ -109,7 +109,7 @@
       return state.text;
     }
 
-    console.log(state);
+    // console.log(state);
     //var baseUrl = "/user/pages/images/flags";
     var $state = $('<div><img src="' + state.element.value + '" class="avatar-image" /></div>');
     return $state;

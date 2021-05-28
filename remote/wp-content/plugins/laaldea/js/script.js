@@ -482,13 +482,13 @@
         $('.main-container .tool-container.loaded .thumbnail-container .view-link.type-video').each(function (){
           $(this).on('click', function(event) {
             event.preventDefault();
-            laaldeea_handle_tools_video_click(event, this)
+            laaldea_handle_tools_preview_click(event, this)
           });
         })
         $('.main-container .tool-container.loaded .related-tool-container .view-link-rel.type-video').each(function() {
           $(this).on('click', function(event) {
             event.preventDefault();
-            laaldeea_handle_tools_video_click(event, this)
+            laaldea_handle_tools_preview_click(event, this)
           });
         });
         $('.main-container .tool-container.loaded .resourse-container button').each(function() {
@@ -757,6 +757,78 @@
             }
           },
         ],
+      });
+    }
+    if($('body.stories').length > 0) {
+      window.aldea = {};
+      window.aldea.tools = {
+        container : $('#stories .main-row .content-column'), 
+        filters : new Array(),
+        limit : $('#stories .main-row .content-column').attr('data-limit'),
+        filterStr : '',
+        loadMoreButton : $('#stories .main-row .load-more-container button'),
+        currentPlayer: {},
+        videos: {},
+      };
+
+      // Filter control event
+      $('#stories .filters-column .filters-container .filter-control').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_filter_control($button);
+        });
+      });
+
+      $('#stories .content-column .type-filters-section select').select2({
+        minimumResultsForSearch: -1,
+      });
+
+      // Copy resourse link
+      $('#stories .content-column .resource-section button').each(function(){
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          var tempInput = document.createElement("input");
+          tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+          tempInput.value = $(this).attr('data-url');
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+
+          $button = $(this);
+          $button.toggleClass('active');
+          setTimeout(function(){
+            $button.toggleClass('active');
+          },2000)
+        });
+      });
+
+      // video/audio sliders
+      $('#stories .term-container .carousel-container').each(function (){
+        let $prevArrow = $(this).parent('.term-container').children('.slick-prev');
+        let $nextArrow = $(this).parent('.term-container').children('.slick-next');
+        $(this).slick({
+          infinite: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          prevArrow: $prevArrow,
+          nextArrow: $nextArrow,
+          variableWidth: false,
+          responsive: [
+            {
+              breakpoint: 700,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: false,
+                variableWidth: true,
+              }
+            },
+          ],
+        });
       });
     }
     if($('body.radio').length > 0) {

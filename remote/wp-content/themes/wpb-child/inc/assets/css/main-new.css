@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'sassoon';
-  src: url('/wp-content/themes/wpb-child/inc/fonts/Sassoonlight.otf') format('truetype');
+  src: url('/wp-content/themes/wpb-child/inc/fonts/Sassoon.otf') format('truetype');
 	font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'sassoon';
-  src: url('/wp-content/themes/wpb-child/inc/fonts/Sassoon.otf') format('truetype');
+  src: url('/wp-content/themes/wpb-child/inc/fonts/SassoonLight.otf') format('truetype');
 	font-weight: 400;
   font-style: normal;
 }
@@ -35,9 +35,6 @@
 	--green: #0d8080;
   --green-light: #12BABA;
   --green-dark: #074A4A;
-
-  --green-button: #467c59;
-
 
   --orange: #c34c16;
 
@@ -136,6 +133,17 @@ a {
 	transition: color	0.5s ease-in-out;
 } */
 
+button {
+  border: none;
+  outline: none;
+  background: none;
+  transition: all 0.5s linear;
+}
+
+button:focus {
+  outline: none;
+}
+
 a:hover {
 	color: var(--green-dark);
 }
@@ -165,6 +173,7 @@ a:hover, a:focus  {
 .bold {font-weight: bold;}
 .italic {font-style: italic;}
 .medium {font-weight: 500;}
+.light {font-weight: 300;}
 .justify {text-align: justify;}
 .underline {text-decoration: underline;}
 
@@ -252,6 +261,50 @@ body.page-template-fullwidth-new footer#colophon.new-home {
   background-color: var(--green);
 }
 
+/* Shared : scrollbar */
+html::-webkit-scrollbar {
+  width: 20px; 
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(90deg, var(--green-light) 5%, var(--green) 30%);
+  border: 1px solid var(--white);
+  box-shadow: inset 4px -2px 4px rgba(255,255,255,0.2);
+  box-sizing:border-box;
+}
+
+html::-webkit-scrollbar-button {
+  font-family:"Font Awesome 5 Free";
+  content:'\f106';
+  color:var(--green);
+}
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('/wp-content/uploads/page-scrollbar-button-down.png');
+  background-size: 60% 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('/wp-content/uploads/page-scrollbar-button-up.png');
+  background-size: 60% 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ::-webkit-scrollbar
+::-webkit-scrollbar-track
+::-webkit-scrollbar-thumb
+::-webkit-scrollbar-button
+::-webkit-scrollbar-track-piece
+::-webkit-scrollbar-corner */
+
+
 /******************** Home ********************/
 /* page-template-fullwidth-new - general */
 .page-template-fullwidth-new #content.site-content {
@@ -259,11 +312,20 @@ body.page-template-fullwidth-new footer#colophon.new-home {
   padding-bottom: 3rem;
 }
 
+.page-template-fullwidth-new.stories #content.site-content {
+	padding: 0;
+}
+
+.page-template-fullwidth-new.home-new #content.site-content {
+  padding: 0;
+}
+
+
 .page-template-fullwidth-new .site-content #primary {
 	padding: 0;
 }
 
-.page-template-fullwidth-new #primary .entry-header {
+.page-template-fullwidth-new #primary header.entry-header {
 	display: none;
 }
 
