@@ -44,7 +44,7 @@ function laaldea_load_template($template, $folder = '') {
 	}
 	
 	// build a path for the filename in a folder named for our plugin "fisherman" in the theme folder
-	$custom_template = sprintf('%s/%s%s/%s', get_stylesheet_directory(), 'linapulecio', $folder, $filename);
+	$custom_template = sprintf('%s/%s%s/%s', get_stylesheet_directory(), 'laaldea', $folder, $filename);
 
 	// if the template is found, awesome! return it. that's what we'll use.
 	if ( is_file($custom_template) ) {
