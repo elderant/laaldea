@@ -48,7 +48,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <nav class="navbar fixed-top navbar-expand d-flex flex-row align-items-center justify-content-around">
-            <a class="navbar-brand font-titan h6 color-white" href="/"><?php _e('La Aldea &reg;','laaldea')?></a>
+            <a class="navbar-brand font-titan h6 color-white" href="/"><?php _e('La Aldea &reg;','wpb_child')?></a>
             
             <?php
               wp_nav_menu(array(
