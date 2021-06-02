@@ -1,16 +1,110 @@
 <?php 
-  $recent_tools = $laaldea_args['recent_tools'];
-  $limit = $laaldea_args['limit'];
-  $offset = $laaldea_args['offset'];
-  $post_count = $laaldea_args['post_count'];
-  $requested_tool_id = $laaldea_args['requested_tool_id'];
-  $tools_tempate = $laaldea_args['tools_tempate'];
+  $tools_template = $laaldea_args['tools_template'];
   $tools_class = $laaldea_args['tools_class'];
 
-  $limit = $post_count < $limit? $post_count: $limit;
+  $character_array = array(
+    'opossum' => array(
+      'class' => 'opossum',
+      'src' => '/wp-content/uploads/stories-header-opossum.png',
+      'img_alt' => __('Blue opossum image','laaldea'),
+      'greet_text' => __('Hola soy la zariguiella azul','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'owl' => array(
+      'class' => 'owl',
+      'src' => '/wp-content/uploads/stories-header-owl.png',
+      'img_alt' => __('The owls image','laaldea'),
+      'greet_text' => __('Hola soy uno de los buhos','laaldea'),
+      'text' => __('Somos los encargados de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'ant' => array(
+      'class' => 'ant',
+      'src' => '/wp-content/uploads/stories-header-ant.png',
+      'img_alt' => __('The ants image','laaldea'),
+      'greet_text' => __('Hola soy una de las hormigas','laaldea'),
+      'text' => __('Somos las encargadas de de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'lucy' => array(
+      'class' => 'lucy',
+      'src' => '/wp-content/uploads/stories-header-lucy.png',
+      'img_alt' => __('Lucy image','laaldea'),
+      'greet_text' => __('Hola soy Lorena','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'ernest' => array(
+      'class' => 'ernest',
+      'src' => '/wp-content/uploads/stories-header-ernest.png',
+      'img_alt' => __('Ernest image','laaldea'),
+      'greet_text' => __('Hola soy Efren','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'arnold' => array(
+      'class' => 'arnold',
+      'src' => '/wp-content/uploads/stories-header-arnold.png',
+      'img_alt' => __('Arnold image','laaldea'),
+      'greet_text' => __('Hola soy Arnulfo','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'bee' => array(
+      'class' => 'bee',
+      'src' => '/wp-content/uploads/stories-header-bee.png',
+      'img_alt' => __('The bees image','laaldea'),
+      'greet_text' => __('Hola soy una de las abejas','laaldea'),
+      'text' => __('Somos las encargadas de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'lia' => array(
+      'class' => 'lia',
+      'src' => '/wp-content/uploads/stories-header-lia.png',
+      'img_alt' => __('Lia image','laaldea'),
+      'greet_text' => __('Hola soy Inez','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'harry' => array(
+      'class' => 'harry',
+      'src' => '/wp-content/uploads/stories-header-harry.png',
+      'img_alt' => __('Harry image','laaldea'),
+      'greet_text' => __('Hola soy Enrique','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'moorhen' => array(
+      'class' => 'moorhen',
+      'src' => '/wp-content/uploads/stories-header-moorhen.png',
+      'img_alt' => __('The moorhens image','laaldea'),
+      'greet_text' => __('Hola soy una de las gallinetas','laaldea'),
+      'text' => __('Somos las encargadas de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'carol' => array(
+      'class' => 'carol',
+      'src' => '/wp-content/uploads/stories-header-carol.png',
+      'img_alt' => __('Carol image','laaldea'),
+      'greet_text' => __('Hola soy Carmen','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'peter' => array(
+      'class' => 'peter',
+      'src' => '/wp-content/uploads/stories-header-peter.png',
+      'img_alt' => __('Peter image','laaldea'),
+      'greet_text' => __('Hola soy Paco','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'macaw' => array(
+      'class' => 'macaw',
+      'src' => '/wp-content/uploads/stories-header-macaw.png',
+      'img_alt' => __('The macaws image','laaldea'),
+      'greet_text' => __('Hola soy una de las guacamallas','laaldea'),
+      'text' => __('Somos las encargadas de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+    'mouse' => array(
+      'class' => 'mouse',
+      'src' => '/wp-content/uploads/stories-header-mouse.png',
+      'img_alt' => __('Mouse image','laaldea'),
+      'greet_text' => __('Hola soy la el raton','laaldea'),
+      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+    ),
+  );
 ?>
 
-<div id="stories" class="<?php echo $tools_class;?>">
+<div id="stories" class="waiting-yt <?php echo $tools_class;?>">
   <section class="container-fluid">
     <div class="row header-row">
       <div class="col-12 position-relative p-0 characters-container">
@@ -23,25 +117,25 @@
             <?php _e('Pasa el cursor sobre cada personaje para averiguarlo','laaldea');?>
           </div>
         </div>
+        <div class="character-texts-container color-white text-center">
+          <?php foreach($character_array as $character) : ?>
+            <div class="text-container <?php echo $character['class']?>">
+              <div class="greet font-titan"><?php echo $character['greet_text']?></div>
+              <div class="text"><?php echo $character['text']?></div>
+            </div>
+          <?php endforeach;?>
+        </div>
         <div class="character-images">
           <img class="story-header-image plant plant1" src="/wp-content/uploads/stories-header-plant1.png" alt="<?php _e('Plant 4 image','laaldea')?>">
           <img class="story-header-image plant plant2" src="/wp-content/uploads/stories-header-plant2.png" alt="<?php _e('Plant 3 image','laaldea')?>">
           <img class="story-header-image plant plant3" src="/wp-content/uploads/stories-header-plant3.png" alt="<?php _e('Plant 4 image','laaldea')?>">
-          <img class="story-header-image plant plant4" src="/wp-content/uploads/stories-header-plant4.png" alt="<?php _e('Plant 3 image','laaldea')?>">
-          <img class="story-header-image char opossum" src="/wp-content/uploads/stories-header-opossum.png" alt="<?php _e('Blue opossum image','laaldea')?>">
-          <img class="story-header-image char owl" src="/wp-content/uploads/stories-header-owl.png" alt="<?php _e('The owls image','laaldea')?>">
-          <img class="story-header-image char ant" src="/wp-content/uploads/stories-header-ant.png" alt="<?php _e('The ants image','laaldea')?>">
-          <img class="story-header-image char lucy" src="/wp-content/uploads/stories-header-lucy.png" alt="<?php _e('Lucy image','laaldea')?>">
-          <img class="story-header-image char ernest" src="/wp-content/uploads/stories-header-ernest.png" alt="<?php _e('Ernest image','laaldea')?>">
-          <img class="story-header-image char arnold" src="/wp-content/uploads/stories-header-arnold.png" alt="<?php _e('Arnold image','laaldea')?>">
-          <img class="story-header-image char bee" src="/wp-content/uploads/stories-header-bee.png" alt="<?php _e('The bees image','laaldea')?>">
-          <img class="story-header-image char lia" src="/wp-content/uploads/stories-header-lia.png" alt="<?php _e('Lia image','laaldea')?>">
-          <img class="story-header-image char harry" src="/wp-content/uploads/stories-header-harry.png" alt="<?php _e('Harry image','laaldea')?>">
-          <img class="story-header-image char moorhens" src="/wp-content/uploads/stories-header-moorhen.png" alt="<?php _e('The moorhens image','laaldea')?>">
-          <img class="story-header-image char carol" src="/wp-content/uploads/stories-header-carol.png" alt="<?php _e('Carol image','laaldea')?>">
-          <img class="story-header-image char peter" src="/wp-content/uploads/stories-header-peter.png" alt="<?php _e('Peter image','laaldea')?>">
-          <img class="story-header-image char macaw" src="/wp-content/uploads/stories-header-macaw.png" alt="<?php _e('The Macaws image','laaldea')?>">
-          <img class="story-header-image char mouse" src="/wp-content/uploads/stories-header-mouse.png" alt="<?php _e('The mouse image','laaldea')?>">            
+          <img class="story-header-image plant plant4" src="/wp-content/uploads/stories-header-plant4.png" alt="<?php _e('Plant 3 image','laaldea')?>">  
+          <?php foreach($character_array as $character) : ?>
+            <img class="story-header-image char <?php echo $character['class']?>" 
+              src="<?php echo $character['src']?>" 
+              alt="<?php echo $character['img_alt']?>" 
+              data-text="<?php echo $character['class']?>">
+          <?php endforeach;?>
         </div>
       </div>
     </div>
@@ -114,66 +208,16 @@
           <div class="type-filters-section d-flex align-items-center justify-content-start">
             <div class="filter-label h5 uppercase font-titan color-green m-0"><?php _e('¿Qué quieres ', 'laaldea');?></div>
             <select class="type-select color-green uppercase m-0">
-              <option class="uppercase" value="leer">Leer</option>
-              <option class="uppercase" value="ver">Ver</option>
-              <option class="uppercase" value="escuchar">Escuchar</option>
+              <option class="uppercase" value="libro">Leer</option>
+              <option class="uppercase" value="video">Ver</option>
+              <option class="uppercase" value="audio">Escuchar</option>
             </select>
             <div class="filter-label h5 uppercase font-titan color-green m-0"><?php _e(' ?', 'laaldea');?></div>
           </div>
         </div>
         
         <div class="main-container mt-5">
-          <?php if($tools_tempate == 'libro') :?>
-            <?php $tool_index = 0;?>
-            <?php if( $recent_tools -> have_posts() ) : ?>
-              <?php while ($recent_tools -> have_posts()) : ?>
-                <?php 
-                  $recent_tools -> the_post();
-                  $post_id = get_the_ID();
-                  $type = get_field( "aldea_tool_type", $post_id );
-                  laaldea_get_aldea_tool_html($post_id, $type, '', true);
-                ?>
-                <?php $tool_index = $tool_index + 1;?>
-                <?php if($tool_index == 3):?>
-                  <div class="flex-break"></div>
-                  <?php $tool_index = 0;?>
-                <?php endif;?>
-              <?php endwhile; ?>
-              <?php wp_reset_postdata(); ?>
-            <?php endif; ?>
-          <?php else:?>
-            <?php $featured_terms = $laaldea_args['featured_terms'];?>
-            <?php if(count($featured_terms) > 0):?>
-              <?php for( $term_index = 0; $term_index <= count($featured_terms) - 1; $term_index++):?>
-                <?php $category_tools = laaldea_get_tool_query_for_category($featured_terms[$term_index] -> term_id, $tools_tempate);?>
-                <?php if($category_tools): ?>
-                  <div class="term-container my-3 term-<?php echo $featured_terms[$term_index]->term_id;?>">
-                    <div class="term-tile font-titan color-green h5"><?php echo $featured_terms[$term_index] -> name;?></div>
-                    <div class="slick-prev arrow">
-                      <i class="fas fa-angle-left"></i>
-                    </div>
-                    <div class="slick-next arrow">
-                      <i class="fas fa-angle-right"></i>
-                    </div>
-                    <div class="carousel-container">
-                      <?php if( $category_tools -> have_posts() ) : ?>
-                        <?php while ($category_tools -> have_posts()) : ?>
-                          <?php 
-                            $category_tools -> the_post();
-                            $post_id = get_the_ID();
-                            $type = get_field( "aldea_tool_type", $post_id );
-                            laaldea_get_aldea_tool_html($post_id, $type, '', true);
-                          ?>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                      <?php endif; ?>
-                    </div>
-                  </div>
-                <?php endif;?>
-
-              <?php endfor;?>
-            <?php endif;?>
-          <?php endif;?>
+          <?php laaldea_build_stories_loop_html($tools_template, true);?>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <div class="row header-row mb-5">
       <div class="col-12 position-relative p-0 header-container">
-        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpeg" alt="<?php _e('Que es la aldea header background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpg" alt="<?php _e('Que es la aldea header background image','laaldea')?>">
         <div class="content-container">
           <h1 class="title uppercase color-white">
             <div><?php _e('¿Qué es','laaldea');?></div>

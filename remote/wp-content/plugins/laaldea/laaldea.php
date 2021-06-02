@@ -211,9 +211,9 @@ add_shortcode( 'laaldea_home_new_es', 'laaldea_build_home_new_html_es' );
 /*****************************************************************/
 
 /* stories, characters */
-function laaldea_build_stories_html () {
+function laaldea_build_main_stories_html() {
   global $wp_query;
-
+  
   // filter queries
   $book_args = array (
     'taxonomy' => 'category',
@@ -233,10 +233,39 @@ function laaldea_build_stories_html () {
   $topic_terms = get_terms( $topic_args );
   $wp_query -> query_vars['laaldea_args']['topic_terms'] = $topic_terms;
 
+  $tools_template = 'video'; //libro video audio
+  $wp_query -> query_vars['laaldea_args']['tools_template'] = $tools_template;
+
+  switch ($tools_template){
+    case 'libro' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_template;
+
+      break;
+    case 'video' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_template;
+
+      break;
+    case 'audio' :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = 'video ' . $tools_template;
+
+      break;
+    default :
+      $wp_query -> query_vars['laaldea_args']['tools_class'] = 'libro';
+
+      break;
+  }
+
+  $template_url = laaldea_load_template('stories-main.php', 'new/stories');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_stories', 'laaldea_build_main_stories_html' );
+
+function laaldea_build_stories_loop_html ($tools_template, $echo = true) {
+  global $wp_query;
+
   // Default content query
   $posts_per_page = 3;
   $limit = $posts_per_page;
-  $tools_tempate = 'audio'; //libro video audio
 
   $query_args  = array(
     'post_type' => 'tool_aldea',
@@ -247,7 +276,7 @@ function laaldea_build_stories_html () {
     'meta_query'	=> array(
       array(
         'key'		=> 'aldea_tool_type',
-        'value'		=> $tools_tempate, 
+        'value'		=> $tools_template, 
         'compare'	=> '=',
       ),
     ),
@@ -276,27 +305,29 @@ function laaldea_build_stories_html () {
   $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
   $wp_query -> query_vars['laaldea_args']['limit'] = $limit;
   $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = null;
-  $wp_query -> query_vars['laaldea_args']['tools_tempate'] = $tools_tempate;
-  
-  switch ($tools_tempate){
+  $wp_query -> query_vars['laaldea_args']['tools_template'] = $tools_template;
+
+  switch ($tools_template){
     case 'libro' :
-      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_tempate;
+      $html_template = 'tool-loop-book.php';
+
       break;
     case 'video' :
-      $wp_query -> query_vars['laaldea_args']['tools_class'] = $tools_tempate;
+      $html_template = 'tool-loop-video.php';
 
       break;
     case 'audio' :
-      $wp_query -> query_vars['laaldea_args']['tools_class'] = 'video ' . $tools_tempate;
+      $html_template = 'tool-loop-audio.php';
 
       break;
     default :
-    $wp_query -> query_vars['laaldea_args']['tools_class'] = 'libro';
+      $html_template = 'tool-loop-general.php';
+
       break;
   }
   
 
-  if(strcasecmp($tools_tempate, 'libro') !== 0) {
+  if(strcasecmp($tools_template, 'libro') !== 0) {
     $featured_args = array (
       'taxonomy' => 'category',
       'hide_empty' => false,
@@ -319,10 +350,16 @@ function laaldea_build_stories_html () {
   //   $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = $_GET['id'];
   // }
 
-  $template_url = laaldea_load_template('stories-main.php', 'new/stories');
+  ob_start();
+  $template_url = laaldea_load_template($html_template, 'new/stories/template-part');
   load_template($template_url, true);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
 }
-add_shortcode( 'laaldea_stories', 'laaldea_build_stories_html' );
 
 function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '', $echo = true ) {
   global $wp_query;
@@ -345,7 +382,7 @@ function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '
   $type = strtolower(get_field( "aldea_tool_type", $post_id ));
   $tool_name = get_the_title( $post_id );
   $categories_class = laaldea_get_tools_category_class($post_id);
-  $tool_playback_url = get_field( "aldea_tool_url", $post_id );
+  $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
 
   $container_class = $additional_class . 'tool-container flex-wrap align-items-end show post-id-';
   $container_class .= $post_id;
@@ -369,14 +406,14 @@ function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '
       break;
     case 'video' :
       $template_name = 'tool-single-video.php';
-      $tool_playback_url = get_field( "aldea_tool_url", $post_id );
-      $wp_query -> query_vars['laaldea_args']['tool_playback_url'] = $tool_playback_url;
+      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
+      $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
 
       break;
     case 'audio' :
       $template_name = 'tool-single-audio.php';
-      $tool_playback_url = get_field( "aldea_tool_url", $post_id );
-      $wp_query -> query_vars['laaldea_args']['tool_playback_url'] = $tool_playback_url;
+      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
+      $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
 
       break;
     default :
@@ -432,6 +469,43 @@ function laaldea_get_tool_query_for_category( $term_id = -1, $type) {
     return null;
   }
   return $tools;
+}
+
+add_action( 'wp_ajax_nopriv_laaldea_tools_aldea_template_change', 'laaldea_tools_aldea_template_change' );
+add_action( 'wp_ajax_laaldea_tools_aldea_template_change', 'laaldea_tools_aldea_template_change' );
+function laaldea_tools_aldea_template_change() {
+  $tool_template = $_POST['tool_template'];
+
+  switch ($tool_template){
+    case 'libro' :
+      $tool_class = $tool_template;
+
+      break;
+    case 'video' :
+      $tool_class = $tool_template;
+
+      break;
+    case 'audio' :
+      $tool_class = 'video ' . $tool_template;
+
+      break;
+    default :
+      $tool_class = 'libro';
+
+      break;
+  }
+
+  $html = laaldea_build_stories_loop_html($tool_template, false);
+  error_log($html);
+
+  $return_array = array(
+    'tool_template' => $tool_template,
+    'tool_class' => $tool_class,
+    'html' => $html,
+  );
+
+  echo json_encode($return_array);
+  die();
 }
 
 /* Radio */
