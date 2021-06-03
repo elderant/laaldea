@@ -64,11 +64,11 @@
 }
 
 .home-section .content-container .button-container.text-right {
-  padding: 0.2rem 0.5rem 0.2rem 2rem;
+  padding: 0.2rem 1.5rem 0.2rem 1.5rem;
 }
 
 .home-section .content-container .button-container.text-left {
-  padding: 0.2rem 2rem 0.2rem 0.5rem;
+  padding: 0.2rem 1.5rem 0.2rem 1.5rem;
 }
 
 .home-section .content-container .home-button {
@@ -76,7 +76,6 @@
   /* font-size: 16px; */
   color: white;
 }
-
 
 /* specific */
 /* specific : Intro */
@@ -183,13 +182,13 @@
 .home-section#home-community .background-character {
   bottom: -41px;
   left: 38.5%;
-  height: calc(45vw / 2.9);
+  height: calc(50vw / 2.9);
 }
 
 .home-section#home-community .background-plant {
   bottom: -50px;
-  left: 76vw;
-  height: calc(24vw / 2.9);
+  left: 73vw;
+  height: calc(28vw / 2.9);
 }
 
 /* specific : shop */
@@ -830,6 +829,10 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   width: 100%;
 }
 
+/* stories : load more */
+#stories .content-column .load-more-button.end-list {
+  display: none;
+}
 
 /* Radio */
 
@@ -897,9 +900,10 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 
 #aldea .header-row .content-container {
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 8.333333%;
   width: 50%;
+  transform: translate(0, -50%);
 }
 
 #aldea .header-row h1.title {
@@ -972,6 +976,9 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #aldea .numeros-row .content-container .text-number {font-size: 1.6em;}
 #aldea .numeros-row .content-container .text-about {font-size: 1.1em;}
 
+/* laaldea : map */
+
+
 /* laaldea : allies */
 #aldea .allies-row .ally-icon.unicef svg {height: 150px;width: auto;}
 #aldea .allies-row .ally-icon.top {margin-bottom: 3rem;}
@@ -980,14 +987,14 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #aldea .allies-row img.corpoeducacion {height: 30px;}
 
 /* laaldea : que pasa */
-#aldea .happening-row .content-container {
+#aldea .happens-row .content-container {
   position: absolute;
   top: 12%;
   left: 50%;
   width: 42%;
 }
 
-#aldea .happening-row .content-container p {
+#aldea .happens-row .content-container p {
   font-size: 0.6em;
   font-weight: 500;
   letter-spacing: 1px;

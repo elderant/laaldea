@@ -216,9 +216,7 @@
           </div>
         </div>
         
-        <div class="main-container mt-5">
-          <?php laaldea_build_stories_loop_html($tools_template, true);?>
-        </div>
+        <?php laaldea_build_stories_loop_html($tools_template, true);?>
       </div>
     </div>
   </section>

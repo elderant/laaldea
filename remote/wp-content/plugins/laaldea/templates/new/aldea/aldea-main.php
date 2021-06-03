@@ -34,13 +34,13 @@
       </div>
       <div class="icons-container d-flex flex-wrap justify-content-center align-items-center">
         <div class="icon-container libros">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-book.svg';?>
           <div class="name font-titan capitalized h5">
             <?php _e('Libros','laaldea')?>
           </div>
         </div>
         <div class="icon-container radio">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-radio.svg';?>
           <div class="name font-titan capitalized h5">
             <?php _e('Radio','laaldea')?>
           </div>
@@ -53,24 +53,23 @@
         </div>
         <div class="flex-break"></div>
         <div class="icon-container canciones">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-song.svg';?>
           <div class="name font-titan capitalized h5">
             <?php _e('Canciones','laaldea')?>
           </div>
         </div>
         <div class="icon-container videos">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-video.svg';?>
           <div class="name font-titan capitalized h5">
-            <?php _e('Canciones','laaldea')?>
+            <?php _e('Videos','laaldea')?>
           </div>
         </div>
         <div class="icon-container tv">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-tv.svg';?>
           <div class="name font-titan h5">
             <?php _e('T.V.','laaldea')?>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row awards-row mb-5">
@@ -105,7 +104,7 @@
     </div>
     <div class="row numeros-row mb-5">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-numbers.svg';?>
         <h2 class="title-text color-orange"><?php _e('La Aldea en números', 'laaldea');?></span>
       </div>
       <div class="col-12 section-content p-0">
@@ -134,13 +133,16 @@
     </div>
     <div class="row map-row mb-5">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
         <h2 class="title-text color-orange"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
+      </div>
+      <div class="col-10 offset-1 section-content text-center p-0">
+        <img src="/wp-content/uploads/aldea-map-image.jpg" alt="<?php _e('Donde se implementa La Aldea image', 'laaldea');?>">
       </div>
     </div>
     <div class="row allies-row mb-5">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
         <h2 class="title-text color-orange"><?php _e('Socios y aliados', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 d-flex flex-wrap align-items-center justify-content-between award-icons">
@@ -159,13 +161,13 @@
         <img class="ally-icon corpoeducacion" src="/wp-content/uploads/aldea-ally-corpoeducacion.png" alt="<?php _e('Logo Corpoeducación','laaldea');?>">
       </div>
     </div>
-    <div class="row happening-row">
+    <div class="row happens-row">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
         <h2 class="title-text color-orange"><?php _e('¿Qué sucede con La Aldea?', 'laaldea');?></span>
       </div>
       <div class="col-12 section-content p-0">
-        <img src="/wp-content/uploads/aldea-happening-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
+        <img src="/wp-content/uploads/aldea-happens-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
         <ul class="content-container h3">
           <li class="kids">
             <div class="subtitle font-titan uppercase mb-2">
@@ -229,7 +231,7 @@
     </div>
     <div class="row history-row mb-5">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
         <h2 class="title-text color-orange"><?php _e('Historia de La Aldea', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 section-content p-0">
@@ -238,7 +240,7 @@
     </div>
     <div class="row media-row mb-5">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
         <h2 class="title-text color-orange"><?php _e('La Aldea en medios', 'laaldea');?></span>
       </div>
       <div class="col-8 offset-2 section-quote h6 font-sassoon mb-5">
@@ -325,7 +327,7 @@
     </div>
     <div class="row click-row">
       <div class="col-10 offset-1 section-title mb-5 h2">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-click.svg';?>
         <h2 class="title-text color-orange"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 section-intro">

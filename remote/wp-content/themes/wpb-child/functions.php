@@ -143,6 +143,8 @@ add_action('get_header', 'wpb_child_admin_redirect');
 function laaldea_register_secondary_menu() {
   register_nav_menu('primary-new', __( 'Primary menu new', 'wpb-child' ));
 
+  register_nav_menu('new-shop', __( 'New site Shop menu', 'wpb-child' ));
+
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'wpb-child' ));
   register_nav_menu('learning-menu', __( 'E-Learning menu', 'wpb-child' ));
 
