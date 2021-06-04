@@ -777,7 +777,8 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #stories.video .term-container .arrow.slick-next {right: 15px;}
 
 #stories.video .term-container .arrow:hover {color: var(--green-light);}
-#stories.video .term-container .arrow.slick-disabled {opacity: 0;}
+#stories.video .term-container .arrow.slick-disabled {color: var(--gray);}
+#stories.video .term-container .arrow.loading-more {cursor:progress;}
 
 
 #stories.video .carousel-container .slick-list {

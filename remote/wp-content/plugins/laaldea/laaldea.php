@@ -265,46 +265,67 @@ function laaldea_build_stories_loop_html ($tools_template, $echo = true) {
 
   // Default content query
   $posts_per_page = 3;
-  $limit = $posts_per_page;
 
-  $query_args  = array(
-    'post_type' => 'tool_aldea',
-    'posts_per_page' => $posts_per_page,
-    'orderby' => 'modified',
-    'post_status' => 'publish',
-    'fields' => 'ids',
-    'meta_query'	=> array(
-      array(
-        'key'		=> 'aldea_tool_type',
-        'value'		=> $tools_template, 
-        'compare'	=> '=',
+  if(strcasecmp($tools_template, 'libro') == 0 ||strcasecmp($tools_template, 'general') == 0) {
+    $query_args  = array(
+      'post_type' => 'tool_aldea',
+      'posts_per_page' => $posts_per_page,
+      'orderby' => 'modified',
+      'post_status' => 'publish',
+      'fields' => 'ids',
+      'meta_query'	=> array(
+        array(
+          'key'		=> 'aldea_tool_type',
+          'value'		=> $tools_template, 
+          'compare'	=> '=',
+        ),
       ),
-    ),
-  );
-  // if(isset($_GET['id'])) {
-  //   $query_args['post__not_in'] = array($_GET['id']);
-  // }
-  // if(isset($_GET['tagId'])) {
-  //   $query_args['tax_query'] = array(
-  //     array(
-  //       'taxonomy' => 'tool_tag',
-  //       'field'    => 'term_id',
-  //       'terms'    => $_GET['tagId'],
-  //     ),
-  //   );
-  // }
-  // if(isset($_GET['query'])) {
-  //   $query_args['s'] = $_GET['query'];
-  // }
+    );
+    // if(isset($_GET['id'])) {
+    //   $query_args['post__not_in'] = array($_GET['id']);
+    // }
+    // if(isset($_GET['tagId'])) {
+    //   $query_args['tax_query'] = array(
+    //     array(
+    //       'taxonomy' => 'tool_tag',
+    //       'field'    => 'term_id',
+    //       'terms'    => $_GET['tagId'],
+    //     ),
+    //   );
+    // }
+    // if(isset($_GET['query'])) {
+    //   $query_args['s'] = $_GET['query'];
+    // }
 
-  $recent_tools = new WP_Query( $query_args );
-  $post_count = $recent_tools -> found_posts;
+    
+    $recent_tools = new WP_Query( $query_args );
+    $post_count = $recent_tools -> found_posts;
+    $max_num_pages = $recent_tools -> max_num_pages;
 
-  $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
-  $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
-  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
-  $wp_query -> query_vars['laaldea_args']['limit'] = $limit;
+    $wp_query -> query_vars['laaldea_args']['recent_tools'] = $recent_tools;
+    $wp_query -> query_vars['laaldea_args']['post_count'] = $post_count;
+    $wp_query -> query_vars['laaldea_args']['limit'] = $posts_per_page;
+  }
+  else {
+    $featured_args = array (
+      'taxonomy' => 'category',
+      'hide_empty' => false,
+      'meta_query'	=> array(
+        array(
+          'key'		=> 'category_featured',
+          'value'		=> 'featured', 
+          'compare'	=> 'LIKE',
+        ),
+      ),
+    );
+  
+    
+    $featured_terms = get_terms( $featured_args );
+    $wp_query -> query_vars['laaldea_args']['featured_terms'] = $featured_terms;
+  }
+
   $wp_query -> query_vars['laaldea_args']['requested_tool_id'] = null;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page;
   $wp_query -> query_vars['laaldea_args']['tools_template'] = $tools_template;
 
   switch ($tools_template){
@@ -324,25 +345,6 @@ function laaldea_build_stories_loop_html ($tools_template, $echo = true) {
       $html_template = 'tool-loop-general.php';
 
       break;
-  }
-  
-
-  if(strcasecmp($tools_template, 'libro') !== 0) {
-    $featured_args = array (
-      'taxonomy' => 'category',
-      'hide_empty' => false,
-      'meta_query'	=> array(
-        array(
-          'key'		=> 'category_featured',
-          'value'		=> 'featured', 
-          'compare'	=> 'LIKE',
-        ),
-      ),
-    );
-  
-    
-    $featured_terms = get_terms( $featured_args );
-    $wp_query -> query_vars['laaldea_args']['featured_terms'] = $featured_terms;
   }
 
   // Requested tool
@@ -398,6 +400,7 @@ function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '
   $wp_query -> query_vars['laaldea_args']['content'] = get_the_content(null, false, $post_id);
   $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
   $wp_query -> query_vars['laaldea_args']['tool'] = $tool_url;
+  $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
   
 
   $template_name = '';
@@ -407,15 +410,9 @@ function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '
       break;
     case 'video' :
       $template_name = 'tool-single-video.php';
-      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
-      $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
-
       break;
     case 'audio' :
       $template_name = 'tool-single-audio.php';
-      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
-      $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
-
       break;
     default :
       $template_name = 'tool-single-general.php';
@@ -433,10 +430,10 @@ function laaldea_get_aldea_tool_html( $post_id = 0, $type, $additional_class = '
   return $html;
 }
 
-function laaldea_get_tool_query_for_category( $term_id = -1, $type) {
+function laaldea_get_tool_query_for_category( $term_id = -1, $posts_per_page, $type) {
   global $wp_query;
 
-  error_log('laaldea_get_tool_query_for_category: $term_id : ' . print_r($term_id,1) . ' $type : ' . print_r($type,1));
+  //error_log('laaldea_get_tool_query_for_category: $term_id : ' . print_r($term_id,1) . ' $type : ' . print_r($type,1));
 
   if($term_id == -1) {
     error_log('invalid term');
@@ -450,7 +447,7 @@ function laaldea_get_tool_query_for_category( $term_id = -1, $type) {
 
   $query_args  = array(
     'post_type' => 'tool_aldea',
-    'posts_per_page' => -1,
+    'posts_per_page' => $posts_per_page,
     'orderby' => 'modified',
     'post_status' => 'publish',
     'cat' => $term_id,
@@ -465,11 +462,17 @@ function laaldea_get_tool_query_for_category( $term_id = -1, $type) {
   );
 
   $tools = new WP_Query( $query_args );
+
+  $max_num_pages = $tools -> max_num_pages;
   
   if($tools -> found_posts <= 0) {
     return null;
   }
-  return $tools;
+  return array(
+    'tools' => $tools,
+    'page' => 1,
+    'max_num_pages' => $max_num_pages,
+    );
 }
 
 add_action( 'wp_ajax_nopriv_laaldea_tools_aldea_template_change', 'laaldea_tools_aldea_template_change' );
@@ -497,7 +500,6 @@ function laaldea_tools_aldea_template_change() {
   }
 
   $html = laaldea_build_stories_loop_html($tool_template, false);
-  error_log($html);
 
   $return_array = array(
     'tool_template' => $tool_template,
@@ -512,14 +514,9 @@ function laaldea_tools_aldea_template_change() {
 add_action( 'wp_ajax_nopriv_laaldea_tools_aldea_load_more', 'laaldea_tools_aldea_load_more' );
 add_action( 'wp_ajax_laaldea_tools_aldea_load_more', 'laaldea_tools_aldea_load_more' );
 function laaldea_tools_aldea_load_more() {
-  error_log('getting post variables');
   $offset = $_POST['offset'];
   $filters = isset($_POST['filter']) ? json_decode(stripslashes($_POST['filter'])) : array();
   $tools_template = $_POST['toolsTemplate'];
-
-  // error_log('$offset : ' . print_r($offset,1));
-  // error_log('$filters : ' . print_r($filters,1));
-  // error_log('$template : ' . print_r($tools_template,1));
 
   global $wp_query;
 
@@ -528,9 +525,6 @@ function laaldea_tools_aldea_load_more() {
 
   // base query
   // Default content query
-  // error_log('Creating args for the query');
-  $posts_per_page = 3;
-  $limit = $posts_per_page;
 
   $query_args  = array(
     'post_type' => 'tool_aldea',
@@ -573,24 +567,18 @@ function laaldea_tools_aldea_load_more() {
     }
   }
 
-  error_log('Quering new posts');
-  error_log('$query_args : ' . print_r($query_args,1));
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
 
-  error_log('starting tool html creation loop');
-  error_log('query post count : ' . print_r($post_count,1));
   ob_start();
   if( $recent_tools -> have_posts() ) {
     while ($recent_tools -> have_posts()) {
       $recent_tools -> the_post();
       $post_id = get_the_ID();
-      error_log('post id : ' . print_r($post_id,1));
       $tool_url = get_field( "aldea_tool", $post_id );
       $type = strtolower(get_field( "aldea_tool_type", $post_id ));
       $tool_name = get_the_title( $post_id );
       $categories_class = laaldea_get_tools_category_class($post_id);
-      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
 
       $container_class = 'tool-container flex-wrap align-items-end show post-id-';
       $container_class .= $post_id;
@@ -617,21 +605,121 @@ function laaldea_tools_aldea_load_more() {
           break;
       }
 
-      error_log('post to print : ' . print_r($post_id,1));
       $template_url = laaldea_load_template($template_name, 'new/stories/template-part');
       load_template($template_url, false);
     }
   }
   $html = ob_get_clean();
   
-  error_log('returning loaded post html');
-  error_log('$html : ' . print_r($html,1));
   $return_array = array(
     'last' => $post_count <= $offset + $posts_per_page,
     'count' => $offset + $posts_per_page,
     'limit' => $limit,
     'html' => $html,
   );
+
+  echo json_encode($return_array);
+  die();
+}
+
+add_action( 'wp_ajax_nopriv_laaldea_tools_aldea_video_load_more', 'laaldea_tools_aldea_video_load_more' );
+add_action( 'wp_ajax_laaldea_tools_aldea_video_load_more', 'laaldea_tools_aldea_video_load_more' );
+function laaldea_tools_aldea_video_load_more() {
+  $page = $_POST['page'];
+  $posts_per_page = $_POST['postPerPage'];
+  $tools_template = $_POST['toolsTemplate'];
+  $term_id = $_POST['termId'];
+
+  // error_log('$page : ' . print_r($page,1));
+  // error_log('$post_per_page : ' . print_r($posts_per_page,1));
+  // error_log('$tools_template : ' . print_r($tools_template,1));
+  // error_log('$term_id : ' . print_r($term_id,1));
+
+  global $wp_query;
+  $page = $page + 1;
+
+  // base query
+  // Default content query
+
+  $query_args  = array(
+    'post_type' => 'tool_aldea',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'cat' => $term_id,
+    'fields' => 'ids',
+    'paged' => $page,
+    'meta_query'	=> array(
+      array(
+        'key'		=> 'aldea_tool_type',
+        'value'		=> $tools_template, 
+        'compare'	=> '=',
+      ),
+    ),
+  );
+ 
+  $recent_tools = new WP_Query( $query_args );
+  $post_count = $recent_tools -> found_posts;
+  $max_num_pages = $recent_tools -> max_num_pages;
+
+  // error_log('returned posts : ' . print_r($recent_tools->get_posts(),1));
+  $html_array = array();
+
+  if( $recent_tools -> have_posts() ) {
+    while ($recent_tools -> have_posts()) {
+      ob_start();
+      $recent_tools -> the_post();
+      $post_id = get_the_ID();
+      $tool_url = get_field( "aldea_tool", $post_id );
+      $type = strtolower(get_field( "aldea_tool_type", $post_id ));
+      $tool_name = get_the_title( $post_id );
+      $categories_class = laaldea_get_tools_category_class($post_id);
+      $tool_youtube_id = get_field( "aldea_tool_youtube_id", $post_id );
+
+      $container_class = 'loaded tool-container flex-wrap align-items-end show post-id-';
+      $container_class .= $post_id;
+      $container_class .= ' type-' . $type;
+      $container_class .= ' ' . $categories_class;
+
+      $wp_query -> query_vars['laaldea_args']['post_id'] = $post_id;
+      $wp_query -> query_vars['laaldea_args']['has_thumbnail'] = has_post_thumbnail( $post_id );
+      $wp_query -> query_vars['laaldea_args']['thumbnail'] = get_the_post_thumbnail( $post_id, 'medium' );
+      $wp_query -> query_vars['laaldea_args']['content'] = get_the_content(null, false, $post_id);
+      $wp_query -> query_vars['laaldea_args']['container_class'] = $container_class;
+      $wp_query -> query_vars['laaldea_args']['tool'] = $tool_url;
+      $wp_query -> query_vars['laaldea_args']['tool_youtube_id'] = $tool_youtube_id;
+
+      $wp_query -> query_vars['laaldea_args']['title'] = get_the_title( $post_id );
+      $wp_query -> query_vars['laaldea_args']['type'] = $type;
+
+      $template_name = '';
+      switch ($type){
+        case 'video' :
+          $template_name = 'tool-single-video.php';
+          break;
+        case 'audio' :
+          $template_name = 'tool-single-audio.php';
+          break;
+        default :
+          $template_name = 'tool-single-general.php';
+          break;
+      }
+
+      $template_url = laaldea_load_template($template_name, 'new/stories/template-part');
+      load_template($template_url, false);
+      $html = ob_get_clean();
+
+      array_push($html_array, $html);
+    }
+  }
+  
+  $return_array = array(
+    'last' => $max_num_pages <= $page,
+    'page' => $page,
+    'html' => $html_array,
+  );
+
+  error_log('return array : ' . print_r($return_array,1));
 
   echo json_encode($return_array);
   die();
@@ -663,8 +751,6 @@ function laaldea_build_radio_html () {
   $wp_query -> query_vars['laaldea_args']['featured'] = $featured;
 
   $featured_value = get_field('featured', 1175, true);
-  error_log('featured value for post 1175 : ' . print_r($featured_value,1));
-  error_log('featured post count : ' . print_r($featured -> found_posts,1));
 
   // main query
   $query_args  = array(
@@ -1008,8 +1094,6 @@ function laaldea_build_learning_news () {
   $last_new = new WP_Query( $query_args );
   $wp_query -> query_vars['laaldea_args']['last_new'] = $last_new;
   $wp_query -> query_vars['laaldea_args']['in_same_term'] = !empty($_GET['tagId'])? true: false;
-
-  error_log(print_r($last_new,1));
 
   // Sidebar query
   $query_args  = array(
@@ -1760,9 +1844,6 @@ function laaldea_tools_load_more() {
 
   $posts_per_page = 6;
   $limit = $posts_per_page + $offset;
-  
-  // error_log('offset ' . print_r($offset,1));
-  // error_log('filters ' . print_r($filters,1));
 
   // base query
   $query_args  = array(
@@ -1826,11 +1907,9 @@ function laaldea_tools_load_more() {
     }
   }
 
-  //error_log('query_args ' . print_r($query_args,1));
   // Executing and using query.
   $recent_tools = new WP_Query( $query_args );
   $post_count = $recent_tools -> found_posts;
-  //error_log('$post_count ' . print_r($post_count,1));
 
   ob_start();
   if( $recent_tools -> have_posts() ) {
