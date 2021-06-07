@@ -2,8 +2,6 @@
   $tools_template = $laaldea_args['tools_template'];
   $posts_per_page = $laaldea_args['posts_per_page'];
   $featured_terms = $laaldea_args['featured_terms'];
-
-  $posts_per_page = 4; 
 ?>
 
 <div class="main-container mt-5 mb-3">
