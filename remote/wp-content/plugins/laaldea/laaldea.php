@@ -174,6 +174,24 @@ function laaldea_build_home_html_es () {
 add_shortcode( 'laaldea_home_es', 'laaldea_build_home_html_es' );
 
 function laaldea_build_home_new_html ($lang) {
+  global $wp_query;
+  
+  $posts_per_page = 3;
+
+  $query_args  = array(
+    'post_type' => 'post_aldea',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+  );
+  $recent_post = new WP_Query( $query_args );
+  $post_count = $recent_tools -> found_posts;
+  $max_num_pages = $recent_tools -> max_num_pages;
+
+  $wp_query -> query_vars['laaldea_args']['recent_post'] = $recent_post;
+
+
   $template_url = laaldea_load_template('intro.php', 'new/home');
 	load_template($template_url, true);
 
@@ -194,6 +212,45 @@ function laaldea_build_home_new_html ($lang) {
 
   $template_url = laaldea_load_template('team.php', 'new/home');
 	load_template($template_url, true);
+}
+
+function laaldea_get_aldea_post_html($post_id = 0, $in_same_term = false, $echo = true) {
+  global $wp_query;
+
+  if ( ! $post_id){
+    $post_id = get_the_ID();
+    if ( ! $post_id){
+      $post_id = -1;
+    }
+  }
+
+  if($post_id == -1) {
+    return '';
+  }
+
+  // Check if $tool is a "post" post type
+  if(get_post_type( $post_id ) !== 'post_aldea') {
+    return '';
+  }
+
+  $url = get_field('aldea_post_url', $post_id, true);
+  $title = get_the_title( $post_id );
+  $content = get_the_content(null, false, $post_id);
+  //$content = !empty($content))? wp_trim_words($content, 60):'';
+
+  $wp_query -> query_vars['laaldea_args']['title'] = $title;
+  $wp_query -> query_vars['laaldea_args']['content'] = $content;
+  $wp_query -> query_vars['laaldea_args']['url'] = $url;
+  
+  ob_start();
+  $template_url = laaldea_load_template('post-aldea-single.php', 'new/home/template-part');
+  load_template($template_url, false);
+  $html = ob_get_clean();
+
+  if ( $echo ) {
+    echo $html;
+  }
+  return $html;
 }
 
 function laaldea_build_home_new_html_en () {
@@ -719,7 +776,7 @@ function laaldea_tools_aldea_video_load_more() {
     'html' => $html_array,
   );
 
-  error_log('return array : ' . print_r($return_array,1));
+  // error_log('return array : ' . print_r($return_array,1));
 
   echo json_encode($return_array);
   die();

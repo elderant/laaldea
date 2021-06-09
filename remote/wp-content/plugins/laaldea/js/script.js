@@ -21,7 +21,6 @@ function onYouTubeIframeAPIReady() {
   var onPlayerStateChange = function(event) {
     if(event.data == YT.PlayerState.PAUSED || YT.PlayerState.ENDED) {
       let $thumbnailContainer = $(event.target.h).parents('.thumbnail-column').find('.thumbnail-container');
-      console.log()
       $thumbnailContainer.toggleClass('remove');
     }
   }
@@ -734,6 +733,77 @@ function onYouTubeIframeAPIReady() {
     })
   }
 
+  /* laaldea home scroll events */
+  var laaldea_modify_mousewheel_event = function(event) {
+    let scrollPostion = $('#home-intro .slider-container').scrollLeft();
+    let delta = event.originalEvent.deltaY;
+    let finalPosition = scrollPostion + 3*delta/4;      
+    $('#home-intro .slider-container').scrollLeft(finalPosition);
+  }
+  var laaldea_disable_site_scroll = function(event, ) {
+    if (event.type === "mouseenter") {
+      $('html').addClass('overflow-hidden');
+    }
+    else if(event.type === "mouseleave") {
+      $('html').removeClass('overflow-hidden');
+    }
+    else {$('html').removeClass('overflow-hidden');console.log('I should not be triggered')}
+  }
+
+  /* Home events */
+  var laaldea_handle_intro_slider = function($button) {
+    let $container = $button.parents('.arrow-container');
+    let direction = $container.hasClass('prev')?0:1;
+    let $slider = $('#home-intro .slider-container');
+    let windowWidth = window.innerWidth;
+
+    if(direction) {
+      let movement = Math.floor(($slider.scrollLeft())/windowWidth) + 1;
+      $slider.animate({scrollLeft: movement*windowWidth}, 500);
+
+      if($container.siblings('.arrow-container').hasClass('disabled')) {
+        $container.siblings('.arrow-container').removeClass('disabled');
+      }
+      if(movement == 2) {
+        $container.toggleClass('disabled');
+      }
+
+    }
+    else {
+      let movement = Math.ceil(($slider.scrollLeft())/windowWidth) - 1;
+      $slider.animate({scrollLeft: movement*windowWidth}, 500);
+
+      if($container.siblings('.arrow-container').hasClass('disabled')) {
+        $container.siblings('.arrow-container').removeClass('disabled');
+      }
+      if(movement == 0) {
+        $container.toggleClass('disabled');
+      }
+    }
+  }
+
+  var laaldea_check_offset_arrow_left = function (className) {
+    var leftPosition = $('#home-intro .slider-container').scrollLeft();
+    
+    return function () {
+      var $this = $(this);
+      $this.toggleClass(className, (leftPosition <= 0));
+    };
+  }
+  var laaldea_check_offset_arrow_right = function(className) {
+    var leftPosition = $('#home-intro .slider-container').scrollLeft();
+    
+    return function () {
+      var $this = $(this);
+      var windowWidth = window.innerWidth;
+      $this.toggleClass(className, (leftPosition >= windowWidth*2));
+    };
+  }
+  var laaldea_handle_slider_scroll = function(event) {
+    $('#home-intro .arrow-container.prev').each(laaldea_check_offset_arrow_left('disabled'));
+    $('#home-intro .arrow-container.next').each(laaldea_check_offset_arrow_right('disabled'));
+  }
+
   /* laaldea tools events */
   var laaldea_handle_tool_aldea_video_click = function(event, currentTarget) {
     let id = $(currentTarget).attr('data-postId');
@@ -1049,6 +1119,7 @@ function onYouTubeIframeAPIReady() {
     });
   }
 
+
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
   */
@@ -1072,11 +1143,109 @@ function onYouTubeIframeAPIReady() {
 
   $(document).ready(function () {
     if($('body.home-new').length > 0) {
+      $('#home-intro').on('mouseenter', function(event){
+        laaldea_disable_site_scroll(event);
+        $('#home-intro .slider-container').on('scroll', laaldea_handle_slider_scroll);
+        $(document).on('mousewheel', laaldea_modify_mousewheel_event);
+      });    
+      $('#home-intro').on('mouseleave', function(event) {
+        laaldea_disable_site_scroll(event);
+        $('#home-intro .slider-container').off('scroll', laaldea_handle_slider_scroll);
+        $(document).off('mousewheel', laaldea_modify_mousewheel_event);
+      });
+      
+      $('#home-intro .arrow-container button').each(function() {
+        $(this).on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          $button.toggleClass('active');
+  
+          laaldea_handle_intro_slider($button);
+        });
+      });
+
       var rellax = new Rellax('.rellax', {
         center: true
       });
 
-      var skrollrInstance = skrollr.init();
+      TweenLite.defaultEase = Linear.easeNone;
+      var controller = new ScrollMagic.Controller();
+      var tl = new TimelineMax();
+
+      tl.from('.home-section#home-radio .background-character', 150, {
+        top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 100,{
+        top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
+      });
+      tl.to('.home-section#home-radio .background-character', 150,{
+        top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+      });
+      
+      var tlPlant = new TimelineMax();
+      tlPlant.from('.home-section#home-radio .background-plant-1', 180, {
+        rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+      });
+      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
+        rotationX: 5,rotationY: -5,rotationZ: 5,ease: "power1.out",
+      });
+      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
+        rotationX: 15,rotationY: -15,rotationZ: 8,ease: "power1.out",
+      });
+      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
+        rotationX: 5,rotationY: -5,rotationZ: 5,ease: "power1.out",
+      });
+      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
+        rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
+      });
+      tl.add(tlPlant, "0");
+      
+      var tlPlant2 = new TimelineMax();
+      tlPlant2.from('.home-section#home-radio .background-plant-2', 180, {
+        rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+      });
+      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
+        rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
+      });
+      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
+        rotationX: -15,rotationY: 15,rotationZ: 8,ease: "power1.out",
+      });
+      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
+        rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
+      });
+      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
+        rotationX: 5,rotationY: -5,rotationZ: 0,ease: "power1.out",
+      });
+      tl.add(tlPlant2, "0");
+
+      var scene = new ScrollMagic.Scene({
+        triggerElement: "#home-story",
+        duration: "900",
+        offset: "238"
+      }).setTween(tl).addTo(controller);
+        // .addIndicators({
+        //   name: "Box Timeline",
+        //   colorTrigger: "white",
+        //   colorStart: "white",
+        //   colorEnd: "white"
+        // })
+        
+      // var skrollrInstance = skrollr.init();
 
       $('.team-carousel').slick({
         infinite: false,
@@ -1498,7 +1667,6 @@ function onYouTubeIframeAPIReady() {
       $('.main-container .tool-container .related-tool-container .view-link-rel').each(function(){
         $(this).on('click', function(event) {
           if($(this).attr('data-link')) {
-            console.log('preventing default');
             event.preventDefault();
             laaldea_handle_tools_preview_click(event, this);
           }

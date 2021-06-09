@@ -2,6 +2,10 @@
 /******************** Main ********************/
 /**********************************************/
 /* Home new */
+html.overflow-hidden {
+  overflow: hidden;
+}
+
 .home-section .slider-container {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -85,12 +89,51 @@
 
 .home-section .content-container .home-button {
   font-family: 'titan_one';
-  /* font-size: 16px; */
   color: white;
 }
 
 /* specific */
 /* specific : Intro */
+.home-section#home-intro .row {
+  position: relative;
+}
+
+.home-section#home-intro .arrow-container {
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(0, -50%);
+  transition: opacity 0.5s linear;
+}
+.home-section#home-intro .arrow-container.disabled {opacity: 0;pointer-events: none;}
+.home-section#home-intro .arrow-container.prev {left: 20px;}
+.home-section#home-intro .arrow-container.next {right: 20px;}
+
+.home-section#home-intro .arrow-container .laaldea-arrow {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var( --green);
+  transition: background-color 0.5s linear;
+}
+.home-section#home-intro .arrow-container:hover .laaldea-arrow {
+  background-color: var(--green-light);
+}
+
+.home-section#home-intro .arrow-container .laaldea-arrow i {
+  line-height: 38px;
+  font-size: 40px;
+  color: var(--white);
+}
+.home-section#home-intro .arrow-container.prev .laaldea-arrow i {padding-right: 6px;}
+.home-section#home-intro .arrow-container.next .laaldea-arrow i {padding-left: 6px;}
+
+.home-section#home-intro .content-container {
+  width: 25%;
+}
+
 .home-section#home-intro .slide-container {
   min-width: 100vw;
   width: 100vw;
@@ -116,6 +159,25 @@
   bottom: -50px;
   left: 800px;
   height: 418px;
+}
+
+.home-section#home-intro .background-plant-2 {
+  bottom: -50px;
+  left: calc(200vw + 1111px);
+  height: 291px;
+}
+
+.home-section#home-intro .background-character-2 {
+  bottom: -50px;
+  left: calc(100vw + 650px);
+  height: 407px;
+}
+
+.home-section#home-intro .background-character-3 {
+  bottom: -50px;
+  left: calc(200vw + 750px);
+  height: 430px;
+
 }
 
 /* specific : story */
