@@ -9,13 +9,13 @@
         </div>
         <div class="rellax content-container text-right color-white" data-rellax-speed="2">
           <h2 class="title">
-            <?php _e('Tienda la Aldea','laaldea');?>
+            <?php _e('Tienda La Aldea','laaldea');?>
           </h2>
           <div class="p">
             <?php _e('Todos los libros, títeres y recursos pedagógicos de La Aldea los puedes encontrar en nuestra tienda virtual.','laaldea');?>
           </div>
-          <div class="button-container text-right p">
-            <a href="#" class="home-button right"><?php _e('Explora la tienda', 'laaldea');?></a>
+          <div class="button-container text-right p d-flex">
+            <a href="http://store.laaldea.co/" class="home-button right"><?php _e('Explora la tienda', 'laaldea');?></a>
           </div>
         </div>
       </div>

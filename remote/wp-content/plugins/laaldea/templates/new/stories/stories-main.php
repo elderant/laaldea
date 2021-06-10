@@ -110,10 +110,10 @@
       <div class="col-12 position-relative p-0 characters-container">
         <img class="main-background" src="/wp-content/uploads/stories-header-background.png" alt="<?php _e('Background image','laaldea')?>">
         <div class="content-container color-white">
-          <h2 class="title">
+          <h2 class="title mb-2">
             <?php _e('¿Quiénes son los habitantes de La Aldea?','laaldea');?>
           </h2>
-          <div class="subtitle uppercase">
+          <div class="subtitle uppercase medium">
             <?php _e('Pasa el cursor sobre cada personaje para averiguarlo','laaldea');?>
           </div>
         </div>

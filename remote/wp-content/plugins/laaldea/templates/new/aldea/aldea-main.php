@@ -1,17 +1,17 @@
 <div id="aldea">
   <section class="container-fluid">
-    <div class="row header-row mb-5">
+    <div class="row header-row mb-7">
       <div class="col-12 position-relative p-0 header-container">
-        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpg" alt="<?php _e('Que es la aldea header background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpg" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
         <div class="content-container">
-          <h1 class="title uppercase color-white">
+          <h1 class="title color-white">
             <div><?php _e('¿Qué es','laaldea');?></div>
             <div><?php _e('La Aldea?','laaldea');?></div>
           </h1>
         </div>
       </div>
     </div>
-    <div class="row intro-row mb-5">
+    <div class="row intro-row mb-7">
       <div class="col-8 offset-2">
         <p>
           <?php _e('La Aldea es una estrategia de educación multiplataforma que permite ' . 
@@ -72,7 +72,7 @@
         </div>
       </div>
     </div>
-    <div class="row awards-row mb-5">
+    <div class="row awards-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
         <h2 class="title-text color-orange"><?php _e('Premios', 'laaldea');?></span>
@@ -102,7 +102,7 @@
         <img class="award-icon idb" src="/wp-content/uploads/aldea-premios-idb.png" alt="<?php _e('Imagen IDB award','laaldea');?>">
       </div>
     </div>
-    <div class="row numeros-row mb-5">
+    <div class="row numeros-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-numbers.svg';?>
         <h2 class="title-text color-orange"><?php _e('La Aldea en números', 'laaldea');?></span>
@@ -131,7 +131,7 @@
         </div>
       </div>
     </div>
-    <div class="row map-row mb-5">
+    <div class="row map-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
         <h2 class="title-text color-orange"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
@@ -140,7 +140,7 @@
         <img src="/wp-content/uploads/aldea-map-image.jpg" alt="<?php _e('Donde se implementa La Aldea image', 'laaldea');?>">
       </div>
     </div>
-    <div class="row allies-row mb-5">
+    <div class="row allies-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
         <h2 class="title-text color-orange"><?php _e('Socios y aliados', 'laaldea');?></span>
@@ -210,7 +210,7 @@
         </ul>
       </div>
     </div>
-    <div class="row gallery-row mb-5">
+    <div class="row gallery-row mb-7">
       <div class="col-12 section-content p-0 d-flex align-items-center justify-content-center">
         <figure>
           <img src="/wp-content/uploads/aldea-gallery-image1.jpg" alt="<?php _e('Gallery image 1', 'laaldea')?>">
@@ -229,7 +229,7 @@
         </figure>  
       </div>
     </div>
-    <div class="row history-row mb-5">
+    <div class="row history-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
         <h2 class="title-text color-orange"><?php _e('Historia de La Aldea', 'laaldea');?></span>
@@ -238,7 +238,7 @@
         <img src="/wp-content/uploads/aldea-history-image.png" alt="<?php _e('Historia de La Aldea image', 'laaldea');?>">
       </div>
     </div>
-    <div class="row media-row mb-5">
+    <div class="row media-row mb-7">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
         <h2 class="title-text color-orange"><?php _e('La Aldea en medios', 'laaldea');?></span>

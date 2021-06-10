@@ -1,11 +1,11 @@
 <div id="radio">
   <section class="container-fluid">
-    <div class="row header-row">
+    <div class="row header-row mb-5">
       <div class="col-12 position-relative p-0 characters-container">
         <img class="main-background" src="/wp-content/uploads/radio-header-banner.png" alt="<?php _e('Radio header background image','laaldea')?>">
         <div class="content-container h4">
           <h1 class="title capitalized color-green">
-            <?php _e('Enrique al aire','laaldea');?>
+            <?php _e('Al aire con Enrique','laaldea');?>
           </h1>
           <div class="allies-icons-container d-flex align-items-center justify-content-between">
             <img class="ally-icon rescue" src="/wp-content/uploads/radio-header-logo-rescue.png" alt="<?php _e('International Rescue Committee Logo','laaldea')?>">
@@ -20,7 +20,7 @@
           <div class="subtitle uppercase color-white">
             <?php $subtitle = sprintf( 
               wp_kses( 
-                __( 'Sintoniza todos los sábados a las 11am, <span class="medium">en rcn radio</span>.', 'laaldea' ), 
+                __( 'Sintoniza todos los sábados <span class="medium">en rcn radio</span>.', 'laaldea' ), 
                 array(  
                   'span' => array('class' => array())
                 ) 
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="row intro-row">
+    <div class="row intro-row  mb-5 d-none">
       <div class="col-8 offset-2">
         <p class="text-center color-green medium uppercase">
           <?php _e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum, doloremque consequatur itaque natus iste facere, quam ratione modi rem nesciunt obcaecati facilis sint?. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum.', 'laaldea'); ?>

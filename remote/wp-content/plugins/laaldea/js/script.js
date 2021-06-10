@@ -756,9 +756,10 @@ function onYouTubeIframeAPIReady() {
     let direction = $container.hasClass('prev')?0:1;
     let $slider = $('#home-intro .slider-container');
     let windowWidth = window.innerWidth;
-
+  
+    //debugger;
     if(direction) {
-      let movement = Math.floor(($slider.scrollLeft())/windowWidth) + 1;
+      let movement = Math.floor(($slider.scrollLeft()+1)/windowWidth) + 1;
       $slider.animate({scrollLeft: movement*windowWidth}, 500);
 
       if($container.siblings('.arrow-container').hasClass('disabled')) {
@@ -770,7 +771,7 @@ function onYouTubeIframeAPIReady() {
 
     }
     else {
-      let movement = Math.ceil(($slider.scrollLeft())/windowWidth) - 1;
+      let movement = Math.ceil(($slider.scrollLeft()-1)/windowWidth) - 1;
       $slider.animate({scrollLeft: movement*windowWidth}, 500);
 
       if($container.siblings('.arrow-container').hasClass('disabled')) {
@@ -792,7 +793,7 @@ function onYouTubeIframeAPIReady() {
   }
   var laaldea_check_offset_arrow_right = function(className) {
     var leftPosition = $('#home-intro .slider-container').scrollLeft();
-    
+
     return function () {
       var $this = $(this);
       var windowWidth = window.innerWidth;

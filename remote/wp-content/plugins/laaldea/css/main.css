@@ -23,6 +23,7 @@ html.overflow-hidden {
   z-index: -1;
   height: inherit;
   overflow: hidden;
+  width: 100%;
 }
 
 .home-section .background-container .background-part {
@@ -59,6 +60,9 @@ html.overflow-hidden {
   font-size: 1.25em;
 }
 
+.home-section .content-container.text-left .button-container{justify-content: flex-start;}
+.home-section .content-container.text-right .button-container{justify-content: flex-end;}
+
 .home-section .content-container .p {
   font-size: 1em;
 }
@@ -67,23 +71,29 @@ html.overflow-hidden {
   font-size: 2.75em;
 }
 
-.home-section .content-container .button-container {
+.home-section .content-container .button-container .home-button {
   display: inline-block;
-  background-color: var(--green);
+  margin: 0 0.25rem;
   border-radius: 5px;
-  margin: 1rem auto 0 0;
+  background-color: var(--green);
   transition: background-color 0.5s linear;
 }
 
-.home-section .content-container .button-container:hover {
+.home-section .content-container.text-left .button-container .home-button:first-child {margin-left: 0;}
+.home-section .content-container.text-left .button-container .home-button:last-child {margin-right: 0;}
+
+.home-section .content-container.text-right .button-container .home-button:first-child {margin-right: 0;}
+.home-section .content-container.text-right .button-container .home-button:last-child {margin-left: 0;}
+
+.home-section .content-container .button-container .home-button:hover {
   background-color: var(--green-dark);
 }
 
-.home-section .content-container .button-container.text-right {
+.home-section .content-container .button-container.text-right .home-button {
   padding: 0.2rem 1.5rem 0.2rem 1.5rem;
 }
 
-.home-section .content-container .button-container.text-left {
+.home-section .content-container .button-container.text-left .home-button {
   padding: 0.2rem 1.5rem 0.2rem 1.5rem;
 }
 
@@ -141,12 +151,15 @@ html.overflow-hidden {
 
 .home-section#home-intro .background-container {
   max-width: 300vw;
+  width: 300vw;
 }
 
 .home-section#home-intro .background-main {
   top: calc((475px - 718px)/2);
   left: -15px;
-  width: 5790px;
+  /* width: 5790px; */
+  width: calc(300vw + 30px);
+  height: 718px;
 }
 
 .home-section#home-intro .background-plant {
@@ -157,27 +170,26 @@ html.overflow-hidden {
 
 .home-section#home-intro .background-character {
   bottom: -50px;
-  left: 800px;
+  left: 14%;
   height: 418px;
 }
 
 .home-section#home-intro .background-plant-2 {
   bottom: -50px;
-  left: calc(200vw + 1111px);
+  left: calc(200vw + 19%);
   height: 291px;
 }
 
 .home-section#home-intro .background-character-2 {
   bottom: -50px;
-  left: calc(100vw + 650px);
+  left: calc(100vw + 12%);
   height: 407px;
 }
 
 .home-section#home-intro .background-character-3 {
   bottom: -50px;
-  left: calc(200vw + 750px);
+  left: calc(200vw + 13%);
   height: 430px;
-
 }
 
 /* specific : story */
@@ -189,16 +201,29 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-story .background-character {
   bottom: -50px;
-  left: 663px;
+  left: 35%;
   height: 426px;
 }
 
 /* specific : radio */
+.home-section#home-radio .allies-container {
+  top: 1rem;
+  left: 1rem;
+  width: 30%;
+}
+
+.home-section#home-radio .ally-icon {
+  height: calc(1.1vw * 2.4);
+}
+
+.home-section#home-radio .vertical-inner-container .ally-icon.lego {height: calc(0.4vw * 2.4);}
+.home-section#home-radio .vertical-inner-container .ally-icon.aldea {height: calc(0.8vw * 2.4);}
+
 .home-section#home-radio .content-container {
   width: 700px;
 }
@@ -207,25 +232,25 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-radio .background-character {
   top: 240px;
-  left: 835px;
+  left: 43%;
   height: 292px;
   transform: translate(0, -60%);
 }
 
 .home-section#home-radio .background-plant-1 {
   bottom: -20px;
-  left: 1675px;
+  left: 86%;
   height: 162px;
 }
 
 .home-section#home-radio .background-plant-2 {
   bottom: -30px;
-  left: 190px;
+  left: 10%;
   height: 265px;
 }
 
@@ -241,18 +266,18 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-community .background-character {
   bottom: -50px;
-  left: 750px;
+  left: 39%;
   height: 360px;
 }
 
 .home-section#home-community .background-plant {
   bottom: -50px;
-  left: 1400px;
+  left: 73%;
   height: 205px;
 }
 
@@ -261,18 +286,18 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-shop .background-character {
   bottom: -20px;
-  left: 780px;
+  left: 41%;
   height: 330px;
 }
 
 .home-section#home-shop .background-plant {
   bottom: -50px;
-  left: 172px;
+  left: 9%;
   height: 242px;
 }
 
@@ -285,18 +310,18 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-aldea .background-character {
   bottom: -40px;
-  left: 826px;
+  left: 43%;
   height: 380px;
 }
 
 .home-section#home-aldea .background-plant {
   bottom: -30px;
-  left: 150px;
+  left: 8%;
   height: 190px;
 }
 
@@ -308,12 +333,12 @@ html.overflow-hidden {
   top: calc((475px - 504px)/2);
   left: -15px;
   height: 774px;
-  width: 1950px;
+  width: calc(100% + 30px);
 }
 
 .home-section#home-team .background-plant {
   bottom: -50px;
-  left: 65px;
+  left: 3.5%;
   height: 220px;
 }
 
@@ -464,8 +489,16 @@ html.overflow-hidden {
   transform: translate(-50%, 0);
 }
 
+#stories .header-row .subtitle {
+  font-size: 0.8em;
+}
+
 #stories .story-header-image {
   position: absolute;
+}
+
+#stories .characters-container {
+  overflow: hidden;
 }
 
 #stories .plant.plant1,#stories .plant.plant2 {z-index: 2;top: 0;}
@@ -492,9 +525,19 @@ html.overflow-hidden {
 #stories .macaw{z-index: 7;bottom: 39%;left: 80.1%;}
 #stories .mouse{z-index: 6;bottom: 0;left: 91.7%;}
 
+#stories .header-row .char {
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.6s ease;
+}
+
+#stories .header-row .char:hover {
+  transform: scale(1.25);
+}
+
 #stories .character-texts-container {
   position: absolute;
-  top: 16%;
+  top: 20%;
   left: 50%;
   width: 50%;
   height: calc(1rem*1.5*5);
@@ -1026,9 +1069,9 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 #aldea .numeros-row .content-container.students {top:19%;left:11%;}
-#aldea .numeros-row .content-container.listeners {top:45%;left:28.4%;}
+#aldea .numeros-row .content-container.listeners {top:40%;left:28.4%;}
 #aldea .numeros-row .content-container.teachers {top:14%;left:56%;}
-#aldea .numeros-row .content-container.institutions {top:36%;left:76.8%;}
+#aldea .numeros-row .content-container.institutions {top:30%;left:76.8%;}
 
 #aldea .numeros-row .content-container .text-number {font-size: 1.6em;}
 #aldea .numeros-row .content-container .text-about {font-size: 1.1em;}
