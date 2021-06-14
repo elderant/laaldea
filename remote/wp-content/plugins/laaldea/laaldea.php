@@ -9,7 +9,6 @@ Author:      Sebastian Guerrero
 // Script hooks.
 add_action( 'wp_enqueue_scripts', 'laaldea_scripts' );
 
- 
 function laaldea_scripts () {
   wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
   wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
@@ -903,13 +902,107 @@ function laaldea_get_radio_track_html( $post_id = 0, $in_same_term = false, $ech
   return $html;
 }
 
-/* la aledea Info */
+/* Community */
+function laaldea_build_community_html () {
+  global $wp_query;
+  $posts_per_page = 3;
+  $page = 1;
+
+  // filter queries
+  // main tax query
+  $term_args = array (
+    'taxonomy' => 'community_tag',
+    'hide_empty' => false,
+    'parent'   => 0,
+  );
+
+  $main_terms = get_terms( $term_args );
+  $wp_query -> query_vars['laaldea_args']['main_terms'] = $main_terms;
+
+  $exclude = array();
+  foreach($main_terms as $term) {
+    array_push($exclude,$term->term_id);
+  }
+  // children tax query
+  // $sub_terms = array();
+  // foreach($main_terms as $term) {
+  //   $term_args = array (
+  //     'taxonomy' => 'community_tag',
+  //     'hide_empty' => false,
+  //     'parent'   => $term -> term_id,
+  //   );
+  //   $child_terms = get_terms( $term_args );
+
+  //   //$sub_terms[$term -> term_id] = $child_terms;
+  //   $sub_terms = array_merge($sub_terms, $child_terms);
+  // }
+  
+  $term_args = array (
+    'taxonomy' => 'community_tag',
+    'hide_empty' => false,
+    'exclude' => $exclude,
+  );
+
+  $sub_terms = get_terms( $term_args );
+
+  for($i = 0; $i<=count($sub_terms) - 1; $i++ ) {
+    switch ($i%4) {
+      case 0:
+        $sub_terms[$i] -> background_class = ' background-green';
+        break;
+      case 1:
+        $sub_terms[$i] -> background_class = ' background-blue';
+        break;
+      case 2:
+        $sub_terms[$i] -> background_class = ' background-cyan';
+        break;
+      case 3:
+        $sub_terms[$i] -> background_class = ' background-yellow';
+        break;
+    }
+  }
+
+  $wp_query -> query_vars['laaldea_args']['sub_terms'] = $sub_terms;
+  error_log(print_r($sub_terms,1));
+
+  // main query
+  $query_args  = array(
+    'post_type' => 'community_aldea',
+    'posts_per_page' => $posts_per_page,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    //'fields' => 'ids',
+    'paged' => $page,
+  );
+
+  $recent_posts = new WP_Query( $query_args );
+  $post_count = $recent_posts -> found_posts;
+
+  $wp_query -> query_vars['laaldea_args']['recent_posts'] = $recent_posts;
+  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
+  $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
+  $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
+
+  $template_url = laaldea_load_template('community-main.php', 'new/community');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_community', 'laaldea_build_community_html' );
+
+
+/* la aldea Info */
 function laaldea_build_aldea_html () {
   $template_url = laaldea_load_template('aldea-main.php', 'new/aldea');
   load_template($template_url, true);
 }
 add_shortcode( 'laaldea_aldea', 'laaldea_build_aldea_html' );
 
+
+/* la aldea contacto */
+function laaldea_build_contacto_html () {
+  $template_url = laaldea_load_template('contact-main.php', 'new/contact');
+  load_template($template_url, true);
+}
+add_shortcode( 'laaldea_contacto', 'laaldea_build_contacto_html' );
 /************************************************************/
 /******************* Promo form functions *******************/
 /************************************************************/

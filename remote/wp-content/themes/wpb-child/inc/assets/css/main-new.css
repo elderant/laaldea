@@ -36,8 +36,13 @@
   --green-light: #12BABA;
   --green-dark: #074A4A;
 
+  --blue: #365770;
+  --blue-light: #567692;
+
   --orange: #c34c16;
+  
   --yellow: #eba224;
+  --yellow-light: #f4be2a;
 
   --gray: #606060;
 }

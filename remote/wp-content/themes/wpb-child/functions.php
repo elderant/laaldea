@@ -35,10 +35,13 @@ function wpb_child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles_main', 95 );
 function wpb_child_enqueue_styles_main() {
   $page_id = get_the_ID();
-  $new_home_ids = array(1103, 1154, 1163, 1186);
+  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
   $is_home_new = in_array($page_id,$new_home_ids);
+  $page_id = get_the_ID();
+  $post_type = get_post_type( $page_id );
 
-  if(!$is_home_new) {
+
+  if(!$is_home_new && $post_type !== 'community_aldea') {
     wp_enqueue_style('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/css/main.css', array(), false );
   }
   else {
@@ -119,9 +122,10 @@ function laaldea_add_slug_body_class( $classes ) {
 function wpb_child_admin_redirect() {
   global $wp_query;
   $page_id = get_the_ID();
+  $post_type = get_post_type( $page_id );
   $home_ids = array(2,259,304,308, 58);
   $user_ids = array(332, 544, 328, 547, 550, 553, 330, 331);
-  $new_home_ids = array(1103, 1154, 1163, 1186);
+  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
 
   $is_home = in_array($page_id,$home_ids);
   $is_user_flow = in_array($page_id,$user_ids);
@@ -137,6 +141,9 @@ function wpb_child_admin_redirect() {
     return;
   }
   if($is_home_new) {
+    return;
+  }
+  if($post_type == 'community_aldea') {
     return;
   }
   if(is_404()) {
@@ -472,6 +479,21 @@ function wpb_child_courses_sidebar() {
 }
 add_action( 'widgets_init', 'wpb_child_courses_sidebar' );
 
+function wpb_child_community_sidebar() {
+  $args = array(
+    'name'          => 'Community Sidebar',
+    'id'            => 'community-sidebar',
+    'description'   => 'Sidebar to use on the top of the community page',
+    'class'         => '',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="widgettitle">',
+    'after_title'   => '</h4>',
+  );
+  
+  register_sidebar( $args );
+}
+add_action( 'widgets_init', 'wpb_child_community_sidebar' );
 
 /******************** Tutor ********************/
 add_action('template_redirect', 'wpb_child_custom_form_handler');

@@ -992,6 +992,68 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #radio .main-row .carousel-container .arrow.slick-next {order: 3;}
 
 
+/* Community */
+/* Community : header */
+#community .header-row .main-background {
+  width: 100%;
+  height: auto;
+}
+
+#community .header-row .content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+#community .header-row h1.title {
+  font-size: 5.5rem;
+}
+
+/* Community : filter row */
+#community .filter-row .filter-container {
+  justify-content: space-evenly;
+}
+
+#community .filter-row .filter-button {
+  border-radius: 5px;
+  padding: 0.5rem 4rem;
+  background-color: var(--green);
+  color: var(--white);
+  font-family: 'titan_one';
+}
+
+/* community : content */
+#community .content-row .content-column .post-container {
+  border-bottom: 2px solid var(--green);
+}
+
+/* Community : sidebar */
+#community .content-row .filters-column .filter-button {
+  width: 100%;
+  padding: 0;
+}
+
+#community .content-row .filters-column .topic-block {
+  height: 250px;
+  padding: 1rem;
+}
+
+#community .content-row .filters-column .topic-block.background-yellow {background-color: var(--yellow-light);color: var(--gray);}
+#community .content-row .filters-column .topic-block.background-green {background-color: var(--green);color: var(--white);}
+#community .content-row .filters-column .topic-block.background-blue {background-color: var(--blue);color: var(--white);}
+#community .content-row .filters-column .topic-block.background-cyan {background-color: var(--blue-light);color: var(--white);}
+
+#community .content-row .filters-column .block-content {
+  position: absolute;
+  top: calc(50% + (1.5rem*1.2 - 1rem));
+  left: 1rem;
+  width: calc(100% - 2rem);
+  transform: translate(0, -50%);
+}
+
+
 /* la aldea : header */
 #aldea .header-row .main-background {
   width: 100%;
@@ -1126,6 +1188,77 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #aldea .footer-row .copy-column .copy-text {
   width: 50%;
   margin: 0;
+}
+
+/* contact */
+#contact {
+  margin: 3rem 0;
+}
+
+#contact .wpcf7-form input,
+#contact .wpcf7-form textarea {
+	font-family: sassoon;
+	color: var(--gray);
+}
+
+#contact .wpcf7-form textarea {
+	height: calc(1.5em*5 + .75rem);
+}
+
+#contact .wpcf7-form .top-row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1em;
+}
+
+#contact .wpcf7-form .top-row > span {
+	width: 49%;
+}
+
+#contact .wpcf7-form .middle-row {
+	margin-bottom: 1em;
+}
+
+#contact .wpcf7-form input[type="submit"] {
+	background-color: var(--green);
+	color: var(--white);
+	font-family: titan_one;
+	font-size: 1.5em;
+	padding: 0.5em 1em;
+	border: none;
+	transition: background-color 0.5s ease-in-out;
+}
+
+#contact .wpcf7-form input[type="submit"]:hover {
+	background-color: var(--green-light);
+}
+
+#contact .wpcf7-form span.wpcf7-not-valid-tip {
+	color: var(--danger);
+}
+
+#contact .wpcf7-form .wpcf7-validation-errors {
+	border-color: var(--yellow);
+}
+
+#contact .contact-row {
+	text-align: center;
+}
+
+#contact .contact-row a {
+	font-size: 1.2em;
+  font-weight: 400;
+	color: var(--gray);
+}
+
+#contact .contact-row i {
+	padding-right: 0.5em;
+	font-size: 1.4em;
+	color: var(--gray);
+}
+
+#contact .contact-row .separator {
+	margin-left: 1em;
 }
 
 /**********************************************/

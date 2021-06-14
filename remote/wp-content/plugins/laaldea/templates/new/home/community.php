@@ -15,7 +15,7 @@
             <?php _e('La Aldea ha llegado a La Guajira, Barranquilla, Cúcuta, e incluso, ya descargó sus maletas en México y Venezuela. Nuestra comunidad es cada vez más grande y queremos que estés enterado de todo lo que ocurre.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="#" class="home-button right"><?php _e('Lee más', 'laaldea');?></a>
+            <a href="/comunidad" class="home-button right"><?php _e('Lee más', 'laaldea');?></a>
           </div>
         </div>
       </div>
