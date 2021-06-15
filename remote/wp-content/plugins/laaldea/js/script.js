@@ -1120,6 +1120,57 @@ function onYouTubeIframeAPIReady() {
     });
   }
 
+  /* laaaldea community events */
+  var laaldea_handle_community_load_more = function(event, $button) {
+    let page = $button.attr('data-page');
+    let maxPages = $button.attr('data-max_num_pages');
+    let postPerPage = $button.attr('data-post_per_page');
+    let termId = $button.attr('data-term_id');
+    let $postsContainer = $button.parents('.load-more-container').siblings('.posts-container');
+
+    $.ajax({
+      url : ajax_params.ajax_url,
+      type : 'post',
+      data : {
+        action : 'laaldea_community_load_more',
+        page : page,
+        postPerPage : postPerPage,
+        termId : termId,
+        maxPages : maxPages,
+      },
+      success : function( response ) {
+        let data = JSON.parse(response);
+        if(data.html !== undefined) {
+          let currentHeight = $postsContainer.height();
+
+          $postsContainer.css('height', currentHeight + 'px');
+          $postsContainer.append(data.html);
+         
+          $postsContainer.animate({height: $postsContainer.get(0).scrollHeight}, 1000, function() {
+            $(this).height('auto');
+          });
+        }
+        
+        // $postsContainer.find('.post-container.loaded').each(function(){
+        //   $(this).toggleClass('loaded');
+        // });
+
+        $button.attr('data-page', data.page);
+        if(false === data.load_more) {
+          $button.fadeTo(500, 0, function() {
+            $(this).toggleClass('end-list');
+            $(this).css('opacity','');
+          });
+        }
+
+        webStateWaiting(false);
+      },
+      beforeSend: function() {
+        webStateWaiting(true);
+        return true;
+      },
+    });
+  }
 
   /**
   * Disables all links and changes cursor for the website, used in ajax calls.
@@ -1479,6 +1530,15 @@ function onYouTubeIframeAPIReady() {
         prevArrow: '#radio .slick-prev',
         nextArrow: '#radio .slick-next',
         variableWidth: false,
+      });
+    }
+    if($('body.aldea-community').length > 0) {
+      // Load more posts
+      // Load more books
+      $('#community .content-column .load-more-button').on('click', function(event) {
+        event.preventDefault();
+        let $button = $(event.currentTarget);
+        laaldea_handle_community_load_more(event, $button);
       });
     }
 

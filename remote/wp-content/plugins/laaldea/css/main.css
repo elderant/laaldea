@@ -1025,14 +1025,21 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 /* community : content */
-#community .content-row .content-column .post-container {
+#community .content-column .post-container {
+  margin-bottom: 1rem;
   border-bottom: 2px solid var(--green);
+}
+
+#community .content-column .load-more-button.end-list {
+  opacity: 0;
+  display: none;
 }
 
 /* Community : sidebar */
 #community .content-row .filters-column .filter-button {
   width: 100%;
   padding: 0;
+  font-weight: 400;
 }
 
 #community .content-row .filters-column .topic-block {
