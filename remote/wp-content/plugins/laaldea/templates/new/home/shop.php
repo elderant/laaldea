@@ -12,10 +12,10 @@
             <?php _e('Tienda La Aldea','laaldea');?>
           </h2>
           <div class="p">
-            <?php _e('Todos los libros, títeres y recursos pedagógicos de La Aldea los puedes encontrar en nuestra tienda virtual.','laaldea');?>
+            <?php _e('¿Quieres tener las últimas historias de La Aldea en tus manos? Puedes encontrar todos los libros, títeres y recursos pedagógicos en nuestra tienda virtual.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="http://store.laaldea.co/" class="home-button right"><?php _e('Explora la tienda', 'laaldea');?></a>
+            <a href="http://store.laaldea.co/" class="home-button right"><?php _e('Compra los libros', 'laaldea');?></a>
           </div>
         </div>
       </div>

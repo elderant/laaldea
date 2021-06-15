@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="row featured-row mb-5">
-      <div class="col-10 offset-1">
+      <div class="col-10 offset-1 text-center">
         <?php $featured = $laaldea_args['featured'];?>
         <?php if( $featured -> have_posts() ) : ?>
           <?php while ($featured -> have_posts()) : ?>
@@ -55,8 +55,29 @@
     </div>
     <div class="row main-row">
       <div class="col-5 offset-1">
-        <div class="h4 section-title recent-title color-green font-sassoon medium mb-3 uppercase">
-          <?php _e('Recientes', 'laaldea');?>
+        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 uppercase">
+          <?php _e('About', 'laaldea');?>
+        </div>
+        <div class="text-container">
+          <p class="medium text-justify"><?php _e('Al Aire con Enrique es una estrategia educativa de audio que integra ' . 
+            'canciones, humor, juego, retos de aprendizaje socioemocional, mensajes de autocuidado, ' . 
+            'noticias y participación, basada en las historias de un grupo de diversos animales que ' . 
+            'buscan crecer individual y colectivamente mientras sortean los retos de la convivencia en ' . 
+            'un espacio natural ficticio denominado La Aldea.','laaldea');?></p>
+          <p class="medium text-justify"><?php _e('Su objetivo es apoyar el aprendizaje remoto y desarrollar habilidades ' .
+            'socioemocionales en niños, niñas y adolescentes entre los 6 y los 12 años de edad ' . 
+            'pertenecientes a comunidades migrantes o no con baja o nula conectividad. La serie ' . 
+            'hace un especial énfasis en el fenómeno migratorio, las necesidades emocionales y ' . 
+            'cognitivas de niños y familiares migrantes, las comunidades de acogida, la integración ' . 
+            'social, el desarrollo de habilidades de resiliencia y adaptación y la prevención de ' . 
+            'violencias, entre otros temas centrales para el empoderamiento de estas ' . 
+            'comunidades.','laaldea');?></p>
+          <p class="medium text-justify mb-5"><?php _e('Este es un proyecto del International Rescue Commitee (IRC), la ' . 
+            'Lego Foundation y Clickarte. Escúchalo todos los sábados a las 11 AM por ' . 
+            'RCN RADIO.','laaldea');?></p>
+        </div>
+        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 uppercase">
+          <?php _e('Recent', 'laaldea');?>
         </div>
         <?php $recent = $laaldea_args['recent_tracks'];?>
         <?php if( $recent -> have_posts() ) : ?>
@@ -73,8 +94,8 @@
         <?php endif; ?>
       </div>
       <div class="col-5 slider-column">
-        <div class="h4 section-title coming-title color-green font-sassoon medium mb-3 uppercase">
-          <?php _e('Póximamente', 'laaldea');?>
+        <div class="h4 section-title coming-title color-green font-sassoon text-center bold mb-3 uppercase">
+          <?php _e('Episodios', 'laaldea');?>
         </div>
         <div class="carousel-container d-flex align-items-center justify-content-between">
           <div class="slick-prev arrow">

@@ -271,19 +271,20 @@ function laaldea_build_main_stories_html() {
   global $wp_query;
   
   // filter queries
-  $book_args = array (
-    'taxonomy' => 'category',
-    'hide_empty' => false,
-    'parent'   => 19,
-  );
+  // $book_args = array (
+  //   'taxonomy' => 'category',
+  //   'hide_empty' => false,
+  //   'parent'   => 19,
+  // );
 
-  $book_terms = get_terms( $book_args );
-  $wp_query -> query_vars['laaldea_args']['book_terms'] = $book_terms;
+  // $book_terms = get_terms( $book_args );
+  // $wp_query -> query_vars['laaldea_args']['book_terms'] = $book_terms;
 
   $topic_args = array (
     'taxonomy' => 'category',
     'hide_empty' => false,
     'parent'   => 25,
+    'exclude' => array(107,105),
   );
 
   $topic_terms = get_terms( $topic_args );

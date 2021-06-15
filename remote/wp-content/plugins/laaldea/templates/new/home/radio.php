@@ -20,11 +20,11 @@
             <?php _e('¿Eres tan curioso como yo? Entonces escúchame todos los sábados a las 11 AM por RCN RADIO.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="/radio" class="home-button right"><?php _e('¡Escuchalo!', 'laaldea');?></a>
+            <a href="/radio" class="home-button right"><?php _e('Escucha los programas', 'laaldea');?></a>
           </div>
         </div>
         <div class="allies-container position-absolute d-flex align-items-center justify-content-between">
-        <img class="ally-icon rescue" src="/wp-content/uploads/radio-header-logo-rescue.png" alt="<?php _e('International Rescue Committee Logo','laaldea')?>">
+          <img class="ally-icon rescue" src="/wp-content/uploads/radio-header-logo-rescue.png" alt="<?php _e('International Rescue Committee Logo','laaldea')?>">
           <div class="vertical-inner-container d-flex flex-column align-items-center justify-content-between">
             <img class="ally-icon lego" src="/wp-content/uploads/radio-header-logo-lego.png" alt="<?php _e('The Lego Foundation Logo','laaldea')?>">  
             <img class="ally-icon aldea" src="/wp-content/uploads/radio-header-logo-aldea.png" alt="<?php _e('La Aldea Logo','laaldea')?>">  

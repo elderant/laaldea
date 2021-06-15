@@ -262,20 +262,22 @@ header#masthead .navbar ul#menu-new-shop-menu li a {
   color: var(--white);
   font-size: 1rem;
   font-family: 'titan_one';
+  font-weight: 500;
 }
 
 header#masthead .navbar ul#menu-new-shop-menu li a {
-  color: var(--yellow);
+  /* color: var(--yellow); */
+  color: var(--white);
 }
 
 header#masthead .navbar ul#menu-main-new li a:hover,
 header#masthead .navbar ul#menu-new-shop-menu li a:hover {
-  font-weight: 500;
   color: var(--green-light);
 }
 
 header#masthead .navbar ul#menu-new-shop-menu li a:hover {
-  color: var(--orange);
+  /* color: var(--orange); */
+  color: var(--green-light);
 }
 
 header#masthead .navbar ul#menu-main-new li a.disabled,

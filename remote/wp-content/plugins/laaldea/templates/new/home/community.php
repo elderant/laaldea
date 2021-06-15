@@ -12,10 +12,10 @@
             <div><?php _e('Noticias y comunidad','laaldea');?></div>
           </h2>
           <div class="p">
-            <?php _e('La Aldea ha llegado a La Guajira, Barranquilla, Cúcuta, e incluso, ya descargó sus maletas en México y Venezuela. Nuestra comunidad es cada vez más grande y queremos que estés enterado de todo lo que ocurre.','laaldea');?>
+            <?php _e('La Aldea ha llegado a más de 100.000 familias y más de 5.000 docentes en la Guajira, Barranquilla, Cúcuta, Nariño, e incluso, ya descargó sus maletas en México y Venezuela. Nuestra comunidad es cada vez más grande y queremos que estés enterado de todo lo que ocurre.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="/comunidad" class="home-button right"><?php _e('Lee más', 'laaldea');?></a>
+            <a href="/comunidad" class="home-button right"><?php _e('Entérate', 'laaldea');?></a>
           </div>
         </div>
       </div>

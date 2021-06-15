@@ -8,15 +8,15 @@
         </div>
         <div class="rellax content-container text-left color-gray" data-rellax-speed="2">
           <h2 class="title">
-            <?php _e('Historias & recursos','laaldea');?>
+            <?php _e('Historias y recursos','laaldea');?>
           </h2>
           <div class="p">
-            <?php _e('¿Qué quieres leer? ¿Qué quieres ver y escuchar? Encuentra historias, actividades, aventuras y el universo sonoro de La Aldea.','laaldea');?>
+            <?php _e('¿Qué andará haciendo Arnulfo? ¿Cómo se sentirá Enrique? Encuentra historias, actividades, aventuras y el universo sonoro de La Aldea y diviértete con sus personajes y ocurrencias.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="/historias?libro" class="home-button right"><?php _e('Leer', 'laaldea');?></a>
-            <a href="/historias?video" class="home-button right"><?php _e('Ver', 'laaldea');?></a>
-            <a href="/historias?audio" class="home-button right"><?php _e('Escuchar', 'laaldea');?></a>
+            <a href="/historias?libro" class="home-button text-center right"><?php _e('Historias para leer', 'laaldea');?></a>
+            <a href="/historias?video" class="home-button text-center right"><?php _e('Historias para ver y escuchar', 'laaldea');?></a>
+            <!-- <a href="/historias?audio" class="home-button right"><?php _e('Historias para Escuchar', 'laaldea');?></a> -->
           </div>
         </div>
       </div>

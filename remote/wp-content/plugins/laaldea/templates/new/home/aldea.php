@@ -12,10 +12,10 @@
             <div><?php _e('Que es La Aldea','laaldea');?></div>
           </h2>
           <div class="p">
-            <?php _e('¿Quiénes son los personajes principales? ¿De dónde vienen las historias? ¡Descubre La Aldea en todas sus formas, tamaños, colores y olores!','laaldea');?>
+            <?php _e('¿Sabías que La Aldea es una estrategia de educación utilizada por colegios, gobiernos locales y organizaciones internacionales con el fin de mejorar la calidad del aprendizaje en más de 500 instituciones educativas en Colombia, México y Venezuela? Aprende más sobre este universo.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="/aldea" class="home-button right"><?php _e('Descubre La Aldea', 'laaldea');?></a>
+            <a href="/aldea" class="home-button right"><?php _e('Entérate del proyecto', 'laaldea');?></a>
           </div>
         </div>
       </div>

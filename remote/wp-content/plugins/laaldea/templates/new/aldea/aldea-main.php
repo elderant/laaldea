@@ -91,8 +91,10 @@
           <?php _e('Ganadores <span class="medium">CREA DIGITAL 2020</span> con <span class="medium">La Aldea: Historias para estar en casa - Plataforma E-learning</span> como la mejor estrategia transmedia.','laaldea')?>
         </li>
         <li class="award-text mb-3">
-          <?php _e('Semifinalistas en HundrED y el BID (Banco Interamericano de Desarrollo) con La Aldea: Historias para estar en casa como una de las 15 mejores estrategias del siglo XXI en América Latina y el Caribe.','laaldea')?>
+          <?php _e('Premiados en HundrED y el BID (Banco Interamericano de Desarrollo) con <span class="medium">La Aldea: Historias para estar en casa</span> como una de las 15 mejores estrategias del siglo XXI en América Latina y el Caribe.','laaldea')?>
         </li>
+
+        
       </ul>
       <div class="col-10 offset-1 d-flex align-items-center justify-content-between award-icons">
         <img class="award-icon smart" src="/wp-content/uploads/aldea-premios-smart.jpg" alt="<?php _e('Imagen Smart Book award','laaldea');?>">
@@ -110,28 +112,28 @@
       <div class="col-12 section-content p-0">
         <img src="/wp-content/uploads/aldea-numeros-background.png" alt="<?php _e('La aldea en numeros background image', 'laaldea');?>">
         <div class="content-container h4 color-green text-center students">
-          <div class="text-intro font-sassoon"><?php _e('más de', 'laaldea');?></div>
+          <div class="text-intro font-sassoon"><?php _e('Más de', 'laaldea');?></div>
           <div class="text-number"><?php _e('150.000', 'laaldea');?></div>
           <div class="text-about font-sassoon medium"><?php _e('Estudiantes', 'laaldea');?></div>
         </div>
         <div class="content-container h4 color-green text-center listeners">
-          <div class="text-intro font-sassoon"><?php _e('más de', 'laaldea');?></div>
+          <div class="text-intro font-sassoon"><?php _e('Más de', 'laaldea');?></div>
           <div class="text-number"><?php _e('900.000', 'laaldea');?></div>
           <div class="text-about font-sassoon medium"><?php _e('Radioescuchas', 'laaldea');?></div>
         </div>
         <div class="content-container h4 color-green text-center teachers">
-          <div class="text-intro font-sassoon"><?php _e('más de', 'laaldea');?></div>
+          <div class="text-intro font-sassoon"><?php _e('Más de', 'laaldea');?></div>
           <div class="text-number"><?php _e('5.000', 'laaldea');?></div>
           <div class="text-about font-sassoon medium"><?php _e('Docentes', 'laaldea');?></div>
         </div>
         <div class="content-container h4 color-green text-center institutions">
-          <div class="text-intro font-sassoon"><?php _e('más de', 'laaldea');?></div>
+          <div class="text-intro font-sassoon"><?php _e('Más de', 'laaldea');?></div>
           <div class="text-number"><?php _e('550', 'laaldea');?></div>
           <div class="text-about font-sassoon medium"><?php _e('Instituciones</br>educativas', 'laaldea');?></div>
         </div>
       </div>
     </div>
-    <div class="row map-row mb-7">
+    <div class="row map-row mb-7 d-none">
       <div class="col-10 offset-1 section-title mb-5 h2">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
         <h2 class="title-text color-orange"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
@@ -173,31 +175,25 @@
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Niños:', 'laaldea')?>
             </div>
-            <p>
-              <?php _e('Se divierten mientras aprenden y se empoderan de su proceso de aprendizaje. ' . 
+            <p><?php _e('Se divierten mientras aprenden y se empoderan de su proceso de aprendizaje. ' . 
                 'Conectan lo que aprenden con su cotidiano.<br/> Desarrollan habilidades lecto-escritoras, ' . 
-                'matemáticas, científicas, artísticas y socioemocionales.','laaldea');?>
-            </p>
+                'matemáticas, científicas, artísticas y socioemocionales.','laaldea');?></p>
           </li>
           <li class="parents">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Padres de familia y cuidadores:', 'laaldea')?>
             </div>
-            <p>
-              <?php _e('Tienen una guía para desarrollar procesos de aprendizaje en casa se ' . 
+            <p><?php _e('Tienen una guía para desarrollar procesos de aprendizaje en casa se ' . 
                 'involucran en el aprendizaje de los niños.<br/> Entablan conversaciones significativas ' . 
-                'con sus hijos.','laaldea');?>
-            </p>
+                'con sus hijos.','laaldea');?></p>
           </li>
           <li class="teachers">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Docentes:', 'laaldea')?>
             </div>
-            <p>
-              <?php _e('Desarrollan su imaginación para la creación de clases significativas ' . 
+            <p><?php _e('Desarrollan su imaginación para la creación de clases significativas ' . 
                 'y divertidas.<br/> Aplican los estándares del Ministerio de Educación Nacional. ' . 
-                'Hacen el aprendizaje transversal a (?).','laaldea');?>
-            </p>
+                'Hacen el aprendizaje transversal a (?).','laaldea');?></p>
           </li>
           <li class="organizations">
             <div class="subtitle font-titan uppercase mb-2">
@@ -245,84 +241,131 @@
       </div>
       <div class="col-8 offset-2 section-quote h6 font-sassoon mb-5">
         <blockquote  class="quotation-text">
-          <?php _e('"La Aldea es un compendio de historias cuidadosamente elaboradas y una ' . 
-            'estrategia de pedagogía multisensorial diseñada para fomentar la discusión acerca ' . 
-            'de conflictos e interrelaciones sociales de una manera cercana y sencilla, que sirve ' . 
-            'como metáfora de los problemas de la vida real."', 'laaldea');?>
+          <?php _e('“Usando los mismos recursos que implementó George Orwell en su obra ' . 
+            '“La rebelión en la granja”, “La Aldea” se vale de los animales para contar ' . 
+            'historias que den la oportunidad para pensar el país y sus desafíos.En síntesis, ' . 
+            'es una metáfora de Colombia...”', 'laaldea');?>
         </blockquote >
+        
         <div class="attribution-text bold text-right">
-          <?php _e('Academic’s Choice Award. 2019. USA', 'laaldea');?>
+          <?php _e('PACIFISTA', 'laaldea');?>
         </div>
       </div>
       <div class="col-10 offset-1 section-content d-flex flex-wrap align-items-start justify-content-around">
         <div class="publication-container pacifista mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('Pacifista','laaldea');?>
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://pacifista.tv/notas/la-aldea-una-metafora-de-colombia-para-que-los-ninos-no-repitan-la-historia/" target="_blank" rel="noopener noreferrer">
+              <?php _e('Pacifista','laaldea');?>
+            </a>
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-pacifista.jpg" alt="<?php _e('Pacifista image')?>">
+            <a href="https://pacifista.tv/notas/la-aldea-una-metafora-de-colombia-para-que-los-ninos-no-repitan-la-historia/" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-pacifista.jpg" alt="<?php _e('Pacifista image')?>">
+            </a>
           </div>
-          <div class="text-container uppercase medium font-sassoon">
+          <div class="text-container uppercase medium font-sassoon d-none">
             <?php _e('Lorem ipsum, dolor sit amet consectetur adipisicing elit.','laaldea');?>
           </div>
         </div>
         <div class="publication-container kienyke mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('Kienyke','laaldea');?>
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://www.youtube.com/watch?v=PE-XdK-gWu0" target="_blank" rel="noopener noreferrer">
+              <?php _e('Kienyke','laaldea');?>
+            </a>
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-kienyke.jpg" alt="<?php _e('Kienyke image')?>">
+            <a href="https://www.youtube.com/watch?v=PE-XdK-gWu0" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-kienyke.jpg" alt="<?php _e('Kienyke image')?>">
+            </a>
           </div>
-          <div class="text-container uppercase medium font-sassoon">
+          <div class="text-container uppercase medium font-sassoon d-none">
             <?php _e('Earum aspernatur aut consequatur ipsa. Ducimus unde architecto possimus asperiores.','laaldea');?>
           </div>
         </div>
-        <div class="publication-container caracol mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('Caracol','laaldea');?>
+        <div class="publication-container espectador mb-3">
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://www.elespectador.com/colombia2020/pedagogia/la-aldea-historias-para-pensar-el-pais-gano-premio-internacional-articulo-894140/" target="_blank" rel="noopener noreferrer">
+              <?php _e('El espectador','laaldea');?>
+            </a>
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-caracol.jpg" alt="<?php _e('Caracol image')?>">
+            <a href="https://www.elespectador.com/colombia2020/pedagogia/la-aldea-historias-para-pensar-el-pais-gano-premio-internacional-articulo-894140/" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-espectador.jpg" alt="<?php _e('Caracol image')?>">
+            </a>
           </div>
           <div class="text-container uppercase medium font-sassoon">
-            <?php _e('Amet consectetur adipisicing elit. Dolore dicta nemo modi suscipit deserunt.','laaldea');?>
+            <a href="https://www.elespectador.com/colombia2020/pais/la-aldea-una-metafora-de-colombia-articulo-854865/" target="_blank" rel="noopener noreferrer">
+              <?php _e('Articulo : La Aldea, una metáfora de Colombia','laaldea');?>
+            </a>
           </div>
         </div>
         <div class="flex-break"></div>
-        <div class="publication-container espectador mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('El Espectador','laaldea');?>
+        <div class="publication-container caracol mb-3">
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://caracol.com.co/programa/2020/04/18/a_vivir_que_son_dos_dias/1587239976_564836.html" target="_blank" rel="noopener noreferrer">
+              <?php _e('Caracol','laaldea');?>
+            </a>
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-espectador.jpg" alt="<?php _e('El Espectador image')?>">
+            <a href="https://caracol.com.co/programa/2020/04/18/a_vivir_que_son_dos_dias/1587239976_564836.html" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-caracol.jpg" alt="<?php _e('El Espectador image')?>">
+            </a>
           </div>
-          <div class="text-container uppercase medium font-sassoon">
+          <div class="text-container uppercase medium font-sassoon d-none">
             <?php _e('Sit amet consectetur adipisicing elit. Ipsam, dicta assumenda voluptatum.','laaldea');?>
           </div>
         </div>
         <div class="publication-container titulo mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('Sin título','laaldea');?>
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://www.wradio.com.co/noticias/tecnologia/la-aldea-una-estrategia-educativa-para-explicarle-a-los-ninos-que-es-el-coronavirus/20200428/nota/4034294.aspx" target="_blank" rel="noopener noreferrer">
+              <?php _e('La W radio','laaldea');?>
+            </a>  
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-titulo.jpg" alt="<?php _e('Sin titulo image')?>">
+            REVISAR ESTA IMAGEN
+            <a href="https://www.wradio.com.co/noticias/tecnologia/la-aldea-una-estrategia-educativa-para-explicarle-a-los-ninos-que-es-el-coronavirus/20200428/nota/4034294.aspx" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-titulo.jpg" alt="<?php _e('Sin titulo image')?>">
+            </a>
           </div>
-          <div class="text-container uppercase medium font-sassoon">
+          <div class="text-container uppercase medium font-sassoon d-none">
             <?php _e('Ipsam autem labore quae voluptates, adipisci sequi.','laaldea');?>
           </div>
         </div>
         <div class="publication-container semana mb-3">
-          <div class="publication-title font-titan h6 uppercase color-green mb-3">
-            <?php _e('Semana Rural','laaldea');?>
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://www.semana.com/educacion/articulo/los-mejores-libros-educativos-en-la-filbo-2019/615249/" target="_blank" rel="noopener noreferrer">
+              <?php _e('Semana','laaldea');?>
+            </a>
           </div>
           <div class="image-container mb-3">
-            <img src="/wp-content/uploads/aldea-media-semana.jpg" alt="<?php _e('Semana rural image')?>">
+            REVISAR ESTA IMAGEN
+            <a href="https://www.semana.com/educacion/articulo/los-mejores-libros-educativos-en-la-filbo-2019/615249/" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-semana.jpg" alt="<?php _e('Semana rural image')?>">
+            </a>
           </div>
           <div class="text-container uppercase medium font-sassoon">
+            <a href="https://semanarural.com/web/articulo/oasis-del-silencio-/409" target="_blank" rel="noopener noreferrer">
+              <?php _e('Articulo : Oasis del silencio','laaldea');?>
+            </a>
+          </div>
+        </div>
+        <div class="flex-break"></div>
+        <div class="publication-container bogota mb-3">
+          <div class="publication-title font-titan h6 uppercase mb-3">
+            <a href="https://thebogotapost.com/a-different-way-to-see-peace/37647/" target="_blank" rel="noopener noreferrer">
+              <?php _e('The Bogota post','laaldea');?>
+            </a>
+          </div>
+          <div class="image-container mb-3">
+            REVISAR ESTA IMAGEN
+            <a href="https://thebogotapost.com/a-different-way-to-see-peace/37647/" target="_blank" rel="noopener noreferrer">
+              <img src="/wp-content/uploads/aldea-media-semana.jpg" alt="<?php _e('Semana rural image')?>">
+            </a>
+          </div>
+          <div class="text-container uppercase medium font-sassoon d-none">
             <?php _e('Sapiente quisquam voluptatibus esse repellat quae','laaldea');?>
           </div>
         </div>
-        
       </div>
     </div>
     <div class="row click-row">
@@ -331,23 +374,24 @@
         <h2 class="title-text color-orange"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 section-intro">
-        <p>
-          <?php _e('Un universo como el de La Aldea sólo es posible gracias al trabajo en ' . 
-            'equipo. Detrás de las historias y sus personajes se encuentra un equipo de escritores, ' . 
-            'filósofos, docentes, artistas, ilustradores, animadores, diagramadores y locutores.', 'laaldea');?>
-        </p>
-        <p>
-          <?php _e('La Aldea, sus historias y sus personajes nacieron al interior de Clickarte, ' . 
-            'una agencia de pedagogía dedicada a imaginar nuevas formas de aprender e implementar ' . 
-            'proyectos de educación. A través del arte, el diseño y la pedagogía, nuestros productos ' . 
-            'y herramientas abren conversaciones para que niños y adultos puedan indagar sobre ellos ' . 
-            'mismos y reflexionar sobre el mundo que los rodea.','laaldea');?>
-        </p>
-        <p>
-          <?php _e('A través de nuestros libros, programas de radio, juegos y recursos digitales, ' . 
-            'hemos impactado a más de 150.000 estudiantes e inspirado a 5000 docentes, en más de ' . 
-            '500 instituciones educativas en México y Colombia.','laaldea');?>
-        </p>
+        <p><?php _e('Una agencia de pedagogía dedicada a imaginar nuevas formas de aprender ' . 
+          'e implementar proyectos de educación. A través del arte, el diseño y la pedagogía, ' . 
+          'nuestros productos y herramientas abren conversaciones para que niños y adultos puedan ' . 
+          'indagar sobre ellos mismos y reflexionar sobre el mundo que los rodea.', 'laaldea');?></p>
+        <p><?php _e('A través de nuestros libros, juegos y recursos digitales, hemos impactado a ' . 
+          'más de 50.000 estudiantes e inspirado a 700 docentes, en más de 200 instituciones ' . 
+          'educativas en México y Colombia.','laaldea');?></p>
+        <p><?php _e('Un universo como el de La Aldea sólo es posible gracias al trabajo en equipo. ' . 
+          'Detrás de las historias y sus personajes se encuentra un equipo de escritores, ' . 
+          'filósofos, ocentes, artistas, ilustradores, animadores, diagramadores y locutores.','laaldea');?></p>
+        <p><?php _e('La Aldea, sus historias y sus personajes nacieron al interior de Clickarte, ' . 
+          'una agencia de pedagogía dedicada a imaginar nuevas formas de aprender e implementar ' . 
+          'proyectos de educación. A través del arte, el diseño y la pedagogía, nuestros productos ' . 
+          'y herramientas abren conversaciones para que niños y adultos puedan indagar sobre ellos ' . 
+          'mismos y reflexionar sobre el mundo que los rodea.','laaldea');?></p>
+        <p><?php _e('A través de nuestros libros, programas de radio, juegos y recursos digitales, ' . 
+          'hemos impactado a más de 150.000 estudiantes e inspirado a 5000 docentes, en más de ' . 
+          '500 instituciones educativas en México y Colombia.','laaldea');?></p>
         <a href="http://clickarte.co/" target="_blank" rel="noopener noreferrer external">www.clickarte.co</a>
       </div>
     </div>

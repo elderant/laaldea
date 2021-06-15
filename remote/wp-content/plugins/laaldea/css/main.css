@@ -204,6 +204,11 @@ html.overflow-hidden {
   width: calc(100% + 30px);
 }
 
+.home-section .content-container {
+  width: 25%;
+  margin: 3rem auto 0 4rem;
+}
+
 .home-section#home-story .background-character {
   bottom: -50px;
   left: 35%;
@@ -502,28 +507,28 @@ html.overflow-hidden {
 }
 
 #stories .plant.plant1,#stories .plant.plant2 {z-index: 2;top: 0;}
-#stories .plant.plant1 {left: 0;}
-#stories .plant.plant2 {right: 0;}
+#stories .plant.plant1 {left: 0;height: 95px;}
+#stories .plant.plant2 {right: 0;height: 75px;}
 
 #stories .plant.plant3,#stories .plant.plant4 {bottom: 0;}
 #stories .plant.plant3 {z-index: 20;left: 0;}
 #stories .plant.plant4 {z-index: 1;right: 0;}
 
 /* consider wrapping image in figure, set image with as intrinsic and width of image as percent of self*/
-#stories .opossum{z-index:18;bottom: 0;left: 1.2%;}
-#stories .owl{z-index:19;bottom: 0;left: 9.8%;}
-#stories .ant{z-index: 17;bottom: 5%;left: 21%;}
-#stories .lucy{z-index:16;bottom: 0;left: 21%;}
-#stories .ernest{z-index: 15;bottom: 0;left: 33.5%;}
-#stories .arnold{z-index: 14;bottom: 0;left: 45%;}
-#stories .bee{z-index: 13;bottom: 31%;left: 51%;}
-#stories .lia{z-index: 8;bottom: 0;left: 52%;}
-#stories .harry{z-index: 12;bottom: 0;left: 58.7%;}
-#stories .moorhen{z-index: 9;bottom: 0;left: 62.5%;}
-#stories .carol{z-index: 10;bottom: 0;left: 68.5%;}
-#stories .peter{z-index: 11;bottom: 0;left: 81.1%;}
-#stories .macaw{z-index: 7;bottom: 39%;left: 80.1%;}
-#stories .mouse{z-index: 6;bottom: 0;left: 91.7%;}
+#stories .opossum{z-index:18;bottom: 0;left: 2%;height: 208px;}
+#stories .owl{z-index:19;bottom: 0;left: 10.5%;height: 164px;}
+#stories .ant{z-index: 21;bottom: 7%;left: 18%;height: 50px;}
+#stories .lucy{z-index:20;bottom: 0;left: 18%;height: 185px;}
+#stories .ernest{z-index: 15;bottom: 0;left: 27.5%;height: 274px;}
+#stories .arnold{z-index: 14;bottom: 0;left: 37.2%;height: 201px;}
+#stories .bee{z-index: 13;bottom: 61%;left: 20%;height: 45px;}
+#stories .lia{z-index: 8;bottom: 0;left: 44%;height: 80px;}
+#stories .harry{z-index: 12;bottom: 0;left: 54.2%;height: 185px;}
+#stories .moorhen{z-index: 9;bottom: 0;left: 58.5%;height: 295px;}
+#stories .carol{z-index: 10;bottom: 0;left: 65.8%;height: 305px;}
+#stories .peter{z-index: 11;bottom: 0;left: 80.8%;height: 158px;}
+#stories .macaw{z-index: 7;bottom: 56%;left: 80.1%;height: 170px;}
+#stories .mouse{z-index: 6;bottom: 0;left: 89%;height: 90px;}
 
 #stories .header-row .char {
   cursor: pointer;
@@ -537,7 +542,7 @@ html.overflow-hidden {
 
 #stories .character-texts-container {
   position: absolute;
-  top: 20%;
+  top: 1rem;
   left: 50%;
   width: 50%;
   height: calc(1rem*1.5*5);
@@ -564,10 +569,6 @@ html.overflow-hidden {
 }
 
 /* Stories : filter column */
-#stories .main-row {
-  margin-top: 6rem;
-}
-
 #stories .filters-column::after {
   content: '';
   position: absolute;
@@ -688,7 +689,6 @@ html.overflow-hidden {
 #stories .type-filters-section .select2-selection .select2-selection__rendered {
   font-size: inherit;
   line-height: 1.5;
-  text-transform: uppercase;
   color: var(--green);
 }
 
@@ -699,10 +699,6 @@ html.overflow-hidden {
 
 #stories .type-filters-section .select2-selection .select2-selection__arrow b {
   border-color: var(--green) transparent transparent transparent
-}
-
-#stories .select2-container {
-  text-transform: uppercase;
 }
 
 body.stories .select2-container--default .select2-results__option--selected {
@@ -1175,9 +1171,21 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   width: 20%;
 }
 
+#aldea .media-row .section-content .publication-title a {
+  color: var(--green);
+}
+
+#aldea .media-row .section-content .publication-title a:hover {
+  color: var(--green-light);
+}
+
 #aldea .media-row .publication-container .text-container {
   width: 75%;
   margin: 0;
+}
+
+#aldea .media-row .publication-container .text-container a {
+  font-weight: 400;
 }
 
 /* laaldea : click */
