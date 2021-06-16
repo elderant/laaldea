@@ -109,7 +109,28 @@
               <img src="/wp-content/uploads/radio-slider-slide1.jpg" alt="<?php _e('Slider image 1','laaldea')?>">
             </div> 
             <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide1.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+              <img src="/wp-content/uploads/radio-slider-slide2.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div>
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide3.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide4.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide5.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide6.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide7.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide8.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
+            </div> 
+            <div class="slide-container">
+              <img src="/wp-content/uploads/radio-slider-slide9.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
             </div> 
           </div>
         </div>

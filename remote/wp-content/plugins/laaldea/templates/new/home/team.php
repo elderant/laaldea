@@ -7,7 +7,7 @@
           <img class="background-part background-plant" src="/wp-content/uploads/team-plant-1.png" alt="<?php _e('Team a plant image', 'laaldea');?>" data-rellax-speed="0">
         </div>
         <div class="content-container col-12">
-          <div class="rellax title-container color-gray" data-rellax-speed="2">
+          <div class="rellax title-container color-green" data-rellax-speed="2">
             <h2 class="title">
               <?php _e('Equipos','laaldea');?>
             </h2>

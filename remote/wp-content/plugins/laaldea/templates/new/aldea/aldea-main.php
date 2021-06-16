@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <div class="row header-row mb-7">
       <div class="col-12 position-relative p-0 header-container">
-        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpg" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/aldea-header-background.png" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
         <div class="content-container">
           <h1 class="title color-white">
             <div><?php _e('¿Qué es','laaldea');?></div>
@@ -19,17 +19,24 @@
             'que los rodea. A través de un universo de personajes inspirado en nosotros mismos, ' . 
             'de divertidas historias, que son metáforas de la vida real y de actividades, ' . 
             'los niños juegan mientras fortalecen sus habilidades lecto-escritoras, matemáticas, ' . 
-            'científicas, artísticas y socioemocionales', 'laaldea'); ?>
+            'científicas, artísticas y socioemocionales.', 'laaldea'); ?>
         </p>
       </div>
       <div class="col-8 offset-2 mb-3">
         <p>
-          <?php _e('La Aldea busca acompañar a familias, docentes e instituciones en la implementación ' . 
-            'de procesos de educación que sean flexibles, profundos y transformadores. ' . 
-            'Los contenidos de La Aldea están diseñados para llegar a niños en todas partes, ' . 
-            'independientemente de su nivel de conectividad y son una estrategia para el mejoramiento ' . 
-            'de la calidad educativa. Ganadores del <span class="medium">Academic’s Choice Award - Smartbook</span> ' . 
-            'con <span class="medium">La Aldea</span> como la mejor estrategia transmedia de educación 2019.', 'laaldea'); ?>
+          <?php _e('La Aldea busca acompañar a familias, docentes e instituciones en la ' . 
+            'implementación de procesos de educación flexibles, profundos y transformadores. ' . 
+            'Los contenidos de La Aldea están diseñados para llegar a niños en todas partes y ' . 
+            'son una estrategia para el mejoramiento de la calidad educativa.', 'laaldea'); ?>
+        </p>
+      </div>
+      <div class="col-8 offset-2 mb-3">
+        <p>
+          <?php _e('La Aldea está diseñada para que, a medida que los niños ingresan a un mundo ' . 
+            'de fantasía seguro, despierten su curiosidad innata. Es un lugar donde se plantean ' . 
+            'esas preguntas fundamentales, universales, tradicionales y atemporales que todos nos ' . 
+            'hacemos más de una vez, cuando vamos aprendiendo a llevar una vida libre, consciente, ' . 
+            'respetuosa y alegre.', 'laaldea'); ?>
         </p>
       </div>
       <div class="icons-container d-flex flex-wrap justify-content-center align-items-center">
@@ -42,7 +49,7 @@
         <div class="icon-container radio">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-radio.svg';?>
           <div class="name font-titan capitalized h5">
-            <?php _e('Radio','laaldea')?>
+            <?php _e('Programas de Radio','laaldea')?>
           </div>
         </div>
         <div class="icon-container digital">
@@ -61,7 +68,7 @@
         <div class="icon-container videos">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-video.svg';?>
           <div class="name font-titan capitalized h5">
-            <?php _e('Videos','laaldea')?>
+            <?php _e('Videos animados','laaldea')?>
           </div>
         </div>
         <div class="icon-container tv">
@@ -82,7 +89,7 @@
           <?php _e('Ganadores del <span class="medium">Academic’s Choice Award - Smartbook</span> con <span class="medium">La Aldea</span> como la mejor estrategia transmedia de educación 2019.','laaldea')?>
         </li>
         <li class="award-text mb-3">
-          <?php _e('Ganadores del <span class="medium">Latino Book Awards 2020</span> con La <span class="medium">Aldea: Historias para pensar el país</span> como el mejor libro capitulado.','laaldea')?>
+          <?php _e('Ganadores del <span class="medium">Latino Book Awards 2020</span> con La <span class="medium">Aldea: Historias para pensar el país</span> como el mejor libro capitulado juvenil.','laaldea')?>
         </li>
         <li class="award-text mb-3">
           <?php _e('Ganadores del <span class="medium">Latino Book Awards 2020</span> con La <span class="medium">Aldea: Historias para pensar el país</span> como el mejor audiolibro.','laaldea')?>
@@ -175,33 +182,62 @@
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Niños:', 'laaldea')?>
             </div>
-            <p><?php _e('Se divierten mientras aprenden y se empoderan de su proceso de aprendizaje. ' . 
-                'Conectan lo que aprenden con su cotidiano.<br/> Desarrollan habilidades lecto-escritoras, ' . 
-                'matemáticas, científicas, artísticas y socioemocionales.','laaldea');?></p>
+            <ul class="inner-list">
+              <li>
+                <p><?php _e('Se divierten mientras aprenden y se empoderan de su proceso de aprendizaje.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Conectan lo que aprenden con su cotidiano.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Desarrollan habilidades lecto-escritoras, matemáticas, científicas, artísticas y socioemocionales.','laaldea');?></p>
+              </li>
+            </ul>
           </li>
           <li class="parents">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Padres de familia y cuidadores:', 'laaldea')?>
             </div>
-            <p><?php _e('Tienen una guía para desarrollar procesos de aprendizaje en casa se ' . 
-                'involucran en el aprendizaje de los niños.<br/> Entablan conversaciones significativas ' . 
-                'con sus hijos.','laaldea');?></p>
+            <ul class="inner-list">
+              <li>
+                <p><?php _e('Tienen una guía para desarrollar procesos de aprendizaje en casa.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Se involucran en el aprendizaje de los niños.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Entablan conversaciones significativas con sus hijos.','laaldea');?></p>
+              </li>
+            </ul>
           </li>
           <li class="teachers">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Docentes:', 'laaldea')?>
             </div>
-            <p><?php _e('Desarrollan su imaginación para la creación de clases significativas ' . 
-                'y divertidas.<br/> Aplican los estándares del Ministerio de Educación Nacional. ' . 
-                'Hacen el aprendizaje transversal a (?).','laaldea');?></p>
+            <ul class="inner-list">
+              <li>
+                <p><?php _e('Desarrollan su imaginación para la creación de clases significativas y divertidas.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Aplican los estándares del Ministerio de Educación Nacional.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Hacen el aprendizaje transversal.','laaldea');?></p>
+              </li>
+            </ul>
           </li>
           <li class="organizations">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Organizaciones de cooperación, ONGS y Gobierno:', 'laaldea');?>
             </div>
-            <p>
-              <?php _e('Despliegan estrategias de educación a gran escala que impactan a docentes, niños y cuidadores.<br/> Responden a emergencias migratorias, sanitarias y a desastres naturales a través de currículos flexibles y adaptados.','laaldea');?>
-            </p>
+            <ul class="inner-list">
+              <li>
+                <p><?php _e('Despliegan estrategias de educación a gran escala que impactan a docentes, niños y cuidadores.','laaldea');?></p>
+              </li>
+              <li>
+                <p><?php _e('Responden a emergencias migratorias, sanitarias y a desastres naturales a través de currículos flexibles y adaptados.','laaldea');?></p>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -395,59 +431,5 @@
         <a href="http://clickarte.co/" target="_blank" rel="noopener noreferrer external">www.clickarte.co</a>
       </div>
     </div>
-    <div class="row footer-row">
-      <div class="col-5 offset-1 copy-column">
-        <p class="copy-text uppercase mb-5">
-          <?php _e('La Aldea es el proyecto bandera de Click, una agencia de pedagogía ' . 
-          'dedicada a imaginar nuevas formas de aprender. Desde 2011, hemos desarrollado ' . 
-          'más de 40 proyectos de educación, impactando a más de 1 millón de estudiantes y ' . 
-          '5.000 docentes en Colombia, México y Venezuela','laaldea' );?>
-        </p>
-        <p class="medium uppercase">
-          <?php _e('En Click imaginamos, creamos y construimos nuevas formas de aprender.')?>
-        </p>
-      </div>
-      <div class="col-3 socials-column">
-        <div class="link-container">
-          <a class="uppercase social-link facebook" href="https://www.facebook.com/clickarte.p/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        </div>
-        <div class="link-container">
-          <a class="uppercase social-link instagram" href="https://www.instagram.com/clickarte.p/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <div class="link-container">
-          <a class="uppercase social-link twitter" href="https://twitter.com/ClickArte_" target="_blank" rel="noopener noreferrer">Twitter</a>
-        </div>
-        <div class="link-container">
-          <a class="uppercase social-link linkedin" href="https://www.linkedin.com/company/click-arte-sas/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-        </div>
-        <div class="link-container">
-          <a class="uppercase social-link flickr" href="#" target="_blank" rel="noopener noreferrer">Flickr</a>
-        </div>
-      </div>
-      <div class="col-3 contact-column">
-        <div class="mail mb-5">
-          <div class="link-container">
-            <a class="uppercase" href="mailto:info@clickarte.co">info@clickarte.co</a>
-          </div>
-        </div>
-        <div class="phone mb-5">
-          <div class="link-container">
-            <a class="uppercase" href="tel:+573156126756">+57 315 6126756</a>
-          </div>
-          <div class="link-container">
-            <a class="uppercase" href="tel:+5716917191">+57 1 6917191</a>
-          </div>
-        </div>
-        <div class="address mb-5">
-          <div class="line-1 uppercase">
-            <?php _e('Carrera 16 # 85-15 OF 301','laaldea')?>
-          </div>
-          <div class="line-2 uppercase">
-            <?php _e('Bogotá D.C., Colombia','laaldea')?>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </section>
 </div>

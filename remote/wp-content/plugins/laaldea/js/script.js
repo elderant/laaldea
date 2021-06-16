@@ -1003,6 +1003,7 @@ function onYouTubeIframeAPIReady() {
 
           $mainContainer.css('height', currentHeight + 'px');
           $mainContainer.append(data.html);
+          $mainContainer.append('<div class="flex-break"></div>');
          
           $mainContainer.animate({height: $mainContainer.get(0).scrollHeight}, 1000, function(){
             $(this).height('auto');
@@ -1036,6 +1037,16 @@ function onYouTubeIframeAPIReady() {
             setTimeout(function(){
               $button.toggleClass('active');
             },2000)
+          });
+        });
+
+        // Preview event
+        $('#stories.libro .tool-container.loaded .thumbnail-container button').each(function() {
+          $(this).on('click', function(event) {
+            if($(this).attr('data-link')) {
+              event.preventDefault();
+              laaldea_handle_tools_aldea_preview_click(event, this);
+            }
           });
         });
         
@@ -1118,6 +1129,75 @@ function onYouTubeIframeAPIReady() {
 
       }
     });
+  }
+
+  var laaldea_handle_tools_aldea_preview_click = function(event, currentTarget) {
+    // hide any active players
+    $('body #page > div.modal-root .modal-dialog iframe.active').each(function(){
+      $(this).toggleClass('active');
+    });
+
+    let currentId = $(currentTarget).attr('data-postId');
+    let type = $(currentTarget).attr('data-type');
+    let link = $(currentTarget).attr('data-link');
+    
+    let $modal = $('body #page > div.modal-root');
+    let $video = $modal.find('.modal-dialog .type-' + type + '.post-' + currentId);
+    
+    if($video.length == 0) {
+      if($modal.length == 0) {
+        let $htmlObject = $('<div></div>')
+          .addClass('modal-root')
+          .addClass('out')
+          .append(
+            $('<div></div>')
+              .addClass('modal-overlay')
+          )
+          .append(
+            $('<div></div>')
+              .addClass('modal-helpler')
+          )
+          .append(
+            $('<div></div>')
+              .addClass('modal-dialog')
+          );
+        $('body #page').append($htmlObject);
+        $modal = $('body #page > div.modal-root');
+
+        $('body #page > div.modal-root .modal-overlay').on('click', function(event){
+          laaldea_handle_tools_aldea_overlay_click(event);
+        });
+      }
+
+      let $htmlObject;
+
+      $htmlObject = $('<iframe />', {
+        class: 'post-' + currentId + ' type-' + type,
+        src: link, 
+        frameborder : "0",
+        allowfullscreen: true,
+      });
+      
+      $modal.find('.modal-dialog').append($htmlObject);
+      $video = $('body #page > div.modal-root .modal-dialog .type-' + type + '.post-' + currentId);
+    }
+
+    $modal.toggleClass('out');
+    setTimeout(function(){
+      $modal.toggleClass('in');
+    },10);
+    $video.toggleClass('active');
+
+  }
+
+  var laaldea_handle_tools_aldea_overlay_click = function(event) {
+    let $modal = $(event.currentTarget).parents('.modal-root');
+    $modal.toggleClass('transition');
+    $modal.toggleClass('in');
+    setTimeout(function(){
+      $modal.toggleClass('transition');
+      $modal.toggleClass('out');
+    },500);
   }
 
   /* laaaldea community events */
@@ -1471,6 +1551,16 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
+      // preview link book
+      $('#stories.libro .tool-container .thumbnail-container button').each(function() {
+        $(this).on('click', function(event) {
+          if($(this).attr('data-link')) {
+            event.preventDefault();
+            laaldea_handle_tools_aldea_preview_click(event, this);
+          }
+        });
+      });
+
       // Load more books
       $('#stories .content-column .load-more-button').on('click', function(event) {
         event.preventDefault();
@@ -1523,7 +1613,10 @@ function onYouTubeIframeAPIReady() {
     }
     if($('body.radio').length > 0) {
       $('.coming-carousel').slick({
-        infinite: false,
+        infinite: true,
+        autoplay: true,
+        vertical: true,
+        verticalSwiping: true,
         speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,

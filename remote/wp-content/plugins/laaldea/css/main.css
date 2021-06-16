@@ -35,11 +35,6 @@ html.overflow-hidden {
   position: relative;
 }
 
-.home-section .content-container {
-  width: 20%;
-  margin: 3rem auto 0 4rem;
-}
-
 .home-section .content-container.text-right {
   margin: 4rem 4rem 4rem auto;
 }
@@ -57,6 +52,8 @@ html.overflow-hidden {
 }
 
 .home-section .content-container {
+  width: 25%;
+  margin: 3rem auto 0 4rem;
   font-size: 1.25em;
 }
 
@@ -140,8 +137,9 @@ html.overflow-hidden {
 .home-section#home-intro .arrow-container.prev .laaldea-arrow i {padding-right: 6px;}
 .home-section#home-intro .arrow-container.next .laaldea-arrow i {padding-left: 6px;}
 
-.home-section#home-intro .content-container {
-  width: 25%;
+.home-section#home-intro .slide-container.position-3 .content-container {
+  width: 40%;
+  margin: 3rem 38rem 0 auto;
 }
 
 .home-section#home-intro .slide-container {
@@ -176,8 +174,8 @@ html.overflow-hidden {
 
 .home-section#home-intro .background-plant-2 {
   bottom: -50px;
-  left: calc(200vw + 19%);
-  height: 291px;
+  left: calc(200vw + 10%);
+  height: 239px;
 }
 
 .home-section#home-intro .background-character-2 {
@@ -188,7 +186,13 @@ html.overflow-hidden {
 
 .home-section#home-intro .background-character-3 {
   bottom: -50px;
-  left: calc(200vw + 13%);
+  left: calc(200vw + 2%);
+  height: 430px;
+}
+
+.home-section#home-intro .background-character-4 {
+  bottom: -50px;
+  left: calc(200vw + 23%);
   height: 430px;
 }
 
@@ -204,15 +208,21 @@ html.overflow-hidden {
   width: calc(100% + 30px);
 }
 
-.home-section .content-container {
-  width: 25%;
+.home-section#home-story .content-container {
+  width: 32%;
   margin: 3rem auto 0 4rem;
 }
 
 .home-section#home-story .background-character {
   bottom: -50px;
-  left: 35%;
-  height: 426px;
+  left: 38%;
+  height: 380px;
+}
+
+.home-section#home-story .background-plant {
+  bottom: -50px;
+  left: 67%;
+  height: 216px;
 }
 
 /* specific : radio */
@@ -247,15 +257,9 @@ html.overflow-hidden {
   transform: translate(0, -60%);
 }
 
-.home-section#home-radio .background-plant-1 {
-  bottom: -20px;
-  left: 86%;
-  height: 162px;
-}
-
-.home-section#home-radio .background-plant-2 {
+.home-section#home-radio .background-plant {
   bottom: -30px;
-  left: 10%;
+  left: 8%;
   height: 265px;
 }
 
@@ -277,13 +281,13 @@ html.overflow-hidden {
 .home-section#home-community .background-character {
   bottom: -50px;
   left: 39%;
-  height: 360px;
+  height: 425px;
 }
 
 .home-section#home-community .background-plant {
   bottom: -50px;
   left: 73%;
-  height: 205px;
+  height: 158px;
 }
 
 /* specific : shop */
@@ -302,8 +306,8 @@ html.overflow-hidden {
 
 .home-section#home-shop .background-plant {
   bottom: -50px;
-  left: 9%;
-  height: 242px;
+  left: 4%;
+  height: 228px;
 }
 
 /* specific : aldea */
@@ -325,9 +329,9 @@ html.overflow-hidden {
 }
 
 .home-section#home-aldea .background-plant {
-  bottom: -30px;
-  left: 8%;
-  height: 190px;
+  bottom: -50px;
+  left: 6%;
+  height: 278px;
 }
 
 /* specific : team */
@@ -343,7 +347,7 @@ html.overflow-hidden {
 
 .home-section#home-team .background-plant {
   bottom: -50px;
-  left: 3.5%;
+  left: 81.5%;
   height: 220px;
 }
 
@@ -511,8 +515,8 @@ html.overflow-hidden {
 #stories .plant.plant2 {right: 0;height: 75px;}
 
 #stories .plant.plant3,#stories .plant.plant4 {bottom: 0;}
-#stories .plant.plant3 {z-index: 20;left: 0;}
-#stories .plant.plant4 {z-index: 1;right: 0;}
+#stories .plant.plant3 {z-index: 20;left: 40px;height: 99px;}
+#stories .plant.plant4 {z-index: 1;right: 0;height: 190px;}
 
 /* consider wrapping image in figure, set image with as intrinsic and width of image as percent of self*/
 #stories .opossum{z-index:18;bottom: 0;left: 2%;height: 208px;}
@@ -755,6 +759,18 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #stories.libro .tool-container .thumbnail-container a,
 #stories.libro .tool-container .thumbnail-container img {width: inherit;}
 
+#stories.libro .tool-container .thumbnail-container img.Default {
+  object-fit: cover;
+}
+
+#stories.libro .tool-container .thumbnail-container span.default-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+
 #stories.libro .tool-container .links-column .icon-container svg {
   height: 1.5em;
   padding-right: 0.25rem;
@@ -929,6 +945,8 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #stories .content-column .load-more-button.end-list {
   display: none;
 }
+
+/* preview modal line 3495 */
 
 /* Radio */
 
@@ -1160,10 +1178,21 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 #aldea .happens-row .content-container p {
+  margin: 0;
   font-size: 0.6em;
   font-weight: 500;
   letter-spacing: 1px;
-  line-height: 1.5;
+  line-height: 1.2;
+}
+
+#aldea .happens-row .content-container ul.inner-list {
+  padding-left: 2rem;
+}
+
+#aldea .happens-row .content-container ul.inner-list li::marker {
+  font-size: 0.6em;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 /* laaldea : media */
@@ -1191,18 +1220,6 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 /* laaldea : click */
 #aldea .click-row {
   margin-bottom: 6rem;
-}
-
-/* laaldea : footer */
-#aldea .footer-row .copy-column p,
-#aldea .footer-row .socials-column,
-#aldea .footer-row .contact-column {
-  font-size: 0.6em;
-}
-
-#aldea .footer-row .copy-column .copy-text {
-  width: 50%;
-  margin: 0;
 }
 
 /* contact */
