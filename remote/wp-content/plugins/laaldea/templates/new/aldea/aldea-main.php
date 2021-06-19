@@ -1,3 +1,68 @@
+<?php 
+  $allies = array(
+    'unicef' => array(
+      'src' => '/wp-content/uploads/aldea-ally-unicef.png',
+      'class' => 'tall unicef',
+      'alt' => __('Logo Unicef','laaldea'),
+    ),
+    'espectador' => array(
+      'src' => '/wp-content/uploads/aldea-ally-espectador.png',
+      'class' => 'short espectador',
+      'alt' => __('Logo El Espectador','laaldea'),
+    ),
+    'mineducacion' => array(
+      'src' => '/wp-content/uploads/aldea-ally-mineducacion.png',
+      'class' => 'short mineducacion',
+      'alt' => __('Logo Mineducacion','laaldea'),
+    ),
+    'nrc' => array(
+      'src' => '/wp-content/uploads/aldea-ally-nrc.jpg',
+      'class' => 'tall nrc',
+      'alt' => __('Logo nrc','laaldea'),
+    ),
+    'rescue' => array(
+      'src' => '/wp-content/uploads/aldea-ally-rescue.png',
+      'class' => 'tall rescue',
+      'alt' => __('Logo International rescue committee','laaldea'),
+    ),
+    'children' => array(
+      'src' => '/wp-content/uploads/aldea-ally-children.png',
+      'class' => 'short children',
+      'alt' => __('Logo Save the children','laaldea'),
+    ),
+    'lego' => array(
+      'src' => '/wp-content/uploads/aldea-ally-lego.png',
+      'class' => 'short lego',
+      'alt' => __('Logo The lego foundation','laaldea'),
+    ),
+    'aprender' => array(
+      'src' => '/wp-content/uploads/aldea-ally-aprender.png',
+      'class' => 'tall aprender',
+      'alt' => __('Logo todos a aprender','laaldea'),
+    ),
+    'blue' => array(
+      'src' => '/wp-content/uploads/aldea-ally-blue.jpg',
+      'class' => 'tall blue',
+      'alt' => __('Logo Unión Europea','laaldea'),
+    ),
+    'corpoeducacion' => array(
+      'src' => '/wp-content/uploads/aldea-ally-corpoeducacion.png',
+      'class' => 'short corpoeducacion',
+      'alt' => __('Logo Corpoeducación','laaldea'),
+    ),
+    'barranquilla' => array(
+      'src' => '/wp-content/uploads/aldea-ally-barranquilla.jpg',
+      'class' => 'short barranquilla',
+      'alt' => __('Logo Secretaría de Educación de Barranquilla','laaldea'),
+    ),
+    'narino' => array(
+      'src' => '/wp-content/uploads/aldea-ally-narino.jpg',
+      'class' => 'tall narino',
+      'alt' => __('Logo Secretaría de Educación de Nariño','laaldea'),
+    ),
+  );
+?>
+
 <div id="aldea">
   <section class="container-fluid">
     <div class="row header-row mb-7">
@@ -42,62 +107,62 @@
       <div class="icons-container d-flex flex-wrap justify-content-center align-items-center">
         <div class="icon-container libros">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-book.svg';?>
-          <div class="name font-titan capitalized h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('Libros','laaldea')?>
           </div>
         </div>
         <div class="icon-container radio">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-radio.svg';?>
-          <div class="name font-titan capitalized h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('Programas de Radio','laaldea')?>
           </div>
         </div>
         <div class="icon-container digital">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-digital.svg';?>
-          <div class="name font-titan capitalized h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('Digital','laaldea')?>
           </div>
         </div>
         <div class="flex-break"></div>
         <div class="icon-container canciones">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-song.svg';?>
-          <div class="name font-titan capitalized h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('Canciones','laaldea')?>
           </div>
         </div>
         <div class="icon-container videos">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-video.svg';?>
-          <div class="name font-titan capitalized h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('Videos animados','laaldea')?>
           </div>
         </div>
         <div class="icon-container tv">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-tv.svg';?>
-          <div class="name font-titan h5">
+          <div class="name font-titan capitalized h6">
             <?php _e('T.V.','laaldea')?>
           </div>
         </div>
       </div>
     </div>
     <div class="row awards-row mb-7">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
-        <h2 class="title-text color-orange"><?php _e('Premios', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('Premios', 'laaldea');?></span>
       </div>
       <ul class="col-10 offset-1 award-texts mb-5">
-        <li class="award-text mb-3">
+        <li class="award-text mb-1">
           <?php _e('Ganadores del <span class="medium">Academic’s Choice Award - Smartbook</span> con <span class="medium">La Aldea</span> como la mejor estrategia transmedia de educación 2019.','laaldea')?>
         </li>
-        <li class="award-text mb-3">
+        <li class="award-text mb-1">
           <?php _e('Ganadores del <span class="medium">Latino Book Awards 2020</span> con La <span class="medium">Aldea: Historias para pensar el país</span> como el mejor libro capitulado juvenil.','laaldea')?>
         </li>
-        <li class="award-text mb-3">
+        <li class="award-text mb-1">
           <?php _e('Ganadores del <span class="medium">Latino Book Awards 2020</span> con La <span class="medium">Aldea: Historias para pensar el país</span> como el mejor audiolibro.','laaldea')?>
         </li>
-        <li class="award-text mb-3">
+        <li class="award-text mb-1">
           <?php _e('Ganadores <span class="medium">CREA DIGITAL 2020</span> con <span class="medium">La Aldea: Historias para estar en casa - Plataforma E-learning</span> como la mejor estrategia transmedia.','laaldea')?>
         </li>
-        <li class="award-text mb-3">
+        <li class="award-text mb-1">
           <?php _e('Premiados en HundrED y el BID (Banco Interamericano de Desarrollo) con <span class="medium">La Aldea: Historias para estar en casa</span> como una de las 15 mejores estrategias del siglo XXI en América Latina y el Caribe.','laaldea')?>
         </li>
 
@@ -112,9 +177,9 @@
       </div>
     </div>
     <div class="row numeros-row mb-7">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-5">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-numbers.svg';?>
-        <h2 class="title-text color-orange"><?php _e('La Aldea en números', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('La Aldea en números', 'laaldea');?></span>
       </div>
       <div class="col-12 section-content p-0">
         <img src="/wp-content/uploads/aldea-numeros-background.png" alt="<?php _e('La aldea en numeros background image', 'laaldea');?>">
@@ -141,44 +206,47 @@
       </div>
     </div>
     <div class="row map-row mb-7 d-none">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
-        <h2 class="title-text color-orange"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 section-content text-center p-0">
         <img src="/wp-content/uploads/aldea-map-image.jpg" alt="<?php _e('Donde se implementa La Aldea image', 'laaldea');?>">
       </div>
     </div>
     <div class="row allies-row mb-7">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
-        <h2 class="title-text color-orange"><?php _e('Socios y aliados', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('Socios y aliados', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 d-flex flex-wrap align-items-center justify-content-between award-icons">
-        <div class="ally-icon top unicef">
-          <?php include ABSPATH . '/wp-content/uploads/aldea-ally-unicef.svg';?>
-        </div>  
-        <img class="ally-icon top nrc" src="/wp-content/uploads/aldea-ally-nrc.jpg" alt="<?php _e('Logo nrc','laaldea');?>">
-        <img class="ally-icon top rescue" src="/wp-content/uploads/aldea-ally-rescue.png" alt="<?php _e('Logo International rescue committee','laaldea');?>">
-        <img class="ally-icon top aprender" src="/wp-content/uploads/aldea-ally-aprender.png" alt="<?php _e('Logo todos a aprender','laaldea');?>">
-        <img class="ally-icon top blue" src="/wp-content/uploads/aldea-ally-blue.jpg" alt="<?php _e('Logo blue','laaldea');?>">
-        <div class="flex-break"></div>
-        <img class="ally-icon espectador" src="/wp-content/uploads/aldea-ally-espectador.png" alt="<?php _e('Logo Espectador','laaldea');?>">
-        <img class="ally-icon mineducacion" src="/wp-content/uploads/aldea-ally-mineducacion.png" alt="<?php _e('Logo Mineducacion','laaldea');?>">
-        <img class="ally-icon children" src="/wp-content/uploads/aldea-ally-children.png" alt="<?php _e('Logo Save the children','laaldea');?>">
-        <img class="ally-icon lego" src="/wp-content/uploads/aldea-ally-lego.png" alt="<?php _e('Logo The lego foundation','laaldea');?>">
-        <img class="ally-icon corpoeducacion" src="/wp-content/uploads/aldea-ally-corpoeducacion.png" alt="<?php _e('Logo Corpoeducación','laaldea');?>">
+        <div class="slick-prev arrow">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slick-next arrow">
+          <i class="fas fa-angle-right"></i>
+        </div>
+        <div class="allies-carousel slider-container">
+          <?php foreach($allies as $ally) :?>
+            <div class="slide-container <?php echo $ally['class'];?> d-flex justify-content-center align-items-center">
+              <img 
+                class="ally-icon <?php echo $ally['class']?>" 
+                src="<?php echo $ally['src']?>" 
+                alt="<?php echo $ally['alt']?>">      
+            </div>
+          <?php endforeach;?>
+        </div>
       </div>
     </div>
     <div class="row happens-row">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-5">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
-        <h2 class="title-text color-orange"><?php _e('¿Qué sucede con La Aldea?', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('¿Qué sucede con La Aldea?', 'laaldea');?></span>
       </div>
       <div class="col-12 section-content p-0">
         <img src="/wp-content/uploads/aldea-happens-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
         <ul class="content-container h3">
-          <li class="kids">
+          <li class="kids mb-3">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Niños:', 'laaldea')?>
             </div>
@@ -194,7 +262,7 @@
               </li>
             </ul>
           </li>
-          <li class="parents">
+          <li class="parents mb-3">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Padres de familia y cuidadores:', 'laaldea')?>
             </div>
@@ -210,7 +278,7 @@
               </li>
             </ul>
           </li>
-          <li class="teachers">
+          <li class="teachers mb-3">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Docentes:', 'laaldea')?>
             </div>
@@ -226,7 +294,7 @@
               </li>
             </ul>
           </li>
-          <li class="organizations">
+          <li class="organizations mb-3">
             <div class="subtitle font-titan uppercase mb-2">
               <?php _e('Organizaciones de cooperación, ONGS y Gobierno:', 'laaldea');?>
             </div>
@@ -262,20 +330,26 @@
       </div>
     </div>
     <div class="row history-row mb-7">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
-        <h2 class="title-text color-orange"><?php _e('Historia de La Aldea', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('Historia de La Aldea', 'laaldea');?></span>
       </div>
-      <div class="col-10 offset-1 section-content p-0">
+      <div class="col-10 offset-1 section-content p-0 mb-3">
         <img src="/wp-content/uploads/aldea-history-image.png" alt="<?php _e('Historia de La Aldea image', 'laaldea');?>">
+      </div>
+      <div class="col-12 text-center">
+        <button class="load-more-button uppercase medium">
+          <div><?php _e('Ver más')?></div>
+          <div><i class="fas fa-chevron-down"></i></div>
+        </button>
       </div>
     </div>
     <div class="row media-row mb-7">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
-        <h2 class="title-text color-orange"><?php _e('La Aldea en medios', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('La Aldea en medios', 'laaldea');?></span>
       </div>
-      <div class="col-8 offset-2 section-quote h6 font-sassoon mb-5">
+      <div class="col-8 offset-2 section-quote h6 font-sassoon mb-7">
         <blockquote  class="quotation-text">
           <?php _e('“Usando los mismos recursos que implementó George Orwell en su obra ' . 
             '“La rebelión en la granja”, “La Aldea” se vale de los animales para contar ' . 
@@ -287,127 +361,21 @@
           <?php _e('PACIFISTA', 'laaldea');?>
         </div>
       </div>
-      <div class="col-10 offset-1 section-content d-flex flex-wrap align-items-start justify-content-around">
-        <div class="publication-container pacifista mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://pacifista.tv/notas/la-aldea-una-metafora-de-colombia-para-que-los-ninos-no-repitan-la-historia/" target="_blank" rel="noopener noreferrer">
-              <?php _e('Pacifista','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            <a href="https://pacifista.tv/notas/la-aldea-una-metafora-de-colombia-para-que-los-ninos-no-repitan-la-historia/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-pacifista.jpg" alt="<?php _e('Pacifista image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon d-none">
-            <?php _e('Lorem ipsum, dolor sit amet consectetur adipisicing elit.','laaldea');?>
-          </div>
+        
+      <div class="col-10 offset-1 section-content d-flex flex-wrap align-items-center justify-content-around">
+        <div class="slick-prev arrow">
+          <i class="fas fa-angle-left"></i>
         </div>
-        <div class="publication-container kienyke mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://www.youtube.com/watch?v=PE-XdK-gWu0" target="_blank" rel="noopener noreferrer">
-              <?php _e('Kienyke','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            <a href="https://www.youtube.com/watch?v=PE-XdK-gWu0" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-kienyke.jpg" alt="<?php _e('Kienyke image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon d-none">
-            <?php _e('Earum aspernatur aut consequatur ipsa. Ducimus unde architecto possimus asperiores.','laaldea');?>
-          </div>
+        <div class="slick-next arrow">
+          <i class="fas fa-angle-right"></i>
         </div>
-        <div class="publication-container espectador mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://www.elespectador.com/colombia2020/pedagogia/la-aldea-historias-para-pensar-el-pais-gano-premio-internacional-articulo-894140/" target="_blank" rel="noopener noreferrer">
-              <?php _e('El espectador','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            <a href="https://www.elespectador.com/colombia2020/pedagogia/la-aldea-historias-para-pensar-el-pais-gano-premio-internacional-articulo-894140/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-espectador.jpg" alt="<?php _e('Caracol image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon">
-            <a href="https://www.elespectador.com/colombia2020/pais/la-aldea-una-metafora-de-colombia-articulo-854865/" target="_blank" rel="noopener noreferrer">
-              <?php _e('Articulo : La Aldea, una metáfora de Colombia','laaldea');?>
-            </a>
-          </div>
-        </div>
-        <div class="flex-break"></div>
-        <div class="publication-container caracol mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://caracol.com.co/programa/2020/04/18/a_vivir_que_son_dos_dias/1587239976_564836.html" target="_blank" rel="noopener noreferrer">
-              <?php _e('Caracol','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            <a href="https://caracol.com.co/programa/2020/04/18/a_vivir_que_son_dos_dias/1587239976_564836.html" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-caracol.jpg" alt="<?php _e('El Espectador image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon d-none">
-            <?php _e('Sit amet consectetur adipisicing elit. Ipsam, dicta assumenda voluptatum.','laaldea');?>
-          </div>
-        </div>
-        <div class="publication-container titulo mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://www.wradio.com.co/noticias/tecnologia/la-aldea-una-estrategia-educativa-para-explicarle-a-los-ninos-que-es-el-coronavirus/20200428/nota/4034294.aspx" target="_blank" rel="noopener noreferrer">
-              <?php _e('La W radio','laaldea');?>
-            </a>  
-          </div>
-          <div class="image-container mb-3">
-            REVISAR ESTA IMAGEN
-            <a href="https://www.wradio.com.co/noticias/tecnologia/la-aldea-una-estrategia-educativa-para-explicarle-a-los-ninos-que-es-el-coronavirus/20200428/nota/4034294.aspx" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-titulo.jpg" alt="<?php _e('Sin titulo image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon d-none">
-            <?php _e('Ipsam autem labore quae voluptates, adipisci sequi.','laaldea');?>
-          </div>
-        </div>
-        <div class="publication-container semana mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://www.semana.com/educacion/articulo/los-mejores-libros-educativos-en-la-filbo-2019/615249/" target="_blank" rel="noopener noreferrer">
-              <?php _e('Semana','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            REVISAR ESTA IMAGEN
-            <a href="https://www.semana.com/educacion/articulo/los-mejores-libros-educativos-en-la-filbo-2019/615249/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-semana.jpg" alt="<?php _e('Semana rural image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon">
-            <a href="https://semanarural.com/web/articulo/oasis-del-silencio-/409" target="_blank" rel="noopener noreferrer">
-              <?php _e('Articulo : Oasis del silencio','laaldea');?>
-            </a>
-          </div>
-        </div>
-        <div class="flex-break"></div>
-        <div class="publication-container bogota mb-3">
-          <div class="publication-title font-titan h6 uppercase mb-3">
-            <a href="https://thebogotapost.com/a-different-way-to-see-peace/37647/" target="_blank" rel="noopener noreferrer">
-              <?php _e('The Bogota post','laaldea');?>
-            </a>
-          </div>
-          <div class="image-container mb-3">
-            REVISAR ESTA IMAGEN
-            <a href="https://thebogotapost.com/a-different-way-to-see-peace/37647/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/aldea-media-semana.jpg" alt="<?php _e('Semana rural image')?>">
-            </a>
-          </div>
-          <div class="text-container uppercase medium font-sassoon d-none">
-            <?php _e('Sapiente quisquam voluptatibus esse repellat quae','laaldea');?>
-          </div>
-        </div>
+        <?php laaldea_build_media_loop_html() ?>
       </div>
     </div>
     <div class="row click-row">
-      <div class="col-10 offset-1 section-title mb-5 h2">
+      <div class="col-10 offset-1 section-title mb-3">
         <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-click.svg';?>
-        <h2 class="title-text color-orange"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
+        <h2 class="title-text color-orange h3"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
       </div>
       <div class="col-10 offset-1 section-intro">
         <p><?php _e('Una agencia de pedagogía dedicada a imaginar nuevas formas de aprender ' . 

@@ -1617,11 +1617,10 @@ function onYouTubeIframeAPIReady() {
         autoplay: true,
         vertical: true,
         verticalSwiping: true,
+        arrows: false,
         speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
-        prevArrow: '#radio .slick-prev',
-        nextArrow: '#radio .slick-next',
         variableWidth: false,
       });
     }
@@ -1632,6 +1631,33 @@ function onYouTubeIframeAPIReady() {
         event.preventDefault();
         let $button = $(event.currentTarget);
         laaldea_handle_community_load_more(event, $button);
+      });
+    }
+    if($('body.aldea-info').length > 0) {
+      $('.allies-carousel').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        prevArrow: '#aldea .allies-row .slick-prev',
+        nextArrow: '#aldea .allies-row .slick-next',
+        variableWidth: true,
+      });
+      $('.media-row .media-carousel').slick({
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '#aldea .media-row .slick-prev',
+        nextArrow: '#aldea .media-row .slick-next',
+        variableWidth: false,
+      });
+
+      $('#aldea .history-row .load-more-button').on('click', function(event){
+        $sectionContent = $(this).parents('.history-row').find('.section-content');
+        $sectionContent.toggleClass('full');
+
+        $(this).toggleClass('end-list')
       });
     }
 

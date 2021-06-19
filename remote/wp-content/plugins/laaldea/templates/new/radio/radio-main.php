@@ -2,7 +2,10 @@
   <section class="container-fluid">
     <div class="row header-row mb-5">
       <div class="col-12 position-relative p-0 characters-container">
-        <img class="main-background" src="/wp-content/uploads/radio-header-banner.png" alt="<?php _e('Radio header background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/radio-header-banner.jpg" alt="<?php _e('Radio header background image','laaldea')?>">
+        <div class="background-container">
+          <img class="char harry" src="/wp-content/uploads/radio-char-1.png" alt="<?php _e('Harry image in story section', 'laaldea');?>">
+        </div>
         <div class="content-container h4">
           <h1 class="title capitalized color-green">
             <?php _e('Al aire con Enrique','laaldea');?>
@@ -55,7 +58,7 @@
     </div>
     <div class="row main-row">
       <div class="col-5 offset-1">
-        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 uppercase">
+        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 d-none uppercase">
           <?php _e('About', 'laaldea');?>
         </div>
         <div class="text-container">
@@ -77,7 +80,7 @@
             'RCN RADIO.','laaldea');?></p>
         </div>
         <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 uppercase">
-          <?php _e('Recent', 'laaldea');?>
+          <?php _e('Todos los episodios', 'laaldea');?>
         </div>
         <?php $recent = $laaldea_args['recent_tracks'];?>
         <?php if( $recent -> have_posts() ) : ?>
@@ -94,16 +97,10 @@
         <?php endif; ?>
       </div>
       <div class="col-5 slider-column">
-        <div class="h4 section-title coming-title color-green font-sassoon text-center bold mb-3 uppercase">
+        <div class="h4 section-title coming-title color-green font-sassoon text-center bold mb-3 uppercase d-none">
           <?php _e('Episodios', 'laaldea');?>
         </div>
-        <div class="carousel-container d-flex align-items-center justify-content-between">
-          <div class="slick-prev arrow">
-            <i class="fas fa-angle-left"></i>
-          </div>
-          <div class="slick-next arrow">
-            <i class="fas fa-angle-right"></i>
-          </div>
+        <div class="carousel-container d-flex align-items-center justify-content-end">
           <div class="coming-carousel">
             <div class="slide-container">
               <img src="/wp-content/uploads/radio-slider-slide1.jpg" alt="<?php _e('Slider image 1','laaldea')?>">

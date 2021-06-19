@@ -2,6 +2,7 @@
   $title = $laaldea_args['title'];
   $content = $laaldea_args['content'];
   $url = $laaldea_args['url'];
+  $link_text = $laaldea_args['link_text'];
   $post_id = $laaldea_args['post_id'];
   $position = $laaldea_args['position'];
 ?>
@@ -13,7 +14,7 @@
       <?php echo $content;?>
     </div>
     <div class="button-container text-right p d-flex">
-      <a href="<?php echo $url?>" class="home-button right"><?php _e('Lee más', 'laaldea');?></a>
+      <a href="<?php echo $url?>" class="home-button right"><?php echo $link_text;?></a>
     </div>
   </div>
 </div>

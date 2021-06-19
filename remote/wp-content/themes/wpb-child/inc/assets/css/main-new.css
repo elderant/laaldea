@@ -71,7 +71,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  letter-spacing: -0.5px;
+  letter-spacing: 0.5px;
   color: unset;
 	font-family: 'titan_one', 'Helvetica', sans-serif;
 	font-weight: 400;
@@ -81,27 +81,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, .h1 {
-	font-size: 3.25rem;
+	font-size: 3rem;
 }
 
 h2, .h2 {
-	font-size: 2.75rem;
+	font-size: 2.5rem;
 }
 
 h3, .h3 {
-	font-size: 2.4rem;
-}
-
-h4, .h4 {
 	font-size: 2rem;
 }
 
-h5, .h5 {
+h4, .h4 {
 	font-size: 1.75rem;
 }
 
-h6, .h6 {
+h5, .h5 {
 	font-size: 1.5rem;
+}
+
+h6, .h6 {
+	font-size: 1.25rem;
 }
 
 p, .p {
@@ -131,6 +131,7 @@ a {
   font-weight: 500;
 	transition: color	0.5s ease-in-out;
 }
+a:hover {font-weight: 500;}
 
 /* .bbpress #bbpress-forums a,
 .bbpress #bbpress-forums input,
@@ -212,7 +213,7 @@ a:hover, a:focus  {
 /* shared : header */
 header#masthead {
   /* height : menu-text: font-size*line-height + menu-text: padding*2 + nav: padding*2 */
-  height: calc(1.5rem*1.2 + 0.5rem*2);
+  height: calc(1.25rem*1.2 + 0.5rem*2);
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -275,6 +276,10 @@ header#masthead .navbar ul#menu-new-shop-menu li a:hover {
   color: var(--green-light);
 }
 
+header#masthead .navbar ul#menu-main-new li.current-menu-parent a {
+  color: var(--green-light);
+}
+
 header#masthead .navbar ul#menu-new-shop-menu li a:hover {
   /* color: var(--orange); */
   color: var(--green-light);
@@ -333,6 +338,10 @@ footer#colophon .main-footer .copy-column p,
 footer#colophon .main-footer .socials-column,
 footer#colophon .main-footer .contact-column {
   font-size: 0.6em;
+}
+
+#colophon .row a:hover {
+  color: var(--green-light);
 }
 
 footer#colophon .main-footer .copy-column .copy-text {

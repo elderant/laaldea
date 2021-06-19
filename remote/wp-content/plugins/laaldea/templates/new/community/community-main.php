@@ -53,7 +53,7 @@
         <div class="load-more-container text-center">
           <?php if($load_more) : ?>
             <button class="load-more-button" data-term_id="<?php echo $term_id?>" data-post_per_page="<?php echo $posts_per_page;?>" data-page="<?php echo $page?>" data-max_num_pages="<?php echo $max_num_pages?>">
-              <div class="text-container medium uppercase color-green">
+              <div class="text-container medium uppercase">
                 <span><?php _e('Ver más','laaldea');?></span>
               </div>
             </button>

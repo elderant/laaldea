@@ -31,7 +31,7 @@
 <div class="load-more-container text-center">
   <?php if($post_count > $offset) : ?>
     <button class="load-more-button" data-offset="<?php echo $offset;?>" data-toolsTemplate="<?php echo $tools_template;?>" data-post_count="<?php echo $post_count?>">
-      <div class="text-container medium uppercase color-green">
+      <div class="text-container medium uppercase">
         <span><?php _e('Ver más','laaldea');?></span>
       </div>
     </button>

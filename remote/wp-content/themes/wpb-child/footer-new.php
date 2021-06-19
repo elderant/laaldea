@@ -16,16 +16,16 @@
 	</div><!-- #content -->
     <?php get_template_part( 'footer-widget' ); ?>
 	<footer id="colophon" class="new-home site-footer <?php echo wp_bootstrap_starter_bg_class(); ?>" role="contentinfo">
-		<div class="container-fluid py-3">
+		<div class="container-fluid pt-4 pb-3">
       <div class="row main-footer">
         <div class="col-5 offset-1 copy-column">
-          <p class="copy-text uppercase mb-5">
+          <p class="copy-text mb-4">
             <?php _e('La Aldea es el proyecto bandera de Click, una agencia de pedagogía ' . 
             'dedicada a imaginar nuevas formas de aprender. Desde 2011, hemos desarrollado ' . 
             'más de 40 proyectos de educación, impactando a más de 1 millón de estudiantes y ' . 
             '5.000 docentes en Colombia, México y Venezuela','laaldea' );?>
           </p>
-          <p class="medium uppercase">
+          <p class="medium mb-0">
             <?php _e('En Click imaginamos, creamos y construimos nuevas formas de aprender.')?>
           </p>
         </div>
@@ -47,12 +47,12 @@
           </div>
         </div>
         <div class="col-3 contact-column">
-          <div class="mail mb-5">
+          <div class="mail mb-3">
             <div class="link-container">
               <a class="uppercase" href="mailto:info@clickarte.co">info@clickarte.co</a>
             </div>
           </div>
-          <div class="phone mb-5">
+          <div class="phone mb-3">
             <div class="link-container">
               <a class="uppercase" href="tel:+573156126756">+57 315 6126756</a>
             </div>
@@ -60,7 +60,7 @@
               <a class="uppercase" href="tel:+5716917191">+57 1 6917191</a>
             </div>
           </div>
-          <div class="address mb-5">
+          <div class="address">
             <div class="line-1 uppercase">
               <?php _e('Carrera 16 # 85-15 OF 301','laaldea')?>
             </div>

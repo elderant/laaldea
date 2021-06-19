@@ -15,9 +15,9 @@
             <?php _e('¿Qué andará haciendo Arnulfo? ¿Cómo se sentirá Enrique? Encuentra historias, actividades, aventuras y el universo sonoro de La Aldea y diviértete con sus personajes y ocurrencias.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
-            <a href="/historias?libro" class="home-button text-center right"><?php _e('Historias para leer', 'laaldea');?></a>
-            <a href="/historias?video" class="home-button text-center right"><?php _e('Historias para ver y escuchar', 'laaldea');?></a>
-            <!-- <a href="/historias?audio" class="home-button right"><?php _e('Historias para Escuchar', 'laaldea');?></a> -->
+            <a href="/historias?libro" class="home-button text-center"><?php _e('Leer', 'laaldea');?></a>
+            <a href="/historias?video" class="home-button text-center"><?php _e('Ver', 'laaldea');?></a>
+            <a href="/historias?audio" class="home-button text-center"><?php _e('Escuchar', 'laaldea');?></a>
           </div>
         </div>
       </div>

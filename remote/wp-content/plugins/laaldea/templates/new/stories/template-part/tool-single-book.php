@@ -31,10 +31,10 @@
   </div>
   <div class="row py-3">
     <div class="col-12 content-column">
-      <div class="entry-header mb-3 uppercase color-green">
+      <div class="entry-header mb-2 uppercase color-green">
         <h6 class="font-titan"><?php echo $title;?></h6>
       </div>
-      <div class="d-flex align-items-center description-container text-justify">
+      <div class="d-flex align-items-start description-container text-justify">
         <?php if(!empty($content)) :
             $content = wp_trim_words($content, 60);
           ?>

@@ -9,7 +9,7 @@
 ?>
 
 <div class="<?php echo $container_class; ?>" data-postId="<?php echo $post_id?>" data-youtubeId="<?php echo $tool_youtube_id;?>">
-  <div class="row py-1">
+  <div class="row py-1 mb-2">
     <div class="col-12 thumbnail-column">
       <div class="thumbnail-container d-flex align-items-center justify-content-center" data-postId="<?php echo $post_id?>">
         <?php if($has_thumbnail) :?>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 content-column uppercase">
+    <div class="col-12 content-column">
       <?php if(!empty($content)) :
           $content = wp_trim_words($content, 60);
         ?>

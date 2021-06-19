@@ -15,10 +15,10 @@
         </div>
         <div class="col-12 carousel-container">
           <div class="slick-prev arrow">
-            <i class="fas fa-angle-double-left"></i>
+            <i class="fas fa-angle-left"></i>
           </div>
           <div class="slick-next arrow">
-            <i class="fas fa-angle-double-right"></i>
+            <i class="fas fa-angle-right"></i>
           </div>
           <div class="team-carousel">
             <div class="team lisa">
