@@ -1080,6 +1080,11 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   background-color: var(--green);
   color: var(--white);
   font-family: 'titan_one';
+  transition: background-color 0.5s linear;
+}
+
+#community .filter-row .filter-button:hover {
+  background-color: var(--green-light);
 }
 
 /* community : content */
@@ -1087,10 +1092,59 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   margin-bottom: 1rem;
   border-bottom: 2px solid var(--green);
 }
+#community.single .content-column .post-container {
+  border-bottom: none;
+}
+
+#community .posts-container .post-thumbnail-container {
+  width: 33.33333%;
+  padding: 0 1rem;
+}
+
+#community .posts-container .content-container {
+  width: 66.66666%;
+  padding: 0 1rem;
+}
+
+#community .posts-container .content-container a {
+  color: inherit;
+}
 
 #community .content-column .load-more-button.end-list {
   opacity: 0;
   display: none;
+}
+
+#community.single .post-container .wp-block-image figcaption {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+#community.single .content-column .post-navigation .nav-links a {
+  background-color: var(--green);
+  color: var(--white);
+  font-weight: 400;
+  transition: background-color 0.5s ease;
+}
+
+#community.single .content-column .post-navigation .nav-links a:hover {
+  background-color: var(--green-light);
+}
+
+#community.single .content-column .post-navigation .nav-previous a::before {
+  content: "\f053";
+  margin-right: 0.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+#community.single .content-column .post-navigation .nav-next a::after {
+  content: "\f054";
+  margin-left: 0.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
 /* Community : sidebar */
@@ -1101,8 +1155,18 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 #community .content-row .filters-column .topic-block {
+  opacity: 0.9;
   height: 250px;
   padding: 1rem;
+  transition: opacity 0.5s linear;
+}
+
+#community .content-row #custom_html-2 .topic-block {
+  opacity: 1;
+}
+
+#community .content-row .filters-column .topic-block:hover {
+  opacity: 1;
 }
 
 #community .content-row .filters-column .topic-block.background-yellow {background-color: var(--yellow-light);color: var(--gray);}

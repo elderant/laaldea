@@ -1645,12 +1645,13 @@ function onYouTubeIframeAPIReady() {
       });
       $('.media-row .media-carousel').slick({
         infinite: false,
-        speed: 300,
+        pauseOnHover: true,
+        autoplay: false,
+        autoplaySpeed: 100000,
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: '#aldea .media-row .slick-prev',
         nextArrow: '#aldea .media-row .slick-next',
-        variableWidth: false,
       });
 
       $('#aldea .history-row .load-more-button').on('click', function(event){

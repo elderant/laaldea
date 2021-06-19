@@ -16,12 +16,14 @@
       </a>
     <?php endif;?>
   </div>
-  <div class="post-title-container mb-3">
-    <a href="<?php echo $permalink;?>">
-      <h2><?php echo $title?></h2>
-    </a>
-  </div>
-  <div class="post-excerpt-container">
-    <?php echo $excerpt?>
+  <div class="content-container">
+    <div class="post-title-container color-green mb-3">
+      <a href="<?php echo $permalink;?>">
+        <h2><?php echo $title?></h2>
+      </a>
+    </div>
+    <div class="post-excerpt-container">
+      <?php echo $excerpt?>
+    </div>
   </div>
 </div>

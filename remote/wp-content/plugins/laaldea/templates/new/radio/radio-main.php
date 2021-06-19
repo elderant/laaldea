@@ -102,33 +102,21 @@
         </div>
         <div class="carousel-container d-flex align-items-center justify-content-end">
           <div class="coming-carousel">
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide1.jpg" alt="<?php _e('Slider image 1','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide2.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div>
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide3.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide4.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide5.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide6.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide7.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide8.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
-            <div class="slide-container">
-              <img src="/wp-content/uploads/radio-slider-slide9.jpg" alt="<?php _e('Slider image 2','laaldea')?>">
-            </div> 
+            <?php $slides = $laaldea_args['slides'];?>
+            <?php if( $slides -> have_posts() ) : ?>
+              <?php while ($slides -> have_posts()) : ?>
+                
+                <div class="slide-container">
+                  <?php 
+                    $slides -> the_post();
+                    $post_id = get_the_ID();
+                    error_log('getting thumb for post: ' . print_r($post_id,1));
+                    the_post_thumbnail( 'full');
+                  ?>
+                </div>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>

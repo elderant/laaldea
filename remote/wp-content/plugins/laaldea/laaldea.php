@@ -800,11 +800,24 @@ function laaldea_build_radio_html () {
 
   $featured_value = get_field('featured', 1175, true);
 
+  // slide query
+  $query_args  = array(
+    'post_type' => 'radio_slide',
+    'posts_per_page' => -1,
+    'orderby' => 'modified',
+    'order' => 'ASC',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+  );
+
+  $slides = new WP_Query( $query_args );
+  $wp_query -> query_vars['laaldea_args']['slides'] = $slides;
+  
   // main query
   $query_args  = array(
     'post_type' => 'radio-track',
     'posts_per_page' => $posts_per_page,
-    'orderby' => 'modified',
+    'orderby' => 'date',
     'post_status' => 'publish',
     'fields' => 'ids',
     'post__not_in' => $featured->get_posts(),
@@ -897,69 +910,15 @@ function laaldea_get_radio_track_html( $post_id = 0, $in_same_term = false, $ech
 /* Community */
 function laaldea_build_community_html () {
   global $wp_query;
+
   $posts_per_page = 2;
   $page = 1;
   $term_id = -1;
 
-  // filter queries
-  // main tax query
-  $term_args = array (
-    'taxonomy' => 'community_tag',
-    'hide_empty' => false,
-    'parent'   => 0,
-  );
-
-  $main_terms = get_terms( $term_args );
+  $main_terms = laaldea_get_community_main_terms();
   $wp_query -> query_vars['laaldea_args']['main_terms'] = $main_terms;
 
-  $exclude = array();
-  foreach($main_terms as $term) {
-    array_push($exclude,$term->term_id);
-  }
-  // children tax query
-  // $sub_terms = array();
-  // foreach($main_terms as $term) {
-  //   $term_args = array (
-  //     'taxonomy' => 'community_tag',
-  //     'hide_empty' => false,
-  //     'parent'   => $term -> term_id,
-  //   );
-  //   $child_terms = get_terms( $term_args );
-
-  //   //$sub_terms[$term -> term_id] = $child_terms;
-  //   $sub_terms = array_merge($sub_terms, $child_terms);
-  // }
-  
-  $term_args = array (
-    'taxonomy' => 'community_tag',
-    'hide_empty' => false,
-    'exclude' => $exclude,
-  );
-
-  // filter if a parent category page is shown
-  if(isset($_GET['cat_id']) ) {
-    $term_args['parent'] = $_GET['cat_id'];
-  }
-
-  $sub_terms = get_terms( $term_args );
-
-  for($i = 0; $i<=count($sub_terms) - 1; $i++ ) {
-    switch ($i%4) {
-      case 0:
-        $sub_terms[$i] -> background_class = ' background-green';
-        break;
-      case 1:
-        $sub_terms[$i] -> background_class = ' background-blue';
-        break;
-      case 2:
-        $sub_terms[$i] -> background_class = ' background-cyan';
-        break;
-      case 3:
-        $sub_terms[$i] -> background_class = ' background-yellow';
-        break;
-    }
-  }
-
+  $sub_terms = laaldea_get_community_sub_terms($main_terms);
   $wp_query -> query_vars['laaldea_args']['sub_terms'] = $sub_terms;
 
   // main query
@@ -974,7 +933,7 @@ function laaldea_build_community_html () {
 
   // Add taxonomy query if necesary
   if(isset($_GET['term_id'])) {
-    $term_id = isset($_GET['term_id']);
+    $term_id = $_GET['term_id'];
   }
   if(isset($_GET['cat_id'])) {
     $term_id = $_GET['cat_id'];
@@ -988,7 +947,6 @@ function laaldea_build_community_html () {
       ),
     );
   }
-
   $recent_posts = new WP_Query( $query_args );
   $post_count = $recent_posts -> found_posts;
   $max_num_pages = $recent_posts -> max_num_pages;
@@ -1028,7 +986,7 @@ function laaldea_get_community_single_html($post_id = 0, $additional_class = '',
   $thumbnail = get_the_post_thumbnail( $post_id, 'large' );
   $title = get_the_title($post_id);
   $excerpt = get_the_excerpt($post_id);
-  $container_class = 'post-container pb-3 post-' . $post_id;
+  $container_class = 'post-container pb-3 d-flex align-items-center justify-content-between post-' . $post_id;
   $container_class .= $additional_class;
 
   $wp_query -> query_vars['laaldea_args']['permalink'] = $permalink;
@@ -1117,6 +1075,71 @@ function laaldea_community_load_more() {
 
   echo json_encode($return_array);
   die();
+}
+
+function laaldea_get_community_main_terms () {
+  // filter queries
+  // main tax query
+  $term_args = array (
+    'taxonomy' => 'community_tag',
+    'hide_empty' => false,
+    'parent'   => 0,
+  );
+
+  $main_terms = get_terms( $term_args );
+  return $main_terms;
+}
+
+function laaldea_get_community_sub_terms ($main_terms) {
+  $exclude = array();
+  foreach($main_terms as $term) {
+    array_push($exclude,$term->term_id);
+  }
+  // children tax query
+  // $sub_terms = array();
+  // foreach($main_terms as $term) {
+  //   $term_args = array (
+  //     'taxonomy' => 'community_tag',
+  //     'hide_empty' => false,
+  //     'parent'   => $term -> term_id,
+  //   );
+  //   $child_terms = get_terms( $term_args );
+
+  //   //$sub_terms[$term -> term_id] = $child_terms;
+  //   $sub_terms = array_merge($sub_terms, $child_terms);
+  // }
+  
+  $term_args = array (
+    'taxonomy' => 'community_tag',
+    'hide_empty' => false,
+    'exclude' => $exclude,
+  );
+
+  // filter if a parent category page is shown
+  if(isset($_GET['cat_id']) ) {
+    $term_args['parent'] = $_GET['cat_id'];
+  }
+
+  $sub_terms = get_terms( $term_args );
+
+  for($i = 0; $i<=count($sub_terms) - 1; $i++ ) {
+    switch ($i%4) {
+      case 0:
+        $sub_terms[$i] -> background_class = ' background-green';
+        break;
+      case 1:
+        $sub_terms[$i] -> background_class = ' background-blue';
+        break;
+      case 2:
+        $sub_terms[$i] -> background_class = ' background-cyan';
+        break;
+      case 3:
+        $sub_terms[$i] -> background_class = ' background-yellow';
+        break;
+    }
+  }
+
+  return $sub_terms;
 }
 
 /* la aldea Info */
