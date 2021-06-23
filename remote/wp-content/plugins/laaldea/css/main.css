@@ -23,17 +23,12 @@ button.load-more-button:hover {
 /******************** Main ********************/
 /**********************************************/
 /* Home new */
-html.overflow-hidden {
+html.overflow-hidden-custom {
   overflow: hidden;
 }
 
 .home-section .slider-container {
-  overflow-x: scroll;
-  overflow-y: hidden;
   height: 475px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .home-section .slider-container::-webkit-scrollbar {
@@ -54,10 +49,7 @@ html.overflow-hidden {
 
 .home-section .background-container .background-part.background-main {
   position: relative;
-}
-
-.home-section .content-container.text-right {
-  margin: 4rem 4rem 4rem auto;
+  min-width: calc(100% + 30px);
 }
 
 .home-section .background-main {
@@ -74,8 +66,11 @@ html.overflow-hidden {
 
 .home-section .content-container {
   width: 25%;
-  margin: 3rem auto 0 4rem;
+  margin: 4rem auto 0 5rem;
   font-size: 1.25em;
+}
+.home-section .content-container.text-right {
+  margin: 4rem 5rem 4rem auto;
 }
 
 .home-section .content-container.text-left .button-container{justify-content: flex-start;}
@@ -122,6 +117,14 @@ html.overflow-hidden {
 
 /* specific */
 /* specific : Intro */
+.home-section#home-intro .slider-container {
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .home-section#home-intro .row {
   position: relative;
 }
@@ -136,8 +139,8 @@ html.overflow-hidden {
   transition: opacity 0.5s linear;
 }
 .home-section#home-intro .arrow-container.disabled {opacity: 0;pointer-events: none;}
-.home-section#home-intro .arrow-container.prev {left: 20px;}
-.home-section#home-intro .arrow-container.next {right: 20px;}
+.home-section#home-intro .arrow-container.prev {left: 2.5%;}
+.home-section#home-intro .arrow-container.next {right: 2.5%;}
 
 .home-section#home-intro .arrow-container .laaldea-arrow {
   width: 100%;
@@ -160,7 +163,7 @@ html.overflow-hidden {
 
 .home-section#home-intro .slide-container.position-3 .content-container {
   width: 40%;
-  margin: 3rem 38rem 0 auto;
+  margin: 3rem auto 0 auto;
 }
 
 .home-section#home-intro .slide-container {
@@ -174,11 +177,11 @@ html.overflow-hidden {
 }
 
 .home-section#home-intro .background-main {
-  top: calc((475px - 718px)/2);
+  top: calc((475px - 625px)/2);
   left: -15px;
-  /* width: 5790px; */
-  width: calc(300vw + 30px);
-  height: 718px;
+  width: 5043px;
+  min-width: calc(300vw + 30px);
+  height: 625px;
 }
 
 .home-section#home-intro .background-plant {
@@ -226,7 +229,6 @@ html.overflow-hidden {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: calc(100% + 30px);
 }
 
 .home-section#home-story .content-container {
@@ -248,31 +250,32 @@ html.overflow-hidden {
 
 /* specific : radio */
 .home-section#home-radio .allies-container {
+  display: -ms-flexbox;
+  display: flex;
   top: 1rem;
   left: 1rem;
-  width: 10%;
+  width: 144px;
 }
 
 .home-section#home-radio .ally-icon {
-  height: calc(1.6vw * 2.4);
+  height: calc(30px * 2.4);
   padding: 0.2rem;
 }
-.home-section#home-radio .ally-icon.lego {height: calc(0.57vw * 2.4);}
+.home-section#home-radio .ally-icon.lego {height: calc(10px * 2.4);}
 
 .home-section#home-radio .content-container {
-  width: 700px;
+  width: 900px;
 }
 
 .home-section#home-radio .background-main {
   top: calc((475px - 575px)/2);
   left: -15px;
   height: calc(475px + 100px);
-  width: calc(100% + 30px);
 }
 
 .home-section#home-radio .background-character {
   top: 240px;
-  left: 43%;
+  left: 32.5%;
   height: 292px;
   transform: translate(0, -60%);
 }
@@ -285,7 +288,7 @@ html.overflow-hidden {
 
 /* specific : community */
 .home-section#home-community .content-container {
-  width: 550px;
+  width: 675px;
 }
 .home-section#home-community .background-container {
   max-width: 100vw;
@@ -332,7 +335,7 @@ html.overflow-hidden {
 
 /* specific : aldea */
 .home-section#home-aldea .content-container {
-  width: 480px;
+  width: 550px;
 }
 
 .home-section#home-aldea .background-main {
@@ -363,6 +366,7 @@ html.overflow-hidden {
   left: -15px;
   height: 774px;
   width: calc(100% + 30px);
+  min-width: calc(100% + 80px);
 }
 
 .home-section#home-team .background-plant {
@@ -409,8 +413,12 @@ html.overflow-hidden {
 }
 
 .home-section#home-team .carousel-container .arrow:hover {
-	cursor: pointer;
-	color: var(--green-dark);
+	color: var(--green-light);
+}
+
+.home-section#home-team .carousel-container .arrow.slick-disabled {
+  color: var(--gray);
+  cursor: default;
 }
 
 .home-section#home-team .carousel-container .arrow i {
@@ -421,66 +429,63 @@ html.overflow-hidden {
 	order: 3;
 }
 
-.home-section#home-team .team-carousel,
-.home-section#home-team .team-carousel .slick-list {
-	display: inline-block;
-	max-width: 1300px;
-	overflow: hidden;
-	margin: 0;
+/* .home-section#home-team .team-carousel .slick-list */
+.home-section#home-team .team-carousel {
+	/* display: inline-block; */
+	width: 90%;
+	/* overflow: hidden; */
+	/* margin: 0; */
 }
 
 .home-section#home-team .team-carousel .team {
 	position: relative;
-	margin: 0 3em;
+  width: calc((100vw - 30px)*0.9/3);
+	margin: 0 auto;
 	padding: 122px 0;
-	font-size: 16px;
 	color: var(--green);
+  text-align: center;
 }
 
-.home-section#home-team .team-carousel .team.emmanuel {
-	padding-top: 0;
-}
-
-.home-section#home-team .team-carousel .team.nicolas   {
-	padding: 72px 0;
-}
-
+.home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+.home-section#home-team .team-carousel .team.nicolas {padding: 72px 0;}
 .home-section#home-team .team-carousel .team.gabriel,
 .home-section#home-team .team-carousel .team.lina,
-.home-section#home-team .team-carousel .team.laura {
-	padding-bottom: 0;
+.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+.home-section#home-team .team-carousel .team.diana {padding-top: 6px;}
+.home-section#home-team .team-carousel .team.maria {padding-top: 87px;}
+
+.home-section#home-team .team-carousel .team .team-content-container {
+  position: relative;
+  display: inline-block;
 }
 
-.home-section#home-team .team-carousel .team.diana {
-	padding-top: 6px;
-}
-
-.home-section#home-team .team-carousel .team.maria {
-	padding-top: 87px;
+.home-section#home-team .team-carousel .team img {
+  margin: 0 auto;
 }
 
 .home-section#home-team .team-carousel .mask {
-	position: absolute;
-	top: 121px;
-	left: 144px;
-	width: 217px;
-	height: 298px;
+  position: absolute;
+  top: 0;
+  left: 144px;
+  width: 217px;
+  height: 295px;
 }
 
-.home-section#home-team .team-carousel .team.katia .mask {left: 127px;}
-.home-section#home-team .team-carousel .team.nicolas .mask {left: 153px;}
+.home-section#home-team .team-carousel .team.emmanuel .mask {top: 122px;}
+.home-section#home-team .team-carousel .team.katia .mask {left: 126px;}
+.home-section#home-team .team-carousel .team.nicolas .mask {top: 51px;left: 153px;}
 .home-section#home-team .team-carousel .team.lina .mask {left: 160px;}
 .home-section#home-team .team-carousel .team.fredy .mask {left: 157px;}
-.home-section#home-team .team-carousel .team.diana .mask {left: 135px;}
-.home-section#home-team .team-carousel .team.gabriel .mask {left: 135px;top: 123px;}
-.home-section#home-team .team-carousel .team.laura .mask {top: 123px;left: 118px;}
-.home-section#home-team .team-carousel .team.maria .mask {top: 123px;left: 118px;}
+.home-section#home-team .team-carousel .team.diana .mask {top: 116px;left: 135px;}
+.home-section#home-team .team-carousel .team.gabriel .mask {left: 134px;}
+.home-section#home-team .team-carousel .team.laura .mask {left: 118px;}
+.home-section#home-team .team-carousel .team.maria .mask {top:35px;left: 118px;}
 
 .home-section#home-team .team-carousel .team h5 {
 	position: relative;
   width: 81%;
   margin: 0 auto;
-  padding: 0.5em 0em;
+  padding: 0.25em 0em;
 	color: inherit;
 	font-size: 1.2em;
 	text-align: center;
@@ -488,26 +493,15 @@ html.overflow-hidden {
 
 .home-section#home-team .team-carousel .team span.job-title {
 	position: absolute;
-	bottom: 0;
-	width: 81%;
-  height: calc(0.9em*1.2*3 + 1em);
-	padding: 0.75em 0;
-	color: inherit;
-	text-align: center;
+  bottom: 0;
+  width: 81%;
+  height: calc(0.9em*1.2*2 + 1.5em);
+  padding: 0.75em 0;
+  color: inherit;
+  text-align: center;
   font-size: 0.9em;
   line-height: 1.2;
-  transform: translate(12%,0);
-} 
-
-.home-section#home-team .team-carousel .team.katia span.job-title,
-.home-section#home-team .team-carousel .team.nicolas span.job-title,
-.home-section#home-team .team-carousel .team.lina span.job-title,
-.home-section#home-team .team-carousel .team.fredy span.job-title,
-.home-section#home-team .team-carousel .team.diana span.job-title,
-.home-section#home-team .team-carousel .team.gabriel span.job-title,
-.home-section#home-team .team-carousel .team.laura span.job-title,
-.home-section#home-team .team-carousel .team.maria span.job-title {
-	padding: 0.75em 0;
+  transform: translate(-50%,0);
 }
 
 /* Stories and characters */
@@ -520,6 +514,10 @@ html.overflow-hidden {
 
 #stories .header-row .subtitle {
   font-size: 0.8em;
+}
+
+#stories .header-row .main-background {
+  width: 100%;
 }
 
 #stories .story-header-image {
@@ -781,7 +779,7 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   object-fit: cover;
 }
 
-#stories.libro .tool-container .thumbnail-container span.default-text {
+#stories .tool-container .thumbnail-container span.default-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1203,6 +1201,10 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 /* laaldea: intro */
+#aldea .intro-text {
+  opacity: 0;
+}
+
 #aldea .icons-container {
   margin: 0 auto;
   text-align: center;
@@ -1210,8 +1212,9 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 
 /* real icon width/height : 110px*/
 #aldea .icon-container {
-  margin: 2rem 4.25rem calc(1rem + 1.75rem*1.2*2 + 1rem);
+  margin: 1rem 2rem 1rem;
   position: relative;
+  width: 275px;
 }
 
 #aldea .icon-container svg {
@@ -1219,10 +1222,11 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 }
 
 #aldea .icon-container .name {
-  position: absolute;
+  /* position: absolute;
   bottom: -1rem;
   left: 50%;
-  transform: translate(-50%, 100%);
+  transform: translate(-50%, 100%); */
+
 }
 
 #aldea .icon-container.libros {color:#5295C2}
@@ -1286,7 +1290,7 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   cursor: pointer;
   transition: color 0.5s linear, opacity 0.25s linear;
 }
-#aldea .allies-row .arrow:hover {color: var(--green-dark);}
+#aldea .allies-row .arrow:hover {color: var(--green-light);}
 #aldea .allies-row .arrow.slick-disabled {opacity: 0;}
 
 #aldea .allies-row .slide-container {
@@ -1353,12 +1357,11 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   cursor: pointer;
   color: var(--green);
   transition: color 1s linear;
-  font-size: 50px;
+  font-size: 3rem;
 }
 
-#aldea .media-row .arrow.slick-disabled {color: var(--gray);pointer-events: none;cursor: not-allowed;}
 #aldea .media-row .arrow:hover {color: var(--green-light);}
-
+#aldea .media-row .arrow.slick-disabled {color: var(--gray);pointer-events: none;cursor: not-allowed;}
 
 #aldea .media-row .slide-container {
   width: 100%;

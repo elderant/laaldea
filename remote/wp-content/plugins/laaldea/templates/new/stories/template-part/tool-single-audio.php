@@ -17,7 +17,7 @@
         <?php else :?>
           <img src="/wp-content/uploads/tools-default-thumb-background.jpg" alt="<?php _e('Default Thumbnail pdf', 'laaldea')?>">
           <span class="default-text d-flex align-items-center justify-content-center h5">
-            <?php _e('PDF', 'laaldea')?>
+            <?php _e('Audio', 'laaldea')?>
           </span>
         <?php endif;?>
       </div>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 content-column uppercase">
+    <div class="col-12 content-column">
       <?php if(!empty($content)) :
           $content = wp_trim_words($content, 60);
         ?>

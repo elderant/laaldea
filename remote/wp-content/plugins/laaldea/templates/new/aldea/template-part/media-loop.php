@@ -7,8 +7,8 @@
 
 <div class="media-carousel carousel-container mb-3">
   <?php foreach($media_posts as $slide_posts) : ?>
-    <div class="slide-container d-flex align-items-start justify-content-around">
+    <!-- <div class="slide-container d-flex align-items-start justify-content-around"> -->
       <?php laaldea_build_media_slide_html($slide_posts); ?>
-    </div>
+    <!-- </div> -->
   <?php endforeach;?>
 </div>

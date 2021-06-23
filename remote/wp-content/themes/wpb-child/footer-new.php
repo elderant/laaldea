@@ -18,7 +18,7 @@
 	<footer id="colophon" class="new-home site-footer <?php echo wp_bootstrap_starter_bg_class(); ?>" role="contentinfo">
 		<div class="container-fluid pt-4 pb-3">
       <div class="row main-footer">
-        <div class="col-5 offset-1 copy-column">
+        <div class="col-12 offset-0 mb-3 col-sm-5 offset-sm-1 mb-sm-0 copy-column">
           <p class="copy-text mb-4">
             <?php _e('La Aldea es el proyecto bandera de Click, una agencia de pedagogía ' . 
             'dedicada a imaginar nuevas formas de aprender. Desde 2011, hemos desarrollado ' . 
@@ -29,7 +29,7 @@
             <?php _e('En Click imaginamos, creamos y construimos nuevas formas de aprender.')?>
           </p>
         </div>
-        <div class="col-3 socials-column">
+        <div class="col-12 mb-3 col-sm-3 mb-sm-0 text-center text-sm-left socials-column">
           <div class="link-container">
             <a class="uppercase social-link facebook" href="https://www.facebook.com/clickarte.p/" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
@@ -46,7 +46,7 @@
             <a class="uppercase social-link flickr" href="#" target="_blank" rel="noopener noreferrer">Flickr</a>
           </div>
         </div>
-        <div class="col-3 contact-column">
+        <div class="col-12 mb-3 col-sm-3 mb-sm-0 text-center text-sm-left contact-column">
           <div class="mail mb-3">
             <div class="link-container">
               <a class="uppercase" href="mailto:info@clickarte.co">info@clickarte.co</a>
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="row site-info">
+      <div class="row site-info pt-2">
         <div class="col-12 text-center font-titan h6">
           <?php _e('La Aldea &reg;','laaldea');?>
         </div>

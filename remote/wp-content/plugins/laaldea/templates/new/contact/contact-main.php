@@ -38,11 +38,16 @@
       <div class="col-lg-10 col-12 offset-lg-1 d-flex justify-content-around align-items-sm-center align-items-start flex-sm-row flex-column flex-wrap">
         <div class="contact-info phone d-flex px-sm-2 px-3">
           <i class="fas fa-phone"></i>
-          <a href="callto:+5716917191" class="d-none-sm d-none d-lg-block"><?php _e('+57 1 6917191', 'laaldea');?></a>
-          <a href="tel:+5716917191" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 1 6917191', 'laaldea');?></a>
-          <span class="separator"><i class="fas fa-mobile"></i></span>
-          <a href="callto:+573156126756" class="d-none-sm d-none d-lg-block"><?php _e('+57 315 6126756', 'laaldea');?></a>
-          <a href="tel:+573156126756" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 315 6126756', 'laaldea');?></a>
+          <a href="callto:+5716917191" class="d-none-sm d-none d-lg-block"><?php _e('+57 1 691 7191', 'laaldea');?></a>
+          <a href="tel:+5716917191" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 1 691 7191', 'laaldea');?></a>
+          <span class="separator">
+          <i class="fas fa-mobile"></i></span>
+          <a href="callto:+573142774824" class="d-none-sm d-none d-lg-block"><?php _e('+57 314 277 4824', 'laaldea');?></a>
+          <a href="tel:+573142774824" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 314 277 4824', 'laaldea');?></a>
+          <span class="separator">
+          <i class="fas fa-mobile"></i></span>
+          <a href="callto:+573118068886" class="d-none-sm d-none d-lg-block"><?php _e('+57 311 806 8886', 'laaldea');?></a>
+          <a href="tel:+573118068886" class="d-none-sm d-lg-none d-xl-none"><?php _e('+57 311 806 8886', 'laaldea');?></a>
         </div>
         <div class="contact-info email px-sm-2 px-3">
           <i class="fas fa-envelope"></i>

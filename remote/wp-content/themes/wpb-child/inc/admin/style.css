@@ -2,6 +2,10 @@
   --white: white;
 }
 
+.fixed .column-type {
+  width: 10%;
+}
+
 /**** User flow ****/
 .user-edit-php .radio-buttons,
 #your-profile .radio-buttons {

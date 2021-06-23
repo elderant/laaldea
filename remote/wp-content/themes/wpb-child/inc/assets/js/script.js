@@ -150,6 +150,20 @@
         $toggler.parent(".navbar").toggleClass('show');
       });
 
+      if($('.page-template-fullwidth-new').length > 0) {
+        $('header .navbar-toggler').on('click', function(event) {
+          let $top = $(this).find('.navbar-icon-custom.top');
+          let $bottom = $(this).find('.navbar-icon-custom.bottom');
+
+          $top.css('animation-name', 'togglerBarTop');
+          $bottom.css('animation-name', 'togglerBarBottom');
+          setTimeout(function() {
+            $top.css('animation-name', '');
+            $bottom.css('animation-name', '');
+          }, 2000);
+        });
+      }
+      
       if($('body.home-new').length > 0) {
         "use strict";
 

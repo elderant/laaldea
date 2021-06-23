@@ -742,12 +742,12 @@ function onYouTubeIframeAPIReady() {
   }
   var laaldea_disable_site_scroll = function(event, ) {
     if (event.type === "mouseenter") {
-      $('html').addClass('overflow-hidden');
+      $('html').addClass('overflow-hidden-custom');
     }
     else if(event.type === "mouseleave") {
-      $('html').removeClass('overflow-hidden');
+      $('html').removeClass('overflow-hidden-custom');
     }
-    else {$('html').removeClass('overflow-hidden');console.log('I should not be triggered')}
+    else {$('html').removeClass('overflow-hidden-custom');console.log('I should not be triggered')}
   }
 
   /* Home events */
@@ -757,7 +757,6 @@ function onYouTubeIframeAPIReady() {
     let $slider = $('#home-intro .slider-container');
     let windowWidth = window.innerWidth;
   
-    //debugger;
     if(direction) {
       let movement = Math.floor(($slider.scrollLeft()+1)/windowWidth) + 1;
       $slider.animate({scrollLeft: movement*windowWidth}, 500);
@@ -1273,6 +1272,13 @@ function onYouTubeIframeAPIReady() {
     });
   }
 
+  var isMobile = function(){
+    return $(window).width() <= 768;
+  };
+  var isDesktop = function(){
+    return $(window).width() > 768;
+  };
+
   $(document).ready(function () {
     if($('body.home-new').length > 0) {
       $('#home-intro').on('mouseenter', function(event){
@@ -1296,88 +1302,71 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
-      var rellax = new Rellax('.rellax', {
-        center: true
-      });
+      if(!isMobile()) {
 
-      TweenLite.defaultEase = Linear.easeNone;
-      var controller = new ScrollMagic.Controller();
-      var tl = new TimelineMax();
-
-      tl.from('.home-section#home-radio .background-character', 150, {
-        top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 100,{
-        top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
-      });
-      tl.to('.home-section#home-radio .background-character', 150,{
-        top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
-      });
-      
-      var tlPlant = new TimelineMax();
-      tlPlant.from('.home-section#home-radio .background-plant-1', 180, {
-        rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
-      });
-      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
-        rotationX: 5,rotationY: -5,rotationZ: 5,ease: "power1.out",
-      });
-      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
-        rotationX: 15,rotationY: -15,rotationZ: 8,ease: "power1.out",
-      });
-      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
-        rotationX: 5,rotationY: -5,rotationZ: 5,ease: "power1.out",
-      });
-      tlPlant.to('.home-section#home-radio .background-plant-1', 180,{
-        rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
-      });
-      tl.add(tlPlant, "0");
-      
-      var tlPlant2 = new TimelineMax();
-      tlPlant2.from('.home-section#home-radio .background-plant-2', 180, {
-        rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
-      });
-      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
-        rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
-      });
-      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
-        rotationX: -15,rotationY: 15,rotationZ: 8,ease: "power1.out",
-      });
-      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
-        rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
-      });
-      tlPlant2.to('.home-section#home-radio .background-plant-2', 180,{
-        rotationX: 5,rotationY: -5,rotationZ: 0,ease: "power1.out",
-      });
-      tl.add(tlPlant2, "0");
-
-      var scene = new ScrollMagic.Scene({
-        triggerElement: "#home-story",
-        duration: "900",
-        offset: "238"
-      }).setTween(tl).addTo(controller);
-        // .addIndicators({
-        //   name: "Box Timeline",
-        //   colorTrigger: "white",
-        //   colorStart: "white",
-        //   colorEnd: "white"
-        // })
+        var rellax = new Rellax('.rellax', {
+          center: true
+        });
+  
+        TweenLite.defaultEase = Linear.easeNone;
+        var controller = new ScrollMagic.Controller();
+        var tl = new TimelineMax();
+  
+        tl.from('.home-section#home-radio .background-character', 150, {
+          top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: 5,rotationY: -5,rotationZ: 15,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: -5,rotationY: 5,rotationZ: 0,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 100,{
+          top: "240px",rotationX: 5,rotationY: -5,rotationZ: -15,ease: "power1.out",
+        });
+        tl.to('.home-section#home-radio .background-character', 150,{
+          top: "140%",rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+        });
         
-      // var skrollrInstance = skrollr.init();
+        var tlPlant2 = new TimelineMax();
+        tlPlant2.from('.home-section#home-radio .background-plant', 180, {
+          rotationX: 0,rotationY: 0,rotationZ: 0,ease: "power1.out",
+        });
+        tlPlant2.to('.home-section#home-radio .background-plant', 180,{
+          rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
+        });
+        tlPlant2.to('.home-section#home-radio .background-plant', 180,{
+          rotationX: -15,rotationY: 15,rotationZ: 8,ease: "power1.out",
+        });
+        tlPlant2.to('.home-section#home-radio .background-plant', 180,{
+          rotationX: -5,rotationY: 5,rotationZ: 5,ease: "power1.out",
+        });
+        tlPlant2.to('.home-section#home-radio .background-plant', 180,{
+          rotationX: 5,rotationY: -5,rotationZ: 0,ease: "power1.out",
+        });
+        tl.add(tlPlant2, "0");
+  
+        var scene = new ScrollMagic.Scene({
+          triggerElement: "#home-story",
+          duration: "900",
+          offset: "238"
+        }).setTween(tl).addTo(controller);
+          // .addIndicators({
+          //   name: "Box Timeline",
+          //   colorTrigger: "white",
+          //   colorStart: "white",
+          //   colorEnd: "white"
+          // })          
+      }
 
       $('.team-carousel').slick({
         infinite: false,
@@ -1386,17 +1375,22 @@ function onYouTubeIframeAPIReady() {
         slidesToScroll: 2,
         prevArrow: '.home-section#home-team .slick-prev',
         nextArrow: '.home-section#home-team .slick-next',
-        variableWidth: true,
         responsive: [
           {
-            breakpoint: 700,
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            }
+          },
+          {
+            breakpoint: 769,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
-              infinite: false,
-              variableWidth: true,
             }
           },
+
         ],
       });
     }
@@ -1634,6 +1628,56 @@ function onYouTubeIframeAPIReady() {
       });
     }
     if($('body.aldea-info').length > 0) {
+      TweenLite.defaultEase = Linear.easeNone;
+      var controller = new ScrollMagic.Controller();
+      var tl = new TimelineMax();
+
+      tl.to('.intro-row div.intro-text:first-child', 50, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      tl.to('.intro-row div.intro-text:first-child', 300, {
+        opacity: 1, scale: 1.1,ease: "power1.out",
+      });
+      tl.to('.intro-row div.intro-text:first-child', 300, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      
+      var tl2 = new TimelineMax();
+      tl2.to('.intro-row div.intro-text:nth-child(2)', 50, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      tl2.to('.intro-row div.intro-text:nth-child(2)', 300, {
+        opacity: 1, scale: 1.1,ease: "power1.out",
+      });
+      tl2.to('.intro-row div.intro-text:nth-child(2)', 300, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      tl.add(tl2, "50");
+
+      var tl3 = new TimelineMax();
+      tl3.to('.intro-row div.intro-text:nth-child(3)', 50, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      tl3.to('.intro-row div.intro-text:nth-child(3)', 300, {
+        opacity: 1, scale: 1.1,ease: "power1.out",
+      });
+      tl3.to('.intro-row div.intro-text:nth-child(3)', 300, {
+        opacity: 1, scale: 1,ease: "power1.out",
+      });
+      tl.add(tl3, "100");
+
+      var scene = new ScrollMagic.Scene({
+        triggerElement: ".aldea-info .header-row",
+        duration: "80%",
+        offset: "350%"
+      }).setTween(tl).addTo(controller);
+        // .addIndicators({
+        //   name: "Box Timeline",
+        //   colorTrigger: "black",
+        //   colorStart: "black",
+        //   colorEnd: "black"
+        // })
+
       $('.allies-carousel').slick({
         infinite: true,
         speed: 300,
@@ -1642,16 +1686,42 @@ function onYouTubeIframeAPIReady() {
         prevArrow: '#aldea .allies-row .slick-prev',
         nextArrow: '#aldea .allies-row .slick-next',
         variableWidth: true,
+        responsive: [
+          {
+            breakpoint: 650,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            }
+          },
+        ],
       });
       $('.media-row .media-carousel').slick({
         infinite: false,
         pauseOnHover: true,
         autoplay: false,
         autoplaySpeed: 100000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         prevArrow: '#aldea .media-row .slick-prev',
         nextArrow: '#aldea .media-row .slick-next',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            }
+          },
+          {
+            breakpoint: 400,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            }
+          },
+
+        ],
       });
 
       $('#aldea .history-row .load-more-button').on('click', function(event){

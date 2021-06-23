@@ -12,7 +12,8 @@ add_action( 'wp_enqueue_scripts', 'laaldea_scripts' );
 function laaldea_scripts () {
   wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
   wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
-  wp_enqueue_style ( 'cultura-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
+  wp_enqueue_style ( 'laaldea-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
+  wp_enqueue_style ( 'laaldea-mobile-new',  plugins_url('/css/mobile-new.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
 
   wp_localize_script( 'laaldea-js', 'ajax_params', array('ajax_url' => admin_url( 'admin-ajax.php' )));
 
@@ -773,6 +774,35 @@ function laaldea_tools_aldea_video_load_more() {
   die();
 }
 
+/* stories, characters : admin */
+add_filter( 'manage_tool_aldea_posts_columns', 'laaldea_add_custom_type_to_admin_table' );
+function laaldea_add_custom_type_to_admin_table($columns) {
+    $column_to_add = array('type' => __( 'Tipo', 'laaldea' ));
+    $column_ids = array_keys($columns);
+    $date_index = array_search('categories', $column_ids); //cb title categories, date
+
+    $array_before = array_slice($columns, 0, $date_index, TRUE);
+    $array_after = array_slice($columns, $date_index, NULL, TRUE);
+    $new_columns =  array_merge($array_before, $column_to_add, $array_after);
+  
+    error_log('new columns : ' . print_r($new_columns,1));
+
+    return $new_columns;
+}
+// Add the data to the custom columns for the book post type:
+add_action( 'manage_tool_aldea_posts_custom_column' , 'laaldea_add_data_to_custom_columns', 10, 2 );
+function laaldea_add_data_to_custom_columns( $column, $post_id ) {
+    switch ( $column ) {
+        case 'type' :
+          $type = get_field( "aldea_tool_type", $post_id );
+          if ( is_string( $type ) )
+              echo $type;
+          else
+              _e( 'Unable to get type', 'laaldea' );
+          break;
+    }
+}
+
 /* Radio */
 function laaldea_build_radio_html () {
   global $wp_query;
@@ -1238,7 +1268,7 @@ function laaldea_build_media_html( $post_id = 0, $additional_class = '', $echo =
   $media_name = get_the_title( $post_id );
   $media_url = get_field( "aldea_media_url", $post_id );
   
-  $container_class = 'media-container post-id-';
+  $container_class = 'media-container px-3 px-xl-2 post-id-';
   $container_class .= $post_id;
   $container_class .= ' ' . $media_name . $additional_class;
 

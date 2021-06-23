@@ -44,10 +44,12 @@
     <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
       <header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container-fluid">
-          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler collapsed d-block d-xl-none" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-icon-custom top"></span>
+            <span class="navbar-icon-custom"></span>
+            <span class="navbar-icon-custom bottom"></span>
           </button>
-          <nav class="navbar fixed-top navbar-expand d-flex flex-row align-items-center justify-content-around">
+          <nav class="navbar fixed-top navbar-expand-xl d-flex flex-row align-items-center justify-content-around">
             <a class="navbar-brand font-titan h6 line-height-12 color-white" href="/"><?php _e('La Aldea &reg;','wpb_child')?></a>
             
             <?php
@@ -55,7 +57,7 @@
               'theme_location'    => 'primary-new',
               'container'       => 'div',
               'container_id'    => 'main-nav',
-              'container_class' => 'justify-content-end',
+              'container_class' => 'justify-content-center collapse navbar-collapse',
               'menu_id'         => false,
               'menu_class'      => 'navbar-nav',
               'depth'           => 3,
@@ -69,7 +71,7 @@
               'theme_location'    => 'new-shop',
               'container'       => 'div',
               'container_id'    => 'shop-nav',
-              'container_class' => 'justify-content-end',
+              'container_class' => 'justify-content-center collapse navbar-collapse',
               'menu_id'         => false,
               'menu_class'      => 'navbar-nav',
               'depth'           => 3,

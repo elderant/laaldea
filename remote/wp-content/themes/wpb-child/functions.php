@@ -48,11 +48,11 @@ function wpb_child_enqueue_styles_main() {
     wp_enqueue_style('wpb-child-main-new', get_stylesheet_directory_uri() . '/inc/assets/css/main-new.css', array(), false );
 
     //wp_enqueue_script('wpb-child-skrollr', get_stylesheet_directory_uri() . '/inc/assets/js/vendor/skrollr.min.js', array('jquery'), false, true );
-    wp_enqueue_script('wpb-child-rellax', 'https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js', array('jquery'), false, true );
     wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
     wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
-
-    if(is_page(1103)){
+    
+    if(is_page(1103) || is_page(1186)){
+      wp_enqueue_script('wpb-child-rellax', 'https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-tweenMax', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-ScrollMagic', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-gsap', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js', array('jquery'), false, true );
@@ -63,11 +63,18 @@ function wpb_child_enqueue_styles_main() {
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );
 function wpb_child_enqueue_mobile_styles() {
+  $page_id = get_the_ID();
+  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
+  $is_home_new = in_array($page_id,$new_home_ids);
+
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
   }
-  else if(!is_page(1103)) {
+  else if(!$is_home_new) {
     wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
+  }
+  else {
+    wp_enqueue_style('wpb-child-mobile-new', get_stylesheet_directory_uri() . '/inc/assets/css/mobile-new.css', array(), false );
   }  
 }
 

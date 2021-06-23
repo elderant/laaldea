@@ -53,11 +53,11 @@
 
 html, body {
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 html {
 	height: 100%;
-	overflow-x: hidden;
 }
 
 body {
@@ -243,6 +243,11 @@ header#masthead .navbar #main-nav {
   width: auto;
 }
 
+header#masthead #shop-nav,
+header#masthead .navbar #main-nav {
+  flex-grow: 0;
+}
+
 header#masthead .navbar-brand {
   color: var(--white);
 }
@@ -337,7 +342,7 @@ body.page-template-fullwidth-new footer#colophon.new-home {
 footer#colophon .main-footer .copy-column p,
 footer#colophon .main-footer .socials-column,
 footer#colophon .main-footer .contact-column {
-  font-size: 0.6em;
+  font-size: 0.8em;
 }
 
 #colophon .row a:hover {
@@ -409,6 +414,10 @@ html::-webkit-scrollbar-button {
   padding-bottom: 3rem;
 }
 
+.page-template-fullwidth-new #content.site-content {
+  min-height: calc(100vh - 40px - 166px);
+}
+
 .page-template-fullwidth-new.stories #content.site-content {
 	padding: 0;
 }
@@ -417,10 +426,13 @@ html::-webkit-scrollbar-button {
   padding: 0;
 }
 
-
 .page-template-fullwidth-new .site-content #primary {
 	padding: 0;
 }
+
+.page-template-fullwidth-new .site-content .page  {
+  overflow: hidden;
+} 
 
 .page-template-fullwidth-new #primary header.entry-header {
 	display: none;

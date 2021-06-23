@@ -22,7 +22,7 @@
             <a href="/radio" class="home-button right"><?php _e('Escucha los programas', 'laaldea');?></a>
           </div>
         </div>
-        <div class="allies-container position-absolute d-flex flex-column align-items-center justify-content-between">
+        <div class="allies-container position-absolute flex-column align-items-center justify-content-between">
           <div class="vertical-inner-container d-flex align-items-center justify-content-between">
             <img class="ally-icon rescue" src="/wp-content/uploads/radio-header-logo-rescue.png" alt="<?php _e('International Rescue Committee Logo','laaldea')?>">
             <img class="ally-icon rcn" src="/wp-content/uploads/radio-header-logo-rcn.png" alt="<?php _e('RCN Radio Logo','laaldea')?>">

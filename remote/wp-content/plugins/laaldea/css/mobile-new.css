@@ -1,0 +1,869 @@
+/********************************************************************************************
+ 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px (removes animation for mobile devices) (line 24)
+ 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px (line 55)
+ 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px (line ---)
+ 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px (line ---) 
+ 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px (line ---)
+ 5. STYLES FOR MOBILE DEVICES - media screen min width: 768px / max width: 991px (line ---)
+ 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px (line ---)
+ 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px (line ---)
+ 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px (line ---)
+ 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px (line ---)
+ 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px (line ---)
+ 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px (line ---)
+ 
+*********************************************************************************************/
+
+/*-- 14. HOME BANNER - mobile --*/
+@media screen and (max-height: 767px) {
+  .home-section .slider-container {height: 400px;}
+  .home-section .content-container.text-right {margin: 2rem 3rem 0 auto;}
+  .home-section .content-container {width: 35%;}
+
+  .home-section#home-story .background-main,
+  .home-section#home-radio .background-main,
+  .home-section#home-community .background-main,
+  .home-section#home-shop .background-main,
+  .home-section#home-aldea .background-main {
+    top: calc((400px - 500px)/2);
+    height: calc(400px + 100px);
+    width: 1358px;
+  }
+
+  /* specific */
+  /* specific : Intro */
+  .home-section#home-intro .background-main {
+    top: calc((400px - 500px)/2);
+    height: 500px;
+    width: 4034px;
+  }
+
+  .home-section#home-intro .slide-container.position-3 .content-container {
+    /* width: 45%;
+    margin: 3rem 27rem 0 auto; */
+  }
+
+  .home-section#home-intro .background-plant {height: 175px;}
+  .home-section#home-intro .background-character {left: 14%;height: 370px;}
+  .home-section#home-intro .background-character-2 {height: 355px;}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 0.5%);height: 400px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 11.5%);height: 225px;}
+  .home-section#home-intro .background-character-4 {height: 375px;}
+
+  /* specific : story */
+  .home-section#home-story .background-character {left: 42%;height: 366px;}
+  .home-section#home-story .background-plant {left: 72.5%;height: 175px;}
+  
+  /* specific : radio */
+  .home-section#home-radio .content-container {width: 675px;}
+  .home-section#home-radio .background-character {left: 30%;height: 250px;}
+  .home-section#home-radio .background-plant {left: 7%;height: 215px;}
+
+  /* specific : community */
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-community .background-character {left: 40%;height: 350px;}
+  .home-section#home-community .background-plant {left: 73%;height: 140px;}
+
+  /* specific : shop */
+  .home-section#home-shop .background-character {left: 44.5%;height: 295px;}
+  .home-section#home-shop .background-plant {left: 4%;height: 190px;}
+
+  /* specific : aldea */
+  .home-section#home-aldea .background-character {left: 40%;height: 350px;}
+  .home-section#home-aldea .background-plant {left: 2%;height: 245px;}
+
+  /* specific : team */
+  .home-section#home-team .background-main {
+    top: 0;
+    left: -15px;
+    height: 100%;
+    width: 1347px;
+    min-width: calc(100% + 30px);
+  }
+
+  .home-section#home-team .background-plant {left: 75%;height: 195px;}
+}
+/*-- 14. HOME BANNER - desktop small --*/
+@media screen and (min-height: 768px) and (max-height: 899px) {
+  .home-section .slider-container {height: 512px;}
+  .home-section .content-container.text-right {margin: 3rem 3rem 3rem auto;}
+  .home-section .content-container {width: 30%;}
+
+  .home-section#home-story .background-main,
+  .home-section#home-radio .background-main,
+  .home-section#home-community .background-main,
+  .home-section#home-shop .background-main,
+  .home-section#home-aldea .background-main {
+    top: calc((512px - 612px)/2);
+    height: calc(512px + 100px);
+    width: 1662px;
+  }
+
+  /* specific */
+  /* specific : Intro */
+  .home-section#home-intro .background-main {
+    top: calc((512px - 600px)/2);
+    height: 600px;
+    width: 4841px;
+  }
+
+  .home-section#home-intro .slide-container.position-3 .content-container {
+    /* width: 45%;
+    margin: 3rem 27rem 0 auto; */
+  }
+
+  .home-section#home-intro .background-plant {height: 210px;}
+  .home-section#home-intro .background-character {left: 13.5%;height: 440px;}
+  .home-section#home-intro .background-character-2 {height: 425px;}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 0.5%);height: 480px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 11.5%);height: 275px;}
+  .home-section#home-intro .background-character-4 {height: 450px;}
+
+  /* specific : story */
+  .home-section#home-story .background-character {left: 42%;height: 427px;}
+  .home-section#home-story .background-plant {left: 72.5%;}
+  
+  /* specific : radio */
+  .home-section#home-radio .content-container {width: 576px;}
+  .home-section#home-radio .background-character {left: 34%;height: 290px;}
+  .home-section#home-radio .background-plant {left: 20%;height: 270px;}
+
+  /* specific : community */
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-community .background-character {left: 40%;height: 435px;}
+  .home-section#home-community .background-plant {left: 73%;height: 190px;}
+
+  /* specific : shop */
+  .home-section#home-shop .background-character {left: 44.5%;height: 360px;}
+  .home-section#home-shop .background-plant {left: 4%;height: 200px;}
+
+  /* specific : aldea */
+  .home-section#home-aldea .background-character {left: 40%;height: 435px;}
+  .home-section#home-aldea .background-plant {left: 2%;height: 275px;}
+
+  /* specific : team */
+  .home-section#home-team .background-main {
+    top: 0;
+    left: -15px;
+    height: 100%;
+    width: 1347px;
+  }
+
+  .home-section#home-team .background-plant {left: 80%;height: 175px;}
+}
+/*-- 14. HOME BANNER - desktop medium --*/
+@media screen and (min-height: 900px) and (max-height: 1079px) {
+  .home-section .slider-container {height: 600px;}
+  .home-section .content-container.text-right {margin: 3rem 3rem 3rem auto;}
+  .home-section .content-container {width: 30%;}
+
+  .home-section#home-story .background-main,
+  .home-section#home-radio .background-main,
+  .home-section#home-community .background-main,
+  .home-section#home-shop .background-main,
+  .home-section#home-aldea .background-main {
+    top: calc((600px - 700px)/2);
+    height: calc(600px + 100px);
+    width: 1901px;
+  }
+
+  /* specific */
+  /* specific : Intro */
+  .home-section#home-intro .background-main {
+    top: calc((600px - 690px)/2);
+    height: 690px;
+    width: 5567px;
+  }
+
+  .home-section#home-intro .background-plant {height: 250px;}
+  .home-section#home-intro .background-character {left: 13%;height: 503px;}
+  .home-section#home-intro .background-character-2 {height: 485px;}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 0.5%);height: 535px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 11.5%);height: 275px;}
+  .home-section#home-intro .background-character-4 {height: 510px;}
+
+  /* specific : story */
+  .home-section#home-story .background-character {left: 38%;height: 520px;}
+  .home-section#home-story .background-plant {left: 72.5%;}
+
+  /* specific : radio */
+  .home-section#home-radio .background-character {left: 30%;height: 360px;}
+  .home-section#home-radio .background-plant {left: 2%;height: 300px;left: 8%;}
+
+  /* specific : community */
+  .home-section#home-community .background-character {left: 35%;height: 520px;}
+  .home-section#home-community .background-plant {left: 75%;height: 195px;}
+
+  /* specific : shop */
+  .home-section#home-shop .background-character {left: 38.5%;height: 420px;}
+  .home-section#home-shop .background-plant {left: 2%;height: 258px;}
+
+  /* specific : aldea */
+  .home-section#home-aldea .background-character {left: 38%;height: 502px;}
+  .home-section#home-aldea .background-plant {left: 2%;height: 310px;}
+
+  /* specific : team */
+  .home-section#home-team .background-main {
+    top: 0;
+    left: -15px;
+    height: 100%;
+    width: 1810px;
+    min-width: calc(100% + 30px);
+  }
+}
+
+/*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
+@media screen and (max-width: 768px) {
+  html.overflow-hidden-custom {overflow: auto;}
+}
+@media screen and (max-width: 991px) {}
+
+/*-- 1. STYLES FOR MOBILE DEVICES - media screen max width: 400px --*/
+@media only screen and (max-width: 400px) {
+  /* home */
+  .home-section#home-intro .arrow-container {width: 30px;height: 30px;}
+  .home-section#home-intro .arrow-container.next {right: 10px;}
+  .home-section#home-intro .arrow-container.prev {left: 10px;}
+  .home-section#home-intro .arrow-container .laaldea-arrow i{font-size: 30px;line-height: 28px;}
+  .home-section .content-container .button-container.text-right .home-button{padding: 0.2rem 1rem 0.2em 1rem;}
+
+  /*banner background */
+  .home-section#home-intro .background-plant {height: 125px;}
+  .home-section#home-intro .background-character {left: 10%;height: 250px;}
+  .home-section#home-intro .background-character-2 {height: 240px;left: calc(100vw + 10%);}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 2%);height: 255px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 15%);height: 125px;}
+  .home-section#home-intro .background-character-4 {display: none;}
+  .home-section#home-story .background-character {left: 35%;height: 250px;}
+  .home-section#home-story .background-plant {left: 2%;height: 100px;}
+  .home-section#home-radio .background-character {left: 1%;height: 150px;top: 440px;}
+  .home-section#home-radio .background-plant {left: 60%;height: 100px;}
+  .home-section#home-community .background-character {left: 35%;height: 250px;}
+  .home-section#home-community .background-plant {left: 0%;height: 125px;}
+  .home-section#home-shop .background-character {left: 5%;height: 225px;}
+  .home-section#home-shop .background-plant {left: 40%;height: 125px;}
+  .home-section#home-aldea .background-character {left: 5%;height: 225px;}
+  .home-section#home-aldea .background-plant {left: 40%;height: 125px;}
+  .home-section#home-team .background-plant {left: 50%;height: 150px;}
+
+  /*banner content */
+  .home-section .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section .content-container h2{font-size: 2em;}
+  .home-section .content-container.text-right{margin: 1rem auto 0 auto;}
+  .home-section#home-intro .slide-container.position-3 .content-container {width: 65%;margin: 1rem auto 0 auto;}
+  .home-section#home-story .content-container{width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-radio .content-container {width: 90%;}
+  .home-section#home-radio .allies-container {display: none;}
+  .home-section#home-community .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-aldea .content-container {width: 80%;}
+
+  /* slider */
+  .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9);}
+
+  .home-section#home-team .team-carousel .team.lisa img {width: 172px;}
+	.home-section#home-team .team-carousel .team.emmanuel img {width: 172px;}
+	.home-section#home-team .team-carousel .team.katia img {width: 164px;}
+	.home-section#home-team .team-carousel .team.nicolas img {width: 177px;}
+	.home-section#home-team .team-carousel .team.lina img {width: 180px;}
+	.home-section#home-team .team-carousel .team.fredy img {width: 178px;}
+	.home-section#home-team .team-carousel .team.diana img {width: 168px;}
+	.home-section#home-team .team-carousel .team.gabriel img {width: 168px;}
+	.home-section#home-team .team-carousel .team.laura img {width: 160px;}
+	.home-section#home-team .team-carousel .team.maria img {width: 159px;}
+
+  .home-section#home-team .team-carousel .team {padding: 58px 0;}
+
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+  .home-section#home-team .team-carousel .team.nicolas {padding: 34px 0;}
+  .home-section#home-team .team-carousel .team.gabriel,
+  .home-section#home-team .team-carousel .team.lina,
+  .home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.diana {padding-top: 2px;}
+  .home-section#home-team .team-carousel .team.maria {padding-top: 41px;}
+
+  .home-section#home-team .team-carousel .mask {top: 0;left: 69px;width: 104px;height: 141px;}
+  .home-section#home-team .team-carousel .team h5{font-size: 1em;line-height: 1;}
+  .home-section#home-team .team-carousel .team span.job-title{height: calc(0.9em*1*2 + 1em);padding: 0.5em 0;line-height: 1;width: 100%;}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 58px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 61px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 25px;left: 73px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 76px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 75px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 56px;left: 64px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 65px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 56px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top: 16px;left: 56px;}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
+  #aldea .section-title svg {left: 9%;height: 35px;transform: translate(-50%,-150%);}
+  #aldea .icon-container{width: 125px;margin: 1rem 1rem 1rem;}
+  #aldea .icon-container svg{width: 50px;}
+  #aldea .intro-text p.h5 {font-size:1.25rem}
+  #aldea .awards-row .award-icon {max-height: 75px; max-width: 125px;}
+  #aldea .numeros-row .content-container{font-size: 0.9em;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .arrow {font-size: 1.5rem;}
+  #aldea .allies-row .slide-container {height: 100px;width: calc((100vw - 30px)*0.9*0.5);}
+  #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
+  #aldea .happens-row .content-container > li{width: 50%;}
+  #aldea .happens-row .section-content img{position: absolute;}
+  #aldea .happens-row .content-container.h3 {position: relative;font-size: 1.25rem;background-color: rgba(255,255,255,0.7);padding: 1rem 0;}
+  #aldea .happens-row .content-container ul.inner-list{padding-left:1rem}
+  #aldea .media-row .arrow{font-size: 1.5rem;}
+}
+
+/*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
+@media screen and (min-width: 401px) and (max-width: 575px) {
+  /* home */
+  .home-section#home-intro .arrow-container {width: 30px;height: 30px;}
+  .home-section#home-intro .arrow-container.next {right: 10px;}
+  .home-section#home-intro .arrow-container.prev {left: 10px;}
+  .home-section#home-intro .arrow-container .laaldea-arrow i{font-size: 30px;line-height: 28px;}
+  
+
+  /*banner background */
+  .home-section#home-intro .background-plant {height: 125px;}
+  .home-section#home-intro .background-character {left: 15%;height: 250px;}
+  .home-section#home-intro .background-character-2 {height: 240px;left: calc(100vw + 15%);}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 1%);height: 260px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 9.5%);height: 125px;}
+  .home-section#home-intro .background-character-4 {left: calc(200vw + 22%);height: 255px;}
+  .home-section#home-story .background-character {left: 50%;height: 250px;}
+  .home-section#home-story .background-plant {left: 2%;height: 100px;}
+  .home-section#home-radio .background-character {left: 1%;height: 150px;top: 98px;}
+  .home-section#home-radio .background-plant {left: 60%;height: 100px;}
+  .home-section#home-community .background-character {left: 50%;height: 250px;}
+  .home-section#home-community .background-plant {left: 5%;height: 125px;}
+  .home-section#home-shop .background-character {left: 5%;height: 225px;}
+  .home-section#home-shop .background-plant {left: 40%;height: 125px;}
+  .home-section#home-aldea .background-character {left: 5%;height: 225px;}
+  .home-section#home-aldea .background-plant {left: 40%;height: 125px;}
+  .home-section#home-team .background-plant {left: 50%;height: 195px;}
+
+  /*banner content */
+  .home-section .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section .content-container h2{font-size: 2em;}
+  .home-section .content-container.text-right{margin: 1rem auto 0 auto;}
+  .home-section#home-intro .slide-container.position-3 .content-container {width: 65%;margin: 1rem auto 0 auto;}
+  .home-section#home-story .content-container{width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-radio .content-container {width: 80%;}
+  .home-section#home-radio .allies-container {display: none;}
+  .home-section#home-community .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-aldea .content-container {width: 80%;}
+  
+  /* slider */
+  .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9);}
+
+	.home-section#home-team .team-carousel .team.lisa img {width: 249px;}
+	.home-section#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	.home-section#home-team .team-carousel .team.katia img {width: 237px;}
+	.home-section#home-team .team-carousel .team.nicolas img {width: 255px;}
+	.home-section#home-team .team-carousel .team.lina img {width: 260px;}
+	.home-section#home-team .team-carousel .team.fredy img {width: 257px;}
+	.home-section#home-team .team-carousel .team.diana img {width: 243px;}
+	.home-section#home-team .team-carousel .team.gabriel img {width: 243px;}
+	.home-section#home-team .team-carousel .team.laura img {width: 231px;}
+	.home-section#home-team .team-carousel .team.maria img {width: 230px;}
+
+	.home-section#home-team .team-carousel .team {padding: 84px 0;}
+	
+	.home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+  .home-section#home-team .team-carousel .mask {top: 0;left: 99px;width: 150px;height: 205px;}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 82px;}
+	.home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+	.home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+	.home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+	.home-section#home-team .team-carousel .team.fredy .mask {left: 108px;}
+	.home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+	.home-section#home-team .team-carousel .team.gabriel .mask {left: 93px;}
+	.home-section#home-team .team-carousel .team.laura .mask {left: 80px;}
+	.home-section#home-team .team-carousel .team.maria .mask {top: 24px;left: 80px;}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
+  #aldea .section-title svg {left: 9%;height: 40px;transform: translate(-50%,-150%);}
+  #aldea .intro-text p.h5 {font-size:1.25rem}
+  #aldea .icon-container{width: 160px;margin: 1rem 1rem 1rem;}
+  #aldea .icon-container svg{width: 50px;}
+  #aldea .numeros-row .content-container{font-size: 1em;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .arrow {font-size: 1.5rem;}
+  #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.5);}
+  #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
+  #aldea .happens-row .content-container > li{width: 50%;}
+  #aldea .happens-row .content-container.h3 {font-size: 1.25rem;background-color: rgba(255,255,255,0.7);padding: 1rem 0;}
+  #aldea .media-row .arrow{font-size: 1.5rem;}
+}
+
+/*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
+@media screen and (min-width: 576px) and (max-width: 649px) {
+  /* home */
+  .home-section#home-intro .arrow-container {width: 30px;height: 30px;}
+  .home-section#home-intro .arrow-container.next {right: 10px;}
+  .home-section#home-intro .arrow-container.prev {left: 10px;}
+  .home-section#home-intro .arrow-container .laaldea-arrow i{font-size: 30px;line-height: 28px;}
+  
+
+  /*banner background */
+  .home-section#home-intro .background-plant {height: 125px;}
+  .home-section#home-intro .background-character {left: 20%;height: 250px;}
+  .home-section#home-intro .background-character-2 {height: 240px;left: calc(100vw + 20%);}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 1%);height: 260px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 9.5%);height: 125px;}
+  .home-section#home-intro .background-character-4 {left: calc(200vw + 22%);height: 255px;}
+  .home-section#home-story .background-character {left: 60%;height: 250px;}
+  .home-section#home-story .background-plant {left: 5%;height: 125px;}
+  .home-section#home-radio .background-character {left: 1%;height: 150px;top: 98px;}
+  .home-section#home-radio .background-plant {left: 60%;height: 100px;}
+  .home-section#home-community .background-character {left: 60%;height: 250px;}
+  .home-section#home-community .background-plant {left: 5%;height: 125px;}
+  .home-section#home-shop .background-character {left: 15%;height: 250px;}
+  .home-section#home-shop .background-plant {left: 60%;height: 125px;}
+  .home-section#home-aldea .background-character {left: 5%;height: 250px;}
+  .home-section#home-aldea .background-plant {left: 55%;height: 150px;}
+
+
+  /*banner content */
+  .home-section .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section .content-container h2{font-size: 2.25em;}
+  .home-section .content-container.text-right{margin: 1rem auto 0 auto;}
+  .home-section#home-intro .slide-container.position-3 .content-container {width: 65%;margin: 1rem auto 0 auto;}
+  .home-section#home-story .content-container{width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-radio .content-container {width: 80%;}
+  .home-section#home-radio .allies-container {display: none;}
+  .home-section#home-community .content-container {width: 80%;margin: 1rem auto 0 auto;}
+  .home-section#home-aldea .content-container {width: 80%;}
+
+  /* slider */
+  .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9);}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
+  #aldea .section-title svg {left: -1%;height: 40px;}
+  #aldea .intro-text p.h5 {font-size:1.25rem}
+  #aldea .icon-container{width: 200px;}
+  #aldea .icon-container svg{width: 75px;}
+  #aldea .numeros-row .content-container{font-size: 1.25em;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.5);}
+  #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
+  #aldea .happens-row .content-container > li{width: 50%;}
+  #aldea .happens-row .content-container.h3 {font-size: 1.25rem}
+}
+
+/*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
+@media screen and (min-width: 650px) and (max-width: 767px) {
+  /* home */
+  .home-section#home-intro .arrow-container {width: 30px;height: 30px;}
+  .home-section#home-intro .arrow-container.next {right: 10px;}
+  .home-section#home-intro .arrow-container.prev {left: 10px;}
+  .home-section#home-intro .arrow-container .laaldea-arrow i{font-size: 30px;line-height: 28px;}
+  .home-section .content-container {width: 70%;margin: 2rem auto 0 4rem;}
+
+  /*banner background */
+  .home-section#home-intro .background-plant {height: 125px;}
+  .home-section#home-intro .background-character {left: 24%;height: 300px;}
+  .home-section#home-intro .background-character-2 {height: 275px;left: calc(100vw + 22%);}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 1%);height: 325px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 9.5%);height: 150px;}
+  .home-section#home-intro .background-character-4 {left: calc(200vw + 22%);height: 310px;}
+  .home-section#home-story .background-character {left: 69%;height: 275px;}
+  .home-section#home-story .background-plant {left: 5%;height: 125px;}
+  .home-section#home-radio .background-plant {left: -4%;height: 150px;}
+  .home-section#home-radio .background-character {left: 1%;height: 225px;}
+  .home-section#home-community .background-character {left: 60%;height: 300px;}
+  .home-section#home-community .background-plant {left: 5%;height: 150px;}
+  .home-section#home-shop .background-character {left: 15%;height: 300px;}
+  .home-section#home-shop .background-plant {left: 60%;height: 150px;}
+  .home-section#home-aldea .background-character {left: 5%;height: 375px;}
+  .home-section#home-aldea .background-plant {left: 55%;height: 200px;}
+
+
+  /*banner content */
+  .home-section .content-container h2{font-size: 2.25em;}
+  .home-section .content-container.text-right{margin: 2rem 3rem 0 auto;}
+  .home-section#home-intro .slide-container.position-3 .content-container {width: 50%;margin: 2rem auto 0 auto;}
+  .home-section#home-story .content-container{width: 70%;margin: 2rem auto 0 4rem;}
+  .home-section#home-radio .content-container {width: 60%;}
+  .home-section#home-community .content-container {width: 70%;margin: 2rem auto 0 4rem;}
+  .home-section#home-aldea .content-container {width: 70%;}
+
+  /* slider */
+  .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9);}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
+  #aldea .section-title svg {left: -1%;height: 40px;}
+  #aldea .intro-text p.h5 {font-size:1.25rem}
+  #aldea .icon-container{width: 200px;}
+  #aldea .icon-container svg{width: 75px;}
+  #aldea .numeros-row .content-container{font-size: 1.25em;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.25);}
+  #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
+  #aldea .happens-row .content-container > li{width: 50%;}
+  #aldea .happens-row .content-container.h3 {font-size: 1.5rem}
+}
+
+/*-- 5. STYLES FOR DESKTOP DEVICES - media screen min width: 769px / max width: 991px --*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* home */
+  .home-section .content-container {width: 40%;}
+
+  /*banner background */
+  .home-section#home-intro .background-plant {height: 175px;}
+  .home-section#home-intro .background-character {left: 17%;height: 400px;}
+  .home-section#home-intro .background-character-2 {height: 375px;left: calc(100vw + 16%);}
+  .home-section#home-intro .background-character-3 {left: calc(200vw + 0.1%);height: 400px;}
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 11%);height: 175px;}
+  .home-section#home-intro .background-character-4 {left: calc(200vw + 22%);height: 400px;}
+  .home-section#home-story .background-character {left: 60%;height: 320px;}
+  .home-section#home-story .background-plant {left: 5%;height: 125px;}
+  .home-section#home-radio .background-plant {left: -4%;height: 175px;}
+  .home-section#home-radio .background-character {left: 10%;height: 250px;}
+  .home-section#home-community .background-character {left: 60%;height: 350px;}
+  .home-section#home-community .background-plant {left: 5%;height: 150px;}
+  .home-section#home-shop .background-character {left: 15%;height: 300px;}
+  .home-section#home-shop .background-plant {left: 60%;height: 150px;}
+  .home-section#home-aldea .background-character {left: 5%;height: 375px;}
+  .home-section#home-aldea .background-plant {left: 55%;height: 200px;}
+
+
+  /*banner content */
+  .home-section#home-story .content-container{width: 50%;}
+  .home-section#home-radio .content-container {width: 430px;}
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-aldea .content-container {width: 475px;}
+
+  /* slider */
+  .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9/2);}
+
+  #home-team .team-carousel .team.lisa img {width: 249px;}
+	#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	#home-team .team-carousel .team.katia img {width: 237px;}
+	#home-team .team-carousel .team.nicolas img {width: 255px;}
+	#home-team .team-carousel .team.lina img {width: 260px;}
+	#home-team .team-carousel .team.fredy img {width: 257px;}
+	#home-team .team-carousel .team.diana img {width: 243px;}
+	#home-team .team-carousel .team.gabriel img {width: 243px;}
+	#home-team .team-carousel .team.laura img {width: 231px;}
+	#home-team .team-carousel .team.maria img {width: 230px;}
+
+  .home-section#home-team .team-carousel .team {
+		padding: 84px 0;
+		font-size: 0.8em;
+	}
+	
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+	.home-section#home-team .team-carousel .mask {
+		position: absolute;
+    top: 0;
+    left: 100px;
+		width: 150px;
+		height: 205px;
+	}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 84px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 107px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
+
+  .home-section#home-team .team-carousel .team h5 {
+    padding: 0.3em 0em;
+  }
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 3rem;}
+  #aldea .section-title svg {left: -1%;height: 50px;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.25);}
+  #aldea .happens-row .content-container{left: 40%;width: 60%;}
+  #aldea .happens-row .content-container.h3 {font-size: 1.5rem}
+}
+
+/*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /* home */
+  /*banner background */
+  .home-section#home-intro .background-plant-2 {left: calc(200vw + 11%);height: 225px;}
+  .home-section#home-story .background-character {left: 38%;height: 375px;}
+  .home-section#home-story .background-plant {left: 70%;height: 160px;}
+  .home-section#home-radio .background-plant {left: 5%;height: 200px;}
+  .home-section#home-radio .background-character {left: 25%;height: 250px;}
+  .home-section#home-community .background-character {left: 48%;height: 375px;}
+  .home-section#home-community .background-plant {left: 82%;height: 150px;}
+  .home-section#home-shop .background-character {left: 38%;height: 340px;}
+  .home-section#home-shop .background-plant {left: 1%;height: 150px;}
+  .home-section#home-aldea .background-character {left: 25%;height: 375px;}
+  .home-section#home-aldea .background-plant {left: -8%;height: 200px;}
+
+
+  /*banner content */
+  .home-section#home-radio .content-container {width: 475px;}
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-aldea .content-container {width: 475px;}
+
+  #home-team .team-carousel .team.lisa img {width: 249px;}
+	#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	#home-team .team-carousel .team.katia img {width: 237px;}
+	#home-team .team-carousel .team.nicolas img {width: 255px;}
+	#home-team .team-carousel .team.lina img {width: 260px;}
+	#home-team .team-carousel .team.fredy img {width: 257px;}
+	#home-team .team-carousel .team.diana img {width: 243px;}
+	#home-team .team-carousel .team.gabriel img {width: 243px;}
+	#home-team .team-carousel .team.laura img {width: 231px;}
+	#home-team .team-carousel .team.maria img {width: 230px;}
+
+  .home-section#home-team .team-carousel .team {
+		padding: 84px 0;
+		font-size: 0.8em;
+	}
+	
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+	.home-section#home-team .team-carousel .mask {
+		position: absolute;
+    top: 0;
+    left: 100px;
+		width: 150px;
+		height: 205px;
+	}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 84px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 107px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
+
+  .home-section#home-team .team-carousel .team h5 {padding: 0.3em 0em;}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 4rem;}
+  #aldea .section-title svg {left: -1%;height: 60px;}
+  #aldea .allies-row .allies-carousel {max-width: 90%;}
+  #aldea .allies-row .slide-container {width: calc((83.333333vw - 30px)*0.9*0.25);}
+}
+
+/*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
+@media screen and (min-width: 1200px) and (max-width: 1279px) {
+  /* home */
+  .home-section#home-radio .content-container {width: 475px;}
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-aldea .content-container {width: 475px;}
+
+  .home-section#home-aldea .background-character {left: 40%;}
+
+  #home-team .team-carousel .team.lisa img {width: 249px;}
+	#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	#home-team .team-carousel .team.katia img {width: 237px;}
+	#home-team .team-carousel .team.nicolas img {width: 255px;}
+	#home-team .team-carousel .team.lina img {width: 260px;}
+	#home-team .team-carousel .team.fredy img {width: 257px;}
+	#home-team .team-carousel .team.diana img {width: 243px;}
+	#home-team .team-carousel .team.gabriel img {width: 243px;}
+	#home-team .team-carousel .team.laura img {width: 231px;}
+	#home-team .team-carousel .team.maria img {width: 230px;}
+
+  .home-section#home-team .team-carousel .team {padding: 84px 0;font-size: 0.8em;}
+	
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+	.home-section#home-team .team-carousel .mask {position: absolute;top: 0;left: 100px;width: 150px;height: 205px;}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 84px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 107px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
+
+  .home-section#home-team .team-carousel .team h5 {padding: 0.3em 0em;}
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 5rem;}
+}
+
+/*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px --*/
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+  /* home */
+  .home-section#home-radio .content-container {width: 475px;}
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-aldea .content-container {width: 475px;}
+
+  .home-section#home-aldea .background-character {left: 40%;}
+
+  #home-team .team-carousel .team.lisa img {width: 249px;}
+	#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	#home-team .team-carousel .team.katia img {width: 237px;}
+	#home-team .team-carousel .team.nicolas img {width: 255px;}
+	#home-team .team-carousel .team.lina img {width: 260px;}
+	#home-team .team-carousel .team.fredy img {width: 257px;}
+	#home-team .team-carousel .team.diana img {width: 243px;}
+	#home-team .team-carousel .team.gabriel img {width: 243px;}
+	#home-team .team-carousel .team.laura img {width: 231px;}
+	#home-team .team-carousel .team.maria img {width: 230px;}
+
+  .home-section#home-team .team-carousel .team {
+		padding: 84px 0;
+		font-size: 0.8em;
+	}
+	
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+	.home-section#home-team .team-carousel .mask {
+		position: absolute;
+    top: 0;
+    left: 100px;
+		width: 150px;
+		height: 205px;
+	}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 84px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 107px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
+
+  .home-section#home-team .team-carousel .team h5 {
+    padding: 0.3em 0em;
+  }
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 5rem;}
+}
+
+/*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
+@media screen and (min-width: 1366px) and (max-width: 1535px) {  
+  /* home */
+  .home-section#home-radio .content-container {width: 576px;}
+  .home-section#home-community .content-container {width: 400px;}
+  .home-section#home-aldea .content-container {width: 475px;}
+
+  #home-team .team-carousel .team.lisa img {width: 249px;}
+	#home-team .team-carousel .team.emmanuel img {width: 249px;}
+	#home-team .team-carousel .team.katia img {width: 237px;}
+	#home-team .team-carousel .team.nicolas img {width: 255px;}
+	#home-team .team-carousel .team.lina img {width: 260px;}
+	#home-team .team-carousel .team.fredy img {width: 257px;}
+	#home-team .team-carousel .team.diana img {width: 243px;}
+	#home-team .team-carousel .team.gabriel img {width: 243px;}
+	#home-team .team-carousel .team.laura img {width: 231px;}
+	#home-team .team-carousel .team.maria img {width: 230px;}
+
+  .home-section#home-team .team-carousel .team {
+		padding: 84px 0;
+		font-size: 0.8em;
+	}
+	
+  .home-section#home-team .team-carousel .team.emmanuel {padding-top: 0;}
+	.home-section#home-team .team-carousel .team.nicolas {padding: 50px 0;}
+	.home-section#home-team .team-carousel .team.gabriel,
+	.home-section#home-team .team-carousel .team.lina,
+	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
+	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
+
+	.home-section#home-team .team-carousel .mask {
+		position: absolute;
+    top: 0;
+    left: 100px;
+		width: 150px;
+		height: 205px;
+	}
+
+  .home-section#home-team .team-carousel .team.emmanuel .mask {top: 84px;}
+  .home-section#home-team .team-carousel .team.katia .mask {left: 87px;}
+  .home-section#home-team .team-carousel .team.nicolas .mask {top: 34px;left: 105px;}
+  .home-section#home-team .team-carousel .team.lina .mask {left: 110px;}
+  .home-section#home-team .team-carousel .team.fredy .mask {left: 107px;}
+  .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
+  .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
+  .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
+
+  .home-section#home-team .team-carousel .team h5 {
+    padding: 0.3em 0em;
+  }
+
+  /* Que es la aldea */
+  #aldea .header-row h1.title {font-size: 5.5rem;}
+}
+
+/*-- 10. STYLES FOR MOBILE DEVICES - media screen min width: 1536px / max width: 1679px --*/
+@media screen and (min-width: 1536px) and (max-width: 1679px) {
+  /* home */
+  .home-section#home-radio .content-container {width: 576px;}
+  .home-section#home-community .content-container {width: 600px;}
+  .home-section#home-aldea .content-container {width: 525px;}
+}
+
+/*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/
+@media screen and (min-width: 1680px) and (max-width: 1919px) {
+  /* home */
+  .home-section#home-radio .content-container {width: 750px;}
+  .home-section#home-radio .content-container.text-right {margin: 2rem 5rem 0 auto;}
+  .home-section#home-community .content-container {width: 600px;}
+}
+
+/*-- 12. STYLES FOR MOBILE DEVICES - media screen min width: 1920px --*/
+@media screen and (min-width: 1920px) {
+  /* home */
+  .home-section .content-container {width: 40%;margin: 4rem auto 0 6rem;}
+  .home-section .content-container.text-right {margin: 4rem 6rem 0 auto;}
+
+  .home-section#home-radio .content-container {width: 40%}
+  .home-section#home-community .content-container {width: 40%}
+  .home-section#home-aldea .content-container {width: 40%}
+}
+
