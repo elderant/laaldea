@@ -334,7 +334,8 @@ footer#colophon p::-webkit-selection,
 footer#colophon div::-webkit-selection,
 footer#colophon a::-webkit-selection {background-color: var(--white);color: var(--green);}
 
-body.page-template-fullwidth-new footer#colophon.new-home {
+body.page-template-fullwidth-new footer#colophon.new-home,
+body.single-community_aldea footer#colophon.new-home {
   color: var(--white);
   background-color: var(--green);
 }
@@ -422,11 +423,13 @@ html::-webkit-scrollbar-button {
 	padding: 0;
 }
 
-.page-template-fullwidth-new.home-new #content.site-content {
+.page-template-fullwidth-new.home-new #content.site-content,
+.single-community_aldea #content.site-content {
   padding: 0;
 }
 
-.page-template-fullwidth-new .site-content #primary {
+.page-template-fullwidth-new .site-content #primary,
+.single-community_aldea .site-content #primary {
 	padding: 0;
 }
 

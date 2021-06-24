@@ -82,9 +82,6 @@
   }
 
   .home-section#home-team .background-plant {left: 75%;height: 195px;}
-
-  /* Radio */
-  #radio .header-row .main-background{min-height: 300px;object-fit: cover;}
 }
 /*-- 14. HOME BANNER - desktop small --*/
 @media screen and (min-height: 768px) and (max-height: 899px) {
@@ -218,6 +215,12 @@
 /*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
 @media screen and (max-width: 768px) {
   html.overflow-hidden-custom {overflow: auto;}
+
+  /* Radio */
+  #radio .header-row .main-background{min-height: 300px;object-fit: cover;}
+
+  /* Community */
+  #community .header-row .main-background{min-height: 300px;object-fit: cover;}
 }
 @media screen and (max-width: 991px) {}
 
@@ -307,6 +310,18 @@
   #radio .header-row .subtitle{font-size: 0.58em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 100%;}
+
+  /* community */
+  #community .header-row h1.title {font-size: 1.6rem;}
+  #community .filter-row .filter-button {margin: 0.5rem 1rem; padding: 0.5rem 2rem;}
+  #community .posts-container .post-thumbnail-container{width: 100%;}
+  #community .posts-container .content-container{width: 100%;}
+  #community .posts-container .post-thumbnail-container a{width: auto; height: auto;}
+  #community .posts-container .content-container .post-title-container h2{font-size:1.25rem}
+  #community .content-row .filters-column {border-top: 3px solid var(--green);}
+  #community .content-row .filters-column .topic-block{height: 200px;}
+  #community .filters-column .widget{width: 100%;margin: 0;}
+  #community .content-row .filters-column .filter-button{width: 100%;margin: 0;}
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
@@ -412,6 +427,18 @@
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 90%;}
 
+  /* community */
+  #community .header-row h1.title {font-size: 2rem;}
+  #community .filter-row .filter-button {padding: 0.5rem 1rem;}
+  #community .posts-container .post-thumbnail-container{width: 100%;}
+  #community .posts-container .content-container{width: 100%;}
+  #community .posts-container .post-thumbnail-container a{width: auto; height: auto;}
+  #community .posts-container .content-container .post-title-container h2{font-size:1.25rem}
+  #community .content-row .filters-column {border-top: 3px solid var(--green);}
+  #community .content-row .filters-column .topic-block{height: 200px;}
+  #community .filters-column .widget{width: 100%;margin: 0;}
+  #community .content-row .filters-column .filter-button{width: 100%;margin: 0;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
   #aldea .section-title svg {left: 9%;height: 40px;transform: translate(-50%,-150%);}
@@ -426,6 +453,12 @@
   #aldea .happens-row .content-container > li{width: 50%;}
   #aldea .happens-row .content-container.h3 {font-size: 1.25rem;background-color: rgba(255,255,255,0.7);padding: 1rem 0;}
   #aldea .media-row .arrow{font-size: 1.5rem;}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
+  #contact .contact-row i{font-size: 1.2em;}
+  #contact .contact-row .separator{padding: 1rem 0;}
+  
 }
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/
@@ -480,6 +513,18 @@
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 80%;}
 
+  /* community */
+  #community .header-row h1.title {font-size: 2.75rem;}
+  #community .filter-row .filter-button {padding: 0.5rem 3rem;}
+  #community .posts-container .post-thumbnail-container{width: 100%;}
+  #community .posts-container .content-container{width: 100%;}
+  #community .posts-container .post-thumbnail-container a{width: auto; height: auto;}
+  #community .posts-container .content-container .post-title-container h2{font-size:1.75rem}
+  #community .content-row .filters-column {border-top: 3px solid var(--green);}
+  #community .content-row .filters-column .topic-block{height: 200px;}
+  #community .filters-column .widget{width: 45%;margin: 0 2.5%;}
+  #community .content-row .filters-column .filter-button{width: 45%;margin: 0 2.5%;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
   #aldea .section-title svg {left: -1%;height: 40px;}
@@ -492,6 +537,10 @@
   #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
   #aldea .happens-row .content-container > li{width: 50%;}
   #aldea .happens-row .content-container.h3 {font-size: 1.25rem}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
+  #contact .contact-row i{font-size: 1.2em;}
 }
 
 /*-- 4. STYLES FOR MOBILE DEVICES - media screen min width: 650px / max width: 767px --*/
@@ -544,6 +593,15 @@
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 80%;}
 
+  /* community */
+  #community .header-row h1.title {font-size: 3rem;}
+  #community .filter-row .filter-button {padding: 0.5rem 3rem;}
+  #community .content-row .filters-column {border-top: 3px solid var(--green);}
+  #community .filters-column .widget{width: 30%;margin: 0 1.5%;}
+  #community .content-row .filters-column .filter-button{width: 30%;margin: 0 1.5%;}
+  #community .posts-container .content-container .post-title-container h2{font-size:1.4rem}
+  #community .content-row .filters-column .topic-block{height: 250px;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
   #aldea .section-title svg {left: -1%;height: 40px;}
@@ -556,6 +614,10 @@
   #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
   #aldea .happens-row .content-container > li{width: 50%;}
   #aldea .happens-row .content-container.h3 {font-size: 1.5rem}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
+  #contact .contact-row i{font-size: 1.2em;}
 }
 
 /*-- 5. STYLES FOR DESKTOP DEVICES - media screen min width: 769px / max width: 991px --*/
@@ -647,6 +709,12 @@
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 100%;}
 
+  /* community */
+  #community .header-row h1.title {font-size: 3.5rem;}
+  #community .filter-row .filter-button {padding: 0.5rem 3rem;}
+  #community .posts-container .content-container .post-title-container h2{font-size:1.75rem}
+  #community .content-row .filters-column .topic-block{height: 200px;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 3rem;}
   #aldea .section-title svg {left: -1%;height: 50px;}
@@ -654,6 +722,10 @@
   #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.25);}
   #aldea .happens-row .content-container{left: 40%;width: 60%;}
   #aldea .happens-row .content-container.h3 {font-size: 1.5rem}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
+  #contact .contact-row i{font-size: 1.2em;}
 }
 
 /*-- 6. STYLES FOR MOBILE DEVICES - media screen min width: 992px / max width: 1199px --*/
@@ -730,11 +802,20 @@
   #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 45px;}
   #radio .main-row .carousel-container .slick-slide img{width: 90%;}
 
+  /* community */
+  #community .header-row h1.title {font-size: 4rem;}
+  #community .posts-container .content-container .post-title-container h2{font-size:2rem}
+  #community .content-row .filters-column .topic-block{height: 225px;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 4rem;}
   #aldea .section-title svg {left: -1%;height: 60px;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((83.333333vw - 30px)*0.9*0.25);}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 0.8em;}
+  #contact .contact-row i{font-size: 1.2em;}
 }
 
 /*-- 7. STYLES FOR MOBILE DEVICES - media screen min width: 1200px / max width: 1279px --*/
@@ -786,8 +867,14 @@
   #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
   #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
 
+  /* community */
+  #community .content-row .filters-column .topic-block{height: 225px;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 5rem;}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
 }
 
 /*-- 8. STYLES FOR MOBILE DEVICES - media screen min width: 1280px / max width: 1365px --*/
@@ -850,8 +937,14 @@
   #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
   #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
 
+  /* community */
+  #community .content-row .filters-column .topic-block{height: 225px;}
+
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 5rem;}
+
+  /* Contacto */
+  #contact .contact-row a {font-size: 1em;}
 }
 
 /*-- 9. STYLES FOR MOBILE DEVICES - media screen min width: 1366px / max width: 1535px --*/
@@ -911,6 +1004,9 @@
   #radio .header-row .ally-icon {height: 75px;}
   #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
   #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
+
+  /* community */
+  #community .content-row .filters-column .topic-block{height: 225px;}
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 5.5rem;}

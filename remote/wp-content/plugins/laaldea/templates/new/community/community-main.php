@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="row filter-row mb-5">
-      <div class="col-12 offset-0 col-lg-12 offset-lg-0 col-xl1-12 offset-xl1-0 col-xl-10 offset-xl-1">
-        <div class="filter-container d-flex align-items-center">
+      <div class="col-12 offset-0 col-md-10 offset-md-1 col-lg-12 offset-lg-0 col-xl-10 offset-xl-1">
+        <div class="filter-container d-flex flex-wrap align-items-center">
           <?php foreach($main_terms as $term):?>
             <a href="?cat_id=<?php echo $term -> term_id;?>" class="filter-button" data-termId="<?php echo $term -> term_id;?>">
               <div class="filter-title">
@@ -37,7 +37,7 @@
     </div>
 
     <div class="row content-row mb-5">
-      <div class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-1 col-xl1-9 offset-xl1-0 col-xl-8 offset-xl-1 content-column">
+      <div class="col-12 offset-0 px-5 order-1 col-sm-10 offset-sm-1 px-sm-3 col-md-9 offset-md-0 order-lg-1 col-xl1-8 offset-xl1-1 col-xl-8 offset-xl-1 content-column">
         <div class="posts-container">
           <?php if( $recent_posts -> have_posts() ) : ?>
             <?php while ($recent_posts -> have_posts()) : ?>
@@ -59,7 +59,7 @@
           <?php endif;?>
         </div> 
       </div>
-      <div class="col-12 offset-0 order-2 col-lg-3 offset-lg-0 order-lg-2 col-xl1-3 offset-xl1-0 col-xl-2 filters-column">
+      <div class="col-12 offset-0 px-5 pt-3 mt-3 order-2 col-sm-10 offset-sm-1 px-sm-3 col-md-3 offset-md-0 mt-md-0 pt-md-0 order-lg-2 col-xl1-2 offset-xl1-0 col-xl-2 d-flex d-md-block flex-wrap justify-content-center filters-column">
         <?php dynamic_sidebar( 'community-sidebar' ); ?>
         <?php foreach($sub_terms as $term):?>
           <a href="?term_id=<?php echo $term->term_id;?>" class="filter-button" data-termId="<?php echo $term -> term_id;?>">

@@ -1014,7 +1014,7 @@ function laaldea_get_community_single_html($post_id = 0, $additional_class = '',
   $thumbnail = get_the_post_thumbnail( $post_id, 'large' );
   $title = get_the_title($post_id);
   $excerpt = get_the_excerpt($post_id);
-  $container_class = 'post-container pb-3 d-flex align-items-center justify-content-between post-' . $post_id;
+  $container_class = 'post-container pb-3 d-flex flex-wrap align-items-center justify-content-between post-' . $post_id;
   $container_class .= $additional_class;
 
   $wp_query -> query_vars['laaldea_args']['permalink'] = $permalink;

@@ -18,9 +18,18 @@ get_header('fullwidth-new'); ?>
 
       <div id="community" class="single">
         <div class="container-fluid">
+          <div class="row header-row mb-5">
+            <div class="col-12 position-relative p-0 header-container">
+              <img class="main-background" src="/wp-content/uploads/community-header-background.jpg" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
+              <div class="content-container">
+                <h1 class="title color-green"><?php _e('Comunidad de La Aldea','laaldea')?></h1>
+                <p class="font-sassoon color-gray uppercase"><?php _e('Colombia / NO. 1 / 24 de Diciembre del 2020.', 'laaldea')?></p>
+              </div>
+            </div>
+          </div>
           <div class="row filter-row mb-5">
-            <div class="col-12 offset-0 col-lg-12 offset-lg-0 col-xl1-12 offset-xl1-0 col-xl-10 offset-xl-1">
-              <div class="filter-container d-flex align-items-center">
+            <div class="col-12 offset-0 col-md-10 offset-md-1 col-lg-12 offset-lg-0 col-xl-10 offset-xl-1">
+              <div class="filter-container d-flex flex-wrap align-items-center">
                 <?php foreach($main_terms as $term):?>
                   <a href="/comunidad/?cat_id=<?php echo $term -> term_id;?>" class="filter-button" data-termId="<?php echo $term -> term_id;?>">
                     <div class="filter-title">
@@ -32,7 +41,7 @@ get_header('fullwidth-new'); ?>
             </div>
           </div>
           <div class="row content-row mb-5">
-            <div class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-1 col-xl1-9 offset-xl1-0 col-xl-8 offset-xl-1 content-column">
+            <div class="col-12 offset-0 px-5 order-1 col-sm-10 offset-sm-1 px-sm-3 col-md-9 offset-md-0 order-lg-1 col-xl1-8 offset-xl1-1 col-xl-8 offset-xl-1 content-column">
               <?php
                 while ( have_posts() ) : the_post();
                   get_template_part( 'template-parts/content-community', get_post_format() );
@@ -44,7 +53,7 @@ get_header('fullwidth-new'); ?>
                 endwhile; // End of the loop.
               ?>
             </div>
-          <div class="col-12 offset-0 order-2 col-lg-3 offset-lg-0 order-lg-2 col-xl1-3 offset-xl1-0 col-xl-2 filters-column">
+          <div class="col-12 offset-0 px-5 pt-3 mt-3 order-2 col-sm-10 offset-sm-1 px-sm-3 col-md-3 offset-md-0 mt-md-0 pt-md-0 order-lg-2 col-xl1-2 offset-xl1-0 col-xl-2 d-flex d-md-block flex-wrap justify-content-center filters-column">
             <?php dynamic_sidebar( 'community-sidebar' ); ?>
             <?php foreach($sub_terms as $term):?>
               <a href="/comunidad/?term_id=<?php echo $term->term_id;?>" class="filter-button" data-termId="<?php echo $term -> term_id;?>">
@@ -65,5 +74,4 @@ get_header('fullwidth-new'); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+get_footer('new');
