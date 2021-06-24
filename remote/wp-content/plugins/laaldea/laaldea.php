@@ -784,8 +784,6 @@ function laaldea_add_custom_type_to_admin_table($columns) {
     $array_before = array_slice($columns, 0, $date_index, TRUE);
     $array_after = array_slice($columns, $date_index, NULL, TRUE);
     $new_columns =  array_merge($array_before, $column_to_add, $array_after);
-  
-    error_log('new columns : ' . print_r($new_columns,1));
 
     return $new_columns;
 }
@@ -853,13 +851,13 @@ function laaldea_build_radio_html () {
     'post__not_in' => $featured->get_posts(),
   );
 
-  $recent_tracks = new WP_Query( $query_args );
-  $post_count = $recent_tracks -> found_posts;
+  // $recent_tracks = new WP_Query( $query_args );
+  // $post_count = $recent_tracks -> found_posts;
 
-  $wp_query -> query_vars['laaldea_args']['recent_tracks'] = $recent_tracks;
-  $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
-  $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
-  $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
+  // $wp_query -> query_vars['laaldea_args']['recent_tracks'] = $recent_tracks;
+  // $wp_query -> query_vars['laaldea_args']['offset'] = $posts_per_page + 1;
+  // $wp_query -> query_vars['laaldea_args']['load_more'] = $posts_per_page < $post_count;
+  // $wp_query -> query_vars['laaldea_args']['requested_new_id'] = null;
   
   $template_url = laaldea_load_template('radio-main.php', 'new/radio');
   load_template($template_url, true);

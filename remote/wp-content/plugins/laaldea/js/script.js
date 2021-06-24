@@ -1611,11 +1611,12 @@ function onYouTubeIframeAPIReady() {
         autoplay: true,
         vertical: true,
         verticalSwiping: true,
-        arrows: false,
         speed: 300,
         slidesToShow: 1,
         slidesToScroll: 1,
         variableWidth: false,
+        prevArrow: '#radio .slider-column .slick-prev',
+        nextArrow: '#radio .slider-column .slick-next',
       });
     }
     if($('body.aldea-community').length > 0) {

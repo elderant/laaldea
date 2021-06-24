@@ -10,7 +10,7 @@
           <h1 class="title capitalized color-green">
             <?php _e('Al aire con Enrique','laaldea');?>
           </h1>
-          <div class="allies-icons-container d-flex align-items-center justify-content-between">
+          <div class="allies-icons-container d-flex flex-wrap flex-md-nowrap align-items-center justify-content-center justify-content-md-between">
             <img class="ally-icon rescue" src="/wp-content/uploads/radio-header-logo-rescue.png" alt="<?php _e('International Rescue Committee Logo','laaldea')?>">
             <div class="vertical-inner-container d-flex flex-column align-items-center justify-content-between">
               <img class="ally-icon lego" src="/wp-content/uploads/radio-header-logo-lego.png" alt="<?php _e('The Lego Foundation Logo','laaldea')?>">  
@@ -35,14 +35,14 @@
       </div>
     </div>
     <div class="row intro-row  mb-5 d-none">
-      <div class="col-8 offset-2">
+      <div class="col-12 p-5 col-sm-8 offset-sm-2 p-sm-3">
         <p class="text-center color-green medium uppercase">
           <?php _e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum, doloremque consequatur itaque natus iste facere, quam ratione modi rem nesciunt obcaecati facilis sint?. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum. sit amet consectetur adipisicing elit. Impedit accusantium vel sunt blanditiis aspernatur cum voluptatum.', 'laaldea'); ?>
         </p>
       </div>
     </div>
     <div class="row featured-row mb-5">
-      <div class="col-10 offset-1 text-center">
+      <div class="col-12 px-3 col-sm-10 offset-sm-1 px-sm-3 text-center">
         <?php $featured = $laaldea_args['featured'];?>
         <?php if( $featured -> have_posts() ) : ?>
           <?php while ($featured -> have_posts()) : ?>
@@ -57,10 +57,7 @@
       </div>
     </div>
     <div class="row main-row">
-      <div class="col-5 offset-1">
-        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 d-none uppercase">
-          <?php _e('About', 'laaldea');?>
-        </div>
+      <div class="col-12 px-4 col-sm-10 offset-sm-1 px-sm-3 col-md-5 offset-md-1 d-flex align-items-center">
         <div class="text-container">
           <p class="medium text-justify"><?php _e('Al Aire con Enrique es una estrategia educativa de audio que integra ' . 
             'canciones, humor, juego, retos de aprendizaje socioemocional, mensajes de autocuidado, ' . 
@@ -79,11 +76,8 @@
             'Lego Foundation y Clickarte. Escúchalo todos los sábados a las 11 AM por ' . 
             'RCN RADIO.','laaldea');?></p>
         </div>
-        <div class="h4 section-title recent-title color-green font-sassoon text-center bold mb-3 uppercase">
-          <?php _e('Todos los episodios', 'laaldea');?>
-        </div>
         <?php $recent = $laaldea_args['recent_tracks'];?>
-        <?php if( $recent -> have_posts() ) : ?>
+        <?php if( false ) : ?>
           <?php while ($recent -> have_posts()) : ?>
             <div class="track-container mb-3">
               <?php 
@@ -96,11 +90,14 @@
           <?php wp_reset_postdata(); ?>
         <?php endif; ?>
       </div>
-      <div class="col-5 slider-column">
-        <div class="h4 section-title coming-title color-green font-sassoon text-center bold mb-3 uppercase d-none">
-          <?php _e('Episodios', 'laaldea');?>
-        </div>
-        <div class="carousel-container d-flex align-items-center justify-content-end">
+      <div class="col-12 px-3 col-sm-10 offset-sm-1 px-sm-3 col-md-5 offset-md-0 slider-column">
+        <div class="carousel-container d-flex flex-column align-items-center justify-content-center">
+          <div class="slick-prev arrow">
+            <i class="fas fa-angle-up"></i>
+          </div>
+          <div class="slick-next arrow">
+            <i class="fas fa-angle-down"></i>
+          </div>
           <div class="coming-carousel">
             <?php $slides = $laaldea_args['slides'];?>
             <?php if( $slides -> have_posts() ) : ?>
