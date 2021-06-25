@@ -77,8 +77,8 @@
       </div>
     </div>
     <div class="row intro-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 intro-text">
-        <p class="h5 font-sassoon mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 intro-text">
+        <p class="h5 font-sassoon mb-5">
           <?php _e('La Aldea es una estrategia de educación multiplataforma que permite ' . 
             'que niños hasta los 14 años puedan aprender sobre ellos mismos y sobre el mundo ' . 
             'que los rodea. A través de un universo de personajes inspirado en nosotros mismos, ' . 
@@ -87,16 +87,16 @@
             'científicas, artísticas y socioemocionales.', 'laaldea'); ?>
         </p>
       </div>
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 intro-text">
-        <p class="h5 font-sassoon mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 intro-text">
+        <p class="h5 font-sassoon mb-5">
           <?php _e('La Aldea busca acompañar a familias, docentes e instituciones en la ' . 
             'implementación de procesos de educación flexibles, profundos y transformadores. ' . 
             'Los contenidos de La Aldea están diseñados para llegar a niños en todas partes y ' . 
             'son una estrategia para el mejoramiento de la calidad educativa.', 'laaldea'); ?>
         </p>
       </div>
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 intro-text">
-        <p class="h5 font-sassoon mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 intro-text">
+        <p class="h5 font-sassoon mb-7">
           <?php _e('La Aldea está diseñada para que, a medida que los niños ingresan a un mundo ' . 
             'de fantasía seguro, despierten su curiosidad innata. Es un lugar donde se plantean ' . 
             'esas preguntas fundamentales, universales, tradicionales y atemporales que todos nos ' . 
@@ -146,11 +146,13 @@
       </div>
     </div>
     <div class="row awards-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('Premios', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('Premios', 'laaldea');?></span>
+        </div>
       </div>
-      <ul class="col-12 offset-0 px-5 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 award-texts mb-5">
+      <ul class="col-12 offset-0 px-5 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 award-texts mb-5">
         <li class="award-text mb-1">
           <?php _e('Ganadores del <span class="medium">Academic’s Choice Award - Smartbook</span> con <span class="medium">La Aldea</span> como la mejor estrategia transmedia de educación 2019.','laaldea')?>
         </li>
@@ -166,21 +168,21 @@
         <li class="award-text mb-1">
           <?php _e('Premiados en HundrED y el BID (Banco Interamericano de Desarrollo) con <span class="medium">La Aldea: Historias para estar en casa</span> como una de las 15 mejores estrategias del siglo XXI en América Latina y el Caribe.','laaldea')?>
         </li>
-
-        
       </ul>
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 d-flex flex-wrap flex-sm-nowrap align-items-center justify-content-center justify-content-sm-between award-icons">
+      <div class="col-12 offset-0 px-3 col-sm-8 offset-sm-2 col-md-6 offset-md-3 px-sm-0 d-flex flex-wrap flex-sm-nowrap align-items-center justify-content-center justify-content-sm-between award-icons">
         <div class="px-3 my-3 my-sm-0"><img class="award-icon smart" src="/wp-content/uploads/aldea-premios-smart.jpg" alt="<?php _e('Imagen Smart Book award','laaldea');?>"></div>
-        <div class="px-3 my-3 my-sm-0"><img class="award-icon latino" src="/wp-content/uploads/aldea-premios-latino.png" alt="<?php _e('Imagen Latino Book awards','laaldea');?>"></div>
-        <div class="px-3 my-3 my-sm-0"><img class="award-icon crea" src="/wp-content/uploads/aldea-premios-crea.png" alt="<?php _e('Imagen Crea Digital award','laaldea');?>"></div>
         <div class="px-3 my-3 my-sm-0"><img class="award-icon hundred" src="/wp-content/uploads/aldea-premios-hundred.jpg" alt="<?php _e('Imagen hundrED award','laaldea');?>"></div>
+        <div class="px-3 my-3 my-sm-0"><img class="award-icon latino" src="/wp-content/uploads/aldea-premios-latino.png" alt="<?php _e('Imagen Latino Book awards','laaldea');?>"></div>
         <div class="px-3 my-3 my-sm-0"><img class="award-icon idb" src="/wp-content/uploads/aldea-premios-idb.png" alt="<?php _e('Imagen IDB award','laaldea');?>"></div>
+        <div class="px-3 my-3 my-sm-0"><img class="award-icon crea" src="/wp-content/uploads/aldea-premios-crea.png" alt="<?php _e('Imagen Crea Digital award','laaldea');?>"></div>
       </div>
     </div>
     <div class="row numeros-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-5">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-numbers.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('La Aldea en números', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-5">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-numbers.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('La Aldea en números', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-12 section-content p-0">
         <img src="/wp-content/uploads/aldea-numeros-background.png" alt="<?php _e('La aldea en numeros background image', 'laaldea');?>">
@@ -207,18 +209,22 @@
       </div>
     </div>
     <div class="row map-row mb-7 d-none">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-content text-center p-0">
         <img src="/wp-content/uploads/aldea-map-image.jpg" alt="<?php _e('Donde se implementa La Aldea image', 'laaldea');?>">
       </div>
     </div>
     <div class="row allies-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('Socios y aliados', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('Socios y aliados', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-12 offset-0 px-3 col-lg-10 offset-lg-1 px-lg-0 d-flex flex-wrap align-items-center justify-content-between award-icons">
         <div class="slick-prev arrow">
@@ -240,9 +246,11 @@
       </div>
     </div>
     <div class="row happens-row">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-5">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('¿Qué sucede con La Aldea?', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-5">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('¿Qué sucede con La Aldea?', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-12 section-content p-0">
         <img src="/wp-content/uploads/aldea-happens-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
@@ -331,9 +339,11 @@
       </div>
     </div>
     <div class="row history-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('Historia de La Aldea', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('Historia de La Aldea', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-12 offset-0 px-3 col-md-10 offset-md-1 col-xl-8 offset-xl-2 p-md-0 section-content mb-3">
         <img src="/wp-content/uploads/aldea-history-image.png" alt="<?php _e('Historia de La Aldea image', 'laaldea');?>">
@@ -346,9 +356,11 @@
       </div>
     </div>
     <div class="row media-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('La Aldea en medios', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('La Aldea en medios', 'laaldea');?></span>
+        </div>
       </div>
       <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 section-quote h5 font-sassoon mb-7">
         <blockquote  class="quotation-text">
@@ -374,11 +386,13 @@
       </div>
     </div>
     <div class="row click-row">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-title mb-3">
-        <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-click.svg';?>
-        <h2 class="title-text color-orange h3"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+        <div class="title-container position-relative">
+          <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-click.svg';?>
+          <h2 class="title-text color-orange h3"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
+        </div>
       </div>
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 section-intro">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-intro">
         <p><?php _e('Una agencia de pedagogía dedicada a imaginar nuevas formas de aprender ' . 
           'e implementar proyectos de educación. A través del arte, el diseño y la pedagogía, ' . 
           'nuestros productos y herramientas abren conversaciones para que niños y adultos puedan ' . 

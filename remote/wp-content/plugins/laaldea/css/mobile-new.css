@@ -221,6 +221,10 @@
 
   /* Community */
   #community .header-row .main-background{min-height: 300px;object-fit: cover;}
+
+  /* aldea */
+  #aldea .section-title {text-align: center;}
+  #aldea .history-row .section-content {max-height: 50vh;}
 }
 @media screen and (max-width: 991px) {}
 
@@ -325,7 +329,7 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
-  #aldea .section-title svg {left: 9%;height: 35px;transform: translate(-50%,-150%);}
+  #aldea .section-title svg {height: 35px}
   #aldea .icon-container{width: 125px;margin: 1rem 1rem 1rem;}
   #aldea .icon-container svg{width: 50px;}
   #aldea .intro-text p.h5 {font-size:1.25rem}
@@ -339,6 +343,7 @@
   #aldea .happens-row .section-content img{position: absolute;}
   #aldea .happens-row .content-container.h3 {position: relative;font-size: 1.25rem;background-color: rgba(255,255,255,0.7);padding: 1rem 0;}
   #aldea .happens-row .content-container ul.inner-list{padding-left:1rem}
+  #aldea .history-row .section-content {max-height: 30vh;}
   #aldea .media-row .arrow{font-size: 1.5rem;}
 }
 
@@ -441,7 +446,7 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 1.5rem;padding: 0;}
-  #aldea .section-title svg {left: 9%;height: 40px;transform: translate(-50%,-150%);}
+  #aldea .section-title svg {height: 40px;}
   #aldea .intro-text p.h5 {font-size:1.25rem}
   #aldea .icon-container{width: 160px;margin: 1rem 1rem 1rem;}
   #aldea .icon-container svg{width: 50px;}
@@ -452,6 +457,7 @@
   #aldea .happens-row .content-container{left: 0%;width: 100%;list-style: none;}
   #aldea .happens-row .content-container > li{width: 50%;}
   #aldea .happens-row .content-container.h3 {font-size: 1.25rem;background-color: rgba(255,255,255,0.7);padding: 1rem 0;}
+  #aldea .history-row .section-content {max-height: 30vh;}
   #aldea .media-row .arrow{font-size: 1.5rem;}
 
   /* Contacto */
@@ -527,10 +533,9 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
-  #aldea .section-title svg {left: -1%;height: 40px;}
+  #aldea .section-title svg {height: 40px;}
   #aldea .intro-text p.h5 {font-size:1.25rem}
   #aldea .icon-container{width: 200px;}
-  #aldea .icon-container svg{width: 75px;}
   #aldea .numeros-row .content-container{font-size: 1.25em;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.5);}
@@ -604,10 +609,9 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 2.5rem;padding: 0;}
-  #aldea .section-title svg {left: -1%;height: 40px;}
+  #aldea .section-title svg {height: 40px;}
   #aldea .intro-text p.h5 {font-size:1.25rem}
   #aldea .icon-container{width: 200px;}
-  #aldea .icon-container svg{width: 75px;}
   #aldea .numeros-row .content-container{font-size: 1.25em;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.25);}
@@ -717,7 +721,7 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 3rem;}
-  #aldea .section-title svg {left: -1%;height: 50px;}
+  #aldea .section-title svg {height: 50px;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((100vw - 30px)*0.9*0.25);}
   #aldea .happens-row .content-container{left: 40%;width: 60%;}
@@ -809,7 +813,7 @@
 
   /* Que es la aldea */
   #aldea .header-row h1.title {font-size: 4rem;}
-  #aldea .section-title svg {left: -1%;height: 60px;}
+  #aldea .section-title svg {height: 60px;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((83.333333vw - 30px)*0.9*0.25);}
 

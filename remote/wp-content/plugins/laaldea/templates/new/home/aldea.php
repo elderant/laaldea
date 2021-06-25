@@ -9,7 +9,7 @@
         </div>
         <div class="rellax content-container text-right color-white" data-rellax-speed="1">
           <h2 class="title">
-            <div><?php _e('Que es La Aldea','laaldea');?></div>
+            <div><?php _e('¿Qué es La Aldea?','laaldea');?></div>
           </h2>
           <div class="p">
             <?php _e('¿Sabías que La Aldea es una estrategia de educación utilizada por colegios, gobiernos locales y organizaciones internacionales con el fin de mejorar la calidad del aprendizaje en más de 500 instituciones educativas en Colombia, México y Venezuela? Aprende más sobre este universo.','laaldea');?>

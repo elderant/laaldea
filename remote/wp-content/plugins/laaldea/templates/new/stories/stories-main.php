@@ -4,11 +4,11 @@
 
   $character_array = array(
     'opossum' => array(
-      'class' => 'opossum',
+      'class' => 'opossum disabled',
       'src' => '/wp-content/uploads/stories-header-opossum.png',
       'img_alt' => __('Blue opossum image','laaldea'),
-      'greet_text' => __('Hola soy la zariguiella azul','laaldea'),
-      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+      'greet_text' => '',
+      'text' => '',
     ),
     'owl' => array(
       'class' => 'owl',
@@ -98,8 +98,8 @@
       'class' => 'mouse',
       'src' => '/wp-content/uploads/stories-header-mouse.png',
       'img_alt' => __('Mouse image','laaldea'),
-      'greet_text' => __('Hola soy la el raton','laaldea'),
-      'text' => __('Soy la encargada de sit amet consectetur adipisicing elit. Inventore est aperiam dolor id amet officiis hic impedit architecto beatae. Totam amet nam, veritatis natus quisquam doloribus atque deleniti dolorem voluptatem.','laaldea'),
+      'greet_text' => __('Los ratones','laaldea'),
+      'text' => __('¡Hola!, por fin nos conocemos... Los ratones somos los encargados de la limpieza en La Aldea y, aunque llevemos haciendo esto por mucho tiempo, nadie se daba cuenta. Algunos animales creen que somos sucios, pero en realidad somos de los habitantes más limpios y ordenados en La Aldea. Quizás, si se dieran la oportunidad de conocernos, se sorprenderían mucho.','laaldea'),
     ),
   );
 ?>
