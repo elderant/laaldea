@@ -1,4 +1,6 @@
 <?php 
+  $image_gallery = $laaldea_args['image_gallery'];
+
   $allies = array(
     'unicef' => array(
       'src' => '/wp-content/uploads/aldea-ally-unicef.png',
@@ -321,21 +323,28 @@
     </div>
     <div class="row gallery-row mb-7">
       <div class="col-12 section-content p-0 d-flex align-items-center justify-content-center">
-        <figure>
-          <img src="/wp-content/uploads/aldea-gallery-image1.jpg" alt="<?php _e('Gallery image 1', 'laaldea')?>">
-        </figure>
-        <figure>
-          <img src="/wp-content/uploads/aldea-gallery-image2.jpg" alt="<?php _e('Gallery image 2', 'laaldea')?>">
-        </figure> 
-        <figure>
-          <img src="/wp-content/uploads/aldea-gallery-image3.jpg" alt="<?php _e('Gallery image 3', 'laaldea')?>">
-        </figure> 
-        <figure>
-          <img src="/wp-content/uploads/aldea-gallery-image4.jpg" alt="<?php _e('Gallery image 4', 'laaldea')?>">
-        </figure> 
-        <figure>
-          <img src="/wp-content/uploads/aldea-gallery-image5.jpg" alt="<?php _e('Gallery image 5', 'laaldea')?>">
-        </figure>  
+        <div class="slick-prev arrow">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slick-next arrow">
+          <i class="fas fa-angle-right"></i>
+        </div>
+        <div class="carousel-container">
+          <?php if( $image_gallery -> have_posts() ) : ?>
+            <?php while ($image_gallery -> have_posts()) : ?>
+              <?php 
+                $image_gallery -> the_post();
+                $post_id = get_the_ID();
+              ?>
+              <div class="figure-container">
+                <figure>
+                  <?php the_post_thumbnail( 'full');?>
+                </figure>
+              </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
     <div class="row history-row mb-7">
@@ -374,7 +383,6 @@
           <?php _e('PACIFISTA', 'laaldea');?>
         </div>
       </div>
-        
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-xl-8 offset-xl-2 section-content d-flex flex-wrap align-items-center justify-content-around">
         <div class="slick-prev arrow">
           <i class="fas fa-angle-left"></i>

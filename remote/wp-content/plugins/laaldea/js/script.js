@@ -1465,9 +1465,11 @@ function onYouTubeIframeAPIReady() {
           success : function( response ) {
             let data = JSON.parse(response);
             if(data.html !== undefined) {
-              let $mainContainer = $('#stories .content-column .main-container');
+              let $mainContainer = $('#stories .content-column');
               
-              $mainContainer.empty();
+              $mainContainer.find('.main-container').remove();
+              $mainContainer.find('.load-more-container').remove();
+              // $mainContainer.empty();
               $mainContainer.append(data.html);
 
               $("#stories").removeClass();
@@ -1687,6 +1689,23 @@ function onYouTubeIframeAPIReady() {
         prevArrow: '#aldea .allies-row .slick-prev',
         nextArrow: '#aldea .allies-row .slick-next',
         variableWidth: true,
+        responsive: [
+          {
+            breakpoint: 650,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            }
+          },
+        ],
+      });
+      $('.gallery-row .carousel-container').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        prevArrow: '.gallery-row .slick-prev',
+        nextArrow: '.gallery-row .slick-next',
         responsive: [
           {
             breakpoint: 650,

@@ -156,7 +156,7 @@ a:hover {
 
 a:hover, a:focus  {
 	text-decoration: none;
-  font-weight: initial;
+  font-weight: 500;
 	outline: none;
 }
 
