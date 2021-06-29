@@ -36,7 +36,7 @@
       </div>
       <div class="d-flex align-items-start description-container text-justify">
         <?php if(!empty($content)) :
-            $content = wp_trim_words($content, 60);
+            $content = wp_trim_words($content, 80);
           ?>
           <?php echo $content; ?>
         <?php else :?>

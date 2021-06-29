@@ -69,7 +69,8 @@
   <section class="container-fluid">
     <div class="row header-row mb-7">
       <div class="col-12 position-relative p-0 header-container">
-        <img class="main-background" src="/wp-content/uploads/aldea-header-background.png" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/aldea-header-background.jpg" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
+        <img class="background-image" src="/wp-content/uploads/aldea-header-background-image.png" alt="<?php _e('Que es La Aldea header background image','laaldea')?>">
         <div class="content-container">
           <h1 class="title color-white">
             <div><?php _e('¿Qué es','laaldea');?></div>
@@ -247,7 +248,7 @@
         </div>
       </div>
     </div>
-    <div class="row happens-row">
+    <div class="row happens-row mb-7">
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-5">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
@@ -255,7 +256,8 @@
         </div>
       </div>
       <div class="col-12 section-content p-0">
-        <img src="/wp-content/uploads/aldea-happens-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
+        <img class="d-none d-md-block" src="/wp-content/uploads/aldea-happens-background.png" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
+        <img class="d-block d-md-none" src="/wp-content/uploads/aldea-happens-background-mobile.jpg" alt="<?php _e('Qué sucede con La Aldea background image', 'laaldea');?>">
         <ul class="content-container h3 d-flex flex-wrap d-md-block">
           <li class="kids mb-2 px-3 mb-xl-3 px-md-0">
             <div class="subtitle font-titan uppercase mb-2">
@@ -375,7 +377,7 @@
         <blockquote  class="quotation-text">
           <?php _e('“Usando los mismos recursos que implementó George Orwell en su obra ' . 
             '“La rebelión en la granja”, “La Aldea” se vale de los animales para contar ' . 
-            'historias que den la oportunidad para pensar el país y sus desafíos.En síntesis, ' . 
+            'historias que den la oportunidad para pensar el país y sus desafíos. En síntesis, ' . 
             'es una metáfora de Colombia...”', 'laaldea');?>
         </blockquote >
         

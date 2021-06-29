@@ -294,9 +294,14 @@ function laaldea_build_main_stories_html() {
   );
 
   $topic_terms = get_terms( $topic_args );
+  
   $wp_query -> query_vars['laaldea_args']['topic_terms'] = $topic_terms;
 
-  $tools_template = $_GET['template']; //libro video audio
+  $tools_template = 'libro'; //libro video audio
+  if(isset($_GET['template'])){
+    $tools_template = $_GET['template']; 
+  }
+  
   $wp_query -> query_vars['laaldea_args']['tools_template'] = $tools_template;
 
   switch ($tools_template){

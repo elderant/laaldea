@@ -9,14 +9,13 @@
         </div>
         <div class="rellax content-container text-right color-white" data-rellax-speed="2">
           <h2 class="title">
-            <div><?php _e('Radio La Aldea : ','laaldea');?></div>
-            <div><?php _e('Al Aire con Enrique','laaldea');?></div>
+            <div><?php _e('Radio Enrique','laaldea');?></div>
           </h2>
           <div class="p">
             <?php _e('¡Enrique es un camaleón muy curioso! Le encanta aprender sobre el mundo, sus amigos y sus sentimientos, ¡como tú! Y por eso ha lanzado su propio programa de radio, "Al Aire con Enrique", lleno de noticias, juegos, datos, diversión y plumas.','laaldea');?>
           </div>
           <div class="p">
-            <?php _e('¿Eres tan curioso como yo? Entonces escúchame todos los sábados a las 11 AM por RCN RADIO.','laaldea');?>
+            <?php _e('¿Eres tan curioso como él? Entonces escúchalo todos los sábados a las 11 AM por RCN RADIO.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
             <a href="/radio" class="home-button right"><?php _e('Escucha los programas', 'laaldea');?></a>

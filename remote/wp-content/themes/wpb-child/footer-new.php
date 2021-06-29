@@ -18,54 +18,63 @@
 	<footer id="colophon" class="new-home site-footer <?php echo wp_bootstrap_starter_bg_class(); ?>" role="contentinfo">
 		<div class="container-fluid pt-4 pb-3">
       <div class="row main-footer">
-        <div class="col-12 offset-0 mb-3 col-sm-5 offset-sm-1 mb-sm-0 copy-column">
-          <p class="copy-text mb-4">
-            <?php _e('La Aldea es el proyecto bandera de Click, una agencia de pedagogía ' . 
-            'dedicada a imaginar nuevas formas de aprender. Desde 2011, hemos desarrollado ' . 
-            'más de 40 proyectos de educación, impactando a más de 1 millón de estudiantes y ' . 
-            '5.000 docentes en Colombia, México y Venezuela','laaldea' );?>
-          </p>
-          <p class="medium mb-0">
-            <?php _e('En Click imaginamos, creamos y construimos nuevas formas de aprender.')?>
-          </p>
-        </div>
-        <div class="col-12 mb-3 col-sm-3 mb-sm-0 text-center text-sm-left socials-column">
-          <div class="link-container">
-            <a class="uppercase social-link facebook" href="https://www.facebook.com/clickarte.p/" target="_blank" rel="noopener noreferrer">Facebook</a>
-          </div>
-          <div class="link-container">
-            <a class="uppercase social-link instagram" href="https://www.instagram.com/clickarte.p/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
-          <div class="link-container">
-            <a class="uppercase social-link twitter" href="https://twitter.com/ClickArte_" target="_blank" rel="noopener noreferrer">Twitter</a>
-          </div>
-          <div class="link-container">
-            <a class="uppercase social-link linkedin" href="https://www.linkedin.com/company/click-arte-sas/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-          </div>
-          <div class="link-container">
-            <a class="uppercase social-link flickr" href="#" target="_blank" rel="noopener noreferrer">Flickr</a>
+        <div class="col-12 offset-0 mb-5 col-sm-10 offset-sm-1 col-md-3 mb-md-0 text-center text-md-left copy-column">
+          <div class="h6"><p class="medium p-0 pb-2 m-0 font-sassoon">Imaginado por</p></div>
+          <div class="logo-container">
+            <a href="http://clickarte.co/" target="_blank" rel="noopener noreferrer">
+              <?php include ABSPATH . '/wp-content/uploads/click-logo.svg';?>
+            </a>
           </div>
         </div>
-        <div class="col-12 mb-3 col-sm-3 mb-sm-0 text-center text-sm-left contact-column">
+        <div class="col-12 mb-5 col-sm-10 offset-sm-1 col-md-4 offset-md-0 mb-md-0 col-xl-3 text-center text-sm-left d-flex flex-wrap flex-column justify-content-around align-items-center flex-sm-row socials-column">
+          <div class="link-container linkedin-container">
+              <a class="uppercase social-link linkedin" href="https://www.linkedin.com/company/click-arte-sas/" target="_blank" rel="noopener noreferrer">
+                <?php include ABSPATH . '/wp-content/uploads/linkedin-icon.svg';?>
+              </a>
+          </div>
+          <div class="link-container instagram-container">
+            <a class="uppercase social-link instagram" href="https://www.instagram.com/clickarte.p/" target="_blank" rel="noopener noreferrer">
+              <?php include ABSPATH . '/wp-content/uploads/instagram-icon.svg';?>
+            </a>
+          </div>  
+          <div class="link-container facebook-container">
+            <a class="uppercase social-link facebook" href="https://www.facebook.com/clickarte.p/" target="_blank" rel="noopener noreferrer">
+              <?php include ABSPATH . '/wp-content/uploads/facebook-icon.svg';?>
+            </a>
+          </div>
+          <div class="link-container twitter-container">
+            <a class="uppercase social-link twitter" href="https://twitter.com/ClickArte_" target="_blank" rel="noopener noreferrer">
+              <?php include ABSPATH . '/wp-content/uploads/twitter-icon.svg';?>
+            </a>
+          </div>
+          <div class="link-container flickr-container">
+            <a class="uppercase social-link flickr" href="#" target="_blank" rel="noopener noreferrer">
+              <?php include ABSPATH . '/wp-content/uploads/flickr-icon.svg';?>
+            </a>
+          </div>
+        </div>
+        <div class="col-12 mb-3 offset-0 col-sm-10 offset-sm-1 col-md-3 offset-md-0 mb-md-0 col-xl-3 offset-xl-1 text-center text-sm-left d-flex flex-wrap flex-column justify-content-center align-items-center align-items-md-start contact-column">
           <div class="mail mb-3">
             <div class="link-container">
               <a class="uppercase" href="mailto:info@clickarte.co">info@clickarte.co</a>
             </div>
           </div>
-          <div class="phone mb-3">
-            <div class="link-container">
-              <a class="uppercase" href="tel:+573156126756">+57 315 6126756</a>
+          <div class="bottom-container d-flex flex-wrap flex-column flex-sm-row">
+            <div class="info-container phone">
+              <div class="link-container">
+                <a class="uppercase" href="tel:+573118068886">+57 311 806 8886</a>
+              </div>
+              <div class="link-container">
+                <a class="uppercase" href="tel:+5716917191">+57 1 691 7191</a>
+              </div>
             </div>
-            <div class="link-container">
-              <a class="uppercase" href="tel:+5716917191">+57 1 6917191</a>
-            </div>
-          </div>
-          <div class="address">
-            <div class="line-1 uppercase">
-              <?php _e('Carrera 16 # 85-15 OF 301','laaldea')?>
-            </div>
-            <div class="line-2 uppercase">
-              <?php _e('Bogotá D.C., Colombia','laaldea')?>
+            <div class="info-container address">
+              <div class="line-1 uppercase">
+                <?php _e('Carrera 16 # 85-15 OF 301','laaldea')?>
+              </div>
+              <div class="line-2 uppercase">
+                <?php _e('Bogotá D.C., Colombia','laaldea')?>
+              </div>
             </div>
           </div>
         </div>

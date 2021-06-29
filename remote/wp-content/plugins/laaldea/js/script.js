@@ -1279,6 +1279,24 @@ function onYouTubeIframeAPIReady() {
     return $(window).width() > 768;
   };
 
+  $(window).on('resize', function(){
+    if($(window).width() < 992) {
+      $('#stories .header-row .slider-container').slick({
+        infinite: true,
+        autoplay: false,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        variableWidth: false,
+        prevArrow: '#stories .header-row .slick-prev',
+        nextArrow: '#stories .header-row .slick-next',
+      });
+    }
+    else {
+      $('#stories .header-row .slider-container').slick('unslick');
+    }
+  });
+
   $(document).ready(function () {
     if($('body.home-new').length > 0) {
       $('#home-intro').on('mouseenter', function(event){
@@ -1408,7 +1426,7 @@ function onYouTubeIframeAPIReady() {
       window.aldea.videos = {};
 
       // header character text event
-      $('#stories .header-row .character-images .char').each(function() {
+      $('#stories .header-row .character-container .char').each(function() {
         $(this).on('mouseenter', function(){
           $('#stories .header-row .text-container.show').each(function(){
             $(this).toggleClass('show');
@@ -1417,6 +1435,19 @@ function onYouTubeIframeAPIReady() {
           $('#stories .header-row .text-container.' + dataClass).toggleClass('show');
         })
       });
+
+      if($(window).width() < 992) {
+        $('#stories .header-row .slider-container').slick({
+          infinite: true,
+          autoplay: false,
+          speed: 300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+          prevArrow: '#stories .header-row .slick-prev',
+          nextArrow: '#stories .header-row .slick-next',
+        });
+      }
 
       // Filter control event
       $('#stories .filters-column .filters-container .filter-control').each(function(){
@@ -1584,7 +1615,7 @@ function onYouTubeIframeAPIReady() {
           variableWidth: false,
           responsive: [
             {
-              breakpoint: 700,
+              breakpoint: 650,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -1604,8 +1635,6 @@ function onYouTubeIframeAPIReady() {
       $('#stories.video .term-container .carousel-container').each(function() {
         laaldea_handle_tools_aldea_video_load_more($(this));
       });
-
-      
     }
     if($('body.radio').length > 0) {
       $('.coming-carousel').slick({

@@ -9,7 +9,7 @@
         </div>
         <div class="rellax content-container text-right color-white" data-rellax-speed="2">
           <h2 class="title">
-            <?php _e('Tienda La Aldea','laaldea');?>
+            <?php _e('Tienda','laaldea');?>
           </h2>
           <div class="p">
             <?php _e('¿Quieres tener las últimas historias de La Aldea en tus manos? Puedes encontrar todos los libros, títeres y recursos pedagógicos en nuestra tienda virtual.','laaldea');?>

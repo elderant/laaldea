@@ -6,11 +6,17 @@
   padding-left: 15px;
 }
 
-.mt-7, .my-7 {padding-top: 5rem !important;}
-.mb-7, .my-7 {padding-bottom: 5rem !important;}
-.ml-7, .mx-7 {padding-left: 5rem !important;}
-.mr-7, .mx-7 {padding-right: 5rem !important;}
-.m-7 {padding: 5rem !important;}
+.mt-7, .my-7 {margin-top: 5rem !important;}
+.mb-7, .my-7 {margin-bottom: 5rem !important;}
+.ml-7, .mx-7 {margin-left: 5rem !important;}
+.mr-7, .mx-7 {margin-right: 5rem !important;}
+.m-7 {margin: 5rem !important;}
+
+.pt-7, .py-7 {padding-top: 5rem !important;}
+.pb-7, .py-7 {padding-bottom: 5rem !important;}
+.pl-7, .px-7 {padding-left: 5rem !important;}
+.pr-7, .px-7 {padding-right: 5rem !important;}
+.p-7 {padding: 5rem !important;}
 
 @media screen and (min-width: 1200px) and (max-width: 1365px) {
   .col-xl1 {

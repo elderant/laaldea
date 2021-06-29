@@ -57,8 +57,12 @@
       </div>
     </div>
     <div class="row main-row">
-      <div class="col-12 px-4 col-sm-10 offset-sm-1 px-sm-3 col-md-5 offset-md-1 d-flex align-items-center">
+      <div class="col-12 px-4 col-sm-10 offset-sm-1 px-sm-3 col-md-5 offset-md-1 d-flex align-items-center content-column">
         <div class="text-container">
+          <div class="title-container">
+            <div class="title-first-part text-center font-titan"><?php _e('Al Aire con','laaldea');?></div>
+            <div class="title-second-part text-center font-titan uppercase"><?php _e('Enrique','laaldea');?></div>
+          </div>
           <p class="medium text-justify"><?php _e('Al Aire con Enrique es una estrategia educativa de audio que integra ' . 
             'canciones, humor, juego, retos de aprendizaje socioemocional, mensajes de autocuidado, ' . 
             'noticias y participación, basada en las historias de un grupo de diversos animales que ' . 

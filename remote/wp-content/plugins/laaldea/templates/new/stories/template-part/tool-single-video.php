@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-12 content-column">
       <?php if(!empty($content)) :
-          $content = wp_trim_words($content, 60);
+          $content = wp_trim_words($content, 80);
         ?>
         <?php echo $content; ?>
       <?php else :?>

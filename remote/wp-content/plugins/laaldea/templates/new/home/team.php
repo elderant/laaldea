@@ -9,7 +9,7 @@
         <div class="content-container col-12">
           <div class="rellax title-container color-green" data-rellax-speed="2">
             <h2 class="title">
-              <?php _e('Equipos','laaldea');?>
+              <?php _e('¿Quién está detrás de La Aldea?','laaldea');?>
             </h2>
           </div>
         </div>
@@ -23,19 +23,32 @@
           <div class="team-carousel">
             <div class="team lisa">
               <div class="team-content-container">
-                <img src="/wp-content/uploads/team-lisa.png" alt="<?php _e('Lisa Neisa picture', 'laaldea');?>" />
-                <div class="mask">
-                  <h5><?php _e('Lisa Neisa', 'laaldea');?></h5>
-                  <span class="job-title"><?php _e('Directora del proyecto', 'laaldea');?></span>
-                </div>
+                <a href="https://www.linkedin.com/in/lisa-neisa-3469a94/es/?originalSubdomain=co" target="_blank" rel="noopener noreferrer external">
+                  <img src="/wp-content/uploads/team-lisa.png" alt="<?php _e('Lisa Neisa picture', 'laaldea');?>" />
+                  <div class="mask">
+                    <h5><?php _e('Lisa Neisa', 'laaldea');?></h5>
+                    <span class="job-title"><?php _e('Directora del proyecto', 'laaldea');?></span>
+                  </div>
+                </a>
               </div>
             </div>
             <div class="team emmanuel ">
               <div class="team-content-container">
-                <img src="/wp-content/uploads/team-emmanuel.png" alt="<?php _e('Emmanuel Neisa picture', 'laaldea');?>" />
+                <a href="https://www.linkedin.com/in/emmanuel-neisa-13859373/?originalSubdomain=co" target="_blank" rel="noopener noreferrer external">
+                  <img src="/wp-content/uploads/team-emmanuel.png" alt="<?php _e('Emmanuel Neisa picture', 'laaldea');?>" />
+                  <div class="mask">
+                    <h5><?php _e('Emmanuel Neisa', 'laaldea');?></h5>
+                    <span class="job-title"><?php _e('Director del proyecto', 'laaldea');?></span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="team diana">
+              <div class="team-content-container">
+                <img src="/wp-content/uploads/team-diana.png" alt="<?php _e('Diana Ospina picture', 'laaldea');?>" />
                 <div class="mask">
-                  <h5><?php _e('Emmanuel Neisa', 'laaldea');?></h5>
-                  <span class="job-title"><?php _e('Director del proyecto', 'laaldea');?></span>
+                  <h5><?php _e('Diana Ospina', 'laaldea');?></h5>
+                  <span class="job-title"><?php _e('Quien creó el universo de La Aldea', 'laaldea');?></span>
                 </div>
               </div>
             </div>
@@ -66,21 +79,21 @@
                 </div>
               </div>
             </div>
+            <div class="team maria">
+              <div class="team-content-container">
+                <img src="/wp-content/uploads/team-maria.png" alt="<?php _e('Sarah Samudio picture', 'laaldea');?>" />
+                <div class="mask">
+                  <h5><?php _e('Sarah Samudio', 'laaldea');?></h5>
+                  <span class="job-title"><?php _e('La diseñadora', 'laaldea');?></span>
+                </div>
+              </div>
+            </div>
             <div class="team fredy">
               <div class="team-content-container">
                 <img src="/wp-content/uploads/team-fredy.png" alt="<?php _e('Fredy González picture', 'laaldea');?>" />
                 <div class="mask">
                   <h5><?php _e('Fredy González', 'laaldea');?></h5>
                   <span class="job-title"><?php _e('El creativo detrás de las actividades y retos', 'laaldea');?></span>
-                </div>
-              </div>
-            </div>
-            <div class="team diana">
-              <div class="team-content-container">
-                <img src="/wp-content/uploads/team-diana.png" alt="<?php _e('Diana Ospina picture', 'laaldea');?>" />
-                <div class="mask">
-                  <h5><?php _e('Diana Ospina', 'laaldea');?></h5>
-                  <span class="job-title"><?php _e('Quien creó el universo de La Aldea', 'laaldea');?></span>
                 </div>
               </div>
             </div>
@@ -99,15 +112,6 @@
                 <div class="mask">
                   <h5><?php _e('Laura Robayo', 'laaldea');?></h5>
                   <span class="job-title"><?php _e('La voz que le da vida al audiolibro', 'laaldea');?></span>
-                </div>
-              </div>
-            </div>
-            <div class="team maria">
-              <div class="team-content-container">
-                <img src="/wp-content/uploads/team-maria.png" alt="<?php _e('Sarah Samudio picture', 'laaldea');?>" />
-                <div class="mask">
-                  <h5><?php _e('Sarah Samudio', 'laaldea');?></h5>
-                  <span class="job-title"><?php _e('La diseñadora', 'laaldea');?></span>
                 </div>
               </div>
             </div>

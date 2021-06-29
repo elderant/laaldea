@@ -109,24 +109,32 @@
     <div class="row header-row mb-5">
       <div class="col-12 position-relative p-0 characters-container">
         <img class="main-background" src="/wp-content/uploads/stories-header-background.jpg" alt="<?php _e('Background image','laaldea')?>">
-        <div class="character-texts-container color-white text-left">
-          <?php foreach($character_array as $character) : ?>
-            <div class="text-container <?php echo $character['class']?>">
-              <div class="greet font-titan"><?php echo $character['greet_text']?></div>
-              <div class="text"><?php echo $character['text']?></div>
-            </div>
-          <?php endforeach;?>
-        </div>
-        <div class="character-images">
+        <div class="background-images-container">
           <img class="story-header-image plant plant1" src="/wp-content/uploads/stories-header-plant1.png" alt="<?php _e('Plant 4 image','laaldea')?>">
           <img class="story-header-image plant plant2" src="/wp-content/uploads/stories-header-plant2.png" alt="<?php _e('Plant 3 image','laaldea')?>">
           <img class="story-header-image plant plant3" src="/wp-content/uploads/stories-header-plant3.png" alt="<?php _e('Plant 4 image','laaldea')?>">
-          <img class="story-header-image plant plant4" src="/wp-content/uploads/stories-header-plant4.png" alt="<?php _e('Plant 3 image','laaldea')?>">  
+          <img class="story-header-image plant plant4" src="/wp-content/uploads/stories-header-plant4.png" alt="<?php _e('Plant 3 image','laaldea')?>">      
+        </div>
+        <div class="slick-prev arrow d-block d-lg-none">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <div class="slick-next arrow d-block d-lg-none">
+          <i class="fas fa-angle-right"></i>
+        </div>
+        <div class="single-characters-container slider-container">
           <?php foreach($character_array as $character) : ?>
-            <img class="story-header-image char <?php echo $character['class']?>" 
-              src="<?php echo $character['src']?>" 
-              alt="<?php echo $character['img_alt']?>" 
-              data-text="<?php echo $character['class']?>">
+            <div class="character-container container-<?php echo $character['class']?>">
+              <div class="character-text-container color-white text-left">
+                <div class="text-container <?php echo $character['class']?>">
+                  <div class="greet font-titan"><?php echo $character['greet_text']?></div>
+                  <div class="text"><?php echo $character['text']?></div>
+                </div>
+              </div>
+              <img class="story-header-image char <?php echo $character['class']?>" 
+                src="<?php echo $character['src']?>" 
+                alt="<?php echo $character['img_alt']?>" 
+                data-text="<?php echo $character['class']?>">
+            </div>
           <?php endforeach;?>
         </div>
       </div>
@@ -135,10 +143,10 @@
     <div class="row main-row">
       <div class="col-12 offset-0 order-2 col-lg-3 offset-lg-0 order-lg-1 col-xl1-3 offset-xl1-0 col-xl-2 offset-xl-1 filters-column">
         <div class="tools-sidebar-container" data-top="240">
-          <div class="title-container d-flex align-items-center uppercase color-green mb-3">
+          <div class="title-container d-flex align-items-center justify-content-center justify-content-lg-start uppercase color-green mb-3">
             <h5><?php _e('Recursos','laaldea');?></h5>
           </div>
-          <div class="filters-container topic d-flex flex-column justify-content-between align-items-start pb-3">
+          <div class="filters-container topic d-flex flex-column justify-content-between align-items-center align-items-lg-start pb-3">
             <?php foreach($laaldea_args['topic_terms'] as $topic_terms) : ?>
               <div class="term-container pb-1 term-<?php echo $topic_terms -> term_id?>">
                 <button class="" data-termId="<?php echo $topic_terms -> term_id?>">
@@ -149,7 +157,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 offset-0 order-1 col-lg-9 offset-lg-0 order-lg-2 col-xl1-9 offset-xl1-0 col-xl-8 content-column">
+      <div class="col-12 offset-0 mb-3 pb-3 order-1 col-lg-9 offset-lg-0 order-lg-2 mb-lg-0 pb-lg-0 col-xl1-9 offset-xl1-0 col-xl-8 content-column">
         <div class="title-container color-green mb-5">  
           <h1 class="title mb-2"><?php _e('Historias y recursos','laaldea');?></h1>
         </div>
@@ -158,9 +166,9 @@
           <div class="type-filters-section d-flex align-items-center justify-content-start">
             <div class="filter-label h5 font-titan color-green m-0"><?php _e('¿Qué quieres ', 'laaldea');?></div>
             <select class="type-select color-green m-0">
-              <option class="" value="libro">Leer</option>
-              <option class="" value="video">Ver</option>
-              <option class="" value="audio">Escuchar</option>
+              <option class="" value="libro"<?php echo $tools_template == 'libro'? ' selected': '';?>>Leer</option>
+              <option class="" value="video"<?php echo $tools_template == 'video'? ' selected': '';?>>Ver</option>
+              <option class="" value="audio"<?php echo $tools_template == 'audio'? ' selected': '';?>>Escuchar</option>
             </select>
             <div class="filter-label h5 font-titan color-green m-0"><?php _e(' ?', 'laaldea');?></div>
           </div>

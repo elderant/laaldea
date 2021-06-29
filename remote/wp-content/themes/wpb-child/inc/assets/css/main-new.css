@@ -131,7 +131,7 @@ a {
   font-weight: 500;
 	transition: color	0.5s ease-in-out;
 }
-a:hover {font-weight: 500;}
+a:hover {color:var(--green-light);font-weight: 500;}
 
 /* .bbpress #bbpress-forums a,
 .bbpress #bbpress-forums input,
@@ -340,27 +340,23 @@ body.single-community_aldea footer#colophon.new-home {
   background-color: var(--green);
 }
 
-footer#colophon .main-footer .copy-column p,
+footer#colophon .main-footer .copy-column p {font-size: inherit;text-align: inherit;}
+
+footer#colophon .copy-column a:hover,
+footer#colophon .socials-column .link-container a:hover,
+footer#colophon .main-footer .contact-column a:hover{color: var(--green-light);}
+
 footer#colophon .main-footer .socials-column,
 footer#colophon .main-footer .contact-column {
   font-size: 0.8em;
 }
 
-#colophon .row a:hover {
-  color: var(--green-light);
-}
+footer#colophon .socials-column .link-container {width: 15%;}
+footer#colophon .socials-column .link-container a {display: inline-block;padding: 0 0.5rem;}
+footer#colophon .socials-column .link-container a svg {width: 100%;}
 
-footer#colophon .main-footer .copy-column .copy-text {
-  width: 66%;
-  margin: 0;
-}
-
-footer#colophon .main-footer a {
-  font-weight: 500;
-}
-
-footer#colophon .main-footer a:hover {
-  color: var(--green-light);
+footer#colophon .contact-column .info-container {
+  margin-right: 2rem;
 }
 
 /* Shared : scrollbar */

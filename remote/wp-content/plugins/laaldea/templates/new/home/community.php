@@ -9,7 +9,7 @@
         </div>
         <div class="rellax content-container text-left color-white" data-rellax-speed="2">
           <h2 class="title">
-            <div><?php _e('Noticias y comunidad','laaldea');?></div>
+            <div><?php _e('Comunidad','laaldea');?></div>
           </h2>
           <div class="p">
             <?php _e('La Aldea ha llegado a más de 100.000 familias y más de 5.000 docentes en la Guajira, Barranquilla, Cúcuta, Nariño, e incluso, ya descargó sus maletas en México y Venezuela. Nuestra comunidad es cada vez más grande y queremos que estés enterado de todo lo que ocurre.','laaldea');?>
