@@ -635,13 +635,6 @@ html.overflow-hidden-custom {
   background-color: var(--green);
 }
 
-
-#stories .filters-column .title-container,
-#stories .filters-column .follow-type-filter-button,
-#stories .filters-column .tag-cloud-container button {
-  /* position: relative; */
-}
-
 #stories .filters-column .title-container h5 {
   margin: 0;
   letter-spacing: 1.5px;
@@ -1304,14 +1297,6 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 
 #aldea .icon-container svg {
   width: 75px;
-}
-
-#aldea .icon-container .name {
-  /* position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translate(-50%, 100%); */
-
 }
 
 #aldea .icon-container.libros {color:#5295C2}
@@ -2759,10 +2744,6 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 .bbpress .bbp-replies .bbp-reply-header .bbp-admin-links a:hover,
 #bbpress-forums.bbpress-wrapper .bbp-reply-header .bbp-admin-links a:hover {
   color: var(--cyan);
-}
-
-.bbpress .bbp-replies .reply-container {
-  /* margin: 0.5rem 0 1rem; */
 }
 
 .bbpress .bbp-replies .reply-container .type-topic,

@@ -17,11 +17,8 @@
 
 /*-- 0. STYLES FOR MOBILE DEVICES - media screen max-width: 768px --*/
 @media screen and (max-width: 768px) {
-  footer#colophon .main-footer .copy-column .copy-text {width: 100%;}
- 
   footer#colophon .main-footer .socials-column .link-container{padding: 0.5rem 0;}
   footer#colophon .main-footer .contact-column .phone .link-container{padding: 0.5rem 0;}
-
   footer#colophon .main-footer .contact-column .address > div{padding: 0.5rem 0;}
 }
 
@@ -130,6 +127,7 @@
   header#masthead .navbar-toggler {height: calc(1.1rem*1.2 + 0.5rem*2);}
 
   footer#colophon .socials-column .link-container {width: auto;}
+  footer#colophon .contact-column .info-container {margin-right: 0rem;}
 }
 
 /*-- 2. STYLES FOR MOBILE DEVICES - media screen min width: 401px / max width: 575px --*/
@@ -146,6 +144,7 @@
   header#masthead .navbar-toggler {height: calc(1.1rem*1.2 + 0.5rem*2);}
 
   footer#colophon .socials-column .link-container {width: auto;}
+  footer#colophon .contact-column .info-container {margin-right: 0rem;}
 }
 
 /*-- 3. STYLES FOR MOBILE DEVICES - media screen min width: 576px / max width: 649px --*/

@@ -348,7 +348,7 @@ footer#colophon .main-footer .contact-column a:hover{color: var(--green-light);}
 
 footer#colophon .main-footer .socials-column,
 footer#colophon .main-footer .contact-column {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 footer#colophon .socials-column .link-container {width: 15%;}
