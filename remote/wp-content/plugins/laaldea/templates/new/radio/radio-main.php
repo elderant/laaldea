@@ -63,22 +63,21 @@
             <div class="title-first-part text-center font-titan"><?php _e('Al Aire con','laaldea');?></div>
             <div class="title-second-part text-center font-titan uppercase"><?php _e('Enrique','laaldea');?></div>
           </div>
-          <p class="medium text-justify"><?php _e('Al Aire con Enrique es una estrategia educativa de audio que integra ' . 
-            'canciones, humor, juego, retos de aprendizaje socioemocional, mensajes de autocuidado, ' . 
-            'noticias y participación, basada en las historias de un grupo de diversos animales que ' . 
-            'buscan crecer individual y colectivamente mientras sortean los retos de la convivencia en ' . 
-            'un espacio natural ficticio denominado La Aldea.','laaldea');?></p>
-          <p class="medium text-justify"><?php _e('Su objetivo es apoyar el aprendizaje remoto y desarrollar habilidades ' .
-            'socioemocionales en niños, niñas y adolescentes entre los 6 y los 12 años de edad ' . 
-            'pertenecientes a comunidades migrantes o no con baja o nula conectividad. La serie ' . 
-            'hace un especial énfasis en el fenómeno migratorio, las necesidades emocionales y ' . 
-            'cognitivas de niños y familiares migrantes, las comunidades de acogida, la integración ' . 
-            'social, el desarrollo de habilidades de resiliencia y adaptación y la prevención de ' . 
-            'violencias, entre otros temas centrales para el empoderamiento de estas ' . 
-            'comunidades.','laaldea');?></p>
-          <p class="medium text-justify mb-5"><?php _e('Este es un proyecto del International Rescue Commitee (IRC), la ' . 
-            'Lego Foundation y Clickarte. Escúchalo todos los sábados a las 11 AM por ' . 
-            'RCN RADIO.','laaldea');?></p>
+          <p class="medium text-justify"><?php _e('Al Aire con Enrique es una estrategia educativa ' . 
+            'de audio que integra canciones, humor, juegos, retos de aprendizaje socioemocional, ' . 
+            'mensajes de autocuidado y noticias. Está basada en las historias de un grupo de ' . 
+            'diversos animales que buscan crecer individual y colectivamente mientras sortean los ' . 
+            'retos de convivencia en un espacio natural ficticio llamado La Aldea.','laaldea');?></p>
+          <p class="medium text-justify"><?php _e('Su objetivo es apoyar el aprendizaje remoto y ' . 
+            'desarrollar habilidades socioemocionales en niños, niñas y adolescentes entre los 6 ' . 
+            'y los 12 años de edad con baja o nula conectividad. La serie hace un especial énfasis ' . 
+            'en el fenómeno migratorio; las necesidades emocionales y cognitivas de niños, familiares ' . 
+            'migrantes y comunidades de acogida; la integración social; el desarrollo de habilidades ' . 
+            'de resiliencia y adaptación, y la prevención de violencias, entre otros temas centrales ' . 
+            'para el empoderamiento de estas comunidades.','laaldea');?></p>
+          <p class="medium text-justify mb-5"><?php _e('Este es un proyecto del International Rescue ' . 
+            'Commitee (IRC), la Lego Foundation y ClickArte. Escúchalo todos los sábados a las 11 ' . 
+            'AM por RCN RADIO.','laaldea');?></p>
         </div>
         <?php $recent = $laaldea_args['recent_tracks'];?>
         <?php if( false ) : ?>

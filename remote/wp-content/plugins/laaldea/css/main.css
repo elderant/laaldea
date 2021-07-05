@@ -66,7 +66,7 @@ html.overflow-hidden-custom {
 }
 
 .home-section .content-container {
-  width: 25%;
+  width: 40%;
   margin: 4rem auto 0 5rem;
   font-size: 1.25em;
 }
@@ -144,19 +144,18 @@ html.overflow-hidden-custom {
 .home-section#home-intro .arrow-container .laaldea-arrow {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  background-color: var( --green);
-  transition: background-color 0.5s linear;
-}
-.home-section#home-intro .arrow-container:hover .laaldea-arrow {
-  background-color: var(--green-light);
 }
 
 .home-section#home-intro .arrow-container .laaldea-arrow i {
   line-height: 38px;
   font-size: 40px;
   color: var(--white);
+  transition: color 0.5s linear;
 }
+.home-section#home-intro .arrow-container:hover .laaldea-arrow i {
+  color: var(--green-light);
+}
+
 .home-section#home-intro .arrow-container.prev .laaldea-arrow i {padding-right: 6px;}
 .home-section#home-intro .arrow-container.next .laaldea-arrow i {padding-left: 6px;}
 
@@ -334,7 +333,7 @@ html.overflow-hidden-custom {
 
 /* specific : aldea */
 .home-section#home-aldea .content-container {
-  width: 550px;
+  width: 38%;
 }
 
 .home-section#home-aldea .background-main {
@@ -1160,12 +1159,14 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   display: none;
 }
 
+/* Community single */
 #community.single .post-container .wp-block-image figcaption {
   margin-top: 0.25rem;
   margin-bottom: 0;
   font-size: 0.8em;
   font-weight: 500;
 }
+#community.single .post-container p {font-size: 1.2em;}
 
 #community.single .content-column .post-navigation .nav-links a {
   background-color: var(--green);
@@ -1252,6 +1253,8 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
 #community .filters-column .post-container .content-container a:hover {color: var(--green-light);}
 #community .filters-column .post-container .date-container{padding: 0 0.25rem;font-size: 0.8em;}
 
+/* la aldea */
+#aldea .section-title {text-align: center;}
 /* la aldea : header */
 #aldea .header-row .main-background {
   width: 100%;
@@ -1412,13 +1415,13 @@ body.stories .select2-container--default .select2-results__option--highlighted.s
   position: absolute;
   z-index: 20;
   top: 50%;
-  color: var(--green);
+  color: var(--white);
   font-size: 3rem;
   transform: translate(0%, -50%);
   transition: all 1s linear;
 }
-#aldea .gallery-row .slick-arrow.slick-prev {left: 2%;text-shadow: 3px 3px 2px rgb(255 255 255 / 80%);}
-#aldea .gallery-row .slick-arrow.slick-next {right: 2%;text-shadow: -3px 3px 2px rgb(255 255 255 / 80%);}
+#aldea .gallery-row .slick-arrow.slick-prev {left: 2%;text-shadow: 3px 3px 2px rgba(0,0,0,0.8);}
+#aldea .gallery-row .slick-arrow.slick-next {right: 2%;text-shadow: -3px 3px 2px rgba(0,0,0,0.8);}
 
 #aldea .gallery-row .slick-arrow:hover {color: var(--green-light);}
 #aldea .gallery-row .slick-arrow.slick-disabled {color: var(--gray);}

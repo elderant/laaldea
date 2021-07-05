@@ -7,12 +7,12 @@
     <div class="row">
       <div class="arrow-container prev disabled">
         <button class="laaldea-arrow arrow">
-          <i class="fas fa-caret-left"></i>
+          <i class="fas fa-angle-left"></i>
         </button>
       </div>
       <div class="arrow-container next">
         <button class="laaldea-arrow arrow">
-          <i class="fas fa-caret-right"></i>
+          <i class="fas fa-angle-right"></i>
         </button>
       </div>
       <div class="col-12 position-relative p-0 slider-container d-flex flex-row justify-content-start">

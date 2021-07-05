@@ -87,7 +87,7 @@
 @media screen and (min-height: 768px) and (max-height: 899px) {
   .home-section .slider-container {height: 512px;}
   .home-section .content-container.text-right {margin: 3rem 3rem 3rem auto;}
-  .home-section .content-container {width: 30%;}
+  .home-section .content-container {width: 38%;}
 
   .home-section#home-story .background-main,
   .home-section#home-radio .background-main,
@@ -224,13 +224,13 @@
 
   /* Community */
   #community .header-row .main-background{min-height: 300px;object-fit: cover;}
+  #community.single .post-container p {font-size: 1em;}
 
   /* aldea */
   #aldea .header-row .main-background{min-height: 300px;object-fit: cover;}
   #aldea .header-row .background-image {width: 450px;}
   #aldea .header-row .content-container {top: 75%;left: 50%;width: auto;text-align: center;transform: translate(-50%, -50%);}
   #aldea .header-row h1.title {padding: 0;font-size: 2.5rem;}
-  #aldea .section-title {text-align: center;}
   #aldea .happens-row .section-content {overflow: hidden;}
   #aldea .happens-row .content-container {position: relative;top: 0;left: 0;width: 50%;list-style: none;}
   #aldea .happens-row .section-content img{position: absolute;max-width: unset;max-height: unset;bottom: -6%;left: -5%;width: 105%;}
@@ -768,7 +768,7 @@
   .home-section#home-story .content-container{width: 50%;}
   .home-section#home-radio .content-container {width: 430px;}
   .home-section#home-community .content-container {width: 400px;}
-  .home-section#home-aldea .content-container {width: 475px;}
+  .home-section#home-aldea .content-container {width: 465px;}
 
   /* slider */
   .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9/2);}
@@ -837,6 +837,7 @@
   #community .header-row h1.title {font-size: 3.5rem;}
   #community .filter-row .filter-button {padding: 0.5rem 3rem;}
   #community .posts-container .content-container .post-title-container h2{font-size:1.75rem}
+  #community.single .post-container p {font-size: 1.1em;}
   #community .content-row .filters-column .topic-block{height: 200px;}
   #community .filters-column .post-container .post-thumbnail-container a {height: calc(25vw - 2rem);}
 
@@ -1257,7 +1258,7 @@
   /* home */
   .home-section#home-radio .content-container {width: 576px;}
   .home-section#home-community .content-container {width: 600px;}
-  .home-section#home-aldea .content-container {width: 525px;}
+  .home-section#home-aldea .content-container {width: 540px;}
 
   /* Stories */
   #stories .opossum{height: 170px;}

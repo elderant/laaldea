@@ -1255,6 +1255,65 @@ function laaldea_get_community_sub_terms ($main_terms) {
   return $sub_terms;
 }
 
+function laaldea_get_community_sidebar_posts($exclude) {
+  // Ensure exclude is in correct format.
+  $post__not_in = array();
+  if(is_array($exclude)) {
+    foreach($exclude as $_post) {
+      $post_id = null;
+      if ( $_post instanceof WP_Post ) {
+        $post_id = $_post -> ID;
+      }
+      else{
+        $post_id = is_int($_post)?$_post:null;
+      }
+      if (is_null($post_id)) {
+        continue;
+      }
+  
+      array_push($post__not_in, $post_id);
+    }
+  }
+  else {
+    $post_id = null;
+    if ( $exclude instanceof WP_Post ) {
+      $post_id = $exclude -> ID;
+    }
+    else{
+      $post_id = is_int($exclude)?$exclude:null;
+    }
+    if (!is_null($post_id)) {
+      array_push($post__not_in, $post_id);
+    }
+  }
+
+  // create array of two random community terms
+  $key_array = array_rand($main_terms, 2);
+  $terms = array();
+  foreach($key_array as $key) {
+    array_push($terms, $main_terms[$key] -> term_id);
+  }
+
+  $terms = array($main_terms[0] -> term_id, $main_terms[1] -> term_id);
+  
+
+  $query_args  = array(
+    'post_type' => 'community_aldea',
+    'posts_per_page' => 6,
+    'orderby' => 'modified',
+    'post_status' => 'publish',
+    'fields' => 'ids',
+    'post__not_in' => $post__not_in,
+    'tax_query' => array(
+      'taxonomy' => 'community_tag',
+      'field'    => 'term_id',
+      'terms'    => $terms,
+    ),
+  );
+  $sidebar_posts = new WP_Query( $query_args );
+  return $sidebar_posts;
+}
+
 /* la aldea Info */
 function laaldea_build_aldea_html () {
   global $wp_query;

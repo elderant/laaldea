@@ -1293,7 +1293,9 @@ function onYouTubeIframeAPIReady() {
       });
     }
     else {
-      $('#stories .header-row .slider-container').slick('unslick');
+      if($('#stories .header-row .slider-container').hasClass('slick-slider')) {
+        $('#stories .header-row .slider-container').slick('unslick');
+      }
     }
   });
 

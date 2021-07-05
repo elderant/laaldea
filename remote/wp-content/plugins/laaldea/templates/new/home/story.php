@@ -12,7 +12,7 @@
             <?php _e('Historias y recursos','laaldea');?>
           </h2>
           <div class="p">
-            <?php _e('¿Qué andará haciendo Arnulfo? ¿Cómo se sentirá Enrique? Encuentra historias, actividades, aventuras y el universo sonoro de La Aldea y diviértete con sus personajes y ocurrencias.','laaldea');?>
+            <?php _e('¿Qué andará haciendo Arnulfo? ¿Cómo se sentirá Enrique? Encuentra historias, actividades, aventuras y canciones. Diviértete con el universo de La Aldea, sus personajes y ocurrencias.','laaldea');?>
           </div>
           <div class="button-container text-right p d-flex">
             <a href="/historias?template=libro" class="home-button text-center"><?php _e('Leer', 'laaldea');?></a>

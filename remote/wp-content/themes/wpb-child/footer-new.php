@@ -26,7 +26,7 @@
             </a>
           </div>
         </div>
-        <div class="col-12 mb-5 col-sm-10 offset-sm-1 col-md-4 offset-md-0 mb-md-0 col-xl-3 text-center text-sm-left d-flex flex-wrap flex-column justify-content-around align-items-center flex-sm-row socials-column">
+        <div class="col-12 mb-5 col-sm-10 offset-sm-1 col-md-4 offset-md-0 mb-md-0 col-xl-4 text-center text-sm-left d-flex flex-wrap flex-column justify-content-around align-items-center flex-sm-row socials-column">
           <div class="link-container linkedin-container">
               <a class="uppercase social-link linkedin" href="https://www.linkedin.com/company/click-arte-sas/" target="_blank" rel="noopener noreferrer">
                 <?php include ABSPATH . '/wp-content/uploads/linkedin-icon.svg';?>
@@ -53,14 +53,14 @@
             </a>
           </div>
         </div>
-        <div class="col-12 mb-3 offset-0 col-sm-10 offset-sm-1 col-md-3 offset-md-0 mb-md-0 col-xl-3 offset-xl-1 text-center text-sm-left d-flex flex-wrap flex-column justify-content-center align-items-center align-items-md-start contact-column">
+        <div class="col-12 mb-3 offset-0 col-sm-10 offset-sm-1 col-md-3 offset-md-0 mb-md-0 col-xl-3 text-center text-sm-left d-flex flex-wrap flex-column justify-content-center align-items-center align-items-md-end contact-column">
           <div class="mail mb-3">
             <div class="link-container">
               <a class="uppercase" href="mailto:info@clickarte.co">info@clickarte.co</a>
             </div>
           </div>
-          <div class="bottom-container d-flex flex-wrap flex-column flex-sm-row">
-            <div class="info-container phone">
+          <div class="bottom-container d-flex flex-wrap flex-column align-items-center align-items-md-end">
+            <div class="info-container phone mb-0 mb-md-2">
               <div class="link-container">
                 <a class="uppercase" href="tel:+573118068886">+57 311 806 8886</a>
               </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="info-container address">
               <div class="line-1 uppercase">
-                <?php _e('Carrera 16 # 85-15 OF 301','laaldea')?>
+                <?php _e('Carrera 16 # 85-15 Oficina 301','laaldea')?>
               </div>
               <div class="line-2 uppercase">
                 <?php _e('Bogotá D.C., Colombia','laaldea')?>

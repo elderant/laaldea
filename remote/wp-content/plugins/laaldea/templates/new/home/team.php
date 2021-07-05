@@ -79,12 +79,12 @@
                 </div>
               </div>
             </div>
-            <div class="team maria">
+            <div class="team maria sarah">
               <div class="team-content-container">
-                <img src="/wp-content/uploads/team-maria.png" alt="<?php _e('Sarah Samudio picture', 'laaldea');?>" />
+                <img src="/wp-content/uploads/team-sarah.png" alt="<?php _e('Sarah Samudio picture', 'laaldea');?>" />
                 <div class="mask">
                   <h5><?php _e('Sarah Samudio', 'laaldea');?></h5>
-                  <span class="job-title"><?php _e('La diseñadora', 'laaldea');?></span>
+                  <span class="job-title"><?php _e('La diseñadora detrás de los contenidos', 'laaldea');?></span>
                 </div>
               </div>
             </div>

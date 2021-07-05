@@ -82,12 +82,12 @@
     <div class="row intro-row mb-7">
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 intro-text">
         <p class="h5 font-sassoon mb-5">
-          <?php _e('La Aldea es una estrategia de educación multiplataforma que permite ' . 
-            'que niños hasta los 14 años puedan aprender sobre ellos mismos y sobre el mundo ' . 
-            'que los rodea. A través de un universo de personajes inspirado en nosotros mismos, ' . 
-            'de divertidas historias, que son metáforas de la vida real y de actividades, ' . 
-            'los niños juegan mientras fortalecen sus habilidades lecto-escritoras, matemáticas, ' . 
-            'científicas, artísticas y socioemocionales.', 'laaldea'); ?>
+          <?php _e('La Aldea es una estrategia de educación multiplataforma que permite que niños ' . 
+            'hasta los 14 años puedan aprender sobre sí mismos y sobre el mundo que los rodea. ' . 
+            'A través de un universo de personajes, inspirado en nosotros mismos; de divertidas ' . 
+            'historias, que son metáforas de la vida real, y de actividades, los niños juegan mientras ' . 
+            'fortalecen sus habilidades lecto-escritoras, matemáticas, científicas, artísticas y ' . 
+            'socioemocionales.', 'laaldea'); ?>
         </p>
       </div>
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 intro-text">
@@ -103,7 +103,7 @@
           <?php _e('La Aldea está diseñada para que, a medida que los niños ingresan a un mundo ' . 
             'de fantasía seguro, despierten su curiosidad innata. Es un lugar donde se plantean ' . 
             'esas preguntas fundamentales, universales, tradicionales y atemporales que todos nos ' . 
-            'hacemos más de una vez, cuando vamos aprendiendo a llevar una vida libre, consciente, ' . 
+            'hacemos más de una vez, mientras vamos aprendiendo a llevar una vida libre, consciente, ' . 
             'respetuosa y alegre.', 'laaldea'); ?>
         </p>
       </div>
@@ -149,7 +149,7 @@
       </div>
     </div>
     <div class="row awards-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-awards.svg';?>
           <h2 class="title-text color-orange h3"><?php _e('Premios', 'laaldea');?></span>
@@ -212,7 +212,7 @@
       </div>
     </div>
     <div class="row map-row mb-7 d-none">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-map.svg';?>
           <h2 class="title-text color-orange h3"><?php _e('¿Donde se implementa La Aldea?', 'laaldea');?></span>
@@ -223,7 +223,7 @@
       </div>
     </div>
     <div class="row allies-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-allies.svg';?>
           <h2 class="title-text color-orange h3"><?php _e('Socios y aliados', 'laaldea');?></span>
@@ -248,7 +248,7 @@
         </div>
       </div>
     </div>
-    <div class="row happens-row mb-7">
+    <div class="row happens-row mb-3">
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-5">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-happens.svg';?>
@@ -303,7 +303,7 @@
                 <p><?php _e('Aplican los estándares del Ministerio de Educación Nacional.','laaldea');?></p>
               </li>
               <li>
-                <p><?php _e('Hacen el aprendizaje transversal.','laaldea');?></p>
+                <p><?php _e('Impulsan el aprendizaje transversal.','laaldea');?></p>
               </li>
             </ul>
           </li>
@@ -316,7 +316,7 @@
                 <p><?php _e('Despliegan estrategias de educación a gran escala que impactan a docentes, niños y cuidadores.','laaldea');?></p>
               </li>
               <li>
-                <p><?php _e('Responden a emergencias migratorias, sanitarias y a desastres naturales a través de currículos flexibles y adaptados.','laaldea');?></p>
+                <p><?php _e('Responden a emergencias migratorias, sanitarias o desastres naturales a través de currículos flexibles y adaptados.','laaldea');?></p>
               </li>
             </ul>
           </li>
@@ -350,7 +350,7 @@
       </div>
     </div>
     <div class="row history-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-history.svg';?>
           <h2 class="title-text color-orange h3"><?php _e('Historia de La Aldea', 'laaldea');?></span>
@@ -367,7 +367,7 @@
       </div>
     </div>
     <div class="row media-row mb-7">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-media.svg';?>
           <h2 class="title-text color-orange h3"><?php _e('La Aldea en medios', 'laaldea');?></span>
@@ -376,7 +376,7 @@
       <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 section-quote h5 font-sassoon mb-7">
         <blockquote  class="quotation-text">
           <?php _e('“Usando los mismos recursos que implementó George Orwell en su obra ' . 
-            '“La rebelión en la granja”, “La Aldea” se vale de los animales para contar ' . 
+            '<em>La rebelión en la granja</em>, <em>La Aldea</em> se vale de los animales para contar ' . 
             'historias que den la oportunidad para pensar el país y sus desafíos. En síntesis, ' . 
             'es una metáfora de Colombia...”', 'laaldea');?>
         </blockquote >
@@ -396,31 +396,21 @@
       </div>
     </div>
     <div class="row click-row">
-      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-3">
+      <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-title mb-4">
         <div class="title-container position-relative">
           <?php include ABSPATH . '/wp-content/uploads/aldea-icons-intro-click.svg';?>
-          <h2 class="title-text color-orange h3"><?php _e('Click, agencia de pedagogía', 'laaldea');?></span>
+          <h2 class="title-text color-orange h3"><?php _e('¿Quién está detrás de La Aldea?', 'laaldea');?></span>
         </div>
       </div>
       <div class="col-12 offset-0 px-3 col-sm-10 offset-sm-1 px-sm-0 col-lg-6 offset-lg-3 section-intro">
-        <p><?php _e('Una agencia de pedagogía dedicada a imaginar nuevas formas de aprender ' . 
-          'e implementar proyectos de educación. A través del arte, el diseño y la pedagogía, ' . 
-          'nuestros productos y herramientas abren conversaciones para que niños y adultos puedan ' . 
-          'indagar sobre ellos mismos y reflexionar sobre el mundo que los rodea.', 'laaldea');?></p>
-        <p><?php _e('A través de nuestros libros, juegos y recursos digitales, hemos impactado a ' . 
-          'más de 50.000 estudiantes e inspirado a 700 docentes, en más de 200 instituciones ' . 
-          'educativas en México y Colombia.','laaldea');?></p>
-        <p><?php _e('Un universo como el de La Aldea sólo es posible gracias al trabajo en equipo. ' . 
-          'Detrás de las historias y sus personajes se encuentra un equipo de escritores, ' . 
-          'filósofos, ocentes, artistas, ilustradores, animadores, diagramadores y locutores.','laaldea');?></p>
-        <p><?php _e('La Aldea, sus historias y sus personajes nacieron al interior de Clickarte, ' . 
-          'una agencia de pedagogía dedicada a imaginar nuevas formas de aprender e implementar ' . 
-          'proyectos de educación. A través del arte, el diseño y la pedagogía, nuestros productos ' . 
-          'y herramientas abren conversaciones para que niños y adultos puedan indagar sobre ellos ' . 
-          'mismos y reflexionar sobre el mundo que los rodea.','laaldea');?></p>
-        <p><?php _e('A través de nuestros libros, programas de radio, juegos y recursos digitales, ' . 
-          'hemos impactado a más de 150.000 estudiantes e inspirado a 5000 docentes, en más de ' . 
-          '500 instituciones educativas en México y Colombia.','laaldea');?></p>
+        <p><?php _e('ClickArte es una agencia de pedagogía dedicada a imaginar nuevas formas de ' . 
+          'aprender e implementar proyectos de educación. A través del arte, el diseño y la ' . 
+          'pedagogía, nuestros productos y herramientas abren conversaciones para que niños y ' . 
+          'adultos puedan indagar sobre ellos mismos y reflexionar sobre el mundo que ' . 
+          'los rodea.', 'laaldea');?></p>
+        <p><?php _e('A través de nuestros libros, juegos y recursos digitales, hemos impactado ' . 
+          'a más de 150.000 estudiantes e inspirado a 5.000 docentes, en más de 500 ' . 
+          'instituciones educativas en México y Colombia.','laaldea');?></p>
         <a href="http://clickarte.co/" target="_blank" rel="noopener noreferrer external">www.clickarte.co</a>
       </div>
     </div>

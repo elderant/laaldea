@@ -14,6 +14,8 @@ get_header('fullwidth-new'); ?>
       <?php 
         $main_terms = laaldea_get_community_main_terms();
         $sub_terms = laaldea_get_community_sub_terms($main_terms);
+        $_post = get_post();
+        $sidebar_posts = laaldea_get_community_sidebar_posts($_post);
       ?>
 
       <div id="community" class="single">
@@ -55,18 +57,16 @@ get_header('fullwidth-new'); ?>
             </div>
           <div class="col-12 offset-0 px-5 pt-3 mt-3 order-2 col-sm-10 offset-sm-1 px-sm-3 col-md-3 offset-md-0 mt-md-0 pt-md-0 order-lg-2 col-xl1-2 offset-xl1-0 col-xl-2 d-flex d-md-block flex-wrap justify-content-center filters-column">
             <?php dynamic_sidebar( 'community-sidebar' ); ?>
-            <?php foreach($sub_terms as $term):?>
-              <a href="/comunidad/?term_id=<?php echo $term->term_id;?>" class="filter-button" data-termId="<?php echo $term -> term_id;?>">
-                <div class="topic-block position-relative mb-3<?php echo $term -> background_class;?>">
-                  <div class="filter-name font-titan h6">
-                    <?php echo $term -> name;?>
-                  </div>
-                  <div class="filter-description position-absolute block-content text-left">
-                    <?php echo $term -> description;?>
-                  </div>
-                </div>
-              </a>
-            <?php endforeach; ?> 
+            <?php if( $sidebar_posts -> have_posts() ) : ?>
+              <?php while ($sidebar_posts -> have_posts()) : ?>
+                <?php 
+                  $sidebar_posts -> the_post();
+                  $post_id = get_the_ID();
+                  laaldea_get_community_sidebar_single_html($post_id);
+                ?>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>

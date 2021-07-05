@@ -66,11 +66,12 @@ function wpb_child_enqueue_mobile_styles() {
   $page_id = get_the_ID();
   $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
   $is_home_new = in_array($page_id,$new_home_ids);
+  $post_type = get_post_type( $page_id );
 
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
   }
-  else if(!$is_home_new) {
+  else if(!$is_home_new && $post_type !== 'community_aldea') {
     wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
   }
   else {
