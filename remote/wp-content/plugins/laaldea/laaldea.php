@@ -11,17 +11,27 @@ add_action( 'wp_enqueue_scripts', 'laaldea_scripts' );
 
 function laaldea_scripts () {
   wp_enqueue_script ( 'laaldea-js', plugins_url('/js/script.js', __FILE__), array('jquery'),  rand(111,9999), 'all' );
-  wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
-  wp_enqueue_style ( 'laaldea-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
-  wp_enqueue_style ( 'laaldea-mobile-new',  plugins_url('/css/mobile-new.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
-
   wp_localize_script( 'laaldea-js', 'ajax_params', array('ajax_url' => admin_url( 'admin-ajax.php' )));
-
+  
+  $page_id = get_the_ID();
+  $post_type = get_post_type( $page_id );
+  $page_tempate = get_page_template_slug($page_id);
+  if(is_page_template('fullwidth-new.php') || $post_type == 'community_aldea') {
+    wp_enqueue_style ( 'laaldea',  plugins_url('/css/main.css', __FILE__), array(),  rand(111,9999), 'all' );
+    wp_enqueue_style ( 'laaldea-mobile-new',  plugins_url('/css/mobile-new.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
+  }
+  else {
+    wp_enqueue_style ( 'learning',  plugins_url('/css/learning.css', __FILE__), array(),  rand(111,9999), 'all' );
+    wp_enqueue_style ( 'laaldea-mobile',  plugins_url('/css/mobile.css', __FILE__), array('laaldea'),  rand(111,9999), 'all' );
+  }
+  
   if(is_page(35)) {
+    // queue form validation script
     wp_enqueue_script('jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js', array('jquery'), '1.10.0',	true);
   }
 
   if( is_page(1154) ) {
+    // queue select2 script
     wp_enqueue_script( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery') );
     wp_enqueue_style( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' );
   }
@@ -186,8 +196,8 @@ function laaldea_build_home_new_html ($lang) {
     'fields' => 'ids',
   );
   $recent_post = new WP_Query( $query_args );
-  $post_count = $recent_tools -> found_posts;
-  $max_num_pages = $recent_tools -> max_num_pages;
+  $post_count = $recent_post -> found_posts;
+  $max_num_pages = $recent_post -> max_num_pages;
 
   $wp_query -> query_vars['laaldea_args']['recent_post'] = $recent_post;
 
@@ -1004,7 +1014,7 @@ function laaldea_build_community_html () {
   foreach($key_array as $key) {
     array_push($terms, $main_terms[$key] -> term_id);
   }
-  error_log('terms : ' . print_r($terms,1));
+  //error_log('terms : ' . print_r($terms,1));
   //$terms = array($main_terms[0] -> term_id, $main_terms[1] -> term_id);
 
   $query_args  = array(

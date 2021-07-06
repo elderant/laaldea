@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="row content-row mb-5">
+    <div class="row content-row">
       <div class="col-12 offset-0 px-5 order-1 col-sm-10 offset-sm-1 px-sm-3 col-md-9 offset-md-0 order-lg-1 col-xl1-8 offset-xl1-1 col-xl-8 offset-xl-1 content-column">
         <div class="posts-container">
           <?php if( $recent_posts -> have_posts() ) : ?>

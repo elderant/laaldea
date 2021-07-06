@@ -407,37 +407,23 @@ html::-webkit-scrollbar-button {
 
 /******************** Home ********************/
 /* page-template-fullwidth-new - general */
-.page-template-fullwidth-new #content.site-content {
-	padding: 0;
-  padding-bottom: 3rem;
-}
-
-.page-template-fullwidth-new #content.site-content {
+#page.main #content.site-content {
   min-height: calc(100vh - 40px - 166px);
-}
-
-.page-template-fullwidth-new.stories #content.site-content {
 	padding: 0;
 }
 
-.page-template-fullwidth-new.home-new #content.site-content,
-.single-community_aldea #content.site-content {
-  padding: 0;
-}
-
-.page-template-fullwidth-new .site-content #primary,
-.single-community_aldea .site-content #primary {
+#page.main .site-content #primary {
 	padding: 0;
 }
 
-.page-template-fullwidth-new .site-content .page  {
+#page.main .site-content .page  {
   overflow: hidden;
 } 
 
-.page-template-fullwidth-new #primary header.entry-header {
+#page.main #primary header.entry-header {
 	display: none;
 }
 
-.page-template-fullwidth-new #primary .entry-content {
+#page.main #primary .entry-content {
 	margin: 0;
 }

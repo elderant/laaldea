@@ -25,29 +25,17 @@ function wpb_child_enqueue_styles() {
 
 		// wp_enqueue_script('wpb-child-home-googlemaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array('jquery'), false, true );
   }
-  
-  if(is_page(312)) {
-    wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
-    wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
-  }  
 } 
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles_main', 95 );
 function wpb_child_enqueue_styles_main() {
   $page_id = get_the_ID();
-  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
-  $is_home_new = in_array($page_id,$new_home_ids);
-  $page_id = get_the_ID();
   $post_type = get_post_type( $page_id );
+  $page_tempate = get_page_template_slug($page_id);
 
-
-  if(!$is_home_new && $post_type !== 'community_aldea') {
-    wp_enqueue_style('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/css/main.css', array(), false );
-  }
-  else {
+  if(is_page_template('fullwidth-new.php') || $post_type == 'community_aldea') {
     wp_enqueue_style('wpb-child-main-new', get_stylesheet_directory_uri() . '/inc/assets/css/main-new.css', array(), false );
 
-    //wp_enqueue_script('wpb-child-skrollr', get_stylesheet_directory_uri() . '/inc/assets/js/vendor/skrollr.min.js', array('jquery'), false, true );
     wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
     wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
     
@@ -56,7 +44,15 @@ function wpb_child_enqueue_styles_main() {
       wp_enqueue_script('wpb-child-tweenMax', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-ScrollMagic', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-gsap', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js', array('jquery'), false, true );
-      wp_enqueue_script('wpb-child-indicators', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js', array('jquery'), false, true );
+      //wp_enqueue_script('wpb-child-indicators', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js', array('jquery'), false, true );
+    }
+  }
+  else {
+    wp_enqueue_style('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/css/main.css', array(), false );
+
+    if(is_page(312)) {
+      wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
+      wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
     }
   }
 }
@@ -64,18 +60,17 @@ function wpb_child_enqueue_styles_main() {
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_mobile_styles', 99 );
 function wpb_child_enqueue_mobile_styles() {
   $page_id = get_the_ID();
-  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
-  $is_home_new = in_array($page_id,$new_home_ids);
   $post_type = get_post_type( $page_id );
+  $page_tempate = get_page_template_slug($page_id);
 
 	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
 		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
   }
-  else if(!$is_home_new && $post_type !== 'community_aldea') {
-    wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
+  else if(is_page_template('fullwidth-new.php') || $post_type == 'community_aldea') {
+    wp_enqueue_style('wpb-child-mobile-new', get_stylesheet_directory_uri() . '/inc/assets/css/mobile-new.css', array(), false );
   }
   else {
-    wp_enqueue_style('wpb-child-mobile-new', get_stylesheet_directory_uri() . '/inc/assets/css/mobile-new.css', array(), false );
+    wp_enqueue_style('wpb-child-learning-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/learning-mobile.css', array(), false );
   }  
 }
 

@@ -204,6 +204,7 @@ function onYouTubeIframeAPIReady() {
     let postId = $button.attr('data-postId');
 
     let urlVars = getUrlVars();
+    let tagId = '';
     if(urlVars.indexOf('tagId') != -1) {
       tagId = parseInt(urlVars['tagId']);
     }

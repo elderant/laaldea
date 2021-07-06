@@ -55,7 +55,7 @@
         </div>
         <div class="contact-info address d-flex flex-column flex-sm-row align-items-center px-sm-2 px-3 mb-3">
           <i class="fas fa-map-marker-alt"></i>
-          <a href="https://www.google.com/maps/place/of+301,+Cra.+16+%2385-15,+Bogot%C3%A1/@4.6704727,-74.0559146,18.25z/data=!4m5!3m4!1s0x8e3f9af49c9e0767:0xd80c3433e54cfcfa!8m2!3d4.6706429!4d-74.0559026" target="_blank" class="info" rel="external noopener"><?php _e('Carrera 16 # 85-15 of 301, Bogotá D.C., Colombia', 'laaldea');?></a>
+          <a href="https://www.google.com/maps/place/of+301,+Cra.+16+%2385-15,+Bogot%C3%A1/@4.6704727,-74.0559146,18.25z/data=!4m5!3m4!1s0x8e3f9af49c9e0767:0xd80c3433e54cfcfa!8m2!3d4.6706429!4d-74.0559026" target="_blank" class="info" rel="external noopener"><?php _e('Carrera 16 # 85-15 oficina 301, Bogotá D.C., Colombia', 'laaldea');?></a>
         </div>
       </div>
     </div>
