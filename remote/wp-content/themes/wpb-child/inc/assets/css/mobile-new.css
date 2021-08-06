@@ -25,18 +25,38 @@
 
 /* -- MOBILE MENU -- */
 @media screen and (max-width: 1199px) {
+  header#masthead .navbar {padding: 0 0 0.5rem;background-color: transparent;}
+  
+  header#masthead .navbar .navbar-brand {
+    width: 100%; 
+    padding: 0.5rem 0;
+    background-color: var(--green);
+    text-align: center;
+  }
+
   header#masthead .navbar-toggler {
     z-index: 1030;
     position: fixed;
     border: none;
   }
+  
+  header#masthead .navbar #main-nav {width: 30vw;}
 
-  header#masthead .navbar ul#menu-main-new li {
-    padding: 2rem 0 0;
+  header#masthead .navbar ul.main-navbar {
+    margin: 0 auto;
+    background-color: var(--green);
   }
 
-  header#masthead .navbar ul#menu-main-new ul.dropdown-menu li {
+  header#masthead .navbar ul.main-navbar li {
+    padding: 1rem 0;
+  }
+
+  header#masthead .navbar ul.main-navbar ul.dropdown-menu li {
     padding: 1rem 0 0 1rem;
+  }
+
+  #page.main.fullwith header#masthead .navbar ul.main-navbar li.lang-item {
+    display: list-item;
   }
 
   header#masthead .navbar-toggler {
@@ -126,6 +146,7 @@
 
   header#masthead{height: calc(1.1rem*1.2 + 0.5rem*2);}
   header#masthead .navbar-toggler {height: calc(1.1rem*1.2 + 0.5rem*2);}
+  header#masthead .navbar #main-nav {width: 80vw;}
 
   footer#colophon .socials-column .link-container {width: auto;}
 }
@@ -142,6 +163,7 @@
 
   header#masthead{height: calc(1.1rem*1.2 + 0.5rem*2);}
   header#masthead .navbar-toggler {height: calc(1.1rem*1.2 + 0.5rem*2);}
+  header#masthead .navbar #main-nav {width: 60vw;}
 
   footer#colophon .socials-column .link-container {width: auto;}
 }
@@ -172,6 +194,7 @@
 
   header#masthead{height: calc(1.1rem*1.2 + 0.5rem*2);}
   header#masthead .navbar-toggler {height: calc(1.1rem*1.2 + 0.5rem*2);}
+  header#masthead .navbar #main-nav {width: 40vw;}
 }
 
 /*-- 5. STYLES FOR DESKTOP DEVICES - media screen min width: 769px / max width: 991px --*/

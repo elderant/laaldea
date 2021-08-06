@@ -18,6 +18,18 @@
 .pr-7, .px-7 {padding-right: 5rem !important;}
 .p-7 {padding: 5rem !important;}
 
+.mt-6, .my-6 {margin-top: 4rem !important;}
+.mb-6, .my-6 {margin-bottom: 4rem !important;}
+.ml-6, .mx-6 {margin-left: 4rem !important;}
+.mr-6, .mx-6 {margin-right: 4rem !important;}
+.m-6 {margin: 4rem !important;}
+
+.pt-6, .py-6 {padding-top: 4rem !important;}
+.pb-6, .py-6 {padding-bottom: 4rem !important;}
+.pl-6, .px-6 {padding-left: 4rem !important;}
+.pr-6, .px-6 {padding-right: 4rem !important;}
+.p-6 {padding: 4rem !important;}
+
 @media screen and (min-width: 1200px) and (max-width: 1365px) {
   .col-xl1 {
     -ms-flex-preferred-size: 0;

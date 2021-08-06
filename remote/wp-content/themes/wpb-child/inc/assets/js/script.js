@@ -167,10 +167,10 @@
       if($('body.home-new').length > 0) {
         "use strict";
 
-        $('a[href*="https://laaldea.co/home-new/#"]').on('click', function(e) {
+        $('a[href*="https://laaldea.co/#"]').on('click', function(e) {
           e.preventDefault();
           var target = $(this).attr("href");
-          var id = target.substring("https://laaldea.co/home-new/".length);
+          var id = target.substring("https://laaldea.co/".length);
           
           history.pushState({}, '', id);
           $('html, body').stop().animate({ scrollTop: $(id).offset().top - 100}, 2000, function() {});
@@ -179,7 +179,7 @@
         });
       }
       else {
-        $('a[href*="https://laaldea.co/home-new/#"]').on('click', function(e) {
+        $('a[href*="https://laaldea.co/#"]').on('click', function(e) {
           e.preventDefault();
           var target = $(this).attr("href");
           window.location = target;

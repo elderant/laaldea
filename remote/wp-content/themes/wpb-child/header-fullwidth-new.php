@@ -50,36 +50,66 @@
             <span class="navbar-icon-custom bottom"></span>
           </button>
           <nav class="navbar fixed-top navbar-expand-xl d-flex flex-row align-items-center justify-content-around">
-            <a class="navbar-brand font-titan h6 line-height-12 color-white" href="/"><?php _e('La Aldea &reg;','wpb_child')?></a>
+            <a class="navbar-brand font-titan h6 line-height-12 color-white" href="<?php echo get_home_url();?>"><?php _e('La Aldea &reg;','wpb_child')?></a>
             
             <?php
-              wp_nav_menu(array(
-              'theme_location'    => 'primary-new',
-              'container'       => 'div',
-              'container_id'    => 'main-nav',
-              'container_class' => 'justify-content-center collapse navbar-collapse',
-              'menu_id'         => false,
-              'menu_class'      => 'navbar-nav',
-              'depth'           => 3,
-              'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-              'walker'          => new WP_Bootstrap_Navwalker()
-              ));
+              if(is_page(1103) || is_page(1466)) {
+                wp_nav_menu(array(
+                  'theme_location'    => 'primary-new-home',
+                  'container'       => 'div',
+                  'container_id'    => 'main-nav',
+                  'container_class' => 'justify-content-center collapse navbar-collapse',
+                  'menu_id'         => false,
+                  'menu_class'      => 'navbar-nav main-navbar',
+                  'depth'           => 3,
+                  'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                  'walker'          => new WP_Bootstrap_Navwalker()
+                  ));
+              }
+              else {
+                wp_nav_menu(array(
+                'theme_location'    => 'primary-new',
+                'container'       => 'div',
+                'container_id'    => 'main-nav',
+                'container_class' => 'justify-content-center collapse navbar-collapse',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav main-navbar',
+                'depth'           => 3,
+                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker()
+                ));
+              }
             ?>
+
             
             <?php
-              wp_nav_menu(array(
-              'theme_location'    => 'new-shop',
-              'container'       => 'div',
-              'container_id'    => 'shop-nav',
-              'container_class' => 'justify-content-center collapse navbar-collapse',
-              'menu_id'         => false,
-              'menu_class'      => 'navbar-nav',
-              'depth'           => 3,
-              'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
-              'walker'          => new WP_Bootstrap_Navwalker()
-              ));
+              if(is_page(1103) || is_page(1466)) {
+                wp_nav_menu(array(
+                'theme_location'    => 'new-shop-home',
+                'container'       => 'div',
+                'container_id'    => 'shop-nav',
+                'container_class' => 'justify-content-center collapse navbar-collapse',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav main-navbar shop-navbar',
+                'depth'           => 3,
+                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker()
+                ));
+              }
+              else {
+                wp_nav_menu(array(
+                'theme_location'    => 'new-shop',
+                'container'       => 'div',
+                'container_id'    => 'shop-nav',
+                'container_class' => 'justify-content-center collapse navbar-collapse',
+                'menu_id'         => false,
+                'menu_class'      => 'navbar-nav main-navbar shop-navbar',
+                'depth'           => 3,
+                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker()
+                ));
+              }
             ?>
-            
             <!-- <div class="h6 color-white"><i class="fas fa-user"></i></div> -->
           </nav>
         </div>

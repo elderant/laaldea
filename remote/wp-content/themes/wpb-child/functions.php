@@ -3,28 +3,6 @@ add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles' );
 function wpb_child_enqueue_styles() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script('wpb-child-main', get_stylesheet_directory_uri() . '/inc/assets/js/script.js', array(), '', true );
-
-	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
-		wp_enqueue_style('wpb-child-home-style', get_stylesheet_directory_uri() . '/inc/assets/css/home/style.css', array(), false );
-		wp_enqueue_style('wpb-child-home-animate', get_stylesheet_directory_uri() . '/inc/assets/css/home/animate.css', array(), false );
-		wp_enqueue_style('wpb-child-home-hover', get_stylesheet_directory_uri() . '/inc/assets/css/home/hover.css', array(), false );
-		wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
-		wp_enqueue_script('wpb-child-modernizr', get_stylesheet_directory_uri() . '/inc/assets/js/home/modernizr.js', array(), false );
-
-		wp_enqueue_script('wpb-child-home-classie', get_stylesheet_directory_uri() . '/inc/assets/js/home/classie.js', array('jquery'), false, true );
-		wp_enqueue_script('wpb-child-home-borderMenu', get_stylesheet_directory_uri() . '/inc/assets/js/home/borderMenu.js', array('wpb-child-home-classie'), false, true );
-		//wp_enqueue_script('wpb-child-home-sequence', get_stylesheet_directory_uri() . '/inc/assets/js/home/jquery.sequence.js', array('wpb-child-home-classie'), false, true );
-		wp_enqueue_script('wpb-child-home-sequence', get_stylesheet_directory_uri() . '/inc/assets/js/home/sequence.min.js', array('wpb-child-home-borderMenu'), false, true );
-		//wp_enqueue_script('wpb-child-home-jsor', get_stylesheet_directory_uri() . '/inc/assets/js/home/jssor.slider.min.js', array('jquery'), false, true );
-		wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
-		wp_enqueue_script('wpb-child-home-hovers', get_stylesheet_directory_uri() . '/inc/assets/js/home/hovers.js', array('wpb-child-home-sequence'), false, true );
-		wp_enqueue_script('wpb-child-home-snap', get_stylesheet_directory_uri() . '/inc/assets/js/home/snap.svg-min.js', array('wpb-child-home-hovers'), false, true );
-		wp_enqueue_script('wpb-child-home-main', get_stylesheet_directory_uri() . '/inc/assets/js/home/main.js', array('wpb-child-home-snap'), false, true );
-		wp_enqueue_script('wpb-child-home-toucheffects', get_stylesheet_directory_uri() . '/inc/assets/js/home/toucheffects.js', array('wpb-child-home-main'), false, true );
-		wp_enqueue_script('wpb-child-home-inine', get_stylesheet_directory_uri() . '/inc/assets/js/home/inline.js', array('wpb-child-home-toucheffects'), false, true );
-
-		// wp_enqueue_script('wpb-child-home-googlemaps', 'https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array('jquery'), false, true );
-  }
 } 
 
 add_action( 'wp_enqueue_scripts', 'wpb_child_enqueue_styles_main', 95 );
@@ -39,7 +17,7 @@ function wpb_child_enqueue_styles_main() {
     wp_enqueue_style('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/css/home/slick.css', array(), false );
     wp_enqueue_script('wpb-child-home-slick', get_stylesheet_directory_uri() . '/inc/assets/js/home/slick.min.js', array('jquery'), false, true );
     
-    if(is_page(1103) || is_page(1186)){
+    if(is_page(1103) || is_page(1186) || is_page(1466) || is_page(1561)){
       wp_enqueue_script('wpb-child-rellax', 'https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-tweenMax', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js', array('jquery'), false, true );
       wp_enqueue_script('wpb-child-ScrollMagic', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array('jquery'), false, true );
@@ -63,10 +41,7 @@ function wpb_child_enqueue_mobile_styles() {
   $post_type = get_post_type( $page_id );
   $page_tempate = get_page_template_slug($page_id);
 
-	if(is_home() || is_front_page() || is_page(304) || is_page(308)) {
-		wp_enqueue_style('wpb-child-home-mobile', get_stylesheet_directory_uri() . '/inc/assets/css/home/mobile.css', array(), false );
-  }
-  else if(is_page_template('fullwidth-new.php') || $post_type == 'community_aldea') {
+  if(is_page_template('fullwidth-new.php') || $post_type == 'community_aldea') {
     wp_enqueue_style('wpb-child-mobile-new', get_stylesheet_directory_uri() . '/inc/assets/css/mobile-new.css', array(), false );
   }
   else {
@@ -122,24 +97,29 @@ function laaldea_add_slug_body_class( $classes ) {
 //add_filter( 'body_class', 'laaldea_add_slug_body_class' );
 
 //redirect user to login 
+/* TODO check if it can be written better, without the ids. */
 function wpb_child_admin_redirect() {
   global $wp_query;
   $page_id = get_the_ID();
   $post_type = get_post_type( $page_id );
-  $home_ids = array(2,259,304,308, 58);
+  //$home_ids = array(2,259,304,308);
   $user_ids = array(332, 544, 328, 547, 550, 553, 330, 331);
-  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303);
+  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303, 58, 294, 1466, 1549, 1555, 1559, 1561, 1543 );
 
-  $is_home = in_array($page_id,$home_ids);
+  //$is_home = in_array($page_id,$home_ids);
   $is_user_flow = in_array($page_id,$user_ids);
   $is_home_new = in_array($page_id,$new_home_ids);
+
+  // $page_id = get_the_ID();
+  // $post_type = get_post_type( $page_id );
+  // $page_tempate = get_page_template_slug($page_id);
 
   if(is_user_logged_in()) {
     return;
   }
-  if($is_home) {
-    return;
-  }
+  // if($is_home) {
+  //   return;
+  // }
   if($is_user_flow) {
     return;
   }
@@ -159,8 +139,10 @@ add_action('get_header', 'wpb_child_admin_redirect');
 
 function laaldea_register_secondary_menu() {
   register_nav_menu('primary-new', __( 'Primary menu new', 'wpb-child' ));
+  register_nav_menu('primary-new-home', __( 'Primary menu new for home', 'wpb-child' ));
 
   register_nav_menu('new-shop', __( 'New site Shop menu', 'wpb-child' ));
+  register_nav_menu('new-shop-home', __( 'New site Shop menu for home', 'wpb-child' ));
 
   register_nav_menu('secondary-menu', __( 'Secondary menu', 'wpb-child' ));
   register_nav_menu('learning-menu', __( 'E-Learning menu', 'wpb-child' ));

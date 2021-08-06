@@ -216,11 +216,16 @@
 @media screen and (max-width: 768px) {
   html.overflow-hidden-custom {overflow: auto;}
 
+  /* Stories */
+  .modal-root .modal-dialog iframe.type-libro{width: 100vw;}
+
   /* Radio */
   #radio .header-row .main-background{min-height: 300px;object-fit: cover;}
   #radio .main-row .title-container {margin-bottom:3rem;}
   #radio .main-row .title-container .title-first-part {font-size:3.5rem;}
   #radio .main-row .title-container .title-second-part {font-size:4.5rem;}
+  #radio .ally-icon {height: calc(20px * 2.4);}
+  #radio .ally-icon.lego {height: calc(7px * 2.4);}
 
   /* Community */
   #community .header-row .main-background{min-height: 300px;object-fit: cover;}
@@ -342,6 +347,7 @@
 	.home-section#home-team .team-carousel .team.diana img {width: 168px;}
 	.home-section#home-team .team-carousel .team.gabriel img {width: 168px;}
 	.home-section#home-team .team-carousel .team.laura img {width: 160px;}
+  .home-section#home-team .team-carousel .team.dan img {width: 160px;}
 	.home-section#home-team .team-carousel .team.maria img {width: 159px;}
 
   .home-section#home-team .team-carousel .team {padding: 58px 0;}
@@ -351,6 +357,7 @@
   .home-section#home-team .team-carousel .team.gabriel,
   .home-section#home-team .team-carousel .team.lina,
   .home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
   .home-section#home-team .team-carousel .team.diana {padding-top: 2px;}
   .home-section#home-team .team-carousel .team.maria {padding-top: 41px;}
 
@@ -366,6 +373,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 56px;left: 64px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 65px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 56px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 56px;}
   .home-section#home-team .team-carousel .team.maria .mask {top: 16px;left: 56px;}
 
   /* stories */
@@ -390,10 +398,6 @@
 
   /* radio */
   #radio .header-row h1.title{font-size: 1.6rem;}
-  #radio .header-row .allies-icons-container{width: 175px;margin-bottom: 1rem;}
-  #radio .header-row .ally-icon {height: 45px;margin: 0.25rem 0.5rem;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 14px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 30px;}
   #radio .header-row .subtitle{font-size: 0.58em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 100%;}
@@ -487,6 +491,7 @@
 	.home-section#home-team .team-carousel .team.diana img {width: 243px;}
 	.home-section#home-team .team-carousel .team.gabriel img {width: 243px;}
 	.home-section#home-team .team-carousel .team.laura img {width: 231px;}
+  .home-section#home-team .team-carousel .team.dan img {width: 231px;}
 	.home-section#home-team .team-carousel .team.maria img {width: 230px;}
 
 	.home-section#home-team .team-carousel .team {padding: 84px 0;}
@@ -496,6 +501,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -509,6 +515,7 @@
 	.home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
 	.home-section#home-team .team-carousel .team.gabriel .mask {left: 93px;}
 	.home-section#home-team .team-carousel .team.laura .mask {left: 80px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 80px;}
 	.home-section#home-team .team-carousel .team.maria .mask {top: 24px;left: 80px;}
 
   /* stories */
@@ -533,10 +540,6 @@
 
   /* Radio */
   #radio .header-row h1.title{font-size: 1.6rem;}
-  #radio .header-row .allies-icons-container{width: 175px;margin-bottom: 1rem;}
-  #radio .header-row .ally-icon {height: 45px;margin: 0.25rem 0.5rem;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 14px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 30px;}
   #radio .header-row .subtitle{font-size: 0.65em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 90%;}
@@ -629,10 +632,6 @@
 
   /* radio */
   #radio .header-row h1.title{font-size: 2rem;}
-  #radio .header-row .allies-icons-container{width: 305px;margin-bottom: 1rem;}
-  #radio .header-row .ally-icon {height: 45px;margin: 0.25rem 0.5rem;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 14px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 30px;}
   #radio .header-row .subtitle{font-size: 0.65em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 80%;}
@@ -707,10 +706,6 @@
 
   /* radio */
   #radio .header-row h1.title{font-size: 2rem;}
-  #radio .header-row .allies-icons-container{width: 305px;margin-bottom: 1rem;}
-  #radio .header-row .ally-icon {height: 45px;margin: 0.25rem 0.5rem;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 14px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 30px;}
   #radio .header-row .subtitle{font-size: 0.65em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 80%;}
@@ -782,6 +777,7 @@
 	#home-team .team-carousel .team.diana img {width: 243px;}
 	#home-team .team-carousel .team.gabriel img {width: 243px;}
 	#home-team .team-carousel .team.laura img {width: 231px;}
+  #home-team .team-carousel .team.dan img {width: 231px;}
 	#home-team .team-carousel .team.maria img {width: 230px;}
 
   .home-section#home-team .team-carousel .team {
@@ -794,6 +790,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -813,6 +810,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 81px;}
   .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
 
   .home-section#home-team .team-carousel .team h5 {
@@ -821,10 +819,6 @@
 
   /* radio */
   #radio .header-row h1.title{font-size: 3rem;}
-  #radio .header-row .allies-icons-container{width: 446px;margin-bottom: 1rem;}
-  #radio .header-row .ally-icon {height: 45px;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 14px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 30px;}
   #radio .header-row .subtitle{font-size: 0.8em;}
   #radio .featured-row iframe {height: 350px;}
   #radio .main-row .carousel-container .slick-slide img{width: 100%;}
@@ -885,6 +879,7 @@
 	#home-team .team-carousel .team.diana img {width: 243px;}
 	#home-team .team-carousel .team.gabriel img {width: 243px;}
 	#home-team .team-carousel .team.laura img {width: 231px;}
+  #home-team .team-carousel .team.dan img {width: 231px;}
 	#home-team .team-carousel .team.maria img {width: 230px;}
 
   .home-section#home-team .team-carousel .team {
@@ -897,6 +892,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -916,6 +912,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 81px;}
   .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
 
   .home-section#home-team .team-carousel .team h5 {padding: 0.3em 0em;}
@@ -946,11 +943,7 @@
 
   /* radio */
   #radio .header-row h1.title{font-size: 4rem;}
-  #radio .header-row .allies-icons-container{width: 592px;margin-bottom: 2rem;}
-  #radio .header-row .ally-icon {height: 60px;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 21px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 45px;}
-  #radio .main-row .carousel-container .slick-slide img{width: 90%;}
+  #radio .main-row .carousel-container .slick-slide img {width: 90%;}
 
   #radio .main-row .title-container {margin-bottom:2rem;}
   #radio .main-row .title-container .title-first-part {font-size:2.7rem;}
@@ -967,6 +960,7 @@
   #aldea .section-title svg {height: 60px;}
   #aldea .allies-row .allies-carousel {max-width: 90%;}
   #aldea .allies-row .slide-container {width: calc((83.333333vw - 30px)*0.9*0.25);}
+  #aldea .happens-row .content-container p{font-size: 0.5em;}
 
   /* Contacto */
   #contact .contact-row a {font-size: 0.8em;}
@@ -991,6 +985,7 @@
 	#home-team .team-carousel .team.diana img {width: 243px;}
 	#home-team .team-carousel .team.gabriel img {width: 243px;}
 	#home-team .team-carousel .team.laura img {width: 231px;}
+  #home-team .team-carousel .team.dan img {width: 231px;}
 	#home-team .team-carousel .team.maria img {width: 230px;}
 
   .home-section#home-team .team-carousel .team {padding: 84px 0;font-size: 0.8em;}
@@ -1000,6 +995,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -1013,6 +1009,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 81px;}
   .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
 
   .home-section#home-team .team-carousel .team h5 {padding: 0.3em 0em;}
@@ -1046,10 +1043,6 @@
   #stories.video {background-size: 150px auto;}
 
   /* radio */
-  #radio .header-row .ally-icon {height: 75px;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
-
   #radio .main-row .title-container {margin-bottom:3rem;}
   #radio .main-row .title-container .title-first-part {font-size:3.5rem;}
   #radio .main-row .title-container .title-second-part {font-size:4.5rem;}
@@ -1082,6 +1075,7 @@
 	#home-team .team-carousel .team.diana img {width: 243px;}
 	#home-team .team-carousel .team.gabriel img {width: 243px;}
 	#home-team .team-carousel .team.laura img {width: 231px;}
+  #home-team .team-carousel .team.dan img {width: 231px;}
 	#home-team .team-carousel .team.maria img {width: 230px;}
 
   .home-section#home-team .team-carousel .team {
@@ -1094,6 +1088,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -1113,6 +1108,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 81px;}
   .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
 
   .home-section#home-team .team-carousel .team h5 {
@@ -1146,12 +1142,6 @@
 
   #stories.libro {background-size: 200px auto;}
   #stories.video {background-size: 150px auto;}
-
-  /* radio */
-  #radio .header-row .ally-icon {height: 75px;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
-
   
   #radio .main-row .title-container {margin-bottom:3rem;}
 
@@ -1181,6 +1171,7 @@
 	#home-team .team-carousel .team.diana img {width: 243px;}
 	#home-team .team-carousel .team.gabriel img {width: 243px;}
 	#home-team .team-carousel .team.laura img {width: 231px;}
+  #home-team .team-carousel .team.dan img {width: 231px;}
 	#home-team .team-carousel .team.maria img {width: 230px;}
 
   .home-section#home-team .team-carousel .team {
@@ -1193,6 +1184,7 @@
 	.home-section#home-team .team-carousel .team.gabriel,
 	.home-section#home-team .team-carousel .team.lina,
 	.home-section#home-team .team-carousel .team.laura {padding-bottom: 0;}
+  .home-section#home-team .team-carousel .team.dan {padding-bottom: 0;}
 	.home-section#home-team .team-carousel .team.diana {padding-top: 4px;}
 	.home-section#home-team .team-carousel .team.maria {padding-top: 60px;}
 
@@ -1212,6 +1204,7 @@
   .home-section#home-team .team-carousel .team.diana .mask {top: 80px;left: 93px;}
   .home-section#home-team .team-carousel .team.gabriel .mask {left: 94px;}
   .home-section#home-team .team-carousel .team.laura .mask {left: 81px;}
+  .home-section#home-team .team-carousel .team.dan .mask {left: 81px;}
   .home-section#home-team .team-carousel .team.maria .mask {top:23px;left: 80px;}
 
   .home-section#home-team .team-carousel .team h5 {
@@ -1240,11 +1233,6 @@
 
   #stories.libro {background-size: 225px auto;}
   #stories.video {background-size: 175px auto;}
-
-  /* radio */
-  #radio .header-row .ally-icon {height: 75px;}
-  #radio .header-row .vertical-inner-container .ally-icon.lego {height: 23px;}
-  #radio .header-row .vertical-inner-container .ally-icon.aldea {height: 50px;}
 
   /* community */
   #community .content-row .filters-column .topic-block{height: 225px;}
@@ -1300,9 +1288,6 @@
   #stories .header-row .char.ernest:hover {transform: scale(1.2);}
   #stories .header-row .char.moorhen:hover {transform: scale(1.2);}
   #stories .header-row .char.carol:hover {transform: scale(1.2);}
-
-  /* radio */
-  #radio .header-row .allies-icons-container {width: 945px;}
 }
 
 /*-- 12. STYLES FOR MOBILE DEVICES - media screen min width: 1920px --*/
@@ -1314,8 +1299,5 @@
   .home-section#home-radio .content-container {width: 40%}
   .home-section#home-community .content-container {width: 40%}
   .home-section#home-aldea .content-container {width: 40%}
-
-  /* radio */
-  #radio .header-row .allies-icons-container {width: 945px;}
 }
 

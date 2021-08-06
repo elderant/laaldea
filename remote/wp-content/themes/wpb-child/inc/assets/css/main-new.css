@@ -252,18 +252,17 @@ header#masthead .navbar-brand {
   color: var(--white);
 }
 
-header#masthead .navbar ul#menu-main-new {
+header#masthead .navbar ul.main-navbar {
   width: inherit;
   justify-content: space-around;
   align-items: center;
 }
 
-header#masthead .navbar ul#menu-main-new li {
+header#masthead .navbar ul.main-navbar li {
   position: relative;
 }
 
-header#masthead .navbar ul#menu-main-new li a,
-header#masthead .navbar ul#menu-new-shop-menu li a {
+#page.main.fullwith header#masthead .navbar ul.main-navbar li a {
   padding: 0rem 2rem;
   color: var(--white);
   font-size: 1rem;
@@ -271,29 +270,35 @@ header#masthead .navbar ul#menu-new-shop-menu li a {
   font-weight: 500;
 }
 
-header#masthead .navbar ul#menu-new-shop-menu li a {
-  /* color: var(--yellow); */
+#page.main.fullwith header#masthead .navbar ul.main-navbar.shop-navbar li.lang-item a {
+  padding: 0 1rem;
+}
+
+#page.main.fullwith header#masthead .navbar ul.main-navbar li a:hover {
+  color: var(--green-light);
+}
+
+#page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a,
+#page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a {
+  color: var(--green-light);
+}
+
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a,
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a {
   color: var(--white);
 }
 
-header#masthead .navbar ul#menu-main-new li a:hover,
-header#masthead .navbar ul#menu-new-shop-menu li a:hover {
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a:hover,
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a:hover {
   color: var(--green-light);
 }
 
-header#masthead .navbar ul#menu-main-new li.current-menu-parent a {
-  color: var(--green-light);
-}
-
-header#masthead .navbar ul#menu-new-shop-menu li a:hover {
-  /* color: var(--orange); */
-  color: var(--green-light);
-}
-
-header#masthead .navbar ul#menu-main-new li a.disabled,
-header#masthead .navbar ul#menu-new-shop-menu li a.disabled {
+#page.main.fullwith header#masthead .navbar ul.main-navbar li a.disabled {
   color: var(--green-dark);
 }
+
+#page.main.fullwith header#masthead .navbar ul.main-navbar li.lang-item {display: none;}
+#page.main.fullwith header#masthead .navbar ul.main-navbar.shop-navbar li.lang-item {display: list-item;}
 
 /* shared : header : dropdown menu */
 header#masthead ul#menu-main-new li.dropdown:hover .dropdown-menu,
@@ -426,4 +431,81 @@ html::-webkit-scrollbar-button {
 
 #page.main #primary .entry-content {
 	margin: 0;
+}
+
+/**** Politica de privaciad ****/
+body.page-politica-privacidad #content,
+body.page-politica-privacidad #content h1,
+body.page-politica-privacidad #content h2,
+body.page-politica-privacidad #content h3,
+body.page-politica-privacidad #content h4,
+body.page-politica-privacidad #content h5 {
+	color: var(--gray);
+	font-family: 'sassoon';
+}
+
+body.page-politica-privacidad #content,
+body.page-politica-privacidad #content p {
+	font-size: 14px;
+}
+
+body.page-politica-privacidad #content h1 {
+	font-size: 2em;
+}
+
+body.page-politica-privacidad #content h2 {
+	text-align: left;
+	font-size: 1.2em;
+	margin: 1.5em 0 1em;
+}
+
+body.page-politica-privacidad #content p {
+	margin-bottom: 0.5em;
+	margin-top: 0;
+}
+
+body.page-politica-privacidad #content span.element-title {
+	display: block;
+	text-transform: uppercase;
+	margin: 1em 0 0.5em;
+}
+
+body.page-politica-privacidad #content .main-list h2 {
+	display: inline-block;
+}
+
+body.page-politica-privacidad #content .main-list {
+	counter-reset: counter;
+	list-style: none;
+	padding-left: 40px;
+}
+
+body.page-politica-privacidad #content .main-list > li {
+	counter-increment: counter;
+	margin-top: 0.5em;
+}
+
+body.page-politica-privacidad #content .main-list > li::before {
+	content: counter(counter);
+	margin-right: 1em;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+body.page-politica-privacidad #content .main-list ul,
+body.page-politica-privacidad #content .main-list ol {
+	padding-left: 2em;
+}
+
+body.page-politica-privacidad #content .site-content {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+body.page-politica-privacidad #content .entry-header {
+	display: none;
+}
+
+body.page-politica-privacidad #content p {
+	color: var(--black);
 }

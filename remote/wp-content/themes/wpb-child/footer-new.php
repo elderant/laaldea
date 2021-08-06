@@ -19,7 +19,7 @@
 		<div class="container-fluid pt-4 pb-3">
       <div class="row main-footer">
         <div class="col-12 offset-0 mb-5 col-sm-10 offset-sm-1 col-md-3 mb-md-0 text-center text-md-left copy-column">
-          <div class="h6"><p class="medium p-0 pb-2 m-0 font-sassoon">Imaginado por</p></div>
+          <div class="h6"><p class="medium p-0 pb-2 m-0 font-sassoon"><?php _e('Imaginado por', 'wpb-child')?></p></div>
           <div class="logo-container">
             <a href="http://clickarte.co/" target="_blank" rel="noopener noreferrer">
               <?php include ABSPATH . '/wp-content/uploads/click-logo.svg';?>
@@ -48,7 +48,7 @@
             </a>
           </div>
           <div class="link-container flickr-container">
-            <a class="uppercase social-link flickr" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="uppercase social-link flickr" href="https://www.flickr.com/photos/190293905@N02/albums/with/72157716328236097" target="_blank" rel="noopener noreferrer">
               <?php include ABSPATH . '/wp-content/uploads/flickr-icon.svg';?>
             </a>
           </div>
@@ -70,10 +70,10 @@
             </div>
             <div class="info-container address">
               <div class="line-1 uppercase">
-                <?php _e('Carrera 16 # 85-15 Oficina 301','laaldea')?>
+                <?php _e('Carrera 16 # 85-15 Oficina 301','wpb-child')?>
               </div>
               <div class="line-2 uppercase">
-                <?php _e('Bogotá D.C., Colombia','laaldea')?>
+                <?php _e('Bogotá D.C., Colombia','wpb-child')?>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@
       </div>
       <div class="row site-info pt-2">
         <div class="col-12 text-center font-titan h6">
-          <?php _e('La Aldea &reg;','laaldea');?>
+          <?php _e('La Aldea &reg;','wpb-child');?>
         </div>
       </div><!-- close .site-info -->
 		</div>
