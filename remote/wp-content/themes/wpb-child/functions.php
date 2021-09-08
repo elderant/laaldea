@@ -104,7 +104,7 @@ function wpb_child_admin_redirect() {
   $post_type = get_post_type( $page_id );
   //$home_ids = array(2,259,304,308);
   $user_ids = array(332, 544, 328, 547, 550, 553, 330, 331);
-  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303, 58, 294, 1466, 1549, 1555, 1559, 1561, 1543 );
+  $new_home_ids = array(1103, 1154, 1163, 1186, 1299, 1303, 58, 294, 1466, 1549, 1555, 1559, 1561, 1543, 1704 );
 
   //$is_home = in_array($page_id,$home_ids);
   $is_user_flow = in_array($page_id,$user_ids);

@@ -1,15 +1,15 @@
 <?php 
   $recent_tools = $laaldea_args['recent_tools'];
-  $limit = $laaldea_args['limit'];
-  $post_count = $laaldea_args['post_count'];
+  $page = $laaldea_args['page'];
+  $max_num_pages = $laaldea_args['max_num_pages'];
+  $posts_per_page = $laaldea_args['posts_per_page'];
+
   $requested_tool_id = $laaldea_args['requested_tool_id'];
   $tools_template = $laaldea_args['tools_template'];
   $tools_template_str = laaldea_tools_get_tools_template_str($tools_template);
-
-  $limit = $post_count < $limit? $post_count: $limit;
 ?>
 
-<div class="main-container mt-5 mb-3" data-limit="<?php echo $limit;?>">
+<div class="main-container mt-5 mb-3" data-limit="<?php echo $max_num_pages;?>">
   <?php if( $recent_tools -> have_posts() ) : ?>
     <?php while ($recent_tools -> have_posts()) : ?>
       <?php 

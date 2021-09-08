@@ -108,7 +108,7 @@
   <section class="container-fluid">
     <div class="row header-row mb-5">
       <div class="col-12 position-relative p-0 characters-container">
-        <img class="main-background" src="/wp-content/uploads/stories-header-background.jpg" alt="<?php _e('Background image','laaldea')?>">
+        <img class="main-background" src="/wp-content/uploads/stories-header-mundo-background.jpg" alt="<?php _e('Background image','laaldea')?>">
         <div class="background-images-container">
           <img class="story-header-image plant plant1" src="/wp-content/uploads/stories-header-plant1.png" alt="<?php _e('Plant 4 image','laaldea')?>">
           <img class="story-header-image plant plant2" src="/wp-content/uploads/stories-header-plant2.png" alt="<?php _e('Plant 3 image','laaldea')?>">
@@ -142,23 +142,6 @@
  
     <div class="row main-row">
       <div class="col-12 offset-0 mb-3 pb-3 col-sm-10 offset-sm-1 mb-sm-0 pb-sm-0 content-column">
-        <div class="title-container color-green mb-5">  
-          <h1 class="title mb-2"><?php _e('Historias y recursos','laaldea');?></h1>
-        </div>
-
-        <div class="type-filter-container">
-          <div class="type-filters-section d-flex align-items-center justify-content-start">
-            <div class="filter-label h5 font-titan color-green m-0"><?php _e('¿Qué quieres ', 'laaldea');?></div>
-            <select class="type-select color-green m-0">
-              <option class="" value="libro"<?php echo $tools_template == 'libro'? ' selected': '';?>><?php _e('Leer','laaldea');?></option>
-              <option class="" value="video"<?php echo $tools_template == 'video'? ' selected': '';?>><?php _e('Ver','laaldea');?></option>
-              <option class="" value="audio"<?php echo $tools_template == 'audio'? ' selected': '';?>><?php _e('Escuchar','laaldea');?></option>
-              <option class="" value="cancion"<?php echo $tools_template == 'cancion'? ' selected': '';?>><?php _e('Cantar','laaldea');?></option>
-            </select>
-            <div class="filter-label h5 font-titan color-green m-0"><?php _e(' ?', 'laaldea');?></div>
-          </div>
-        </div>
-        
         <?php laaldea_build_stories_loop_html($tools_template, true);?>
       </div>
     </div>

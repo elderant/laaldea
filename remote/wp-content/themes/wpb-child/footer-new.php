@@ -65,7 +65,7 @@
                 <a class="uppercase" href="tel:+573118068886">+57 311 806 8886</a>
               </div>
               <div class="link-container">
-                <a class="uppercase" href="tel:+5716917191">+57 1 691 7191</a>
+                <a class="uppercase" href="tel:+576016917191">+57 (601) 691 7191</a>
               </div>
             </div>
             <div class="info-container address">

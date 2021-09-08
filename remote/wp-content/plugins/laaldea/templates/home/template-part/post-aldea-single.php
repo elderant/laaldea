@@ -13,8 +13,10 @@
     <div class="p">
       <?php echo $content;?>
     </div>
+    <?php if(!empty($url)) : ?>
     <div class="button-container text-right p d-flex">
       <a href="<?php echo $url?>" class="home-button right"><?php echo $link_text;?></a>
     </div>
+    <?php endif; ?>
   </div>
 </div>

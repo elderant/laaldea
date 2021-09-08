@@ -395,6 +395,7 @@
 
   #stories.video .tool-container{width: 75vw;}
   #stories.video {background-size: 75px auto;background-position:left 95%}
+  #stories.video .tool-container .iframe-container {height: 105px;}
 
   /* radio */
   #radio .header-row h1.title{font-size: 1.6rem;}
@@ -537,6 +538,7 @@
 
   #stories.video .tool-container{width: 75vw;}
   #stories.video {background-size: 75px auto;background-position:left 95%}
+  #stories.video .tool-container .iframe-container {height: 135px;}
 
   /* Radio */
   #radio .header-row h1.title{font-size: 1.6rem;}
@@ -629,6 +631,7 @@
   #stories .plant.plant4 {height: 120px;}
 
   #stories.video .tool-container{width: 75vw;}
+  #stories.video .tool-container .iframe-container {height: 170px;}
 
   /* radio */
   #radio .header-row h1.title{font-size: 2rem;}
@@ -703,6 +706,9 @@
 
   /* slider */
   .home-section#home-team .team-carousel .team {width: calc((100vw - 30px)*0.9);}
+
+  /* Stories */
+  #stories.video .tool-container .iframe-container {height: 200px;}
 
   /* radio */
   #radio .header-row h1.title{font-size: 2rem;}
@@ -816,6 +822,9 @@
   .home-section#home-team .team-carousel .team h5 {
     padding: 0.3em 0em;
   }
+
+  /* Stories */
+  #stories.video .tool-container .iframe-container {height: 105px;}
 
   /* radio */
   #radio .header-row h1.title{font-size: 3rem;}
@@ -940,6 +949,7 @@
 
   #stories.libro {background-size: 150px auto;}
   #stories.video {background-size: 125px auto;}
+  #stories.video .tool-container .iframe-container {height: 150px;}
 
   /* radio */
   #radio .header-row h1.title{font-size: 4rem;}
@@ -1041,6 +1051,7 @@
 
   #stories.libro {background-size: 200px auto;}
   #stories.video {background-size: 150px auto;}
+  #stories.video .tool-container .iframe-container {height: 188px;}
 
   /* radio */
   #radio .main-row .title-container {margin-bottom:3rem;}
@@ -1142,7 +1153,9 @@
 
   #stories.libro {background-size: 200px auto;}
   #stories.video {background-size: 150px auto;}
+  #stories.video .tool-container .iframe-container {height: 202px;}
   
+  /* radio */
   #radio .main-row .title-container {margin-bottom:3rem;}
 
   /* community */
@@ -1233,6 +1246,7 @@
 
   #stories.libro {background-size: 225px auto;}
   #stories.video {background-size: 175px auto;}
+  #stories.video .tool-container .iframe-container {height: 220px;}
 
   /* community */
   #community .content-row .filters-column .topic-block{height: 225px;}
@@ -1271,6 +1285,7 @@
   #stories.libro {background-size: 250px auto;}
 
   #stories.video{background-size: 200px auto}
+  #stories.video .tool-container .iframe-container {height: 245px;}
 }
 
 /*-- 11. STYLES FOR MOBILE DEVICES - media screen min width: 1680px / max width: 1919px --*/

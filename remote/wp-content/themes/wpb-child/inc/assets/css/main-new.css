@@ -44,6 +44,9 @@
   --yellow: #eba224;
   --yellow-light: #f4be2a;
 
+  --pink: #BD3C88;
+  --pink-light: #D373AB;
+
   --gray: #606060;
 }
 
@@ -262,12 +265,22 @@ header#masthead .navbar ul.main-navbar li {
   position: relative;
 }
 
+header#masthead .navbar ul.main-navbar li.menu-item-has-children:hover .dropdown-menu {
+  display: block;
+}
+
+header#masthead ul.main-navbar .dropdown-menu {
+  top: 95%;
+  background-color: var(--green);
+}
+
 #page.main.fullwith header#masthead .navbar ul.main-navbar li a {
   padding: 0rem 2rem;
   color: var(--white);
   font-size: 1rem;
   font-family: 'titan_one';
   font-weight: 500;
+  white-space: nowrap;
 }
 
 #page.main.fullwith header#masthead .navbar ul.main-navbar.shop-navbar li.lang-item a {
@@ -279,17 +292,17 @@ header#masthead .navbar ul.main-navbar li {
 }
 
 #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a,
-#page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a {
+#page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item > a {
   color: var(--green-light);
 }
 
 .home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a,
-.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a {
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item > a {
   color: var(--white);
 }
 
 .home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-parent a:hover,
-.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item a:hover {
+.home-new #page.main.fullwith header#masthead .navbar ul.main-navbar li.current-menu-item > a:hover {
   color: var(--green-light);
 }
 

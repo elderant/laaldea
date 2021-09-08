@@ -1,8 +1,9 @@
-function onYouTubeIframeAPIReady() {
-  let i = 0;
-  let container =  document.querySelectorAll('#stories')[0];
-  container.classList.remove('waiting-yt');
-}
+/* TO Delete */
+// function onYouTubeIframeAPIReady() {
+//   let i = 0;
+//   let container =  document.querySelectorAll('#stories')[0];
+//   container.classList.remove('waiting-yt'); 
+// }
 
 ( function( $ ) {
   $.fn.hasAnyClass = function() {
@@ -17,16 +18,17 @@ function onYouTubeIframeAPIReady() {
     return false;
   }
 
+  /* TO Delete */
   /* youtube video events */
-  var onPlayerStateChange = function(event) {
-    if(event.data == YT.PlayerState.PAUSED || YT.PlayerState.ENDED) {
-      let $thumbnailContainer = $(event.target.h).parents('.thumbnail-column').find('.thumbnail-container');
-      $thumbnailContainer.toggleClass('remove');
-    }
-  }
-  var onPlayerReady = function(event) {
-    event.target.playVideo();
-  }
+  // var onPlayerStateChange = function(event) {
+  //   if(event.data == YT.PlayerState.PAUSED || YT.PlayerState.ENDED) {
+  //     let $thumbnailContainer = $(event.target.h).parents('.thumbnail-column').find('.thumbnail-container');
+  //     $thumbnailContainer.toggleClass('remove');
+  //   }
+  // }
+  // var onPlayerReady = function(event) {
+  //   event.target.playVideo();
+  // }
 
   /* General events */
   var getUrlVars = function() {
@@ -1076,14 +1078,12 @@ function onYouTubeIframeAPIReady() {
     let filter;
     let tagId;
     let query;
-    let toolsTemplate;
     if(window.aldea.tools.filters.length > 0) {
       filter = JSON.stringify(window.aldea.tools.filters);
     }
-    else {
-      offset = $button.attr('data-offset');
-    }
-    toolsTemplate = $button.attr('data-toolstemplate');
+    let page = $button.attr('data-page');
+    let postPerPage = $button.attr('data-post_per_page');
+    let toolsTemplate = $button.attr('data-toolstemplate');
     
     // let urlVars = getUrlVars();
     // if(urlVars.indexOf('tagId') != -1) {
@@ -1097,7 +1097,8 @@ function onYouTubeIframeAPIReady() {
       type : 'post',
       data : {
         action : 'laaldea_tools_aldea_load_more',
-        offset : offset,
+        page : page,
+        postPerPage : postPerPage,
         filter : filter,
         tagId : tagId,
         query : query,
@@ -1118,8 +1119,7 @@ function onYouTubeIframeAPIReady() {
           });
         }
 
-        $button.attr('data-offset', data.count);
-        $button.attr('data-limit', data.limit);
+        $button.attr('data-page', data.page);
         if(true === data.last) {
           $button.fadeTo(500, 0, function() {
             $(this).toggleClass('end-list');
@@ -1127,41 +1127,61 @@ function onYouTubeIframeAPIReady() {
           });
         }
 
-        // events for the new tools loaded
-        // Copy resourse link
-        $('#stories .content-column .tool-container.loaded .resource-section button').each(function(){
-          $(this).on('click', function(event) {
-            event.preventDefault();
-            var tempInput = document.createElement("input");
-            tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-            tempInput.value = $(this).attr('data-url');
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            $button = $(this);
-            $button.toggleClass('active');
-            setTimeout(function(){
-              $button.toggleClass('active');
-            },2000)
-          });
-        });
-
-        // Preview event
-        $('#stories.libro .tool-container.loaded .thumbnail-container button').each(function() {
-          $(this).on('click', function(event) {
-            if($(this).attr('data-link')) {
+        if(toolsTemplate == 'material') {
+          // Content Type material
+          if($('#stories.material .tool-container .thumbnail-container').length > 0) {
+            // Content Type material : Setup content
+            $('#stories.material .tool-container .thumbnail-container').each(function(){
+              $(this).on('click', function(event){
+                laaldea_setup_tool_material(event, $(this));
+              })
+            });
+            
+            // Content type material : Load more
+            $('#stories.material .content-column .load-more-button').on('click', function(event) {
               event.preventDefault();
-              laaldea_handle_tools_aldea_preview_click(event, this);
-            }
+              let $button = $(event.currentTarget);
+              laaldea_handle_tools_aldea_load_more($button);
+            });
+          }
+        }
+        else {
+          // events for the new tools loaded
+          // Copy resourse link
+          $('#stories .content-column .tool-container.loaded .resource-section button').each(function(){
+            $(this).on('click', function(event) {
+              event.preventDefault();
+              var tempInput = document.createElement("input");
+              tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+              tempInput.value = $(this).attr('data-url');
+              document.body.appendChild(tempInput);
+              tempInput.select();
+              document.execCommand("copy");
+              document.body.removeChild(tempInput);
+  
+              $button = $(this);
+              $button.toggleClass('active');
+              setTimeout(function(){
+                $button.toggleClass('active');
+              },2000)
+            });
           });
-        });
-        
-        // Remove loaded class on ready tools
-        $('.main-container .tool-container.loaded').each(function(){
-          $(this).toggleClass('loaded');
-        });
+  
+          // Preview event
+          $('#stories.libro .tool-container.loaded .thumbnail-container button').each(function() {
+            $(this).on('click', function(event) {
+              if($(this).attr('data-link')) {
+                event.preventDefault();
+                laaldea_handle_tools_aldea_preview_click(event, this);
+              }
+            });
+          });
+          
+          // Remove loaded class on ready tools
+          $('.main-container .tool-container.loaded').each(function(){
+            $(this).toggleClass('loaded');
+          });
+        }
 
         webStateWaiting(false);
       },
@@ -1302,6 +1322,35 @@ function onYouTubeIframeAPIReady() {
       $modal.toggleClass('transition');
       $modal.toggleClass('out');
     },500);
+  }
+
+  var laaldea_setup_tool_material = function(event, $tool) {
+    /* TO Delete*/
+    
+    // Load youtube video
+    // let id = $tool.attr('data-postId');
+    // let termId = $tool.attr('data-termId');
+    // let $toolContainer = $tool.parents('.tool-container');
+    // let $iframe = $toolContainer.find('.iframe-container div');
+    // let youtubeId = $toolContainer.attr('data-youtubeid');
+    // if(!window.aldea.videos[termId]) {
+    //   window.aldea.videos[termId] = [];
+    // }
+    // if(!window.aldea.videos[termId][id]) {
+    //   var player = new YT.Player(
+    //     'player-' + termId + '-' + id, {
+    //       videoId: youtubeId,
+    //       events: {
+    //         'onStateChange': onPlayerStateChange,
+    //         'onReady': onPlayerReady,
+    //       }
+    //   });
+    //   window.aldea.videos[termId][id]={};
+    //   window.aldea.videos[termId][id].iframe = $iframe;
+    //   window.aldea.videos[termId][id].player = player;
+    // }
+
+    // $tool.toggleClass('remove');
   }
 
   /* laaaldea community events */
@@ -1575,10 +1624,10 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
-      // customize page selects (filter type select)
+      // customize page selects (filter type select) (activate select2)
       $('#stories .content-column .type-filters-section select').select2({minimumResultsForSearch: -1,});
 
-      // Copy resourse link
+      // Content type book : Copy resourse link
       $('#stories .content-column .resource-section button').each(function(){
         $(this).on('click', function(event) {
           event.preventDefault();
@@ -1598,7 +1647,7 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
-      // type filter (libro - video -audio - cancion)
+      // type filter (libro - video - audio - cancion - material)
       $('#stories .type-filter-container .type-select').on('change', function() {
         let tool_template = $(this).val();
         $.ajax({
@@ -1638,19 +1687,17 @@ function onYouTubeIframeAPIReady() {
                     variableWidth: false,
                     responsive: [
                       {
-                        breakpoint: 700,
+                        breakpoint: 768,
                         settings: {
                           slidesToShow: 1,
                           slidesToScroll: 1,
-                          infinite: false,
-                          variableWidth: true,
                         }
-                      },
-                    ],
+                      }
+                    ]
                   });
                 });
 
-                // Add preview event fo video/audio
+                // Add preview event for video/audio
                 $('#stories.video .tool-container .thumbnail-container').on('click', function(event) {
                   laaldea_handle_tool_aldea_video_click(event, this);
                 });
@@ -1672,14 +1719,42 @@ function onYouTubeIframeAPIReady() {
                   });
                 });
               }
-              else {
+              if(data.tool_template == 'material') {
                 let $button = $('#stories .content-column .load-more-button')
-                $offset = $button.attr('data-offset');
-                $postCount = $button.attr('data-post_count');
+                $page = $button.attr('data-page');
+                $maxPage = $button.attr('data-max_num_pages');
                 window.aldea.tools.limit = window.aldea.tools.container.attr('data-limit');
                 window.aldea.tools.loadMoreButton = $('#stories .main-row .load-more-container button');
 
-                if($postCount > $offset) {
+                if($page < $maxPage) {
+                  $button.removeClass('end-list');
+                }
+
+                // Content Type material
+                if($('#stories.material .tool-container .thumbnail-column').length > 0) {
+                  // Content Type material : Setup content
+                  // $('#stories.material .tool-container .thumbnail-container').each(function(){
+                  //   $(this).on('click', function(event){
+                  //     laaldea_setup_tool_material(event, $(this));
+                  //   })
+                  // });
+                  
+                  // Content type material : Load more
+                  $('#stories.material .content-column .load-more-button').on('click', function(event) {
+                    event.preventDefault();
+                    let $button = $(event.currentTarget);
+                    laaldea_handle_tools_aldea_load_more($button);
+                  });
+                }
+              }
+              else {
+                let $button = $('#stories .content-column .load-more-button')
+                $page = $button.attr('data-page');
+                $maxPage = $button.attr('data-max_num_pages');
+                window.aldea.tools.limit = window.aldea.tools.container.attr('data-limit');
+                window.aldea.tools.loadMoreButton = $('#stories .main-row .load-more-container button');
+
+                if($page < $maxPage) {
                   $button.removeClass('end-list');
                 }
 
@@ -1759,7 +1834,7 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
-      // preview link book
+      // Content type book : preview link
       $('#stories.libro .tool-container .thumbnail-container button').each(function() {
         $(this).on('click', function(event) {
           if($(this).attr('data-link')) {
@@ -1769,21 +1844,21 @@ function onYouTubeIframeAPIReady() {
         });
       });
 
-      // Load more books
-      $('#stories .content-column .load-more-button').on('click', function(event) {
+      // Content type book : Load more
+      $('#stories.libro .content-column .load-more-button').on('click', function(event) {
         event.preventDefault();
         let $button = $(event.currentTarget);
         laaldea_handle_tools_aldea_load_more($button);
       });
 
       // Add youtube frame API
-      var tag = document.createElement('script');
-      tag.id = 'youtube-iframe-api';
-      tag.src = 'https://www.youtube.com/iframe_api';
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      // var tag = document.createElement('script');
+      // tag.id = 'youtube-iframe-api';
+      // tag.src = 'https://www.youtube.com/iframe_api';
+      // var firstScriptTag = document.getElementsByTagName('script')[0];
+      // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       
-      // video/audio sliders
+      // Content type video : activiate sliders
       $('#stories.video .content-column .term-container .carousel-container').each(function (){
         let $prevArrow = $(this).parent('.term-container').children('.slick-prev');
         let $nextArrow = $(this).parent('.term-container').children('.slick-next');
@@ -1796,27 +1871,44 @@ function onYouTubeIframeAPIReady() {
           variableWidth: false,
           responsive: [
             {
-              breakpoint: 650,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                infinite: false,
-                variableWidth: true,
               }
-            },
-          ],
+            }
+          ]
         });
       });
 
-      // Add click event to video
-      $('#stories.video .tool-container .thumbnail-container').on('click', function(event) {
-        laaldea_handle_tool_aldea_video_click(event, this);
-      });
+      /*TO DELETE*/
+      // Content type video : Add click 
+      // $('#stories.video .tool-container .thumbnail-container').on('click', function(event) {
+      //   laaldea_handle_tool_aldea_video_click(event, this);
+      // });
 
-      // Load more video/audio
+      // Content type video : Load more
       $('#stories.video .term-container .carousel-container').each(function() {
         laaldea_handle_tools_aldea_video_load_more($(this));
       });
+
+      // Content Type material
+      if($('#stories.material .tool-container .thumbnail-column').length > 0) {
+        // Content Type material : Setup content 
+        // $('#stories.material .tool-container .thumbnail-container').each(function(){
+        //   $(this).on('click', function(event){
+        //     laaldea_setup_tool_material(event, $(this));
+        //   })
+        // });
+        
+        // Content type material : Load more
+        $('#stories.material .content-column .load-more-button').on('click', function(event) {
+          event.preventDefault();
+          let $button = $(event.currentTarget);
+          laaldea_handle_tools_aldea_load_more($button);
+        });
+      }
+
     }
     if($('body.radio').length > 0) {
       $('.coming-carousel').slick({
