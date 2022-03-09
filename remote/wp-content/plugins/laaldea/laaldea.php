@@ -30,7 +30,7 @@ function laaldea_scripts () {
     wp_enqueue_script('jquery-validate', 'https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js', array('jquery'), '1.10.0',	true);
   }
 
-  if( is_page(1154) || is_page(1549) ) {
+  if( is_page(1154) || is_page(1549) || is_page(1704)) {
     // queue select2 script
     wp_enqueue_script( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery') );
     wp_enqueue_style( 'select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' );
